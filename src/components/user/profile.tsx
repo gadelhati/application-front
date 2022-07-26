@@ -16,8 +16,8 @@ export const Profile = () => {
 
     useEffect(() => {
         state.id = getId(),
-        state.username = getUserName(),
-        state.email = getEmail()
+            state.username = getUserName(),
+            state.email = getEmail()
     }, [dispatch])
     const resetItem = () => {
         setState(initialUser)
@@ -64,7 +64,16 @@ export const Profile = () => {
                     </div>
                     <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Change Password</button>
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Logout</button>
-                    {loading && <>Loading...</>}
+                    {loading ?
+                        <button className="btn btn-warning btn-sm" type="button" disabled>
+                            <span className="spinner-border spinner-border-sm" role="status"></span>
+                            Loading
+                        </button>
+                        :
+                        <button className="btn btn-success btn-sm" type="button" disabled>
+                            Loaded
+                        </button>
+                    }
                     {error != null && JSON.stringify(error)}
                 </article>
                 :

@@ -78,7 +78,17 @@ export const SigninContainer = () => {
                 <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
                 {/* <button onClick={initiate} className="w-100 btn btn-lg btn-primary" type="submit">Navigate</button> */}
                 <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
-                {loading && <>Loading...</>}
+                {loading ?
+                    <button className="btn btn-warning btn-sm" type="button" disabled>
+                        <span className="spinner-border spinner-border-sm" role="status"></span>
+                        Loading
+                    </button>
+                    :
+                    <button className="btn btn-success btn-sm" type="button" disabled>
+                        {/* <span className="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span> */}
+                        Loaded
+                    </button>
+                }
                 {error != null && JSON.stringify(error)}
                 {/* {loading && <Navigate />} */}
                 {/* </Signin> */}

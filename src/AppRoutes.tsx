@@ -12,6 +12,7 @@ import "./AppRoutes.css"
 import { UserList } from "./components/user/user.list";
 import { ObservationList } from "./components/observation/observation.list";
 import { ObservationUpload } from "./components/observation/observation.upload";
+import { ObservationAdd } from "./components/observation/observation.add";
 import { UserSignin } from "./components/user/user.signin";
 import { Header } from "./containers/menus/header";
 import { Footer } from "./containers/menus/footer";
@@ -38,6 +39,7 @@ export default function AppRoutes() {
                         <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
                         <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
                         <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
+                        <Route path="/observationadd" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationAdd />} />} />
                         <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
                     </Routes>
                     {/* <Footer /> */}

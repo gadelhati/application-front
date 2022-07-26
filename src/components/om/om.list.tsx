@@ -96,7 +96,16 @@ export const OMList = () => {
                 <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
                 <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
                 <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
-                {loading && <>Loading...</>}
+                {loading ?
+                    <button className="btn btn-warning btn-sm" type="button" disabled>
+                        <span className="spinner-border spinner-border-sm" role="status"></span>
+                        Loading
+                    </button>
+                    :
+                    <button className="btn btn-success btn-sm" type="button" disabled>
+                        Loaded
+                    </button>
+                }
                 {error != null && JSON.stringify(error)}
             </article>
             <article>
