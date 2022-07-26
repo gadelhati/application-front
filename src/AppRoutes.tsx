@@ -10,10 +10,10 @@ import { getUser } from "./services/service.token"
 
 import "./AppRoutes.css"
 import { UserList } from "./components/user/user.list";
-import { ObservationList } from "./components/observation/observation.list2";
+import { ObservationList } from "./components/observation/observation.list";
 import { ObservationUpload } from "./components/observation/observation.upload";
 import { UserSignin } from "./components/user/user.signin";
-import { Header } from "./containers/menus/header2";
+import { Header } from "./containers/menus/header";
 import { Footer } from "./containers/menus/footer";
 
 export default function AppRoutes() {
