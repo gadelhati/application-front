@@ -1,0 +1,29 @@
+section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* justify-content: space-between; */
+    align-items: stretch;
+    flex-grow: 1;
+    overflow: auto;
+    /* background-color: yellow; */
+    /* width: 80vw; */
+    padding: 10px;
+    /* margin: 10px; */
+    /* border: 6px solid white; */
+}
+
+article {
+    padding: 0.6em;
+    background-color: rgb(252, 246, 246);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form-floating {
+    margin-bottom: 10px;
+}
+
+.button {
+    margin-right: 12px;
+}

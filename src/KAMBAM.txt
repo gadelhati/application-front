@@ -1,0 +1,26 @@
+X		redirect to before signin
+X		unique element has already been registered
+		add validations style on filds
+		add validations message on filds
+DOING	filter user by admin domain / view admin / filter by OM
+DO		refresh token
+
+improvments:
+		header:	put user area in top height
+		add pagination on front
+		ignoreCaseAndOrderByAscOrDesc
+		use ErrorBoundary
+		sidebar: hamburger
+		sidebar: with tooltip wheen show icons
+		sidebar: without tooltip when show title
+		responsive site
+		add footer
+		useQuery
+		endpoint
+		improve @PreAuthorize
+		swagger view (whitelabel error page)	
+		generics:
+			T.state.incial.tsx
+			T.state.tsx
+				redux object: { loading, error, item, itens[] }
+			T.reducer.tsx

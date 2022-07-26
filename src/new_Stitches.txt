@@ -1,0 +1,26 @@
+https://stackoverflow.com/questions/70938743/oninput-event-type-on-typescript-react
+
+import React, { ChangeEvent, FormEvent } from 'react'
+
+import { InputStyled } from './Input-style'
+
+type InputProps = {
+  name: string
+  value: string | number
+  type?: string
+  placeholder?: string
+  onInput?: (e: FormEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export const Input = (props: InputProps) => (
+  <InputStyled
+    type={props.type ? props.type : 'text'}
+    name={props.name}
+    id={props.name}
+    placeholder={props.placeholder}
+    value={props.value}
+    onInput={props.onInput}
+    onChange={props.onChange}
+   />
+)
