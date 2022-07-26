@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"
-import { signinAction, logoutAction, refreshTokenAction } from '../../actions.generics/creator/action.creator.auth';
+import { signinAction, logoutAction, refreshTokenAction } from '../../actions/creator/action.creator.auth';
 import "../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './header.css';
 

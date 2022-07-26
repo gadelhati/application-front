@@ -50,8 +50,8 @@ export const ObservationUpload = () => {
                         </p>
                     )
                 })} */}
-                <input type="file" className="w-20 btn btn-secondary" onChange={handleInputFile} />
-                <button onClick={createAllItems} className="w-20 btn btn-secondary" >Create All</button>
+                <input type="file" className="w-20 btn btn-secondary button btn-sm" onChange={handleInputFile} />
+                <button onClick={createAllItems} className="w-20 btn btn-secondary button btn-sm" >Create All</button>
             </article>
         </section>
     );
