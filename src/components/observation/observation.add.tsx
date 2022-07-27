@@ -9,7 +9,7 @@ import { ObservationUpload } from "./observation.upload";
 import '../list.css'
 import { Load } from '../../containers/load/load';
 
-export const ObservationAdd = () => {
+export const ObservationAdd = (observation: Observation) => {
     const dispatch = useDispatch()
     const [state, setState] = useState<Observation>(initialObservation)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
@@ -89,6 +89,7 @@ export const ObservationAdd = () => {
     return (
         <section>
             <article>
+                <div className="alert alert-secondary" role="alert"><h4>Observation Add</h4></div>
                 <Card style={{ width: '78vw', padding: '0.8em', marginBottom: '0.5em' }}>
                     <Row>
                         <Col lg={true} >
@@ -1470,22 +1471,22 @@ export const ObservationAdd = () => {
                     </Row>
                 </Card>
                 <div className="row align-items-start">
-                <div className="col form-floating">
-                    <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select"  onChange={handleInputChangeSelectOM} onClick={omItem} >
-                        {itensOM.map((object) => (
-                            <option data-id={object.id} data-value={object}>{object.name}</option>
-                        ))}
-                    </select>
-                    <label className="label" htmlFor="om">OM</label>
-                </div>
-                <div className="col form-floating">
-                    <select className="form-select" id="observador" name="observador" aria-label="Floating label select"  onChange={handleInputChangeSelectUser} onClick={userItem} >
-                        {itensUser.map((object) => (
-                            <option data-id={object.id} data-value={object}>{object.username}</option>
-                        ))}
-                    </select>
-                    <label className="label" htmlFor="observador">Observador</label>
-                </div>
+                    <div className="col form-floating">
+                        <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
+                            {itensOM.map((object) => (
+                                <option data-id={object.id} data-value={object}>{object.name}</option>
+                            ))}
+                        </select>
+                        <label className="label" htmlFor="om">OM</label>
+                    </div>
+                    <div className="col form-floating">
+                        <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
+                            {itensUser.map((object) => (
+                                <option data-id={object.id} data-value={object}>{object.username}</option>
+                            ))}
+                        </select>
+                        <label className="label" htmlFor="observador">Observador</label>
+                    </div>
                 </div>
                 <hr />
                 <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>

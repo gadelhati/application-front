@@ -1,12 +1,10 @@
-import { Card, Row, Col, OverlayTrigger, Tooltip, InputGroup, Form, FormControl, Button } from "react-bootstrap"
-import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { CDataTable } from '@coreui/react';
+import { CCardBody, CDataTable } from '@coreui/react';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
-import { ObservationUpload } from "./observation.upload";
 import '../list.css'
 import { Load } from '../../containers/load/load';
 
@@ -47,15 +45,19 @@ export const ObservationList = () => {
     }
     const handleInputChangeSelectOM = (event: ChangeEvent<HTMLSelectElement>) => {
         console.log(itensOM.length)
-        setState({ ...state, [event.target.name]: {
-            id: itensOM[event.target.selectedIndex].id, 
-        } })
+        setState({
+            ...state, [event.target.name]: {
+                id: itensOM[event.target.selectedIndex].id,
+            }
+        })
     }
     const handleInputChangeSelectUser = (event: ChangeEvent<HTMLSelectElement>) => {
         console.log(itensOM.length)
-        setState({ ...state, [event.target.name]: {
-            id: itensUser[event.target.selectedIndex].id,
-        } })
+        setState({
+            ...state, [event.target.name]: {
+                id: itensUser[event.target.selectedIndex].id,
+            }
+        })
     }
     // const handleInputChangeSelectObservador = (event: ChangeEvent<HTMLSelectElement>) => {
     //     // console.log(event.target.name)
@@ -104,7 +106,7 @@ export const ObservationList = () => {
     return (
         <section>
             <article>
-                <hr />
+                <div className="alert alert-secondary" role="alert"><h4>Observation List</h4></div>
                 <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>
                 <button onClick={createItem} className="w-20 btn btn-secondary button btn-sm" disabled={state.id != ""} >Create</button>
                 <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
@@ -113,26 +115,34 @@ export const ObservationList = () => {
                 <Load loading={loading} itens={itens.length} error={error} />
             </article>
             <article>
-            <CDataTable
-                items={itens}
-                fields={fields}
-                columnFilter
-                tableFilter={{ label: 'Buscar', placeholder: 'digite aqui para buscar' }}
-                // footer
-                itemsPerPageSelect
-                itemsPerPage={5}
-                hover
-                striped
-                sorter
-                pagination
-                scopedSlots={{
-                    'select': (item: any) => (
-                        <td className="align-bottom">
-                            <button onClick={() => selectItem(item)} className="w-100 btn btn-secondary button btn-sm">Select</button>
-                        </td>
-                    ),
-                }}
-            />
+            <div className='row'>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+                                    tableFilter={{ label: 'Buscar: ', placeholder: 'digite aqui para buscar' }}
+                                    // footer
+                                    itemsPerPageSelect
+                                    itemsPerPage={5}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button onClick={() => selectItem(item)} className="w-20 btn btn-secondary btn-sm">Select</button>
+                                            </td>
+                                        ),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
+                </div>
             </article>
         </section>
     );

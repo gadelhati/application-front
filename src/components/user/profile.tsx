@@ -9,6 +9,7 @@ import { initialUser } from './user.initial';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"
 import '../list.css'
 import { Load } from '../../containers/load/load';
+import { Toast } from '../../containers/toast/toast';
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -42,6 +43,7 @@ export const Profile = () => {
             {getUser() ?
                 <article>
                     <div className="alert alert-secondary" role="alert">
+                        <h4>{getUserName()}</h4>
                         <p><strong>Profile: </strong> {getUserName()}</p>
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
                         <p><strong>Id: </strong> {getId()}</p>
@@ -66,6 +68,8 @@ export const Profile = () => {
                     <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Change Password</button>
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Logout</button>
                     <Load loading={loading} itens={itens.length} error={error} />
+                    {/* <button type="button" className="btn btn-primary btn-sm" id="liveToastBtn">Show live toast</button>
+                    <Toast title={"oi"} body="2" /> */}
                 </article>
                 :
                 <></>

@@ -1,12 +1,13 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { CRow, CCol, CCard, CCardHeader, CCardBody, CDataTable } from '@coreui/react';
+import { CCardBody, CDataTable } from '@coreui/react';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { OM } from "./om.interface";
 import { initialOM } from './om.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
+import { DataTable } from '../../containers/datatable/datatable';
 
 export const OMList = () => {
     const dispatch = useDispatch();
@@ -48,7 +49,7 @@ export const OMList = () => {
     return (
         <section>
             <article>
-            <div className="alert alert-secondary" role="alert">Organização Militar</div>
+                <div className="alert alert-secondary" role="alert"><h4>Organização Militar</h4></div>
                 {/* <div className="form-floating">
                     <input
                         placeholder="ID"
@@ -93,12 +94,20 @@ export const OMList = () => {
                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                 </div> */}
                 <hr />
-                <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>
-                <button onClick={createItem} className="w-20 btn btn-secondary button btn-sm" disabled={state.id != ""} >Create</button>
-                <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
-                <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
-                <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
-                <Load loading={loading} itens={itens.length} error={error} />
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>
+                            <button onClick={createItem} className="w-20 btn btn-secondary button btn-sm" disabled={state.id != ""} >Create</button>
+                            <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
+                            <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
+                            <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
+                        </div>
+                        <div className="col">
+                            <Load loading={loading} itens={itens.length} error={error} />
+                        </div>
+                    </div>
+                </div>
             </article>
             <article>
                 <div className='row'>
@@ -109,7 +118,7 @@ export const OMList = () => {
                                     items={itens}
                                     fields={fields}
                                     columnFilter
-                                    tableFilter={{ label: 'Buscar', placeholder: 'digite aqui para buscar' }}
+                                    tableFilter={{ label: 'Buscar: ', placeholder: 'digite aqui para buscar' }}
                                     // footer
                                     itemsPerPageSelect
                                     itemsPerPage={5}
