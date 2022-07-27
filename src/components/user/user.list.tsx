@@ -6,6 +6,7 @@ import { createAction, retrieveAllAction, updateAction, deleteAction } from '../
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import '../list.css'
+import { Load } from '../../containers/load/load';
 
 export const UserList = () => {
     const dispatch = useDispatch();
@@ -136,17 +137,7 @@ export const UserList = () => {
                 <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
                 <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
                 <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
-                {loading ?
-                    <button className="btn btn-warning btn-sm" type="button" disabled>
-                        <span className="spinner-border spinner-border-sm" role="status"></span>
-                        Loading
-                    </button>
-                    :
-                    <button className="btn btn-success btn-sm" type="button" disabled>
-                        Loaded
-                    </button>
-                }
-                {error != null && JSON.stringify(error)}
+                <Load loading={loading} itens={itens.length} error={error} />
             </article>
             <article>
                 <CDataTable

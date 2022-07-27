@@ -1,11 +1,12 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { CDataTable } from '@coreui/react';
+import { CRow, CCol, CCard, CCardHeader, CCardBody, CDataTable } from '@coreui/react';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { OM } from "./om.interface";
 import { initialOM } from './om.initial';
 import '../list.css'
+import { Load } from '../../containers/load/load';
 
 export const OMList = () => {
     const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export const OMList = () => {
     return (
         <section>
             <article>
+            <div className="alert alert-secondary" role="alert">Organização Militar</div>
                 {/* <div className="form-floating">
                     <input
                         placeholder="ID"
@@ -96,39 +98,37 @@ export const OMList = () => {
                 <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
                 <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
                 <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
-                {loading ?
-                    <button className="btn btn-warning btn-sm" type="button" disabled>
-                        <span className="spinner-border spinner-border-sm" role="status"></span>
-                        Loading
-                    </button>
-                    :
-                    <button className="btn btn-success btn-sm" type="button" disabled>
-                        Loaded
-                    </button>
-                }
-                {error != null && JSON.stringify(error)}
+                <Load loading={loading} itens={itens.length} error={error} />
             </article>
             <article>
-                <CDataTable
-                    items={itens}
-                    fields={fields}
-                    columnFilter
-                    tableFilter={{ label: 'Buscar', placeholder: 'digite aqui para buscar' }}
-                    // footer
-                    itemsPerPageSelect
-                    itemsPerPage={5}
-                    hover
-                    striped
-                    sorter
-                    pagination
-                    scopedSlots={{
-                        'select': (item: any) => (
-                            <td className="align-bottom">
-                                <button onClick={() => selectItem(item)} className="w-20 btn btn-secondary btn-sm">Select</button>
-                            </td>
-                        ),
-                    }}
-                />
+                <div className='row'>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+                                    tableFilter={{ label: 'Buscar', placeholder: 'digite aqui para buscar' }}
+                                    // footer
+                                    itemsPerPageSelect
+                                    itemsPerPage={5}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button onClick={() => selectItem(item)} className="w-20 btn btn-secondary btn-sm">Select</button>
+                                            </td>
+                                        ),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
+                </div>
             </article>
         </section>
     );
