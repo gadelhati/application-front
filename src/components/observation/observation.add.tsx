@@ -2,16 +2,17 @@ import { Card, Row, Col, OverlayTrigger, Tooltip, InputGroup, Form, FormControl,
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
 import '../list.css'
 import { Load } from '../../containers/load/load';
+import { observationAddInterface } from "./observation.add.interface";
 
-export const ObservationAdd = (observation: Observation) => {
+export const ObservationAdd = (object: observationAddInterface) => {
     const dispatch = useDispatch()
-    const [state, setState] = useState<Observation>(initialObservation)
+    const [state, setState] = useState<Observation>(object.value)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
     const itensOM = useTypedSelector((stateOM) => stateOM.oms.itens);
     const itensUser = useTypedSelector((stateUser) => stateUser.users.itens);
@@ -30,6 +31,10 @@ export const ObservationAdd = (observation: Observation) => {
         // resetItem()
     }
     const retrieveItem = () => {
+        // resetItem()
+        dispatch(retrieveAction('observation', object.value.id))
+    }
+    const retrieveAllItem = () => {
         resetItem()
         dispatch(retrieveAllAction('observation'))
     }
@@ -46,15 +51,19 @@ export const ObservationAdd = (observation: Observation) => {
     }
     const handleInputChangeSelectOM = (event: ChangeEvent<HTMLSelectElement>) => {
         console.log(itensOM.length)
-        setState({ ...state, [event.target.name]: {
-            id: itensOM[event.target.selectedIndex].id, 
-        } })
+        setState({
+            ...state, [event.target.name]: {
+                id: itensOM[event.target.selectedIndex].id,
+            }
+        })
     }
     const handleInputChangeSelectUser = (event: ChangeEvent<HTMLSelectElement>) => {
         console.log(itensOM.length)
-        setState({ ...state, [event.target.name]: {
-            id: itensUser[event.target.selectedIndex].id,
-        } })
+        setState({
+            ...state, [event.target.name]: {
+                id: itensUser[event.target.selectedIndex].id,
+            }
+        })
     }
     const omItem = () => {
         console.log(itensOM.length)
@@ -1469,25 +1478,25 @@ export const ObservationAdd = (observation: Observation) => {
                         </Col>
                         {/* </fieldset> */}
                     </Row>
+                    <div className="row align-items-start">
+                        <div className="col form-floating">
+                            <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
+                                {itensOM.map((object) => (
+                                    <option data-id={object.id} data-value={object}>{object.name}</option>
+                                ))}
+                            </select>
+                            <label className="label" htmlFor="om">OM</label>
+                        </div>
+                        <div className="col form-floating">
+                            <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
+                                {itensUser.map((object) => (
+                                    <option data-id={object.id} data-value={object}>{object.username}</option>
+                                ))}
+                            </select>
+                            <label className="label" htmlFor="observador">Observador</label>
+                        </div>
+                    </div>
                 </Card>
-                <div className="row align-items-start">
-                    <div className="col form-floating">
-                        <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
-                            {itensOM.map((object) => (
-                                <option data-id={object.id} data-value={object}>{object.name}</option>
-                            ))}
-                        </select>
-                        <label className="label" htmlFor="om">OM</label>
-                    </div>
-                    <div className="col form-floating">
-                        <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
-                            {itensUser.map((object) => (
-                                <option data-id={object.id} data-value={object}>{object.username}</option>
-                            ))}
-                        </select>
-                        <label className="label" htmlFor="observador">Observador</label>
-                    </div>
-                </div>
                 <hr />
                 <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>
                 <button onClick={createItem} className="w-20 btn btn-secondary button btn-sm" disabled={state.id != ""} >Create</button>

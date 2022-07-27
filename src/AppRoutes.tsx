@@ -40,8 +40,9 @@ export default function AppRoutes() {
                         <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
                         <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
                         <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
-                        <Route path="/observationadd" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationAdd initialObservation />} />} />
+                        <Route path="/observationadd" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationAdd value={initialObservation} />} />} />
                         <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
+                        <Route path="/observation/:object" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationAdd value={initialObservation} /> }/>} />
                     </Routes>
                     {/* <Footer /> */}
                 </main>

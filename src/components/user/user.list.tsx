@@ -50,7 +50,7 @@ export const UserList = () => {
     return (
         <section>
             <article>
-            <div className="alert alert-secondary" role="alert"><h4>User</h4></div>
+            <div className="alert alert-secondary" role="alert"><h5>User</h5></div>
                 <div className='row'>
                     {/* <div className="col form-floating">
                         <input
@@ -151,9 +151,9 @@ export const UserList = () => {
                                     items={itens}
                                     fields={fields}
                                     columnFilter
-                                    tableFilter={{ label: 'Buscar: ', placeholder: 'digite aqui para buscar' }}
+                                    // tableFilter={{ label: 'Buscar: ', placeholder: 'digite aqui para buscar' }}
                                     // footer
-                                    itemsPerPageSelect
+                                    // itemsPerPageSelect
                                     itemsPerPage={5}
                                     hover
                                     striped
