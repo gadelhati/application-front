@@ -51,18 +51,19 @@ export const OMList = () => {
             <article>
                 <div className='row'>
                     <div className='col' >
+                        <div className="alert alert-secondary" role="alert">
+                            <div className='row'>
+                                <div className="col">
+                                    <h5>Organização Militar</h5>
+                                </div>
+                                <div className="col">
+                                    {/* <button onClick={createItem} className="btn btn-success button btn-sm float-end" disabled={state.id != ""} >Create</button> */}
+                                    <Load loading={loading} itens={itens.length} error={error} />
+                                </div>
+                            </div>
+                        </div>
                         <div className='card'>
                             <CCardBody>
-                                <div className="alert alert-secondary" role="alert">
-                                    <div className='row'>
-                                        <div className="col">
-                                            <h5>Organização Militar</h5>
-                                        </div>
-                                        <div className="col">
-                                            <Load loading={loading} itens={itens.length} error={error} />
-                                        </div>
-                                    </div>
-                                </div>
                                 <CDataTable
                                     items={itens}
                                     fields={fields}
