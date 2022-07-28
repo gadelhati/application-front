@@ -1,8 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { CCardBody, CDataTable } from '@coreui/react';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { OM } from "./om.interface";
 import { initialOM } from './om.initial';
 import '../list.css'
@@ -15,7 +14,7 @@ export const OMList = () => {
     const { loading, error, itens, item } = useTypedSelector((state) => state.oms);
 
     useEffect(() => {
-        retrieveItem()
+        retrieveAllItem()
     }, [dispatch])
     const selectItem = (object: OM) => {
         setState(object)
@@ -27,7 +26,15 @@ export const OMList = () => {
         dispatch(createAction<OM>('om', state))
         resetItem()
     }
+    const createAllItem = () => {
+        dispatch(createAllAction<OM>('om', state))
+        resetItem()
+    }
     const retrieveItem = () => {
+        resetItem()
+        dispatch(retrieveAction('om', state.id))
+    }
+    const retrieveAllItem = () => {
         resetItem()
         dispatch(retrieveAllAction('om'))
     }
@@ -49,57 +56,18 @@ export const OMList = () => {
     return (
         <section>
             <article>
-                <div className='row'>
-                    <div className='col' >
-                        <div className="alert alert-secondary" role="alert">
-                            <div className='row'>
-                                <div className="col">
-                                    <h5>Organização Militar</h5>
-                                </div>
-                                <div className="col">
-                                    {/* <button onClick={createItem} className="btn btn-success button btn-sm float-end" disabled={state.id != ""} >Create</button> */}
-                                    <Load loading={loading} itens={itens.length} error={error} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='card'>
-                            <CCardBody>
-                                <CDataTable
-                                    items={itens}
-                                    fields={fields}
-                                    columnFilter
-                                    // tableFilter={{ label: 'Buscar: ', placeholder: 'digite aqui para buscar' }}
-                                    // footer
-                                    // itemsPerPageSelect
-                                    itemsPerPage={5}
-                                    hover
-                                    striped
-                                    sorter
-                                    pagination
-                                    scopedSlots={{
-                                        'select': (item: any) => (
-                                            <td className="align-bottom">
-                                                {/* <button onClick={() => selectItem(item)} className="w-20 btn btn-secondary btn-sm">Select</button> */}
-                                                <button type="button" onClick={() => selectItem(item)} className="w-20 btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Select</button>
-                                            </td>
-                                        ),
-                                    }}
-                                />
-                            </CCardBody>
-                        </div>
-                    </div>
-                </div>
+                <Load title={"Organizações Militares"} loading={loading} itens={itens.length} error={error} resetItem={resetItem} />
+                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </article>
-            <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Organização Militar</h5>
+                            <h5 className="modal-title" id="ModalLabel">Organização Militar</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <article>
-                                {/* <div className="form-floating">
+                            {/* <div className="form-floating">
                                     <input
                                         placeholder="ID"
                                         aria-label="id"
@@ -115,25 +83,25 @@ export const OMList = () => {
                                     />
                                     <label htmlFor="id">ID</label>
                                 </div> */}
-                                <div className="form-floating">
-                                    <input
-                                        placeholder="Name"
-                                        aria-label="name"
-                                        aria-describedby="basic-addon1"
-                                        type="text"
-                                        className="form-control sm"
-                                        // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
-                                        id="name"
-                                        required
-                                        value={state.name}
-                                        onChange={handleInputChange}
-                                        name="name"
-                                    />
-                                    <label htmlFor="name">Name</label>
-                                    {/* <div className="valid-feedback">Looks good!</div> */}
-                                    {/* <div className="invalid-feedback">Looks bad!</div> */}
-                                </div>
-                                {/* <div className="form-floating">
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Name"
+                                    aria-label="name"
+                                    aria-describedby="basic-addon1"
+                                    type="text"
+                                    className="form-control sm"
+                                    // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
+                                    id="name"
+                                    required
+                                    value={state.name}
+                                    onChange={handleInputChange}
+                                    name="name"
+                                />
+                                <label htmlFor="name">Name</label>
+                                {/* <div className="valid-feedback">Looks good!</div> */}
+                                {/* <div className="invalid-feedback">Looks bad!</div> */}
+                            </div>
+                            {/* <div className="form-floating">
                                     <select className={state.id == "" ? "form-select is-invalid" : "form-select is-valid"} id="floatingSelectGrid" aria-label="Floating label select example">
                                         <option selected>Open this select menu</option>
                                         <option value="1">One</option>
@@ -142,29 +110,59 @@ export const OMList = () => {
                                     </select>
                                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                                 </div> */}
-                                <hr />
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col">
-                                            <button onClick={resetItem} className="w-20 btn btn-secondary button btn-sm">Reset</button>
-                                            <button onClick={createItem} className="w-20 btn btn-secondary button btn-sm" disabled={state.id != ""} >Create</button>
-                                            <button onClick={retrieveItem} className="w-20 btn btn-secondary button btn-sm" >Retrieve</button>
-                                            <button onClick={updateItem} className="w-20 btn btn-primary button btn-sm" disabled={state.id == ""} >Update</button>
-                                            <button onClick={deleteItem} className="w-20 btn btn-danger button btn-sm" disabled={state.id == ""} >Delete</button>
-                                        </div>
-                                        <div className="col">
-                                            <Load loading={loading} itens={itens.length} error={error} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                            <hr />
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="modal">Create</button>
+                            {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={createItem} data-bs-dismiss="modal">Close</button>
-                        </div>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={resetItem} data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
+            {/* <article>
+                <div className='row'>
+                    <div className='col' >
+                        <div className="container">
+                            <div className='row'>
+                                <div className="col-2">
+                                    <div className="input-group input-group-sm mb-3">
+                                        <label className="input-group-text" htmlFor="inputGroupSelect01">mimi</label>
+                                        <select className="form-select" id="inputGroupSelect01">
+                                            <option selected>Choose...</option>
+                                            <option value="aaxx">AAXX</option>
+                                            <option value="bbxx">BBXX</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="col-2">
+                                    <div className="input-group input-group-sm mb-3">
+                                        <span className="input-group-text" id="inputGroup-sizing-sm">DDDDDDD</span>
+                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" title="Indicador internacional de chamada" />
+                                        <input type="text" aria-label="First name" className="form-control" />
+                                    </div>
+                                </div>
+                                <div className="col-1">
+                                    <div className="input-group input-group-sm mb-3">
+                                        <span className="input-group-text" id="inputGroup-sizing-sm">YYGGiw</span>
+                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                                        <input type="text" aria-label="First name" className="form-control" />
+                                    </div>
+                                </div>
+                                <div className="col-1">
+                                    <div className="input-group input-group-sm mb-3">
+                                        <span className="input-group-text" id="inputGroup-sizing-sm">Small</span>
+                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                                        <input type="text" aria-label="First name" className="form-control" />
+                                        <input type="text" aria-label="Last name" className="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article> */}
         </section>
     );
 }

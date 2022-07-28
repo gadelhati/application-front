@@ -42,11 +42,11 @@ export const Profile = () => {
         <section>
             {getUser() ?
                 <article>
+                    <Load title={"Profile"} loading={loading} itens={itens.length} error={error} resetItem={resetItem} />
                     <div className="alert alert-secondary" role="alert">
-                        <h4>{getUserName()}</h4>
-                        <p><strong>Profile: </strong> {getUserName()}</p>
+                        <p><strong>Username: </strong> {getUserName()}</p>
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
-                        <p><strong>Id: </strong> {getId()}</p>
+                        {/* <p><strong>Id: </strong> {getId()}</p> */}
                         <p><strong>Email: </strong> {getEmail()}</p>
                         <strong>Authorities: </strong> {getUser().roles.map((role: any, index: any) => <div key={index}>{role}</div>)}
                     </div>
@@ -67,7 +67,6 @@ export const Profile = () => {
                     </div>
                     <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Change Password</button>
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Logout</button>
-                    <Load loading={loading} itens={itens.length} error={error} />
                     {/* <button type="button" className="btn btn-primary btn-sm" id="liveToastBtn">Show live toast</button>
                     <Toast title={"oi"} body="2" /> */}
                 </article>
