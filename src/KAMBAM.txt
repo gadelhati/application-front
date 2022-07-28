@@ -6,7 +6,7 @@ DOING	filter user by admin domain / view admin / filter by OM
 DO		refresh token
 
 improvments:
-		header:	put user area in top height
+	
 		add pagination on front
 		ignoreCaseAndOrderByAscOrDesc
 		use ErrorBoundary
