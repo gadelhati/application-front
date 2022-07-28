@@ -5,6 +5,10 @@
 .largura {
   width: 256px;
   background-color: rgb(58, 72, 100);
+  background-image: linear-gradient(to bottom left, rgb(58, 72, 100), rgb(86, 97, 93));
+  /* background-image: url(nova-logo-mb.png); */
+  background-position: 50%;
+  /* opacity: 20%; */
 }
 
 .largura > a {
