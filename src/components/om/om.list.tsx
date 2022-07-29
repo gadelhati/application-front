@@ -24,7 +24,7 @@ export const OMList = () => {
     }
     const createItem = () => {
         dispatch(createAction<OM>('om', state))
-        resetItem()
+        // resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<OM>('om', state))
@@ -67,30 +67,13 @@ export const OMList = () => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            {/* <div className="form-floating">
-                                    <input
-                                        placeholder="ID"
-                                        aria-label="id"
-                                        aria-describedby="basic-addon1"
-                                        type="text"
-                                        className="form-control"
-                                        id="id"
-                                        required
-                                        value={state.id}
-                                        onChange={handleInputChange}
-                                        name="id"
-                                        readOnly
-                                    />
-                                    <label htmlFor="id">ID</label>
-                                </div> */}
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
                                     aria-label="name"
                                     aria-describedby="basic-addon1"
                                     type="text"
-                                    className="form-control sm"
-                                    // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
+                                    className={error != null ? "form-control is-invalid" : "form-control is-valid"}
                                     id="name"
                                     required
                                     value={state.name}
@@ -98,8 +81,8 @@ export const OMList = () => {
                                     name="name"
                                 />
                                 <label htmlFor="name">Name</label>
-                                {/* <div className="valid-feedback">Looks good!</div> */}
-                                {/* <div className="invalid-feedback">Looks bad!</div> */}
+                                <div className="valid-feedback">Looks good!</div>
+                                <div className="invalid-feedback">{error}</div>
                             </div>
                             {/* <div className="form-floating">
                                     <select className={state.id == "" ? "form-select is-invalid" : "form-select is-valid"} id="floatingSelectGrid" aria-label="Floating label select example">
@@ -112,7 +95,7 @@ export const OMList = () => {
                                 </div> */}
                             <hr />
                             <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="modal">Create</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Create</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>

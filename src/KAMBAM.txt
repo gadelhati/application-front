@@ -1,8 +1,8 @@
 X		redirect to before signin
 X		unique element has already been registered
-		add validations style on filds
-		add validations message on filds
-DOING	filter user by admin domain / view admin / filter by OM
+DOING	add validations style on filds
+DOING	add validations message on filds
+DO		filter user by admin domain / view admin / filter by OM
 DO		refresh token
 
 improvments:
