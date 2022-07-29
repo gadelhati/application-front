@@ -71,30 +71,13 @@ export const UserList = () => {
                         </div>
                         <div className="modal-body">
                             <div className='row'>
-                                {/* <div className="col form-floating">
-                        <input
-                            placeholder="ID"
-                            aria-label="id"
-                            aria-describedby="basic-addon1"
-                            type="text"
-                            className="form-control"
-                            id="id"
-                            required
-                            value={state.id}
-                            onChange={handleInputChange}
-                            name="id"
-                            readOnly
-                        />
-                        <label htmlFor="id">ID</label>
-                    </div> */}
                                 <div className="col form-floating">
                                     <input
                                         placeholder="USERNAME"
                                         aria-label="username"
                                         aria-describedby="basic-addon1"
                                         type="text"
-                                        className="form-control"
-                                        // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
                                         id="username"
                                         required
                                         value={state.username}
@@ -103,8 +86,8 @@ export const UserList = () => {
                                         title="Username não deve estar em branco."
                                     />
                                     <label htmlFor="username">Username</label>
-                                    {/* <div className="valid-feedback">Looks good!</div> */}
-                                    {/* <div className="invalid-feedback">Looks bad!</div> */}
+                                    <div className="valid-feedback">Looks good!</div>
+                                    <div className="invalid-feedback">{error}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input
@@ -112,7 +95,7 @@ export const UserList = () => {
                                         aria-label="email"
                                         aria-describedby="basic-addon1"
                                         type="email"
-                                        className="form-control"
+                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
                                         id="email"
                                         required
                                         value={state.email}
@@ -121,6 +104,8 @@ export const UserList = () => {
                                         title="E-mail não deve estar em branco."
                                     />
                                     <label htmlFor="email">E-mail</label>
+                                    <div className="valid-feedback">Looks good!</div>
+                                    <div className="invalid-feedback">{error}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input
@@ -128,37 +113,40 @@ export const UserList = () => {
                                         aria-label="password"
                                         aria-describedby="basic-addon1"
                                         type="password"
-                                        className="form-control"
+                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
                                         id="password"
                                         required
                                         value={state.password}
                                         onChange={handleInputChange}
                                         name="password"
                                         title="Password não deve estar em branco."
-                                    // readOnly={state.id != ""}
+                                        // readOnly={state.id != ""}
                                     />
                                     <label htmlFor="password">Password</label>
+                                    <div className="valid-feedback">Looks good!</div>
+                                    {/* <div className="invalid-feedback">{JSON.stringify(error?.defaultMessage)}</div> */}
+                                    {/* <div className="invalid-feedback">{JSON.stringify(error?.response?.data?.errors?.map((element: any) => { element.field + ": " + element.defaultMessage }))}</div> */}
                                 </div>
                                 {/* <div className="col form-check">
-                        <input
-                            placeholder="ACTIVE"
-                            aria-label="active"
-                            aria-describedby="basic-addon1"
-                            type="checkbox"
-                            className="form-check-input"
-                            id="active"
-                            required
-                            checked={state.active}
-                            defaultChecked={state.active}
-                            onChange={handleInputChange}
-                            name="active"
-                        />
-                        <label className="form-check-label" htmlFor="active">Active</label>
-                    </div> */}
+                                    <input
+                                        placeholder="ACTIVE"
+                                        aria-label="active"
+                                        aria-describedby="basic-addon1"
+                                        type="checkbox"
+                                        className="form-check-input"
+                                        id="active"
+                                        required
+                                        checked={state.active}
+                                        defaultChecked={state.active}
+                                        onChange={handleInputChange}
+                                        name="active"
+                                    />
+                                    <label className="form-check-label" htmlFor="active">Active</label>
+                                </div> */}
                             </div>
                             <hr />
                             <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="modal">Create</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Create</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>

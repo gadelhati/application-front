@@ -40,15 +40,19 @@ export const createAllAction = <T extends {}>(url: string, object: T) => {
                 payload: data
             })
         } catch(error: any) {
-            if(error.response.data.errors != undefined){
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
-            } else {
-                error = error.response.data.error
-            }
             dispatch({
                 type: constants.CREATE_ALL_ERROR,
                 payload: error
-            });
+            })
+            // if(error.response.data.errors != undefined){
+            //     error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+            // } else {
+            //     error = error.response.data.error
+            // }
+            // dispatch({
+            //     type: constants.CREATE_ALL_ERROR,
+            //     payload: error
+            // });
         }
     }
 }
