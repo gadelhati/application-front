@@ -17,9 +17,25 @@ export const createAction = <T extends {}>(url: string, object: T) => {
             })
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
             if(error.response.data.errors != undefined){
                 error.response?.data.errors.forEach((element: any, index: number) => {
-                    errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                    label.forEach((name1: string) =>{
+                        if(name1 != element.field) {
+                            label.push(element.field)
+                        }
+                    })
+                    console.log(JSON.stringify(label))
+                    console.log(element.field)
+                    if(element.field == element.field) {
+                        errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                    }
+                    // if(element.field) {
+                        // errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                    // }
+                    // errorMessage[index].field = element.field
+                    // errorMessage[index].defaultMessage = element.defaultMessage
                 })
                 console.log(Object.values(errorMessage))
             } else {
