@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { createStart, createSuccess, createError, createAllStart, createAllSuccess, createAllError, retrieveAllStart, retrieveAllSuccess, retrieveAllError, retrieveStart, retrieveSuccess, retrieveError, updateStart, updateSuccess, updateError, deleteStart, deleteSuccess, deleteError, deleteAllStart, deleteAllSuccess, deleteAllError } from "../type/action.type";
 import { constants } from "../../assets/types/constants";
 import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service"
+import { ErrorMessage } from "../type/errorMessage";
 
 export const createAction = <T extends {}>(url: string, object: T) => {
     return async (dispatch: Dispatch<createStart | createSuccess<T> | createError>) => {
@@ -15,14 +16,18 @@ export const createAction = <T extends {}>(url: string, object: T) => {
                 payload: data
             })
         } catch(error: any) {
+            var errorMessage: ErrorMessage[] = []
             if(error.response.data.errors != undefined){
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+                })
+                console.log(Object.values(errorMessage))
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.CREATE_ERROR,
-                payload: error
+                payload: errorMessage
             });
         }
     }

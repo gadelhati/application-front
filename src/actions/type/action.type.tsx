@@ -1,4 +1,5 @@
 import { constants } from "../../assets/types/constants"
+import { ErrorMessage } from "./errorMessage"
 
 export interface createStart {
     type: constants.CREATE_START,
@@ -9,7 +10,7 @@ export interface createSuccess<T> {
 }
 export interface createError {
     type: constants.CREATE_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface createAllStart {
     type: constants.CREATE_ALL_START,
@@ -20,7 +21,7 @@ export interface createAllSuccess<T> {
 }
 export interface createAllError {
     type: constants.CREATE_ALL_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface retrieveStart {
     type: constants.RETRIEVE_START,
@@ -31,7 +32,7 @@ export interface retrieveSuccess<T> {
 }
 export interface retrieveError {
     type: constants.RETRIEVE_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface retrieveAllStart {
     type: constants.RETRIEVE_ALL_START,
@@ -42,7 +43,7 @@ export interface retrieveAllSuccess<T> {
 }
 export interface retrieveAllError {
     type: constants.RETRIEVE_ALL_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface updateStart {
     type: constants.UPDATE_START,
@@ -53,7 +54,7 @@ export interface updateSuccess<T> {
 }
 export interface updateError {
     type: constants.UPDATE_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface deleteStart {
     type: constants.DELETE_START,
@@ -64,7 +65,7 @@ export interface deleteSuccess<T> {
 }
 export interface deleteError {
     type: constants.DELETE_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
 export interface deleteAllStart {
     type: constants.DELETE_START,
@@ -75,5 +76,5 @@ export interface deleteAllSuccess<T> {
 }
 export interface deleteAllError {
     type: constants.DELETE_ERROR,
-    payload: string
+    payload: ErrorMessage[]
 }
