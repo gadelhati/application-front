@@ -3,5 +3,4 @@ export interface loadInterface {
     title: string,
     loading: boolean | null,
     itens: number,
-    error: string | null,
 }

@@ -7,6 +7,7 @@ import { initialUser } from './user.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { ErrorMessage } from '../../actions/type/errorMessage';
 
 export const UserList = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,11 @@ export const UserList = () => {
     const createItem = () => {
         dispatch(createAction('user', state))
         resetItem()
+        {
+            error?.forEach((element: ErrorMessage, index: number) => {
+                console.log(element)
+            })
+        }
     }
     const createAllItem = () => {
         dispatch(createAllAction<User>('user', state))
@@ -59,7 +65,7 @@ export const UserList = () => {
     return (
         <section>
             <article>
-                <Load title={"Users"} loading={loading} itens={itens.length} error={error} resetItem={resetItem} />
+                <Load title={"Users"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
@@ -87,7 +93,7 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="username">Username</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    <div className="invalid-feedback">{error}</div>
+                                    {/* <div className="invalid-feedback">{error}</div> */}
                                 </div>
                                 <div className="col form-floating">
                                     <input
@@ -105,7 +111,7 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="email">E-mail</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    <div className="invalid-feedback">{error}</div>
+                                    <div className="invalid-feedback">{JSON.stringify(error)}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input

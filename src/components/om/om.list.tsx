@@ -56,7 +56,7 @@ export const OMList = () => {
     return (
         <section>
             <article>
-                <Load title={"Organizações Militares"} loading={loading} itens={itens.length} error={error} resetItem={resetItem} />
+                <Load title={"Organizações Militares"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
@@ -82,7 +82,7 @@ export const OMList = () => {
                                 />
                                 <label htmlFor="name">Name</label>
                                 <div className="valid-feedback">Looks good!</div>
-                                <div className="invalid-feedback">{error}</div>
+                                {/* <div className="invalid-feedback">{error}</div> */}
                             </div>
                             {/* <div className="form-floating">
                                     <select className={state.id == "" ? "form-select is-invalid" : "form-select is-valid"} id="floatingSelectGrid" aria-label="Floating label select example">

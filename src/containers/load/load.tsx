@@ -23,11 +23,6 @@ export const Load = (load: loadInterface) => {
                             </span>
                         </button>
                     }
-                    {load.error != null &&
-                        <button className="btn btn-outline-danger btn-sm" type="button" disabled>
-                            {JSON.stringify(load.error)}
-                        </button>
-                    }
                 </div>
             </div>
         </div>

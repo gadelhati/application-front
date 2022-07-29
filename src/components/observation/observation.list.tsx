@@ -104,7 +104,7 @@ export const ObservationList = () => {
     return (
         <section>
             <article>
-                <Load title={"Observation List"} loading={loading} itens={itens.length} error={error} resetItem={resetItem} />
+                <Load title={"Observation List"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
