@@ -111,7 +111,8 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="email">E-mail</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    <div className="invalid-feedback">{JSON.stringify(error)}</div>
+                                    {/* <div className="invalid-feedback">{JSON.stringify(error)}</div> */}
+                                    <div className="invalid-feedback">{JSON.stringify(error?.map( field => field.defaultMessage))}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input

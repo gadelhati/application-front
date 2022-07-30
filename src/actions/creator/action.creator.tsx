@@ -19,25 +19,30 @@ export const createAction = <T extends {}>(url: string, object: T) => {
             var errorMessage: ErrorMessage[] = []
             var label: string[] = []
             var value: string[] = []
-            if(error.response.data.errors != undefined){
+            if (error.response.data.errors != undefined) {
                 error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name1: string) =>{
-                        if(name1 != element.field) {
-                            label.push(element.field)
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
                         }
                     })
-                    console.log(JSON.stringify(label))
-                    console.log(element.field)
-                    if(element.field == element.field) {
-                        errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                    if (counter) {
+                        label.push(element.field)
                     }
-                    // if(element.field) {
-                        // errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
-                    // }
-                    // errorMessage[index].field = element.field
-                    // errorMessage[index].defaultMessage = element.defaultMessage
                 })
-                console.log(Object.values(errorMessage))
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
@@ -60,7 +65,7 @@ export const createAllAction = <T extends {}>(url: string, object: T) => {
                 type: constants.CREATE_ALL_SUCCESS,
                 payload: data
             })
-        } catch(error: any) {
+        } catch (error: any) {
             dispatch({
                 type: constants.CREATE_ALL_ERROR,
                 payload: error
@@ -89,8 +94,8 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
                 type: constants.RETRIEVE_SUCCESS,
                 payload: data
             });
-        } catch(error: any) {
-            if(error.response.data.errors != undefined){
+        } catch (error: any) {
+            if (error.response.data.errors != undefined) {
                 error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
             } else {
                 error = error.response.data.error
@@ -115,8 +120,8 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
                 type: constants.RETRIEVE_ALL_SUCCESS,
                 payload: data
             });
-        } catch(error: any) {
-            if(error.response.data.errors != undefined){
+        } catch (error: any) {
+            if (error.response.data.errors != undefined) {
                 error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
             } else {
                 error = error.response.data.error
@@ -136,13 +141,13 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
             type: constants.UPDATE_START
         });
         try {
-            const { data } = await update<T>(url , id, object);
+            const { data } = await update<T>(url, id, object);
             dispatch({
                 type: constants.UPDATE_SUCCESS,
                 payload: data
             });
-        } catch(error: any) {
-            if(error.response.data.errors != undefined){
+        } catch (error: any) {
+            if (error.response.data.errors != undefined) {
                 error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
             } else {
                 error = error.response.data.error
@@ -166,8 +171,8 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
                 type: constants.DELETE_SUCCESS,
                 payload: data
             });
-        } catch(error: any) {
-            if(error.response.data.errors != undefined){
+        } catch (error: any) {
+            if (error.response.data.errors != undefined) {
                 error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
             } else {
                 error = error.response.data.error
