@@ -16,6 +16,9 @@ export const OMList = () => {
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
+    useEffect(() => {
+        
+    }, [error])
     const selectItem = (object: OM) => {
         setState(object)
     }
@@ -45,6 +48,11 @@ export const OMList = () => {
     const deleteItem = () => {
         dispatch(deleteAction('om', state.id))
         resetItem()
+    }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -79,10 +87,11 @@ export const OMList = () => {
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
+                                    title="Nome da Organização Militar"
                                 />
                                 <label htmlFor="name">Name</label>
                                 <div className="valid-feedback">Looks good!</div>
-                                {/* <div className="invalid-feedback">{error}</div> */}
+                                <div className="invalid-feedback">{validation("name")}</div>
                             </div>
                             {/* <div className="form-floating">
                                     <select className={state.id == "" ? "form-select is-invalid" : "form-select is-valid"} id="floatingSelectGrid" aria-label="Floating label select example">
