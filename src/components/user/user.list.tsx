@@ -7,17 +7,18 @@ import { initialUser } from './user.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
-import { ErrorMessage } from '../../actions/type/errorMessage';
 
 export const UserList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<User>(initialUser)
     const { loading, error, itens, item } = useTypedSelector((state) => state.users);
-    const childRef = useRef(null)
-
+    
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
+    useEffect(() => {
+        
+    }, [error])
     const selectItem = (object: User) => {
         setState(object)
     }
@@ -27,11 +28,6 @@ export const UserList = () => {
     const createItem = () => {
         dispatch(createAction('user', state))
         resetItem()
-        {
-            error?.forEach((element: ErrorMessage, index: number) => {
-                console.log(element)
-            })
-        }
     }
     const createAllItem = () => {
         dispatch(createAllAction<User>('user', state))
@@ -52,6 +48,11 @@ export const UserList = () => {
     const deleteItem = () => {
         dispatch(deleteAction('user', state.id))
         resetItem()
+    }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -93,7 +94,7 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="username">Username</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    {/* <div className="invalid-feedback">{error}</div> */}
+                                    <div className="invalid-feedback">{validation("username")}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input
@@ -111,8 +112,7 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="email">E-mail</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    {/* <div className="invalid-feedback">{JSON.stringify(error)}</div> */}
-                                    <div className="invalid-feedback">{JSON.stringify(error?.map( field => field.defaultMessage))}</div>
+                                    <div className="invalid-feedback">{validation("email")}</div>
                                 </div>
                                 <div className="col form-floating">
                                     <input
@@ -131,8 +131,7 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="password">Password</label>
                                     <div className="valid-feedback">Looks good!</div>
-                                    {/* <div className="invalid-feedback">{JSON.stringify(error?.defaultMessage)}</div> */}
-                                    {/* <div className="invalid-feedback">{JSON.stringify(error?.response?.data?.errors?.map((element: any) => { element.field + ": " + element.defaultMessage }))}</div> */}
+                                    <div className="invalid-feedback">{validation("password")}</div>
                                 </div>
                                 {/* <div className="col form-check">
                                     <input
@@ -147,6 +146,7 @@ export const UserList = () => {
                                         defaultChecked={state.active}
                                         onChange={handleInputChange}
                                         name="active"
+                                        title="Usuário ativo?"
                                     />
                                     <label className="form-check-label" htmlFor="active">Active</label>
                                 </div> */}
