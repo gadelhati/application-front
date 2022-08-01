@@ -106,8 +106,8 @@ export const OMList = () => {
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
+                            <button type="button" className="btn btn-primary btn-sm float-end" onClick={resetItem} data-bs-dismiss="modal">Close</button>
                         </div>
-                        <button type="button" className="btn btn-secondary" onClick={resetItem} data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
