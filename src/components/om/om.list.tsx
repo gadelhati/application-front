@@ -27,11 +27,11 @@ export const OMList = () => {
     }
     const createItem = () => {
         dispatch(createAction<OM>('om', state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<OM>('om', state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('om', state.id))
@@ -43,7 +43,7 @@ export const OMList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('om', state.id, state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('om', state.id))
@@ -101,12 +101,12 @@ export const OMList = () => {
                                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                                 </div> */}
                             <hr />
-                            <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Reset</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="123">Create</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
-                            <button type="button" className="btn btn-primary btn-sm float-end" onClick={retrieveAllItem} data-bs-dismiss="modal">Close</button>
+                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

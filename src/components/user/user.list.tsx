@@ -27,11 +27,11 @@ export const UserList = () => {
     }
     const createItem = () => {
         dispatch(createAction('user', state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction('user', state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('user', state.id))
@@ -43,7 +43,7 @@ export const UserList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('user', state.id, state))
-        if(error == null) resetItem()
+        if(error == null && item == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('user', state.id))
@@ -149,12 +149,12 @@ export const UserList = () => {
                                 </div> */}
                             </div>
                             <hr />
-                            <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Reset</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Create</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
-                            <button type="button" className="btn btn-primary btn-sm float-end" onClick={retrieveAllItem} data-bs-dismiss="modal">Close</button>
+                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
