@@ -1525,7 +1525,7 @@ export const ObservationList = () => {
                                 {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                                 <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} >Update</button>
                                 <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} >Delete</button>
-                                <button type="button" className="btn btn-primary btn-sm float-end" onClick={resetItem} data-bs-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-primary btn-sm float-end" onClick={retrieveAllItem} data-bs-dismiss="modal">Close</button>
                                 <ObservationUpload />
                             </article>
                         </div>

@@ -83,7 +83,7 @@ export const UserList = () => {
                                         aria-label="username"
                                         aria-describedby="basic-addon1"
                                         type="text"
-                                        className={validation("username").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("username").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="username"
                                         required
                                         value={state.username}
@@ -100,7 +100,7 @@ export const UserList = () => {
                                         aria-label="email"
                                         aria-describedby="basic-addon1"
                                         type="email"
-                                        className={validation("email").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="email"
                                         required
                                         value={state.email}
@@ -117,7 +117,7 @@ export const UserList = () => {
                                         aria-label="password"
                                         aria-describedby="basic-addon1"
                                         type="password"
-                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="password"
                                         required
                                         value={state.password}
@@ -136,7 +136,7 @@ export const UserList = () => {
                                         aria-describedby="basic-addon1"
                                         type="checkbox"
                                         className="form-check-input"
-                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="active"
                                         required
                                         checked={state.active}
@@ -154,7 +154,7 @@ export const UserList = () => {
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
-                            <button type="button" className="btn btn-primary btn-sm float-end" onClick={resetItem} data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary btn-sm float-end" onClick={retrieveAllItem} data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
