@@ -66,19 +66,40 @@ export const createAllAction = <T extends {}>(url: string, object: T) => {
                 payload: data
             })
         } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
+            if (error.response.data.errors != undefined) {
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
+            } else {
+                error = error.response.data.error
+            }
             dispatch({
                 type: constants.CREATE_ALL_ERROR,
-                payload: error
-            })
-            // if(error.response.data.errors != undefined){
-            //     error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
-            // } else {
-            //     error = error.response.data.error
-            // }
-            // dispatch({
-            //     type: constants.CREATE_ALL_ERROR,
-            //     payload: error
-            // });
+                payload: errorMessage
+            });
         }
     }
 }
@@ -95,16 +116,40 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
                 payload: data
             });
         } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.RETRIEVE_ERROR,
-                payload: error
+                payload: errorMessage
             });
-
         }
     }
 }
@@ -121,16 +166,40 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
                 payload: data
             });
         } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.RETRIEVE_ALL_ERROR,
-                payload: error
+                payload: errorMessage
             });
-
         }
     }
 }
@@ -147,14 +216,39 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
                 payload: data
             });
         } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.UPDATE_ERROR,
-                payload: error
+                payload: errorMessage
             });
         }
     }
@@ -172,14 +266,39 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
                 payload: data
             });
         } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.DELETE_ERROR,
-                payload: error
+                payload: errorMessage
             });
         }
     }
