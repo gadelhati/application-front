@@ -35,9 +35,11 @@ export const OMList = () => {
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('om', state.id))
+        resetItem()
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('om'))
+        resetItem()
     }
     const updateItem = () => {
         dispatch(updateAction('om', state.id, state))
@@ -65,12 +67,11 @@ export const OMList = () => {
                 <Load title={"Organizações Militares"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </article>
-            <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
+            <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Organização Militar</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
@@ -106,7 +107,7 @@ export const OMList = () => {
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
                         </div>
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={resetItem} data-bs-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-secondary" onClick={resetItem} data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

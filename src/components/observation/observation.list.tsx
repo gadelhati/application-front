@@ -22,6 +22,9 @@ export const ObservationList = () => {
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
+    useEffect(() => {
+        
+    }, [error])
     const selectItem = (object: Observation) => {
         setState(object)
     }
@@ -38,9 +41,11 @@ export const ObservationList = () => {
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('observation', state.id))
+        resetItem()
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('observation'))
+        resetItem()
     }
     const updateItem = () => {
         dispatch(updateAction('observation', state.id, state))
@@ -48,6 +53,12 @@ export const ObservationList = () => {
     }
     const deleteItem = () => {
         dispatch(deleteAction('observation', state.id))
+        resetItem()
+    }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        return vector
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -102,12 +113,11 @@ export const ObservationList = () => {
                 <Load title={"Observation List"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
-            <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Observation</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <article>
@@ -1518,9 +1528,7 @@ export const ObservationList = () => {
                                 <ObservationUpload />
                             </article>
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={createItem} data-bs-dismiss="modal">Close</button>
-                        </div>
+                        <button type="button" className="btn btn-secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

@@ -35,9 +35,11 @@ export const UserList = () => {
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('user', state.id))
+        resetItem()
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('user'))
+        resetItem()
     }
     const updateItem = () => {
         dispatch(updateAction('user', state.id, state))
@@ -45,6 +47,7 @@ export const UserList = () => {
     }
     const deleteItem = () => {
         dispatch(deleteAction('user', state.id))
+        resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -66,12 +69,11 @@ export const UserList = () => {
                 <Load title={"Users"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
-            <div className="modal fade" id="modal" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
+            <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Users</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className='row'>
@@ -153,7 +155,7 @@ export const UserList = () => {
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
                         </div>
-                        <button type="button" className="btn btn-secondary btn-sm" onClick={resetItem} data-bs-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-secondary" onClick={resetItem} data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
