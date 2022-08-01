@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Card, Row, Col, OverlayTrigger, Tooltip, InputGroup, Form, FormControl, Button } from "react-bootstrap"
 import { CCardBody, CDataTable } from '@coreui/react';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
@@ -25,32 +25,29 @@ export const ObservationList = () => {
     const selectItem = (object: Observation) => {
         setState(object)
     }
-    const redirectToItem = (object: Observation) => {
-        setState(object)
-        window.location.href = `/observation/${object}`
-    }
     const resetItem = () => {
         setState(initialObservation)
     }
     const createItem = () => {
         dispatch(createAction('observation', state))
-        // resetItem()
+        if(error == null) resetItem()
+    }
+    const createAllItem = () => {
+        dispatch(createAllAction('observation', state))
+        if(error == null) resetItem()
     }
     const retrieveItem = () => {
-        // resetItem()
         dispatch(retrieveAction('observation', state.id))
     }
     const retrieveAllItem = () => {
-        resetItem()
         dispatch(retrieveAllAction('observation'))
     }
     const updateItem = () => {
         dispatch(updateAction('observation', state.id, state))
-        // resetItem()
+        if(error == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('observation', state.id))
-        resetItem()
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -72,11 +69,9 @@ export const ObservationList = () => {
         })
     }
     const omItem = () => {
-        console.log(itensOM.length)
         dispatch(retrieveAllAction('om'))
     }
     const userItem = () => {
-        console.log(itensUser.length)
         dispatch(retrieveAllAction('user'))
     }
     const fields = [

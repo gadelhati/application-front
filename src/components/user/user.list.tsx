@@ -27,27 +27,24 @@ export const UserList = () => {
     }
     const createItem = () => {
         dispatch(createAction('user', state))
-        resetItem()
+        if(error == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction<User>('user', state))
-        resetItem()
+        dispatch(createAllAction('user', state))
+        if(error == null) resetItem()
     }
     const retrieveItem = () => {
-        resetItem()
         dispatch(retrieveAction('user', state.id))
     }
     const retrieveAllItem = () => {
-        resetItem()
         dispatch(retrieveAllAction('user'))
     }
     const updateItem = () => {
         dispatch(updateAction('user', state.id, state))
-        resetItem()
+        if(error == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('user', state.id))
-        resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -84,7 +81,7 @@ export const UserList = () => {
                                         aria-label="username"
                                         aria-describedby="basic-addon1"
                                         type="text"
-                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("username").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
                                         id="username"
                                         required
                                         value={state.username}
@@ -93,7 +90,6 @@ export const UserList = () => {
                                         title="Username não deve estar em branco."
                                     />
                                     <label htmlFor="username">Username</label>
-                                    <div className="valid-feedback">Looks good!</div>
                                     <div className="invalid-feedback">{validation("username")}</div>
                                 </div>
                                 <div className="col form-floating">
@@ -102,7 +98,7 @@ export const UserList = () => {
                                         aria-label="email"
                                         aria-describedby="basic-addon1"
                                         type="email"
-                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("email").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
                                         id="email"
                                         required
                                         value={state.email}
@@ -111,7 +107,6 @@ export const UserList = () => {
                                         title="E-mail não deve estar em branco."
                                     />
                                     <label htmlFor="email">E-mail</label>
-                                    <div className="valid-feedback">Looks good!</div>
                                     <div className="invalid-feedback">{validation("email")}</div>
                                 </div>
                                 <div className="col form-floating">
@@ -120,7 +115,7 @@ export const UserList = () => {
                                         aria-label="password"
                                         aria-describedby="basic-addon1"
                                         type="password"
-                                        className={error != null ? "form-control is-invalid" : "form-control is-valid"}
+                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
                                         id="password"
                                         required
                                         value={state.password}
@@ -130,7 +125,6 @@ export const UserList = () => {
                                         // readOnly={state.id != ""}
                                     />
                                     <label htmlFor="password">Password</label>
-                                    <div className="valid-feedback">Looks good!</div>
                                     <div className="invalid-feedback">{validation("password")}</div>
                                 </div>
                                 {/* <div className="col form-check">
@@ -140,6 +134,7 @@ export const UserList = () => {
                                         aria-describedby="basic-addon1"
                                         type="checkbox"
                                         className="form-check-input"
+                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
                                         id="active"
                                         required
                                         checked={state.active}

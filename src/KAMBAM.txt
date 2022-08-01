@@ -1,11 +1,9 @@
 X		redirect to before signin
 X		unique element has already been registered
-DOING	add validations style on filds
-DOING	add validations message on filds
 DO		filter user by admin domain / view admin / filter by OM
 DO		refresh token
 
-improvments:
+improvements:
 	
 		add pagination on front
 		ignoreCaseAndOrderByAscOrDesc

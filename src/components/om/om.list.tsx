@@ -27,23 +27,21 @@ export const OMList = () => {
     }
     const createItem = () => {
         dispatch(createAction<OM>('om', state))
-        // resetItem()
+        if(error == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<OM>('om', state))
-        resetItem()
+        if(error == null) resetItem()
     }
     const retrieveItem = () => {
-        resetItem()
         dispatch(retrieveAction('om', state.id))
     }
     const retrieveAllItem = () => {
-        resetItem()
         dispatch(retrieveAllAction('om'))
     }
     const updateItem = () => {
         dispatch(updateAction('om', state.id, state))
-        resetItem()
+        if(error == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('om', state.id))
@@ -81,7 +79,7 @@ export const OMList = () => {
                                     aria-label="name"
                                     aria-describedby="basic-addon1"
                                     type="text"
-                                    className={error != null ? "form-control is-invalid" : "form-control is-valid"}
+                                    className={validation("name").length != 0 ? "form-control is-invalid" : "form-control is-valid"}
                                     id="name"
                                     required
                                     value={state.name}
@@ -90,7 +88,6 @@ export const OMList = () => {
                                     title="Nome da Organização Militar"
                                 />
                                 <label htmlFor="name">Name</label>
-                                <div className="valid-feedback">Looks good!</div>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
                             {/* <div className="form-floating">
@@ -104,7 +101,7 @@ export const OMList = () => {
                                 </div> */}
                             <hr />
                             <button onClick={resetItem} className="btn btn-secondary button btn-sm">Reset</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Create</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="123">Create</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
