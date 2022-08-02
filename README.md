@@ -263,6 +263,7 @@ git diff
 
 ## Deploy
 ```
+set -e
 npm run build
 service nginx stop
 rm -rf /usr/share/nginx/html/<old-name>
