@@ -15,10 +15,10 @@
       "url": "https://github.com/Instituto-Hidrografico"
     }
   ],
-  "homepage": "http://10.5.192.35/observation/",
+  "homepage": ".",
   "copyright": "Copyright 1822-2021",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git@github.com:gadelhati/application-front.git"
