@@ -265,6 +265,7 @@ git diff
 ```
 set -e
 npm run build
+npm run preview
 service nginx stop
 rm -rf /usr/share/nginx/html/<old-name>
 cp /home/<user>/<application-name>.zip /usr/share/nginx/html/
