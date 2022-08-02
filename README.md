@@ -1,4 +1,70 @@
-# _Application 2022_
+# _Application Front_
+
+#### Necessary Tech stack:
+
+<a href="https://www.w3.org/html/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="25" height="25"/>
+</a>
+<a href="https://www.w3schools.com/css/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="25" height="25"/>
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="25" height="25"/>
+</a>
+<a href="https://getbootstrap.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="25" height="25"/>
+</a>
+<a href="https://www.java.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="25" height="25"/>
+</a>
+<a href="https://www.postgresql.org" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="25" height="25"/>
+</a>
+<a href="https://spring.io/" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="25" height="25"/>
+</a>
+<a href="https://git-scm.com/" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="25" height="25"/>
+</a>
+
+[comment]: <> (<a href="https://www.linux.org/" target="_blank">)
+[comment]: <> (    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="25" height="25"/>)
+[comment]: <> (</a>)
+[comment]: <> (<a href="https://www.docker.com/" target="_blank">)
+[comment]: <> (    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="25" height="25"/>)
+[comment]: <> (</a>)
+
+<a href="https://heroku.com" target="_blank">
+    <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="25" height="25"/>
+</a>
+<a href="https://www.nginx.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="25" height="25"/>
+</a>
+
+[comment]: <> (<a href="https://www.jenkins.io" target="_blank">)
+[comment]: <> (    <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="jenkins" width="25" height="25"/>)
+[comment]: <> (</a>)
+
+<a href="https://nodejs.org" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="25" height="25"/>
+</a>
+<a href="https://reactjs.org/" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="25" height="25"/>
+</a>
+<a href="https://materializecss.com/" target="_blank">
+    <img src="https://raw.githubusercontent.com/prplx/svg-logos/5585531d45d294869c4eaab4d7cf2e9c167710a9/svg/materialize.svg" alt="materialize" width="25" height="25"/>
+</a>
+<a href="https://redux.js.org" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="25" height="25"/>
+</a>
+
+## Description
+The codes FM 12 - XI SYNOP and FM 13 - XI SHIP are preset number sequences
+that encode observations made at a Surface Meteorological Station (SYNOP) or from
+Stations on board ships (SHIP).
+A inciativa de criar um
+The initiative to create a program in which the code is typed instead of being filled out on paper. Automating the exchange and its consequent inclusion in historical database.
+
 
 ## creation project
 ```
@@ -114,6 +180,7 @@ export default function AppRoutes() {
 }
 ```
 
+### Necessary Tech stack
 ## installation of dependencies
 ```
 npm install
@@ -128,7 +195,11 @@ npm i --save-dev @types/node
 npm uninstall react-select --legacy-peer-deps
 ```
 
-## run project
+## how to run project
+```
+npm run dev
+```
+## how to build project
 ```
 npm run dev
 ```
