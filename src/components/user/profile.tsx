@@ -35,6 +35,11 @@ export const Profile = () => {
     const logoutItem = () => {
         dispatch(logoutAction())
     }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        return vector
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -56,7 +61,7 @@ export const Profile = () => {
                             aria-label="password"
                             aria-describedby="basic-addon1"
                             type="password"
-                            className="form-control"
+                            className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                             id="password"
                             required
                             value={state.password}
@@ -64,6 +69,7 @@ export const Profile = () => {
                             name="password"
                         />
                         <label htmlFor="password">Password</label>
+                        <div className="invalid-feedback">{validation("password")}</div>
                     </div>
                     <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Change Password</button>
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Logout</button>

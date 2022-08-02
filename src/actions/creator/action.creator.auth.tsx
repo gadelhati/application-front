@@ -5,6 +5,7 @@ import { signin, logout, refreshToken } from "../../services/service.auth"
 import { User } from "../../components/user/user.interface"
 import { changePassword } from "../../services/service.auth"
 import { Auth } from "../../components/auth/auth.interface"
+import { ErrorMessage } from "../type/errorMessage";
 
 export const signinAction = (object: Auth) => {
     return async (dispatch: Dispatch<signinStart | signinSuccess | signinError>) => {
@@ -18,16 +19,40 @@ export const signinAction = (object: Auth) => {
                 payload: data
             });
         } catch(error: any) {
-            if(error.response.data.errors != undefined){
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
+            if (error.response.data.errors != undefined) {
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.SIGNIN_ERROR,
-                payload: error
+                payload: errorMessage
             });
-
         }
     }
 }
@@ -62,14 +87,39 @@ export const changePasswordAction = (id: string, object: User) => {
                 payload: data
             });
         } catch(error: any) {
-            if(error.response.data.errors != undefined){
-                error.response?.data.errors.map((element: any) => { error = element.field + ": " + element.defaultMessage })
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
+            if (error.response.data.errors != undefined) {
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                            } else {
+                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
             } else {
                 error = error.response.data.error
             }
             dispatch({
                 type: constants.CHANGE_PASSWORD_ERROR,
-                payload: error
+                payload: errorMessage
             });
         }
     }
