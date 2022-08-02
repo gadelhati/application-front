@@ -1,5 +1,5 @@
 {
-  "name": "application-2022",
+  "name": "application-front",
   "version": "0.0.0",
   "description": "Description",
   "main": "index.jsx",
@@ -21,7 +21,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:gadelhati/application-2022.git"
+    "url": "git@github.com:gadelhati/application-front.git"
   },
   "scripts": {
     "dev": "vite",
