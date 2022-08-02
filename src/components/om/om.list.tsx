@@ -30,7 +30,7 @@ export const OMList = () => {
         if(error == null && item == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction<OM>('om', state))
+        dispatch(createAllAction<OM>('om', [state]))
         if(error == null && item == null) resetItem()
     }
     const retrieveItem = () => {

@@ -36,7 +36,7 @@ export const ObservationList = () => {
         if(error == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction('observation', state))
+        dispatch(createAllAction('observation', [state]))
         if(error == null) resetItem()
     }
     const retrieveItem = () => {

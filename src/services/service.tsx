@@ -4,7 +4,7 @@ export const create = <T extends {}>(url: string, data: T) => {
   return api.post<T>(`/${url}`, data)
 }
 
-export const createAll = <T extends {}>(url: string, data: T) => {
+export const createAll = <T extends {}>(url: string, data: T[]) => {
     return api.post<T[]>(`/${url}/createAll`, data)
 }
 

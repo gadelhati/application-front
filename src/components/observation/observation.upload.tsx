@@ -5,9 +5,7 @@ import { createAction, createAllAction, retrieveAllAction, updateAction, deleteA
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import '../list.css'
-import cc from './customer.json'
 import exemplo from './chm_2018-06-01_2018-06-30.json'
-import exemploONE from './exemploONE.json'
 
 export const ObservationUpload = () => {
     const dispatch = useDispatch();

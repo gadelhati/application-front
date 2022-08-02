@@ -54,7 +54,7 @@ export const createAction = <T extends {}>(url: string, object: T) => {
     }
 }
 
-export const createAllAction = <T extends {}>(url: string, object: T) => {
+export const createAllAction = <T extends {}>(url: string, object: T[]) => {
     return async (dispatch: Dispatch<createAllStart | createAllSuccess<T> | createAllError>) => {
         dispatch({
             type: constants.CREATE_ALL_START

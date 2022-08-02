@@ -30,7 +30,7 @@ export const UserList = () => {
         if(error == null && item == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction('user', state))
+        dispatch(createAllAction('user', [state]))
         if(error == null && item == null) resetItem()
     }
     const retrieveItem = () => {

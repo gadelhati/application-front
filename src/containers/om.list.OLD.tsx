@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { OM } from "../components/om/om.interface";
 import { useQuery } from "../assets/hook/useQuery";
 import { useTypedSelector } from "../assets/hook/useTypeSelector";
-import { createAction, retrieveAllAction, updateAction, deleteAction } from '../actions.generics/creator/action.creator.om';
+import { createAction, retrieveAllAction, updateAction, deleteAction } from '../actions/creator/action.creator';
 import { initialOM } from '../components/om/om.initial';
 import { styled } from '@stitches/react';
 import './om.css';
@@ -128,19 +128,19 @@ export const OMListOLD = (props: OM) => {
         setState(initialOM)
     }
     const createItem = () => {
-        dispatch(createAction(state))
+        dispatch(createAction('om', state))
         resetItem()
     }
     const retrieveItem = () => {
-        dispatch(retrieveAllAction())
+        dispatch(retrieveAllAction('om'))
         resetItem()
     }
     const updateItem = () => {
-        dispatch(updateAction(state.id, state))
+        dispatch(updateAction('om', state.id, state))
         // retrieveItem()
     }
     const deleteItem = () => {
-        dispatch(deleteAction(state.id))
+        dispatch(deleteAction('om', state.id))
         // retrieveItem()
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
