@@ -52,7 +52,7 @@
       "test": {
         "scripts": {
           "test": "bundle exec rake test",
-          "stack": "heroku-20",
+          "stack": "heroku-22",
           "postdeploy": "bundle exec rake bootstrap",
           "pr-predestroy": "bundle exec rake cleanup"
         }
