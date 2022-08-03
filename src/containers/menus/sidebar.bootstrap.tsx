@@ -102,7 +102,7 @@ export const Sidestrap = (props: any) => {
                             </div>
                         </li> */}
                         <li>
-                            <a href="application-front/#/signin" className="nav-link">
+                            <a href="#/signin" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home" /></svg>OM</a>
                         </li>
                         {/* <li>
@@ -110,19 +110,19 @@ export const Sidestrap = (props: any) => {
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#people-circle" /></svg>Profile</a>
                         </li> */}
                         <li>
-                            <a href="application-front/#/users" className="nav-link">
+                            <a href="#/users" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Users</a>
                         </li>
                         <li>
-                            <a href="application-front/#/observation" className="nav-link">
+                            <a href="#/observation" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#table" /></svg>Observation</a>
                         </li>
                         {/* <li>
-                            <a href="application-front/#/observationadd" className="nav-link">
+                            <a href="#/observationadd" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2" /></svg>Observation Add</a>
                         </li> */}
                         {/* <li>
-                            <a href="application-front/#/upload" className="nav-link">
+                            <a href="#/upload" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Upload</a>
                         </li> */}
                     </ul>
@@ -135,9 +135,9 @@ export const Sidestrap = (props: any) => {
                             <ul className="dropdown-menu " aria-labelledby="dropdownUser1">
                                 {/* <li><a className="dropdown-item" href="#">New project...</a></li>
                                 <li><a className="dropdown-item" href="#">Settings</a></li> */}
-                                <li><a className="dropdown-item" href="application-front/#/profile">Profile</a></li>
+                                <li><a className="dropdown-item" href="#/profile">Profile</a></li>
                                 <li><hr className="dropdown-divider"></hr></li>
-                                <li><a className="dropdown-item" href="application-front/#/signin" onClick={logoutItem} >Sign out</a></li>
+                                <li><a className="dropdown-item" href="#/signin" onClick={logoutItem} >Sign out</a></li>
                             </ul>
                         </div>
                     }
