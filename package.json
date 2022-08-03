@@ -24,9 +24,11 @@
     "url": "git@github.com:gadelhati/application-front.git"
   },
   "scripts": {
+    "start": "node server.js",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall":"tsc"
   },
   "dependencies": {
     "@coreui/chartjs": "^2.0.0",
