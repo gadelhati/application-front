@@ -197,7 +197,8 @@ npm install @radix-ui/react-*
 npm install bootstrap
 <!-- npm install --save react-dropzone -->
 npm i --save-dev @types/node
-pm install surge --legacy-peer-deps
+npm install surge --legacy-peer-deps
+npm install caniuse-lite --legacy-peer-deps
 ```
 
 ## how to run project

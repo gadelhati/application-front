@@ -64,6 +64,7 @@
     "@types/styled-components": "^5.1.24",
     "axios": "^0.25.0",
     "bootstrap": "^5.0.2",
+    "caniuse-lite": "^1.0.30001373",
     "coreui": "^0.4.2-alpha2",
     "google-map-react": "^2.2.0",
     "react": "^17.0.2",
