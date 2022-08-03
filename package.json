@@ -31,10 +31,6 @@
     "postinstall": "tsc"
   },
   "dependencies": {
-    "@coreui/chartjs": "^2.0.0",
-    "@coreui/coreui": "^3.4.0",
-    "@coreui/coreui-datatables": "^1.0.0",
-    "@coreui/react": "^3.4.1",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-accordion": "^0.1.5",
     "@radix-ui/react-alert-dialog": "^0.1.5",
@@ -65,7 +61,6 @@
     "axios": "^0.25.0",
     "bootstrap": "^5.0.2",
     "caniuse-lite": "^1.0.30001373",
-    "coreui": "^0.4.2-alpha2",
     "google-map-react": "^2.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
