@@ -198,6 +198,7 @@ npm install bootstrap
 <!-- npm install --save react-dropzone -->
 npm i --save-dev @types/node
 npm uninstall react-select --legacy-peer-deps
+npm install surge
 ```
 
 ## how to run project
@@ -263,6 +264,7 @@ git diff
 
 ## Deploy
 ```
+npx browserslist@latest --update-db
 set -e
 npm run build
 npm run preview
@@ -272,6 +274,12 @@ cp /home/<user>/<application-name>.zip /usr/share/nginx/html/
 unzip /usr/share/nginx/html/<application-name>.zip
 rm /usr/share/nginx/html/<application-name>.zip
 service nginx start
+```
+
+## deploy in surge
+```
+surge
+ >project: <path to /dist directory>
 ```
 
 ### Edit /etc/nginx/conf.d/default.conf
