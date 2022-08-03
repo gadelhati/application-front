@@ -206,7 +206,7 @@ npm run dev
 ```
 ## how to build project
 ```
-npm run dev
+npm run build
 ```
 
 # libraries
