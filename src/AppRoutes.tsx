@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
 import ProtectedRoute from "./ProtectedRoutes";
 import { ProtectedRouteProps } from "./ProtectedRoutes";
@@ -24,7 +24,7 @@ export default function AppRoutes() {
     };
     return (
         <body>
-            <BrowserRouter>
+            <HashRouter>
                 <aside>
                     {getUser() && <Sidestrap />}
                 </aside>
@@ -43,7 +43,7 @@ export default function AppRoutes() {
                     </Routes>
                     {/* <Footer /> */}
                 </main>
-            </BrowserRouter>
+            </HashRouter>
         </body>
     )
 }
