@@ -1,17 +1,13 @@
 import { dataTableInterface } from "./datatable.interface";
-// import { CCardBody, CDataTable } from '@coreui/react';
+import { CCardBody, CDataTable } from '@coreui/react';
 import { useState } from "react";
 
 export const DataTable = <T extends any>(dataTable: dataTableInterface<T>) => {
-    // const [state, setState] = useState<T>(initialUser)
-    // const selectItem2 = (object: T) => {
-    //     setState(object)
-    // }
     return (
         <div className='row'>
             <div className='col' >
                 <div className='card'>
-                    {/* <CCardBody>
+                    <CCardBody>
                         <CDataTable
                             items={dataTable.itens}
                             fields={dataTable.fields}
@@ -25,14 +21,12 @@ export const DataTable = <T extends any>(dataTable: dataTableInterface<T>) => {
                             scopedSlots={{
                                 'select': (item: any) => (
                                     <td className="align-bottom">
-                                        
                                         <button type="button" onClick={() => dataTable.selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Select</button>
-                                        
                                     </td>
                                 ),
                             }}
                         />
-                    </CCardBody> */}
+                    </CCardBody>
                 </div>
             </div>
         </div>

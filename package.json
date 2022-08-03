@@ -46,7 +46,8 @@
     "react-router-dom": "^6.2.1",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
-    "surge": "^0.23.1"
+    "surge": "^0.23.1",
+    "@coreui/react": "^3.4.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",

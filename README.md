@@ -196,9 +196,10 @@ npm install @stitches/react
 npm install @radix-ui/react-*
 npm install bootstrap
 <!-- npm install --save react-dropzone -->
-npm i --save-dev @types/node
+npm install --save-dev @types/node
 npm install surge --legacy-peer-deps
 npm install caniuse-lite --legacy-peer-deps
+npm install coreui/react@3.4.1 --force
 ```
 
 ## how to run project
