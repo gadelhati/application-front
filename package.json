@@ -28,7 +28,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "postinstall":"tsc"
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@coreui/chartjs": "^2.0.0",
