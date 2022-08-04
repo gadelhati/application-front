@@ -6,6 +6,9 @@ DO		refresh token
 		add name to person/user/operator/funcion by person
 		inform and close after create/update/delete
 		question and inform before create/update/delete
+		improv observation form
+			jump to next input when max length
+		breadcruns
 
 improvements:
 	
