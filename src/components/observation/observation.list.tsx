@@ -31,11 +31,11 @@ export const ObservationList = () => {
     }
     const createItem = () => {
         dispatch(createAction('observation', state))
-        if (error == null) resetItem()
+        if (item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction('observation', [state]))
-        if (error == null) resetItem()
+        if (item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('observation', state.id))
@@ -47,7 +47,7 @@ export const ObservationList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('observation', state.id, state))
-        if (error == null) resetItem()
+        if (item == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('observation', state.id))

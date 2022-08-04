@@ -27,11 +27,11 @@ export const UserList = () => {
     }
     const createItem = () => {
         dispatch(createAction('user', state))
-        if(error == null && item == null) resetItem()
+        if(item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction('user', [state]))
-        if(error == null && item == null) resetItem()
+        if(item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('user', state.id))
@@ -43,7 +43,7 @@ export const UserList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('user', state.id, state))
-        if(error == null && item == null) resetItem()
+        if(item == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('user', state.id))

@@ -27,11 +27,11 @@ export const OMList = () => {
     }
     const createItem = () => {
         dispatch(createAction<OM>('om', state))
-        if(error == null && item == null) resetItem()
+        if(item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<OM>('om', [state]))
-        if(error == null && item == null) resetItem()
+        if(item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('om', state.id))
@@ -43,7 +43,7 @@ export const OMList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('om', state.id, state))
-        if(error == null && item == null) resetItem()
+        if(item == null && error == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('om', state.id))
