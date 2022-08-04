@@ -47,7 +47,7 @@ export const Profile = () => {
         <section>
             {getUser() ?
                 <article>
-                    <Load title={"Profile"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                    <div className="alert alert-secondary" role="alert"><h5>Profile</h5></div>
                     <div className="alert alert-secondary" role="alert">
                         <p><strong>Username: </strong> {getUserName()}</p>
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
