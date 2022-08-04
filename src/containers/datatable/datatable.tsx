@@ -21,7 +21,7 @@ export const DataTable = <T extends any>(dataTable: dataTableInterface<T>) => {
                             scopedSlots={{
                                 'select': (item: any) => (
                                     <td className="align-bottom">
-                                        <button type="button" onClick={() => dataTable.selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Select</button>
+                                        <button type="button" onClick={() => dataTable.selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Selecione</button>
                                     </td>
                                 ),
                             }}

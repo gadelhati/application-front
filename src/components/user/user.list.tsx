@@ -66,7 +66,7 @@ export const UserList = () => {
     return (
         <section>
             <article>
-                <Load title={"Users"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Load title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
