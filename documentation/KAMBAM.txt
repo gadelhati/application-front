@@ -2,6 +2,10 @@ X		redirect to before signin
 X		unique element has already been registered
 DO		filter user by admin domain / view admin / filter by OM
 DO		refresh token
+		expose response error without access
+		add name to person/user/operator/funcion by person
+		inform and close after create/update/delete
+		question and inform before create/update/delete
 
 improvements:
 	
