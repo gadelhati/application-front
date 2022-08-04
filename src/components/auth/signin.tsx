@@ -54,6 +54,9 @@ export const SigninContainer = () => {
     const initiate = () => {
         navigate("/om")
     }
+    const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+        dispatch(signinAction(state))
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -61,36 +64,38 @@ export const SigninContainer = () => {
         <section className="text-center signin">
             <article className="form-signin w-100 m-auto">
                 {/* <Signin > */}
-                <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
-                <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-                <div className="form-floating">
-                    <input placeholder="Username" type="text" className="form-control" id="username" value={state.username} onChange={handleInputChange} name="username" ></input>
-                    <label htmlFor="username">Username</label>
-                </div>
-                <div className="form-floating">
-                    <input placeholder="Password" type="password" className="form-control" id="password" value={state.password} onChange={handleInputChange} name="password" ></input>
-                    <label htmlFor="password">Password</label>
-                </div>
-                <div className="checkbox mb-3">
-                    <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
-                    <label htmlFor="rememberMe">Remember me</label>
-                </div>
-                <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                {/* <button onClick={initiate} className="w-100 btn btn-lg btn-primary" type="submit">Navigate</button> */}
-                <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
-                {loading ?
-                    <button className="btn btn-warning btn-sm" type="button" disabled>
-                        <span className="spinner-border spinner-border-sm" role="status"></span>
-                        Loading
-                    </button>
-                    :
-                    <button className="btn btn-success btn-sm" type="button" disabled>
-                        {/* <span className="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span> */}
-                        Loaded
-                    </button>
-                }
-                {error != null && JSON.stringify(error)}
-                {/* {loading && <Navigate />} */}
+                <form onSubmit={submitForm}>
+                    <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
+                    <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+                    <div className="form-floating">
+                        <input placeholder="Username" type="text" className="form-control" id="username" value={state.username} onChange={handleInputChange} name="username" ></input>
+                        <label htmlFor="username">Username</label>
+                    </div>
+                    <div className="form-floating">
+                        <input placeholder="Password" type="password" className="form-control" id="password" value={state.password} onChange={handleInputChange} name="password" ></input>
+                        <label htmlFor="password">Password</label>
+                    </div>
+                    <div className="checkbox mb-3">
+                        <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
+                        <label htmlFor="rememberMe">Remember me</label>
+                    </div>
+                    <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                    {/* <button onClick={initiate} className="w-100 btn btn-lg btn-primary" type="submit">Navigate</button> */}
+                    <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
+                    {loading ?
+                        <button className="btn btn-warning btn-sm" type="button" disabled>
+                            <span className="spinner-border spinner-border-sm" role="status"></span>
+                            Loading
+                        </button>
+                        :
+                        <button className="btn btn-success btn-sm" type="button" disabled>
+                            {/* <span className="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span> */}
+                            Loaded
+                        </button>
+                    }
+                    {error != null && JSON.stringify(error)}
+                    {/* {loading && <Navigate />} */}
+                </form>
                 {/* </Signin> */}
              </article>
         </section>
