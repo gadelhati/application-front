@@ -38,19 +38,9 @@ export const ObservationUpload = () => {
         // event.target.value = ""
     }
     return (
-        <section>
-            <article>
-                {/* {exemplo?.map(item => {
-                    return (
-                        <p key={item.dataObservacao}>
-                            <td>{item.yy}</td>
-                            <td>{item.gg}</td>
-                        </p>
-                    )
-                })} */}
-                <input type="file" className="w-20 btn btn-secondary button btn-sm" onChange={handleInputFile} />
-                <button onClick={createAllItems} className="w-20 btn btn-secondary button btn-sm" >Create All</button>
-            </article>
-        </section>
+        <>
+            <input type="file" className="w-20 btn btn-secondary button btn-sm" onChange={handleInputFile} />
+            <button onClick={createAllItems} className="w-20 btn btn-secondary button btn-sm" >Criar todos</button>
+        </>
     );
 }
