@@ -1474,7 +1474,7 @@ export const ObservationList = () => {
                                     <div className="col form-floating">
                                         <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
                                             {itensUser.map((object) => (
-                                                <option data-id={object.id} data-value={object}>{object.username}</option>
+                                                <option data-id={object.id} data-value={object}>{object.email}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
