@@ -135,9 +135,9 @@ export const Sidestrap = (props: any) => {
                             <ul className="dropdown-menu " aria-labelledby="dropdownUser1">
                                 {/* <li><a className="dropdown-item" href="#">New project...</a></li>
                                 <li><a className="dropdown-item" href="#">Settings</a></li> */}
-                                <li><a className="dropdown-item" href="#/profile">Profile</a></li>
+                                <li><a className="dropdown-item" href="#/profile">Perfil</a></li>
                                 <li><hr className="dropdown-divider"></hr></li>
-                                <li><a className="dropdown-item" href="#/signin" onClick={logoutItem} >Sign out</a></li>
+                                <li><a className="dropdown-item" href="#/signin" onClick={logoutItem} >Sair</a></li>
                             </ul>
                         </div>
                     }

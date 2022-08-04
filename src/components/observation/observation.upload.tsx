@@ -5,7 +5,6 @@ import { createAction, createAllAction, retrieveAllAction, updateAction, deleteA
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import '../list.css'
-import exemplo from './chm_2018-06-01_2018-06-30.json'
 
 export const ObservationUpload = () => {
     const dispatch = useDispatch();
@@ -38,9 +37,9 @@ export const ObservationUpload = () => {
         // event.target.value = ""
     }
     return (
-        <>
+        <div className='upload'>
             <input type="file" className="w-20 btn btn-secondary button btn-sm" onChange={handleInputFile} />
             <button onClick={createAllItems} className="w-20 btn btn-secondary button btn-sm" >Criar todos</button>
-        </>
+        </div>
     );
 }

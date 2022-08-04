@@ -109,6 +109,9 @@ export const ObservationList = () => {
         <section>
             <article>
                 <Load title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                {/* <div className="alert alert-secondary" role="alert"> */}
+                    <ObservationUpload />
+                {/* </div> */}
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >

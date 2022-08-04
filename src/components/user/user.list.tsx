@@ -92,7 +92,7 @@ export const UserList = () => {
                                         name="username"
                                         title="Username não deve estar em branco."
                                     />
-                                    <label htmlFor="username">Username</label>
+                                    <label htmlFor="username">Nome de usuário</label>
                                     <div className="invalid-feedback">{validation("username")}</div>
                                 </div>
                                 <div className="col form-floating">
@@ -127,7 +127,7 @@ export const UserList = () => {
                                         title="Password não deve estar em branco."
                                         // readOnly={state.id != ""}
                                     />
-                                    <label htmlFor="password">Password</label>
+                                    <label htmlFor="password">Senha</label>
                                     <div className="invalid-feedback">{validation("password")}</div>
                                 </div>
                                 {/* <div className="col form-check">
@@ -150,12 +150,12 @@ export const UserList = () => {
                                 </div> */}
                             </div>
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Reset</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Create</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} /*data-bs-dismiss="modal"*/>Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Close</button>
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Atualizar</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Deletar</button>
+                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

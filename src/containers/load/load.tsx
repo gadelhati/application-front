@@ -10,11 +10,6 @@ export const Load = (load: loadInterface) => {
                 </div>
                 <div className="col">
                     <button type="button" onClick={() => load.resetItem()} className="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modal" >Criar</button>
-                    {load.title == "Observações Meteorológicas" ?
-                    <ObservationUpload />
-                    :
-                    <></>
-                    }
                     {load.loading ?
                         <button className="btn btn-outline-warning btn-sm float-end" type="button" disabled>
                             <span className="spinner-border spinner-border-sm" role="status"></span>

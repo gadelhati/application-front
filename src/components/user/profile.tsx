@@ -47,13 +47,13 @@ export const Profile = () => {
         <section>
             {getUser() ?
                 <article>
-                    <div className="alert alert-secondary" role="alert"><h5>Profile</h5></div>
+                    <div className="alert alert-secondary" role="alert"><h5>Perfil</h5></div>
                     <div className="alert alert-secondary" role="alert">
-                        <p><strong>Username: </strong> {getUserName()}</p>
+                        <p><strong>Nome de usuário: </strong> {getUserName()}</p>
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
                         {/* <p><strong>Id: </strong> {getId()}</p> */}
                         <p><strong>Email: </strong> {getEmail()}</p>
-                        <strong>Authorities: </strong> {getUser().roles.map((role: any, index: any) => <div key={index}>{role}</div>)}
+                        <strong>Autoridades: </strong> {getUser().roles.map((role: any, index: any) => <div key={index}>{role}</div>)}
                     </div>
                     <div className="form-floating">
                         <input
@@ -68,11 +68,11 @@ export const Profile = () => {
                             onChange={handleInputChange}
                             name="password"
                         />
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Senha</label>
                         <div className="invalid-feedback">{validation("password")}</div>
                     </div>
-                    <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Change Password</button>
-                    <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Logout</button>
+                    <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Trocar Senha</button>
+                    <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Sair</button>
                     {/* <button type="button" className="btn btn-primary btn-sm" id="liveToastBtn">Show live toast</button>
                     <Toast title={"oi"} body="2" /> */}
                 </article>

@@ -89,7 +89,7 @@ export const OMList = () => {
                                     name="name"
                                     title="Nome da Organização Militar"
                                 />
-                                <label htmlFor="name">Name</label>
+                                <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
                             {/* <div className="form-floating">
@@ -102,12 +102,12 @@ export const OMList = () => {
                                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                                 </div> */}
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Reset</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="123">Create</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-dismiss="123">Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Update</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Delete</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Close</button>
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Atualizar</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-dismiss="modal">Deletar</button>
+                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
