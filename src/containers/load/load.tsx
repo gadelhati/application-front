@@ -1,7 +1,13 @@
+import { ErrorMessage } from "../../actions/type/errorMessage";
 import { ObservationUpload } from "../../components/observation/observation.upload";
 import { loadInterface } from "./load.interface";
 
 export const Load = (load: loadInterface) => {
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        load.error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        return vector
+    }
     return (
         <div className="alert alert-secondary" role="alert">
             <div className='row'>
@@ -24,6 +30,13 @@ export const Load = (load: loadInterface) => {
                             </span>
                         </button>
                     }
+                    {/* {load.error?.length != undefined ?
+                        <button className="btn btn-outline-danger btn-sm float-end" type="button" disabled>
+                            {validation('403')}
+                        </button>
+                    :
+                        <></>
+                    } */}
                 </div>
             </div>
         </div>

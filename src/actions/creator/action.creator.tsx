@@ -44,7 +44,7 @@ export const createAction = <T extends {}>(url: string, object: T) => {
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.CREATE_ERROR,
@@ -94,7 +94,7 @@ export const createAllAction = <T extends {}>(url: string, object: T[]) => {
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.CREATE_ALL_ERROR,
@@ -144,7 +144,7 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.RETRIEVE_ERROR,
@@ -194,7 +194,7 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.RETRIEVE_ALL_ERROR,
@@ -244,7 +244,7 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.UPDATE_ERROR,
@@ -294,7 +294,7 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
                     })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.DELETE_ERROR,
