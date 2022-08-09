@@ -99,6 +99,7 @@ export const OMList = () => {
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>

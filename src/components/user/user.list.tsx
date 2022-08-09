@@ -59,6 +59,11 @@ export const UserList = () => {
         error?.map( element => { if("403" == element.field) return allowed = true })
         return allowed
     }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -96,6 +101,7 @@ export const UserList = () => {
                                         onChange={handleInputChange}
                                         name="username"
                                         title="Username não deve estar em branco."
+                                        readOnly={executed()}
                                     />
                                     <label htmlFor="username">Nome de usuário</label>
                                     <div className="invalid-feedback">{validation("username")}</div>
@@ -113,6 +119,7 @@ export const UserList = () => {
                                         onChange={handleInputChange}
                                         name="email"
                                         title="E-mail não deve estar em branco."
+                                        readOnly={executed()}
                                     />
                                     <label htmlFor="email">E-mail</label>
                                     <div className="invalid-feedback">{validation("email")}</div>
@@ -130,7 +137,7 @@ export const UserList = () => {
                                         onChange={handleInputChange}
                                         name="password"
                                         title="Password não deve estar em branco."
-                                        // readOnly={state.id != ""}
+                                        readOnly={executed()}
                                     />
                                     <label htmlFor="password">Senha</label>
                                     <div className="invalid-feedback">{validation("password")}</div>
@@ -150,20 +157,26 @@ export const UserList = () => {
                                         onChange={handleInputChange}
                                         name="active"
                                         title="Usuário ativo?"
+                                        readOnly={executed()}
                                     />
                                     <label className="form-check-label" htmlFor="active">Active</label>
                                 </div> */}
                             </div>
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-toggle="modal">Criar</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
                             <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {access() && "Acesso negado"}
+                                    {"Acesso negado"}
+                                </button>
+                            }
+                            {executed() &&
+                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
+                                    {"Executado"}
                                 </button>
                             }
                         </div>

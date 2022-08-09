@@ -60,8 +60,13 @@ export const ObservationList = () => {
     }
     const access = (): boolean => {
         let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
+        error?.map(element => { if ("403" == element.field) return allowed = true })
         return allowed
+    }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -115,7 +120,7 @@ export const ObservationList = () => {
             <article>
                 <Load title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
-                    <ObservationUpload />
+                <ObservationUpload />
                 {/* </div> */}
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </article>
@@ -532,8 +537,8 @@ export const ObservationList = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                            <div className='row'>
-                                            </div>
+                                                <div className='row'>
+                                                </div>
                                                 <div className="col-2">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">2snTdTdTd</span>
@@ -667,8 +672,8 @@ export const ObservationList = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                            <div className='row'>
-                                            </div>
+                                                <div className='row'>
+                                                </div>
                                                 <div className="col-2">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">6RRRtR</span>
@@ -890,63 +895,63 @@ export const ObservationList = () => {
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">222DsVs</span>
-                                                            <input
-                                                                placeholder="Ds"
-                                                                aria-label="ds"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="ds"
-                                                                //required
-                                                                value={state.ds}
-                                                                onChange={handleInputChange}
-                                                                name="ds"
-                                                                title='Rumo resultante do deslocamento da navio nas três horas precedentes à hora da observação: 0 a 9 ou /'
-                                                            />
-                                                            <input
-                                                                placeholder="Vs"
-                                                                aria-label="vs"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="vs"
-                                                                //required
-                                                                value={state.vs}
-                                                                onChange={handleInputChange}
-                                                                name="vs"
-                                                                title='Velocidade média do navio nas três hora precedentes à hora da observação: 0 a 9 /'
-                                                            />
+                                                        <input
+                                                            placeholder="Ds"
+                                                            aria-label="ds"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="ds"
+                                                            //required
+                                                            value={state.ds}
+                                                            onChange={handleInputChange}
+                                                            name="ds"
+                                                            title='Rumo resultante do deslocamento da navio nas três horas precedentes à hora da observação: 0 a 9 ou /'
+                                                        />
+                                                        <input
+                                                            placeholder="Vs"
+                                                            aria-label="vs"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="vs"
+                                                            //required
+                                                            value={state.vs}
+                                                            onChange={handleInputChange}
+                                                            name="vs"
+                                                            title='Velocidade média do navio nas três hora precedentes à hora da observação: 0 a 9 /'
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">0SsTwTwTw</span>
-                                                            <input
-                                                                placeholder="Ss"
-                                                                aria-label="ss"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="ss"
-                                                                //required
-                                                                value={state.ss}
-                                                                onChange={handleInputChange}
-                                                                name="ss"
-                                                                title='Indicador do sinal e tipo da medição da temperatura da água do mar: 0 a 7'
-                                                            />
-                                                            <input
-                                                                placeholder="TwTwTw"
-                                                                aria-label="twtwtw"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="twtwtw"
-                                                                //required
-                                                                value={state.twtwtw}
-                                                                onChange={handleInputChange}
-                                                                name="twtwtw"
-                                                                title='Temperatura da água do mar a superfície, em décimos de graus célcius: 000 a 400'
-                                                            />
+                                                        <input
+                                                            placeholder="Ss"
+                                                            aria-label="ss"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="ss"
+                                                            //required
+                                                            value={state.ss}
+                                                            onChange={handleInputChange}
+                                                            name="ss"
+                                                            title='Indicador do sinal e tipo da medição da temperatura da água do mar: 0 a 7'
+                                                        />
+                                                        <input
+                                                            placeholder="TwTwTw"
+                                                            aria-label="twtwtw"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="twtwtw"
+                                                            //required
+                                                            value={state.twtwtw}
+                                                            onChange={handleInputChange}
+                                                            name="twtwtw"
+                                                            title='Temperatura da água do mar a superfície, em décimos de graus célcius: 000 a 400'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -954,63 +959,63 @@ export const ObservationList = () => {
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">1PwaPwaHwaHwa</span>
-                                                            <input
-                                                                placeholder="PwaPwa"
-                                                                aria-label="pwapwa"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="pwapwa"
-                                                                //required
-                                                                value={state.pwapwa}
-                                                                onChange={handleInputChange}
-                                                                name="pwapwa"
-                                                                title='Período das ondas (segundos de tempo): 00 a 30'
-                                                            />
-                                                            <input
-                                                                placeholder="HwaHwa"
-                                                                aria-label="hwahwa"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="hwahwa"
-                                                                //required
-                                                                value={state.hwahwa}
-                                                                onChange={handleInputChange}
-                                                                name="hwahwa"
-                                                                title='Altura das ondas (em unidades de meio metro): 00 a 10 ou //'
-                                                            />
+                                                        <input
+                                                            placeholder="PwaPwa"
+                                                            aria-label="pwapwa"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="pwapwa"
+                                                            //required
+                                                            value={state.pwapwa}
+                                                            onChange={handleInputChange}
+                                                            name="pwapwa"
+                                                            title='Período das ondas (segundos de tempo): 00 a 30'
+                                                        />
+                                                        <input
+                                                            placeholder="HwaHwa"
+                                                            aria-label="hwahwa"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="hwahwa"
+                                                            //required
+                                                            value={state.hwahwa}
+                                                            onChange={handleInputChange}
+                                                            name="hwahwa"
+                                                            title='Altura das ondas (em unidades de meio metro): 00 a 10 ou //'
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">2PwPwHwHw</span>
-                                                            <input
-                                                                placeholder="PwPw"
-                                                                aria-label="pwpw"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="pwpw"
-                                                                //required
-                                                                value={state.pwpw}
-                                                                onChange={handleInputChange}
-                                                                name="pwpw"
-                                                                title='Período das vagas expressa em segundos de tempo: 00 a 20 ou 99'
-                                                            />
-                                                            <input
-                                                                placeholder="HwHw"
-                                                                aria-label="hwhw"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="hwhw"
-                                                                //required
-                                                                value={state.hwhw}
-                                                                onChange={handleInputChange}
-                                                                name="hwhw"
-                                                                title='Altura das vagas expressa em unidades de meio metro: 00 a 30 ou //'
-                                                            />
+                                                        <input
+                                                            placeholder="PwPw"
+                                                            aria-label="pwpw"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="pwpw"
+                                                            //required
+                                                            value={state.pwpw}
+                                                            onChange={handleInputChange}
+                                                            name="pwpw"
+                                                            title='Período das vagas expressa em segundos de tempo: 00 a 20 ou 99'
+                                                        />
+                                                        <input
+                                                            placeholder="HwHw"
+                                                            aria-label="hwhw"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="hwhw"
+                                                            //required
+                                                            value={state.hwhw}
+                                                            onChange={handleInputChange}
+                                                            name="hwhw"
+                                                            title='Altura das vagas expressa em unidades de meio metro: 00 a 30 ou //'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -1018,63 +1023,63 @@ export const ObservationList = () => {
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">3dw1dw1dw2dw2</span>
-                                                            <input
-                                                                placeholder="dw1dw1"
-                                                                aria-label="dw1dw1"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="dw1dw1"
-                                                                //required
-                                                                value={state.dw1dw1}
-                                                                onChange={handleInputChange}
-                                                                name="dw1dw1"
-                                                                title='Direção verdadeira de onde vem o primeiro sistema de marulhos, expresso em dezenas de grau: 00 a 36'
-                                                            />
-                                                            <input
-                                                                placeholder="dw2dw2"
-                                                                aria-label="dw2dw2"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="dw2dw2"
-                                                                //required
-                                                                value={state.dw2dw2}
-                                                                onChange={handleInputChange}
-                                                                name="dw2dw2"
-                                                                title='Direção verdadeira de onde vem o segundo sistema de marulhos, expresso em dezenas de grau: 00 a 36'
-                                                            />
+                                                        <input
+                                                            placeholder="dw1dw1"
+                                                            aria-label="dw1dw1"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="dw1dw1"
+                                                            //required
+                                                            value={state.dw1dw1}
+                                                            onChange={handleInputChange}
+                                                            name="dw1dw1"
+                                                            title='Direção verdadeira de onde vem o primeiro sistema de marulhos, expresso em dezenas de grau: 00 a 36'
+                                                        />
+                                                        <input
+                                                            placeholder="dw2dw2"
+                                                            aria-label="dw2dw2"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="dw2dw2"
+                                                            //required
+                                                            value={state.dw2dw2}
+                                                            onChange={handleInputChange}
+                                                            name="dw2dw2"
+                                                            title='Direção verdadeira de onde vem o segundo sistema de marulhos, expresso em dezenas de grau: 00 a 36'
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">4Pw1Pw1Hw1Hw1</span>
-                                                            <input
-                                                                placeholder="Pw1Pw1"
-                                                                aria-label="pw1pw1"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="pw1pw1"
-                                                                //required
-                                                                value={state.pw1pw1}
-                                                                onChange={handleInputChange}
-                                                                name="pw1pw1"
-                                                                title='Período do primeiro sistema de marulhos, expresso em segundos de tempo: 00 a 30'
-                                                            />
-                                                            <input
-                                                                placeholder="Hw1Hw1"
-                                                                aria-label="hw1hw1"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="hw1hw1"
-                                                                //required
-                                                                value={state.hw1hw1}
-                                                                onChange={handleInputChange}
-                                                                name="hw1hw1"
-                                                                title='Altura do primeiro sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
-                                                            />
+                                                        <input
+                                                            placeholder="Pw1Pw1"
+                                                            aria-label="pw1pw1"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="pw1pw1"
+                                                            //required
+                                                            value={state.pw1pw1}
+                                                            onChange={handleInputChange}
+                                                            name="pw1pw1"
+                                                            title='Período do primeiro sistema de marulhos, expresso em segundos de tempo: 00 a 30'
+                                                        />
+                                                        <input
+                                                            placeholder="Hw1Hw1"
+                                                            aria-label="hw1hw1"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="hw1hw1"
+                                                            //required
+                                                            value={state.hw1hw1}
+                                                            onChange={handleInputChange}
+                                                            name="hw1hw1"
+                                                            title='Altura do primeiro sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -1082,76 +1087,76 @@ export const ObservationList = () => {
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">5Pw2Pw2Hw2Hw2</span>
-                                                            <input
-                                                                placeholder="Pw2Pw2"
-                                                                aria-label="pw2pw2"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="pw2pw2"
-                                                                //required
-                                                                value={state.pw2pw2}
-                                                                onChange={handleInputChange}
-                                                                name="pw2pw2"
-                                                                title='Período do segundo sistema de marulhos, expresso em segundos: 00 a 30'
-                                                            />
-                                                            <input
-                                                                placeholder="Hw2Hw2"
-                                                                aria-label="hw2hw2"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="hw2hw2"
-                                                                //required
-                                                                value={state.hw2hw2}
-                                                                onChange={handleInputChange}
-                                                                name="hw2hw2"
-                                                                title='Altura do segundo sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
-                                                            />
+                                                        <input
+                                                            placeholder="Pw2Pw2"
+                                                            aria-label="pw2pw2"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="pw2pw2"
+                                                            //required
+                                                            value={state.pw2pw2}
+                                                            onChange={handleInputChange}
+                                                            name="pw2pw2"
+                                                            title='Período do segundo sistema de marulhos, expresso em segundos: 00 a 30'
+                                                        />
+                                                        <input
+                                                            placeholder="Hw2Hw2"
+                                                            aria-label="hw2hw2"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="hw2hw2"
+                                                            //required
+                                                            value={state.hw2hw2}
+                                                            onChange={handleInputChange}
+                                                            name="hw2hw2"
+                                                            title='Altura do segundo sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">6IsEsEsRs</span>
-                                                            <input
-                                                                placeholder="Is"
-                                                                aria-label="is"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="is"
-                                                                //required
-                                                                value={state.is}
-                                                                onChange={handleInputChange}
-                                                                name="is"
-                                                                title='Formação de gelo sobre navios: 1 a 5'
-                                                            />
-                                                            <input
-                                                                placeholder="EsEs"
-                                                                aria-label="eses"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="eses"
-                                                                //required
-                                                                value={state.eses}
-                                                                onChange={handleInputChange}
-                                                                name="eses"
-                                                                title='Espessura da camada de gelo em centimetros: 00 a 30'
-                                                            />
-                                                            <input
-                                                                placeholder="Rs"
-                                                                aria-label="rs"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="rs"
-                                                                //required
-                                                                value={state.rs}
-                                                                onChange={handleInputChange}
-                                                                name="rs"
-                                                                title='Taxa de formação de gelo sobre os navios: 0 a 4'
-                                                            />
+                                                        <input
+                                                            placeholder="Is"
+                                                            aria-label="is"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="is"
+                                                            //required
+                                                            value={state.is}
+                                                            onChange={handleInputChange}
+                                                            name="is"
+                                                            title='Formação de gelo sobre navios: 1 a 5'
+                                                        />
+                                                        <input
+                                                            placeholder="EsEs"
+                                                            aria-label="eses"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="eses"
+                                                            //required
+                                                            value={state.eses}
+                                                            onChange={handleInputChange}
+                                                            name="eses"
+                                                            title='Espessura da camada de gelo em centimetros: 00 a 30'
+                                                        />
+                                                        <input
+                                                            placeholder="Rs"
+                                                            aria-label="rs"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="rs"
+                                                            //required
+                                                            value={state.rs}
+                                                            onChange={handleInputChange}
+                                                            name="rs"
+                                                            title='Taxa de formação de gelo sobre os navios: 0 a 4'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -1159,50 +1164,50 @@ export const ObservationList = () => {
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">70HwaHwaHwa</span>
-                                                            <input
-                                                                placeholder="HwaHwaHwa"
-                                                                aria-label="hwahwahwa"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="hwahwahwa"
-                                                                //required
-                                                                value={state.hwahwahwa}
-                                                                onChange={handleInputChange}
-                                                                name="hwahwahwa"
-                                                                title='Altura das ondas medida por instrumento em décimos do metro: 000 a 200'
-                                                            />
+                                                        <input
+                                                            placeholder="HwaHwaHwa"
+                                                            aria-label="hwahwahwa"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="hwahwahwa"
+                                                            //required
+                                                            value={state.hwahwahwa}
+                                                            onChange={handleInputChange}
+                                                            name="hwahwahwa"
+                                                            title='Altura das ondas medida por instrumento em décimos do metro: 000 a 200'
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">8swTbTbTb</span>
-                                                            <input
-                                                                placeholder="sw"
-                                                                aria-label="sw"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="sw"
-                                                                //required
-                                                                value={state.sw}
-                                                                onChange={handleInputChange}
-                                                                name="sw"
-                                                                title='Indicador de sinal e forma de obtenção da temperatura do termômetro de bulbo úmido: 0 a 7'
-                                                            />
-                                                            <input
-                                                                placeholder="TbTbTb"
-                                                                aria-label="tbtbtb"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="tbtbtb"
-                                                                //required
-                                                                value={state.tbtbtb}
-                                                                onChange={handleInputChange}
-                                                                name="tbtbtb"
-                                                                title='Temperatura do termômetro de bulbo úmido em décimos de grau Celsius: 000 a 400'
-                                                            />
+                                                        <input
+                                                            placeholder="sw"
+                                                            aria-label="sw"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="sw"
+                                                            //required
+                                                            value={state.sw}
+                                                            onChange={handleInputChange}
+                                                            name="sw"
+                                                            title='Indicador de sinal e forma de obtenção da temperatura do termômetro de bulbo úmido: 0 a 7'
+                                                        />
+                                                        <input
+                                                            placeholder="TbTbTb"
+                                                            aria-label="tbtbtb"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="tbtbtb"
+                                                            //required
+                                                            value={state.tbtbtb}
+                                                            onChange={handleInputChange}
+                                                            name="tbtbtb"
+                                                            title='Temperatura do termômetro de bulbo úmido em décimos de grau Celsius: 000 a 400'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -1210,71 +1215,71 @@ export const ObservationList = () => {
                                                 <div className="col-6">
                                                     <div className="input-group input-group-sm">
                                                         <span className="input-group-text" id="identify">ICEciSibiDizi</span>
-                                                            <input
-                                                                placeholder="ci"
-                                                                aria-label="ci"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="ci"
-                                                                //required
-                                                                value={state.ci}
-                                                                onChange={handleInputChange}
-                                                                name="ci"
-                                                                title='Concentração ou distribuição do gelo de origem marinha: 0 a 9 ou /'
-                                                            />
-                                                            <input
-                                                                placeholder="Si"
-                                                                aria-label="si"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="si"
-                                                                //required
-                                                                value={state.si}
-                                                                onChange={handleInputChange}
-                                                                name="si"
-                                                                title='Estágio de desenvolvimento: 0 a 9 ou /'
-                                                            />
-                                                            <input
-                                                                placeholder="bi"
-                                                                aria-label="bi"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="bi"
-                                                                //required
-                                                                value={state.bi}
-                                                                onChange={handleInputChange}
-                                                                name="bi"
-                                                                title='Gelo de origem terrestre: 0 a 9 ou /'
-                                                            />
-                                                            <input
-                                                                placeholder="Di"
-                                                                aria-label="di"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="di"
-                                                                //required
-                                                                value={state.di}
-                                                                onChange={handleInputChange}
-                                                                name="di"
-                                                                title='Marcação verdadeira do limite de gelo principal: 0 a 9 ou /'
-                                                            />
-                                                            <input
-                                                                placeholder="zi"
-                                                                aria-label="zi"
-                                                                aria-describedby="basic-addon1"
-                                                                type="text"
-                                                                className="form-control"
-                                                                id="zi"
-                                                                //required
-                                                                value={state.zi}
-                                                                onChange={handleInputChange}
-                                                                name="zi"
-                                                                title='Situação presente do gelo e tendência de condições nas 3 horas precedentes: 0 a 9 ou /'
-                                                            />
+                                                        <input
+                                                            placeholder="ci"
+                                                            aria-label="ci"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="ci"
+                                                            //required
+                                                            value={state.ci}
+                                                            onChange={handleInputChange}
+                                                            name="ci"
+                                                            title='Concentração ou distribuição do gelo de origem marinha: 0 a 9 ou /'
+                                                        />
+                                                        <input
+                                                            placeholder="Si"
+                                                            aria-label="si"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="si"
+                                                            //required
+                                                            value={state.si}
+                                                            onChange={handleInputChange}
+                                                            name="si"
+                                                            title='Estágio de desenvolvimento: 0 a 9 ou /'
+                                                        />
+                                                        <input
+                                                            placeholder="bi"
+                                                            aria-label="bi"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="bi"
+                                                            //required
+                                                            value={state.bi}
+                                                            onChange={handleInputChange}
+                                                            name="bi"
+                                                            title='Gelo de origem terrestre: 0 a 9 ou /'
+                                                        />
+                                                        <input
+                                                            placeholder="Di"
+                                                            aria-label="di"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="di"
+                                                            //required
+                                                            value={state.di}
+                                                            onChange={handleInputChange}
+                                                            name="di"
+                                                            title='Marcação verdadeira do limite de gelo principal: 0 a 9 ou /'
+                                                        />
+                                                        <input
+                                                            placeholder="zi"
+                                                            aria-label="zi"
+                                                            aria-describedby="basic-addon1"
+                                                            type="text"
+                                                            className="form-control"
+                                                            id="zi"
+                                                            //required
+                                                            value={state.zi}
+                                                            onChange={handleInputChange}
+                                                            name="zi"
+                                                            title='Situação presente do gelo e tendência de condições nas 3 horas precedentes: 0 a 9 ou /'
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -1487,15 +1492,20 @@ export const ObservationList = () => {
                                 </div>
                                 {/* </Card> */}
                                 <hr />
-                                <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
-                                <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-toggle="modal">Criar</button>
+                                <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                                <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                                 {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                                <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
-                                <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
+                                <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
+                                <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
                                 <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                                 {access() &&
                                     <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                        {access() && "Acesso negado"}
+                                        {"Acesso negado"}
+                                    </button>
+                                }
+                                {executed() &&
+                                    <button className="btn btn-success btn-sm float-end" type="button" disabled>
+                                        {"Executado"}
                                     </button>
                                 }
                             </article>
@@ -1508,7 +1518,7 @@ export const ObservationList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             {JSON.stringify(error)}
