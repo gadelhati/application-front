@@ -60,6 +60,11 @@ export const OMList = () => {
         error?.map( element => { if("403" == element.field) return allowed = true })
         return allowed
     }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -108,15 +113,20 @@ export const OMList = () => {
                                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                                 </div> */}
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-toggle="modal">Criar</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
                             <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {access() && "Acesso negado"}
+                                    {"Acesso negado"}
+                                </button>
+                            }
+                            {executed() &&
+                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
+                                    {"Executado"}
                                 </button>
                             }
                         </div>

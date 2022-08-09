@@ -1488,10 +1488,10 @@ export const ObservationList = () => {
                                 {/* </Card> */}
                                 <hr />
                                 <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm">Resetar</button>
-                                <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Criar</button>
+                                <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-toggle="modal">Criar</button>
                                 {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                                <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
-                                <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
+                                <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
+                                <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
                                 <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                                 {access() &&
                                     <button className="btn btn-danger btn-sm float-end" type="button" disabled>

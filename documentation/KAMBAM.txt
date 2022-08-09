@@ -3,7 +3,7 @@ X		unique element has already been registered
 DO		filter user by admin domain / view admin / filter by OM
 DO		refresh token
 		add name to person/user/operator/funcion by person
-		question and inform before create/update/delete
+		question before create/update/delete
 		improve observation form
 			jump to next input when max length
 		breadcruns
