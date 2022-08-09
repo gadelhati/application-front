@@ -54,6 +54,11 @@ export const UserList = () => {
         error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
         return vector
     }
+    const access = (): boolean => {
+        let allowed: boolean = false
+        error?.map( element => { if("403" == element.field) return allowed = true })
+        return allowed
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -156,6 +161,11 @@ export const UserList = () => {
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Deletar</button>
                             <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            {access() &&
+                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
+                                    {access() && "Acesso negado"}
+                                </button>
+                            }
                         </div>
                     </div>
                 </div>
