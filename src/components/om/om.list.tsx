@@ -50,21 +50,21 @@ export const OMList = () => {
         dispatch(deleteAction('om', state.id))
         resetItem()
     }
-    const validation = (name: string): string[] => {
-        let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
-        return vector
-    }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
-        return executed
-    }
+    // const validation = (name: string): string[] => {
+    //     let vector: string[] = []
+    //     error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+    //     return vector
+    // }
+    // const access = (): boolean => {
+    //     let allowed: boolean = false
+    //     error?.map( element => { if("403" == element.field) return allowed = true })
+    //     return allowed
+    // }
+    // const executed = (): boolean => {
+    //     let executed: boolean = false
+    //     error?.map( element => { if("" == element.field) return executed = true })
+    //     return executed
+    // }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -82,6 +82,7 @@ export const OMList = () => {
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
+                            {JSON.stringify(error)}
                             <h5 className="modal-title" id="ModalLabel">Organização Militar</h5>
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -92,17 +93,17 @@ export const OMList = () => {
                                     aria-label="name"
                                     aria-describedby="basic-addon1"
                                     type="text"
-                                    className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    // className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
                                     required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
-                                <div className="invalid-feedback">{validation("name")}</div>
+                                {/* <div className="invalid-feedback">{validation("name")}</div> */}
                             </div>
                             {/* <div className="form-floating">
                                     <select className={state.id == "" ? "form-select is-invalid" : "form-select is-valid"} id="floatingSelectGrid" aria-label="Floating label select example">
@@ -114,13 +115,13 @@ export const OMList = () => {
                                     <label htmlFor="floatingSelectGrid">Works with selects</label>
                                 </div> */}
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
+                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" >Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != ""} data-bs-toggle="modal">Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
+                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == ""} data-bs-toggle="modal">Atualizar</button>
+                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == ""} data-bs-toggle="modal">Deletar</button>
                             <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
-                            {access() &&
+                            {/* {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
                                 </button>
@@ -129,7 +130,7 @@ export const OMList = () => {
                                 <button className="btn btn-success btn-sm float-end" type="button" disabled>
                                     {"Executado"}
                                 </button>
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
