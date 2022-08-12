@@ -5,7 +5,7 @@ import { loadInterface } from "./load.interface";
 export const Load = (load: loadInterface) => {
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        load.error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        load.error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
     return (
