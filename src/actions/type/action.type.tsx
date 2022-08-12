@@ -10,7 +10,7 @@ export interface createSuccess<T> {
 }
 export interface createError {
     type: constants.CREATE_ERROR,
-    payload: any
+    payload: ErrorMessage[]
 }
 export interface createAllStart {
     type: constants.CREATE_ALL_START,

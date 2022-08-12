@@ -51,7 +51,7 @@ export const UserList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
     const access = (): boolean => {
@@ -164,7 +164,7 @@ export const UserList = () => {
                             </div>
                             <hr />
                             <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" && executed()} data-bs-toggle="modal">Criar</button>
                             {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>

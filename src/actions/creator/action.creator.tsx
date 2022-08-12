@@ -34,17 +34,17 @@ export const createAction = <T extends {}>(url: string, object: T) => {
                 error.response?.data.errors.forEach((element: any, index: number) => {
                     label.forEach((name: string, index3: number) => {
                         if (element.field == name) {
-                            value.push(element.defaultMessage)
+                            value.push(element.message)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.message)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.CREATE_ERROR,
@@ -86,15 +86,15 @@ export const createAllAction = <T extends {}>(url: string, object: T[]) => {
                         if (element.field == name) {
                             value.push(element.defaultMessage)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.defaultMessage)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.CREATE_ALL_ERROR,
@@ -136,15 +136,15 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
                         if (element.field == name) {
                             value.push(element.defaultMessage)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.message)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.RETRIEVE_ERROR,
@@ -186,15 +186,15 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
                         if (element.field == name) {
                             value.push(element.defaultMessage)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.message)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.RETRIEVE_ALL_ERROR,
@@ -236,15 +236,15 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
                         if (element.field == name) {
                             value.push(element.defaultMessage)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.defaultMessage)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.UPDATE_ERROR,
@@ -286,15 +286,15 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
                         if (element.field == name) {
                             value.push(element.defaultMessage)
                             if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                                errorMessage.push({ field: element.field, message: [element.message] })
                             } else {
-                                errorMessage[index3].defaultMessage.push(element.defaultMessage)
+                                errorMessage[index3].message.push(element.defaultMessage)
                             }
                         }
                     })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
                 type: constants.DELETE_ERROR,

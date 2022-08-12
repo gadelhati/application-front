@@ -55,7 +55,7 @@ export const ObservationList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
+        error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
     }
     const access = (): boolean => {

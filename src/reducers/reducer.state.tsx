@@ -2,7 +2,7 @@ import { ErrorMessage } from "../actions/type/errorMessage";
 
 export interface stateReducer<T> {
     loading: boolean,
-    error: any,
+    error: ErrorMessage[],
     item: T,
     itens: T[],
 }
