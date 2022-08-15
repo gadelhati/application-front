@@ -7,6 +7,7 @@ import { initialInstitution } from './institution.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { CCardBody, CDataTable } from '@coreui/react';
 
 export const InstitutionList = () => {
     const dispatch = useDispatch();
@@ -69,14 +70,40 @@ export const InstitutionList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        // { key: 'country', label: 'País', _style: { width: '10%' } },
+        { key: 'country', label: 'País', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <section>
             <article>
                 <Load title={"Instituições"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                <div className='row'>
+            <div className='col' >
+                <div className='card'>
+                    <CCardBody>
+                        <CDataTable
+                            items={itens}
+                            fields={fields}
+                            columnFilter
+                            
+                            itemsPerPage={8}
+                            hover
+                            striped
+                            sorter
+                            pagination
+                            scopedSlots={{
+                                'country': (item: any) => (<td>{item.country.name}</td>),
+                                'select': (item: any) => (
+                                    <td className="align-bottom">
+                                        <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Selecione</button>
+                                    </td>
+                                ),
+                            }}
+                        />
+                    </CCardBody>
+                </div>
+            </div>
+        </div>
             </article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
