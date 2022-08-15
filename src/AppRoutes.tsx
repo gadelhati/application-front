@@ -21,6 +21,7 @@ import { PlatformList } from "./components/platform/platform.list";
 import { CountryList } from "./components/country/country.list";
 import { EquipmentList } from "./components/equipment/equipment.list";
 import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
+import { InstitutionList } from "./components/institution/intitution.list";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
@@ -50,6 +51,7 @@ export default function AppRoutes() {
                         <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
                         <Route path="/equipment" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<EquipmentList />} />} />
                         <Route path="/manufacturer" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ManufacturerList />} />} />
+                        <Route path="/institution" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<InstitutionList />} />} />
                     </Routes>
                     {/* <Footer /> */}
                 </main>
