@@ -92,7 +92,7 @@ export const InstitutionList = () => {
                             sorter
                             pagination
                             scopedSlots={{
-                                'country': (item: any) => (<td>{item.country.name}</td>),
+                                'country': (item: any) => (<td>{item.country?.name}</td>),
                                 'select': (item: any) => (
                                     <td className="align-bottom">
                                         <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Selecione</button>
