@@ -17,6 +17,7 @@ import { Header } from "./containers/menus/header";
 import { Footer } from "./containers/menus/footer";
 import { initialObservation } from "./components/observation/observation.initial"
 import { ResearcherList } from "./components/researcher/researcher.list";
+import { PlatformList } from "./components/platform/platform.list";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
@@ -42,6 +43,7 @@ export default function AppRoutes() {
                         <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
                         <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
                         <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} />} />
+                        <Route path="/platform" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformList />} />} />
                     </Routes>
                     {/* <Footer /> */}
                 </main>
