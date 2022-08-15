@@ -13,6 +13,7 @@ export const EquipmentList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Equipment>(initialEquipment)
     const { loading, error, itens, item } = useTypedSelector((state) => state.equipments);
+    const itensManufactorer = useTypedSelector((stateManufactorer) => stateManufactorer.manufacturers.itens);
 
     useEffect(() => {
         retrieveAllItem()
@@ -67,6 +68,12 @@ export const EquipmentList = () => {
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
+    }
+    const handleInputChangeSelectManufacturer = (event: ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, [event.target.name]: { id: itensManufactorer[event.target.selectedIndex].id } })
+    }
+    const manufacturerItem = () => {
+        dispatch(retrieveAllAction('manufacturer'))
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
@@ -130,6 +137,16 @@ export const EquipmentList = () => {
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
+                            </div>
+                            <div className="row align-items-start">
+                                <div className="col form-floating">
+                                    <select className="form-select" id="manufacturer" name="manufacturer" aria-label="Floating label select" onChange={handleInputChangeSelectManufacturer} onClick={manufacturerItem} >
+                                        {itensManufactorer.map((object) => (
+                                            <option data-id={object.id} data-value={object}>{object.name}</option>
+                                        ))}
+                                    </select>
+                                    <label className="label" htmlFor="manufacturer">Fabricante</label>
+                                </div>
                             </div>
                             <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>

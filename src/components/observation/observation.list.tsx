@@ -80,12 +80,7 @@ export const ObservationList = () => {
         })
     }
     const handleInputChangeSelectUser = (event: ChangeEvent<HTMLSelectElement>) => {
-        console.log(itensOM.length)
-        setState({
-            ...state, [event.target.name]: {
-                id: itensUser[event.target.selectedIndex].id,
-            }
-        })
+        setState({ ...state, [event.target.name]: { id: itensUser[event.target.selectedIndex].id } })
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
