@@ -133,6 +133,10 @@ export const Sidestrap = (props: any) => {
                             <a href="#/equipment" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Equipamentos</a>
                         </li>
+                        <li>
+                            <a href="#/manufacturer" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Fabricantes</a>
+                        </li>
                         {/* <li>
                             <a href="#/observationadd" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2" /></svg>Observation Add</a>
