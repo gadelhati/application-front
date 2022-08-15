@@ -19,6 +19,7 @@ import { initialObservation } from "./components/observation/observation.initial
 import { ResearcherList } from "./components/researcher/researcher.list";
 import { PlatformList } from "./components/platform/platform.list";
 import { CountryList } from "./components/country/country.list";
+import { EquipmentList } from "./components/equipment/equipment.list";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
@@ -46,6 +47,7 @@ export default function AppRoutes() {
                         <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} />} />
                         <Route path="/platform" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformList />} />} />
                         <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
+                        <Route path="/equipment" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<EquipmentList />} />} />
                     </Routes>
                     {/* <Footer /> */}
                 </main>

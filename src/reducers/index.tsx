@@ -6,6 +6,7 @@ import { observationReducer } from "./observation/observation.reducer"
 import { researcherReducer } from "./researcher/researcher.reducer"
 import { platformReducer } from "./platform/platform.reducer"
 import { countryReducer } from "./country/country.reducer"
+import { equipmentReducer } from "./equipment/equipment.reducer"
 
 export const reducers = combineReducers({ 
     auths: authReducer,
@@ -15,6 +16,7 @@ export const reducers = combineReducers({
     researchers: researcherReducer,
     platforms: platformReducer,
     countries: countryReducer,
+    equipments: equipmentReducer,
 })
 
 export type RootState = ReturnType<typeof reducers>
