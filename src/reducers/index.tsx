@@ -21,6 +21,7 @@ export const reducers = combineReducers({
     equipments: equipmentReducer,
     manufacturers: manufacturerReducer,
     institutions: institutionReducer,
+    platformCategories: platformReducer,
 })
 
 export type RootState = ReturnType<typeof reducers>
