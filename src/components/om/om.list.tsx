@@ -132,63 +132,6 @@ export const OMList = () => {
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <article>
-                <div className='row'>
-                    <div className='col' >
-                        <div className="container">
-                            <div className='row'>
-                                <div className="col-2">
-                                    <div className="input-group input-group-sm mb-3">
-                                        <label className="input-group-text" htmlFor="inputGroupSelect01">mimi</label>
-                                        <select className="form-select" id="inputGroupSelect01">
-                                            <option selected>Choose...</option>
-                                            <option value="aaxx">AAXX</option>
-                                            <option value="bbxx">BBXX</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <div className="input-group input-group-sm mb-3">
-                                        <span className="input-group-text" id="inputGroup-sizing-sm">DDDDDDD</span>
-                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" title="Indicador internacional de chamada" />
-                                        <input type="text" aria-label="First name" className="form-control" />
-                                    </div>
-                                </div>
-                                <div className="col-1">
-                                    <div className="input-group input-group-sm mb-3">
-                                        <span className="input-group-text" id="inputGroup-sizing-sm">YYGGiw</span>
-                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-                                        <input type="text" aria-label="First name" className="form-control" />
-                                    </div>
-                                </div>
-                                <div className="col-1">
-                                    <div className="input-group input-group-sm mb-3">
-                                        <span className="input-group-text" id="inputGroup-sizing-sm">Small</span>
-                                        <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-                                        <input type="text" aria-label="First name" className="form-control" />
-                                        <input type="text" aria-label="Last name" className="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article> */}
         </section>
     );
 }

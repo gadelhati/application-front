@@ -123,21 +123,6 @@ export const PlatformCategoryList = () => {
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
     );
 }
