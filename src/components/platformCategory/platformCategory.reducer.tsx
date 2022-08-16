@@ -1,8 +1,15 @@
-import { initialState } from "./platformCategory.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { PlatformCategory } from "./platformCategory.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialPlatformCategory } from "./platformCategory.initial";
+
+export const initialState: stateReducer<PlatformCategory> = {
+    loading: false,
+    error: null,
+    item: initialPlatformCategory,
+    itens: [],
+}
 
 export const platformCategoryReducer = (state: stateReducer<PlatformCategory> = initialState, action: any ): stateReducer<PlatformCategory> => {
     switch (action.type) {

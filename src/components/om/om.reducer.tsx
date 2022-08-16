@@ -1,9 +1,15 @@
-import { useState } from 'react';
-import { initialState } from "./om.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { OM } from "./om.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialOM } from "./om.initial";
+
+export const initialState: stateReducer<OM> = {
+    loading: false,
+    error: null,
+    item: initialOM,
+    itens: [],
+}
 
 export const omReducer = (state: stateReducer<OM> = initialState, action: any ): stateReducer<OM> => {
     switch (action.type) {

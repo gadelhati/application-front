@@ -1,8 +1,15 @@
-import { initialState } from "./country.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Country } from "./country.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialCountry } from "./country.initial";
+
+export const initialState: stateReducer<Country> = {
+    loading: false,
+    error: null,
+    item: initialCountry,
+    itens: [],
+}
 
 export const countryReducer = (state: stateReducer<Country> = initialState, action: any ): stateReducer<Country> => {
     switch (action.type) {

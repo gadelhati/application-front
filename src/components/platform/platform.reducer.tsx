@@ -1,8 +1,15 @@
-import { initialState } from "./platform.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Platform } from "./platform.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialPlatform } from "./platform.initial";
+
+export const initialState: stateReducer<Platform> = {
+    loading: false,
+    error: null,
+    item: initialPlatform,
+    itens: [],
+}
 
 export const platformReducer = (state: stateReducer<Platform> = initialState, action: any ): stateReducer<Platform> => {
     switch (action.type) {

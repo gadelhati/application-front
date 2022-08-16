@@ -1,9 +1,15 @@
-import { useState } from 'react';
-import { initialState } from "./researcher.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Researcher } from "./researcher.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialResearcher } from "./researcher.initial";
+
+export const initialState: stateReducer<Researcher> = {
+    loading: false,
+    error: null,
+    item: initialResearcher,
+    itens: [],
+}
 
 export const researcherReducer = (state: stateReducer<Researcher> = initialState, action: any ): stateReducer<Researcher> => {
     switch (action.type) {

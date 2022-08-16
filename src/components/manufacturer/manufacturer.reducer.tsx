@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { initialState } from "./manufacturer.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Manufacturer } from "./manufacturer.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialManufacturer } from './manufacturer.initial';
+
+const initialState: stateReducer<Manufacturer> = {
+    loading: false,
+    error: null,
+    item: initialManufacturer,
+    itens: [],
+}
 
 export const manufacturerReducer = (state: stateReducer<Manufacturer> = initialState, action: any ): stateReducer<Manufacturer> => {
     switch (action.type) {

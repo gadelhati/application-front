@@ -1,8 +1,15 @@
-import { initialState } from "./institution.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Institution } from "./institution.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialInstitution } from "./institution.initial";
+
+export const initialState: stateReducer<Institution> = {
+    loading: false,
+    error: null,
+    item: initialInstitution,
+    itens: [],
+}
 
 export const institutionReducer = (state: stateReducer<Institution> = initialState, action: any ): stateReducer<Institution> => {
     switch (action.type) {

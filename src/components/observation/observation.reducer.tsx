@@ -1,8 +1,15 @@
-import { initialState } from "./observation.state.initial";
 import { constants } from "../../reducers/constants"
 import { Observation } from "./observation.interface";
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { initialErrorMessage } from "../../assets/error/errorMessage.initial";
+import { initialObservation } from "./observation.initial";
+
+export const initialState: stateReducer<Observation> = {
+    loading: false,
+    error: null,
+    item: initialObservation,
+    itens: [],
+}
 
 export const observationReducer = (state: stateReducer<Observation> = initialState, action: any ): stateReducer<Observation> => {
     switch (action.type) {

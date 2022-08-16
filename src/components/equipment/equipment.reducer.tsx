@@ -1,8 +1,15 @@
-import { initialState } from "./equipment.state.initial";
 import { constants } from "../../reducers/constants"
 import { stateReducer } from "../../reducers/reducers/reducer.state";
 import { Equipment } from "../../components/equipment/equipment.interface";
 import { initialErrorMessage } from '../../assets/error/errorMessage.initial';
+import { initialEquipment } from "./equipment.initial";
+
+export const initialState: stateReducer<Equipment> = {
+    loading: false,
+    error: null,
+    item: initialEquipment,
+    itens: [],
+}
 
 export const equipmentReducer = (state: stateReducer<Equipment> = initialState, action: any ): stateReducer<Equipment> => {
     switch (action.type) {
