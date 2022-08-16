@@ -2,6 +2,7 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createActionM, createAllActionM, retrieveActionM, retrieveAllActionM, updateActionM, deleteActionM } from '../../actions/creator/action.creator.manufacturer';
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
 import '../list.css'
@@ -13,7 +14,7 @@ export const EquipmentList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Equipment>(initialEquipment)
     const { loading, error, itens, item } = useTypedSelector((state) => state.equipments);
-    const itensManufactorer = useTypedSelector((stateManufactorer) => stateManufactorer.manufacturers.itens);
+    const itensManufactorer = useTypedSelector((stateManufactorer) => stateManufactorer.manufacturers.manufactureris);
 
     useEffect(() => {
         retrieveAllItem()
@@ -41,6 +42,7 @@ export const EquipmentList = () => {
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('equipment'))
+        dispatch(retrieveAllActionM('manufacturer'))
         resetItem()
     }
     const updateItem = () => {
@@ -73,7 +75,7 @@ export const EquipmentList = () => {
         setState({ ...state, [event.target.name]: { id: itensManufactorer[event.target.selectedIndex].id } })
     }
     const manufacturerItem = () => {
-        dispatch(retrieveAllAction('manufacturer'))
+        dispatch(retrieveAllActionM('manufacturer'))
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
@@ -83,6 +85,7 @@ export const EquipmentList = () => {
     return (
         <section>
             <article>
+                {itens.length}{itensManufactorer.length}
                 <Load title={"Equipamento"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
                     <div className='col' >

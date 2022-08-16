@@ -11,14 +11,14 @@ import { DataTable } from '../../containers/datatable/datatable';
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Manufacturer>(initialManufacturer)
-    const { loading, error, itens, item } = useTypedSelector((state) => state.manufacturers);
+    const { manufacturerl, manufacturere, manufactureri, manufactureris } = useTypedSelector((state) => state.manufacturers);
 
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
     useEffect(() => {
         
-    }, [error])
+    }, [manufacturere])
     const selectItem = (object: Manufacturer) => {
         setState(object)
     }
@@ -27,11 +27,11 @@ export const ManufacturerList = () => {
     }
     const createItem = () => {
         dispatch(createAction<Manufacturer>('manufacturer', state))
-        if(item == null) resetItem()
+        if(manufactureris == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<Manufacturer>('manufacturer', [state]))
-        if(item == null) resetItem()
+        if(manufactureris == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('manufacturer', state.id))
@@ -43,7 +43,7 @@ export const ManufacturerList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('manufacturer', state.id, state))
-        if(item == null) resetItem()
+        if(manufactureris == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('manufacturer', state.id))
@@ -51,17 +51,17 @@ export const ManufacturerList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.message })
+        manufacturere?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
     const access = (): boolean => {
         let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
+        manufacturere?.map( element => { if("403" == element.field) return allowed = true })
         return allowed
     }
     const executed = (): boolean => {
         let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
+        manufacturere?.map( element => { if("" == element.field) return executed = true })
         return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -75,8 +75,8 @@ export const ManufacturerList = () => {
     return (
         <section>
             <article>
-                <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                <Load title={"Fabricantes"} loading={manufacturerl} itens={manufactureris.length} resetItem={resetItem} />
+                <DataTable itens={manufactureris} fields={fields} selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
@@ -132,7 +132,7 @@ export const ManufacturerList = () => {
                             <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            {JSON.stringify(error)}
+                            {JSON.stringify(manufacturere)}
                             <hr />
                             <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
