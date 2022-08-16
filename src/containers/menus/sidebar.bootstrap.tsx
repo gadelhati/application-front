@@ -117,6 +117,34 @@ export const Sidestrap = (props: any) => {
                             <a href="#/users" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Usários</a>
                         </li>
+                        <li>
+                            <a href="#/researcher" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Pesquisador</a>
+                        </li>
+                        <li>
+                            <a href="#/platform" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Plataforma</a>
+                        </li>
+                        <li>
+                            <a href="#/country" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Países</a>
+                        </li>
+                        <li>
+                            <a href="#/equipment" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Equipamentos</a>
+                        </li>
+                        <li>
+                            <a href="#/manufacturer" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Fabricantes</a>
+                        </li>
+                        <li>
+                            <a href="#/institution" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Instituições</a>
+                        </li>
+                        <li>
+                            <a href="#/platformCategory" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Tipos de Plataforma</a>
+                        </li>
                         {/* <li>
                             <a href="#/observationadd" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2" /></svg>Observation Add</a>

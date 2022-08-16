@@ -16,6 +16,13 @@ import { UserSignin } from "./components/user/user.signin";
 import { Header } from "./containers/menus/header";
 import { Footer } from "./containers/menus/footer";
 import { initialObservation } from "./components/observation/observation.initial"
+import { ResearcherList } from "./components/researcher/researcher.list";
+import { PlatformList } from "./components/platform/platform.list";
+import { CountryList } from "./components/country/country.list";
+import { EquipmentList } from "./components/equipment/equipment.list";
+import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
+import { InstitutionList } from "./components/institution/intitution.list";
+import { PlatformCategoryList } from "./components/platformCategory/platformCaterory.list";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
@@ -40,6 +47,13 @@ export default function AppRoutes() {
                         <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
                         <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
                         <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
+                        <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} />} />
+                        <Route path="/platform" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformList />} />} />
+                        <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
+                        <Route path="/equipment" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<EquipmentList />} />} />
+                        <Route path="/manufacturer" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ManufacturerList />} />} />
+                        <Route path="/institution" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<InstitutionList />} />} />
+                        <Route path="/platformCategory" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformCategoryList />} />} />
                     </Routes>
                     {/* <Footer /> */}
                 </main>
