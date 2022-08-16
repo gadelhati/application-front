@@ -1,53 +1,51 @@
-import { useState } from 'react';
 import { initialState } from "./institution.state.initial";
 import { constants } from "../../assets/types/constants"
-import { createStart, createSuccess, createError, createAllStart, createAllSuccess, createAllError, retrieveAllStart, retrieveAllSuccess, retrieveAllError, retrieveStart, retrieveSuccess, retrieveError, updateStart, updateSuccess, updateError, deleteStart, deleteSuccess, deleteError } from "../../actions/type/action.type"
 import { stateReducer } from "../reducer.state";
 import { Institution } from "../../components/institution/institution.interface";
 import { initialErrorMessage } from '../../actions/type/errorMessage.initial';
 
-export const institutionReducer = (state: stateReducer<Institution> = initialState, action: createStart | createSuccess<Institution> | createError | createAllStart | createAllSuccess<Institution> | createAllError | retrieveAllStart | retrieveAllSuccess<Institution> | retrieveAllError | retrieveStart | retrieveSuccess<Institution> | retrieveError | updateStart | updateSuccess<Institution> | updateError | deleteStart | deleteSuccess<Institution> | deleteError ): stateReducer<Institution> => {
+export const institutionReducer = (state: stateReducer<Institution> = initialState, action: any ): stateReducer<Institution> => {
     switch (action.type) {
-        case constants.CREATE_START:
+        case constants.CREATE_START+"institution":
             return { ...state, error: null, loading: true }
-        case constants.CREATE_SUCCESS:
+        case constants.CREATE_SUCCESS+"institution":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens as Institution[], action.payload as Institution], item: action.payload as Institution }
-        case constants.CREATE_ERROR:
+        case constants.CREATE_ERROR+"institution":
             return { ...state, error: action.payload, loading: false }
 
-        case constants.RETRIEVE_ALL_START:
+        case constants.RETRIEVE_ALL_START+"institution":
             return { ...state, error: null, loading: true }
-        case constants.RETRIEVE_ALL_SUCCESS:
+        case constants.RETRIEVE_ALL_SUCCESS+"institution":
             return { ...state, error: null, loading: false, itens: action.payload as Institution[] }
-        case constants.RETRIEVE_ALL_ERROR:
+        case constants.RETRIEVE_ALL_ERROR+"institution":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.RETRIEVE_START:
+        // case constants.RETRIEVE_START+"institution":
         //     return { ...state, error: null, loading: true }
-        // case constants.RETRIEVE_SUCCESS:
+        // case constants.RETRIEVE_SUCCESS+"institution":
         //     return { ...state, error: null, loading: false, itens: [...state.itens], item: action.payload }
-        // case constants.RETRIEVE_ERROR:
+        // case constants.RETRIEVE_ERROR+"institution":
         //     return { ...state, error: action.payload, loading: false, itens: [], item: {} }
 
-        case constants.UPDATE_START:
+        case constants.UPDATE_START+"institution":
             return { ...state, error: null, loading: true }
-        case constants.UPDATE_SUCCESS:
+        case constants.UPDATE_SUCCESS+"institution":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.id !== action.payload.id), action.payload], item: action.payload }
-        case constants.UPDATE_ERROR:
+        case constants.UPDATE_ERROR+"institution":
             return { ...state, error: action.payload, loading: false }
 
-        case constants.DELETE_START:
+        case constants.DELETE_START+"institution":
             return { ...state, error: null, loading: true }
-        case constants.DELETE_SUCCESS:
+        case constants.DELETE_SUCCESS+"institution":
             return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens.filter(item => item.id !== action.payload.id) }
-        case constants.DELETE_ERROR:
+        case constants.DELETE_ERROR+"institution":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.DELETE_ALL_START:
+        // case constants.DELETE_ALL_START+"institution":
         //     return { ...state, error: null, loading: true }
-        // case constants.DELETE_ALL_SUCCESS:
+        // case constants.DELETE_ALL_SUCCESS+"institution":
         //     return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens }
-        // case constants.DELETE_ALL_ERROR:
+        // case constants.DELETE_ALL_ERROR+"institution":
         //     return { ...state, error: action.payload, loading: false }
 
         default:

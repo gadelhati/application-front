@@ -1,53 +1,51 @@
-import { useState } from 'react';
 import { initialState } from "./platform.state.initial";
 import { constants } from "../../assets/types/constants"
-import { createStart, createSuccess, createError, createAllStart, createAllSuccess, createAllError, retrieveAllStart, retrieveAllSuccess, retrieveAllError, retrieveStart, retrieveSuccess, retrieveError, updateStart, updateSuccess, updateError, deleteStart, deleteSuccess, deleteError } from "../../actions/type/action.type"
 import { stateReducer } from "../reducer.state";
 import { Platform } from "../../components/platform/platform.interface";
 import { initialErrorMessage } from '../../actions/type/errorMessage.initial';
 
-export const platformReducer = (state: stateReducer<Platform> = initialState, action: createStart | createSuccess<Platform> | createError | createAllStart | createAllSuccess<Platform> | createAllError | retrieveAllStart | retrieveAllSuccess<Platform> | retrieveAllError | retrieveStart | retrieveSuccess<Platform> | retrieveError | updateStart | updateSuccess<Platform> | updateError | deleteStart | deleteSuccess<Platform> | deleteError ): stateReducer<Platform> => {
+export const platformReducer = (state: stateReducer<Platform> = initialState, action: any ): stateReducer<Platform> => {
     switch (action.type) {
-        case constants.CREATE_START:
+        case constants.CREATE_START+"platform":
             return { ...state, error: null, loading: true }
-        case constants.CREATE_SUCCESS:
+        case constants.CREATE_SUCCESS+"platform":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens as Platform[], action.payload as Platform], item: action.payload as Platform }
-        case constants.CREATE_ERROR:
+        case constants.CREATE_ERROR+"platform":
             return { ...state, error: action.payload, loading: false }
 
-        case constants.RETRIEVE_ALL_START:
+        case constants.RETRIEVE_ALL_START+"platform":
             return { ...state, error: null, loading: true }
-        case constants.RETRIEVE_ALL_SUCCESS:
+        case constants.RETRIEVE_ALL_SUCCESS+"platform":
             return { ...state, error: null, loading: false, itens: action.payload as Platform[] }
-        case constants.RETRIEVE_ALL_ERROR:
+        case constants.RETRIEVE_ALL_ERROR+"platform":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.RETRIEVE_START:
+        // case constants.RETRIEVE_START+"platform":
         //     return { ...state, error: null, loading: true }
-        // case constants.RETRIEVE_SUCCESS:
+        // case constants.RETRIEVE_SUCCESS+"platform":
         //     return { ...state, error: null, loading: false, itens: [...state.itens], item: action.payload }
-        // case constants.RETRIEVE_ERROR:
+        // case constants.RETRIEVE_ERROR+"platform":
         //     return { ...state, error: action.payload, loading: false, itens: [], item: {} }
 
-        case constants.UPDATE_START:
+        case constants.UPDATE_START+"platform":
             return { ...state, error: null, loading: true }
-        case constants.UPDATE_SUCCESS:
+        case constants.UPDATE_SUCCESS+"platform":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.id !== action.payload.id), action.payload], item: action.payload }
-        case constants.UPDATE_ERROR:
+        case constants.UPDATE_ERROR+"platform":
             return { ...state, error: action.payload, loading: false }
 
-        case constants.DELETE_START:
+        case constants.DELETE_START+"platform":
             return { ...state, error: null, loading: true }
-        case constants.DELETE_SUCCESS:
+        case constants.DELETE_SUCCESS+"platform":
             return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens.filter(item => item.id !== action.payload.id) }
-        case constants.DELETE_ERROR:
+        case constants.DELETE_ERROR+"platform":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.DELETE_ALL_START:
+        // case constants.DELETE_ALL_START+"platform":
         //     return { ...state, error: null, loading: true }
-        // case constants.DELETE_ALL_SUCCESS:
+        // case constants.DELETE_ALL_SUCCESS+"platform":
         //     return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens }
-        // case constants.DELETE_ALL_ERROR:
+        // case constants.DELETE_ALL_ERROR+"platform":
         //     return { ...state, error: action.payload, loading: false }
 
         default:

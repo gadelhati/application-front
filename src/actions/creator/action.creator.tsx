@@ -1,18 +1,16 @@
-import { Dispatch } from "redux";
-import { createStart, createSuccess, createError, createAllStart, createAllSuccess, createAllError, retrieveAllStart, retrieveAllSuccess, retrieveAllError, retrieveStart, retrieveSuccess, retrieveError, updateStart, updateSuccess, updateError, deleteStart, deleteSuccess, deleteError, deleteAllStart, deleteAllSuccess, deleteAllError } from "../type/action.type";
 import { constants } from "../../assets/types/constants";
 import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service"
 import { ErrorMessage } from "../type/errorMessage";
 
 export const createAction = <T extends {}>(url: string, object: T) => {
-    return async (dispatch: Dispatch<createStart | createSuccess<T> | createError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.CREATE_START
+            type: constants.CREATE_START+url
         });
         try {
             const { data } = await create<T>(url, object);
             dispatch({
-                type: constants.CREATE_SUCCESS,
+                type: constants.CREATE_SUCCESS+url,
                 payload: data
             })
         } catch(error: any) {
@@ -47,7 +45,7 @@ export const createAction = <T extends {}>(url: string, object: T) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.CREATE_ERROR,
+                type: constants.CREATE_ERROR+url,
                 payload: errorMessage
             });
         }
@@ -55,14 +53,14 @@ export const createAction = <T extends {}>(url: string, object: T) => {
 }
 
 export const createAllAction = <T extends {}>(url: string, object: T[]) => {
-    return async (dispatch: Dispatch<createAllStart | createAllSuccess<T> | createAllError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.CREATE_ALL_START
+            type: constants.CREATE_ALL_START+url
         });
         try {
             const { data } = await createAll<T>(url, object);
             dispatch({
-                type: constants.CREATE_ALL_SUCCESS,
+                type: constants.CREATE_ALL_SUCCESS+url,
                 payload: data
             })
         } catch (error: any) {
@@ -97,7 +95,7 @@ export const createAllAction = <T extends {}>(url: string, object: T[]) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.CREATE_ALL_ERROR,
+                type: constants.CREATE_ALL_ERROR+url,
                 payload: errorMessage
             });
         }
@@ -105,14 +103,14 @@ export const createAllAction = <T extends {}>(url: string, object: T[]) => {
 }
 
 export const retrieveAction = <T extends {}>(url: string, id: string) => {
-    return async (dispatch: Dispatch<retrieveStart | retrieveSuccess<T> | retrieveError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.RETRIEVE_START
+            type: constants.RETRIEVE_START+url
         });
         try {
             const { data } = await retrieve<T>(url, id)
             dispatch({
-                type: constants.RETRIEVE_SUCCESS,
+                type: constants.RETRIEVE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -147,7 +145,7 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.RETRIEVE_ERROR,
+                type: constants.RETRIEVE_ERROR+url,
                 payload: errorMessage
             });
         }
@@ -155,14 +153,14 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
 }
 
 export const retrieveAllAction = <T extends {}>(url: string) => {
-    return async (dispatch: Dispatch<retrieveAllStart | retrieveAllSuccess<T> | retrieveAllError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.RETRIEVE_ALL_START
+            type: constants.RETRIEVE_ALL_START+url
         });
         try {
             const { data } = await getRetrieve<T>(url)
             dispatch({
-                type: constants.RETRIEVE_ALL_SUCCESS,
+                type: constants.RETRIEVE_ALL_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -197,7 +195,7 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.RETRIEVE_ALL_ERROR,
+                type: constants.RETRIEVE_ALL_ERROR+url,
                 payload: errorMessage
             });
         }
@@ -205,14 +203,14 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
 }
 
 export const updateAction = <T extends {}>(url: string, id: string, object: T) => {
-    return async (dispatch: Dispatch<updateStart | updateSuccess<T> | updateError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.UPDATE_START
+            type: constants.UPDATE_START+url
         });
         try {
             const { data } = await update<T>(url, id, object);
             dispatch({
-                type: constants.UPDATE_SUCCESS,
+                type: constants.UPDATE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -247,7 +245,7 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.UPDATE_ERROR,
+                type: constants.UPDATE_ERROR+url,
                 payload: errorMessage
             });
         }
@@ -255,14 +253,14 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
 }
 
 export const deleteAction = <T extends {}>(url: string, id: string) => {
-    return async (dispatch: Dispatch<deleteStart | deleteSuccess<T> | deleteError>) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constants.DELETE_START
+            type: constants.DELETE_START+url
         });
         try {
             const { data } = await remove<T>(url, id);
             dispatch({
-                type: constants.DELETE_SUCCESS,
+                type: constants.DELETE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -297,7 +295,7 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constants.DELETE_ERROR,
+                type: constants.DELETE_ERROR+url,
                 payload: errorMessage
             });
         }
