@@ -141,7 +141,7 @@ export const ResearcherList = () => {
                                 <label htmlFor="address">Endereço</label>
                                 <div className="invalid-feedback">{validation("address")}</div>
                             </div>
-                            <button className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>

@@ -7,6 +7,12 @@ import { initialManufacturer } from './manufacturer.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { styled } from '@stitches/react';
+import "./gadelhastrap.css"
+
+const Gadelha = styled('div', {
+    height: 1.25,
+});
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
@@ -89,12 +95,10 @@ export const ManufacturerList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
                                     aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -104,7 +108,7 @@ export const ManufacturerList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <button className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
