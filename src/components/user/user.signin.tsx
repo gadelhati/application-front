@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { signinAction, logoutAction, refreshTokenAction } from '../../actions/creator/action.creator.auth'
+import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth'
 import { User } from "./user.interface";
 import { Auth } from "../auth/auth.interface";
 import { initialUser } from './user.initial';

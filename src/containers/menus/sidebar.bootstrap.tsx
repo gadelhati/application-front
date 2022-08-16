@@ -4,7 +4,7 @@ import "./sidebars.css"
 import "../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.js';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"
-import { signinAction, logoutAction, refreshTokenAction } from '../../actions/creator/action.creator.auth';
+import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth';
 import logo from '../../assets/image/heraldica.png'
 import person from '../../assets/image/logo/icon_person2.png'
 

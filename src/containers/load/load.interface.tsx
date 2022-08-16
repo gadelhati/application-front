@@ -1,4 +1,4 @@
-import { ErrorMessage } from "../../actions/type/errorMessage";
+import { ErrorMessage } from "../../assets/error/errorMessage";
 
 export interface loadInterface {
     resetItem: any,

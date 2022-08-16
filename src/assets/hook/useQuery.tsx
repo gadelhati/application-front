@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { useState, useEffect } from "react";
-import { api } from "../../api/api";
+import { api } from "../api/api";
 
 export function useQuery<T = unknown>(url: string, options?: AxiosRequestConfig){
     const [ data, setData ] = useState<T | null>(null)

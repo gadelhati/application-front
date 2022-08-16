@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
-import { retrieveAllAction as retrieveAllActionM } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction as retrieveAllActionM } from '../../reducers/actions/action.creator';
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
 import '../list.css'
@@ -85,7 +85,6 @@ export const EquipmentList = () => {
     return (
         <section>
             <article>
-                {itens.length}{itensManufactorer.length}
                 <Load title={"Equipamento"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
                     <div className='col' >

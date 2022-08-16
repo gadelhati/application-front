@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import '../list.css'
