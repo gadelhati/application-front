@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { createStartManufacturer, createSuccessManufacturer, createErrorManufacturer, createAllStartManufacturer, createAllSuccessManufacturer, createAllErrorManufacturer, retrieveAllStartManufacturer, retrieveAllSuccessManufacturer, retrieveAllErrorManufacturer, retrieveStartManufacturer, retrieveSuccessManufacturer, retrieveErrorManufacturer, updateStartManufacturer, updateSuccessManufacturer, updateErrorManufacturer, deleteStartManufacturer, deleteSuccessManufacturer, deleteErrorManufacturer, deleteAllStartManufacturer, deleteAllSuccessManufacturer, deleteAllErrorManufacturer } from "../type/action.type.manufacturer";
 import { constantsM } from "../../assets/types/constants.manufacturer";
-import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service.manufacturer"
+import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service"
 import { ErrorMessage } from "../type/errorMessage";
 import { Manufacturer } from "../../components/manufacturer/manufacturer.interface";
 
@@ -11,7 +11,7 @@ export const createActionM = <T extends {}>(url: string, object: Manufacturer) =
             type: constantsM.CREATE_STARTM
         });
         try {
-            const { data } = await create(url, object);
+            const { data } = await create<Manufacturer>(url, object);
             dispatch({
                 type: constantsM.CREATE_SUCCESSM,
                 payload: data
@@ -61,7 +61,7 @@ export const createAllActionM = (url: string, object: Manufacturer[]) => {
             type: constantsM.CREATE_ALL_STARTM
         });
         try {
-            const { data } = await createAll(url, object);
+            const { data } = await createAll<Manufacturer>(url, object);
             dispatch({
                 type: constantsM.CREATE_ALL_SUCCESSM,
                 payload: data
@@ -111,7 +111,7 @@ export const retrieveActionM = (url: string, id: string) => {
             type: constantsM.RETRIEVE_STARTM
         });
         try {
-            const { data } = await retrieve(url, id)
+            const { data } = await retrieve<Manufacturer>(url, id)
             dispatch({
                 type: constantsM.RETRIEVE_SUCCESSM,
                 payload: data
@@ -161,7 +161,7 @@ export const retrieveAllActionM = (url: string) => {
             type: constantsM.RETRIEVE_ALL_STARTM
         });
         try {
-            const { data } = await getRetrieve(url)
+            const { data } = await getRetrieve<Manufacturer>(url)
             dispatch({
                 type: constantsM.RETRIEVE_ALL_SUCCESSM,
                 payload: data
@@ -211,7 +211,7 @@ export const updateActionM = <T extends {}>(url: string, id: string, object: Man
             type: constantsM.UPDATE_STARTM
         });
         try {
-            const { data } = await update(url, id, object);
+            const { data } = await update<Manufacturer>(url, id, object);
             dispatch({
                 type: constantsM.UPDATE_SUCCESSM,
                 payload: data
@@ -261,7 +261,7 @@ export const deleteActionM = (url: string, id: string) => {
             type: constantsM.DELETE_STARTM
         });
         try {
-            const { data } = await remove(url, id);
+            const { data } = await remove<Manufacturer>(url, id);
             dispatch({
                 type: constantsM.DELETE_SUCCESSM,
                 payload: data

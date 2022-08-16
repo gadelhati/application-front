@@ -14,7 +14,7 @@ export const EquipmentList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Equipment>(initialEquipment)
     const { loading, error, itens, item } = useTypedSelector((state) => state.equipments);
-    const itensManufactorer = useTypedSelector((stateManufactorer) => stateManufactorer.manufacturers.manufactureris);
+    const itensManufactorer = useTypedSelector((stateManufactorer) => stateManufactorer.manufacturers.itens);
 
     useEffect(() => {
         retrieveAllItem()
