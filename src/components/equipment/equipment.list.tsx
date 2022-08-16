@@ -2,7 +2,7 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
-import { createActionM, createAllActionM, retrieveActionM, retrieveAllActionM, updateActionM, deleteActionM } from '../../actions/creator/action.creator.manufacturer';
+import { retrieveAllActionM } from '../../actions/creator/action.creator.manufacturer';
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
 import '../list.css'

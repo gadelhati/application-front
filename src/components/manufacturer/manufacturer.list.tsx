@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createActionM, createAllActionM, retrieveActionM, retrieveAllActionM, updateActionM, deleteActionM } from '../../actions/creator/action.creator.manufacturer';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
 import '../list.css'
@@ -26,27 +26,27 @@ export const ManufacturerList = () => {
         setState(initialManufacturer)
     }
     const createItem = () => {
-        dispatch(createAction<Manufacturer>('manufacturer', state))
+        dispatch(createActionM<Manufacturer>('manufacturer', state))
         if(itens == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction<Manufacturer>('manufacturer', [state]))
+        dispatch(createAllActionM<Manufacturer>('manufacturer', [state]))
         if(itens == null) resetItem()
     }
     const retrieveItem = () => {
-        dispatch(retrieveAction('manufacturer', state.id))
+        dispatch(retrieveActionM('manufacturer', state.id))
         resetItem()
     }
     const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('manufacturer'))
+        dispatch(retrieveAllActionM('manufacturer'))
         resetItem()
     }
     const updateItem = () => {
-        dispatch(updateAction('manufacturer', state.id, state))
+        dispatch(updateActionM('manufacturer', state.id, state))
         if(itens == null) resetItem()
     }
     const deleteItem = () => {
-        dispatch(deleteAction('manufacturer', state.id))
+        dispatch(deleteActionM('manufacturer', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {

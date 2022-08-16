@@ -1,53 +1,53 @@
 import { useState } from 'react';
 import { initialState } from "./manufacturer.state.initial";
-import { constantsM } from "../../assets/types/constants.manufacturer"
-import { createStartManufacturer, createSuccessManufacturer, createErrorManufacturer, createAllStartManufacturer, createAllSuccessManufacturer, createAllErrorManufacturer, retrieveAllStartManufacturer, retrieveAllSuccessManufacturer, retrieveAllErrorManufacturer, retrieveStartManufacturer, retrieveSuccessManufacturer, retrieveErrorManufacturer, updateStartManufacturer, updateSuccessManufacturer, updateErrorManufacturer, deleteStartManufacturer, deleteSuccessManufacturer, deleteErrorManufacturer } from "../../actions/type/action.type.manufacturer"
+import { constants } from "../../assets/types/constants"
+// import { action } from "../../actions/type/action.type.manufacturer"
 import { stateReducer } from "../reducer.state";
 import { Manufacturer } from "../../components/manufacturer/manufacturer.interface";
 import { initialErrorMessage } from '../../actions/type/errorMessage.initial';
 
-export const manufacturerReducer = (state: stateReducer<Manufacturer> = initialState, action: createStartManufacturer | createSuccessManufacturer<Manufacturer> | createErrorManufacturer | createAllStartManufacturer | createAllSuccessManufacturer<Manufacturer> | createAllErrorManufacturer | retrieveAllStartManufacturer | retrieveAllSuccessManufacturer<Manufacturer> | retrieveAllErrorManufacturer | retrieveStartManufacturer | retrieveSuccessManufacturer<Manufacturer> | retrieveErrorManufacturer | updateStartManufacturer | updateSuccessManufacturer<Manufacturer> | updateErrorManufacturer | deleteStartManufacturer | deleteSuccessManufacturer<Manufacturer> | deleteErrorManufacturer ): stateReducer<Manufacturer> => {
+export const manufacturerReducer = (state: stateReducer<Manufacturer> = initialState, action: any ): stateReducer<Manufacturer> => {
     switch (action.type) {
-        case constantsM.CREATE_STARTM:
+        case constants.CREATE_START+"manufacturer":
             return { ...state, error: null, loading: true }
-        case constantsM.CREATE_SUCCESSM:
+        case constants.CREATE_SUCCESS+"manufacturer":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens as Manufacturer[], action.payload as Manufacturer], item: action.payload as Manufacturer }
-        case constantsM.CREATE_ERRORM:
+        case constants.CREATE_ERROR+"manufacturer":
             return { ...state, error: action.payload, loading: false }
 
-        case constantsM.RETRIEVE_ALL_STARTM:
+        case constants.RETRIEVE_ALL_START+"manufacturer":
             return { ...state, error: null, loading: true }
-        case constantsM.RETRIEVE_ALL_SUCCESSM:
+        case constants.RETRIEVE_ALL_SUCCESS+"manufacturer":
             return { ...state, error: null, loading: false, itens: action.payload as Manufacturer[] }
-        case constantsM.RETRIEVE_ALL_ERRORM:
+        case constants.RETRIEVE_ALL_ERROR+"manufacturer":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.RETRIEVE_START:
+        // case constants.RETRIEVE_START+"manufacturer":
         //     return { ...state, error: null, loading: true }
-        // case constants.RETRIEVE_SUCCESS:
+        // case constants.RETRIEVE_SUCCESS+"manufacturer":
         //     return { ...state, error: null, loading: false, itens: [...state.itens], item: action.payload }
-        // case constants.RETRIEVE_ERROR:
+        // case constants.RETRIEVE_ERROR+"manufacturer":
         //     return { ...state, error: action.payload, loading: false, itens: [], item: {} }
 
-        case constantsM.UPDATE_STARTM:
+        case constants.UPDATE_START+"manufacturer":
             return { ...state, error: null, loading: true }
-        case constantsM.UPDATE_SUCCESSM:
+        case constants.UPDATE_SUCCESS+"manufacturer":
             return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.id !== action.payload.id), action.payload], item: action.payload }
-        case constantsM.UPDATE_ERRORM:
+        case constants.UPDATE_ERROR+"manufacturer":
             return { ...state, error: action.payload, loading: false }
 
-        case constantsM.DELETE_STARTM:
+        case constants.DELETE_START+"manufacturer":
             return { ...state, error: null, loading: true }
-        case constantsM.DELETE_SUCCESSM:
+        case constants.DELETE_SUCCESS+"manufacturer":
             return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens.filter(item => item.id !== action.payload.id) }
-        case constantsM.DELETE_ERRORM:
+        case constants.DELETE_ERROR+"manufacturer":
             return { ...state, error: action.payload, loading: false }
 
-        // case constants.DELETE_ALL_START:
+        // case constants.DELETE_ALL_START+"manufacturer":
         //     return { ...state, error: null, loading: true }
-        // case constants.DELETE_ALL_SUCCESS:
+        // case constants.DELETE_ALL_SUCCESS+"manufacturer":
         //     return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens }
-        // case constants.DELETE_ALL_ERROR:
+        // case constants.DELETE_ALL_ERROR+"manufacturer":
         //     return { ...state, error: action.payload, loading: false }
 
         default:

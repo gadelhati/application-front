@@ -1,19 +1,16 @@
-import { Dispatch } from "redux";
-import { createStartManufacturer, createSuccessManufacturer, createErrorManufacturer, createAllStartManufacturer, createAllSuccessManufacturer, createAllErrorManufacturer, retrieveAllStartManufacturer, retrieveAllSuccessManufacturer, retrieveAllErrorManufacturer, retrieveStartManufacturer, retrieveSuccessManufacturer, retrieveErrorManufacturer, updateStartManufacturer, updateSuccessManufacturer, updateErrorManufacturer, deleteStartManufacturer, deleteSuccessManufacturer, deleteErrorManufacturer, deleteAllStartManufacturer, deleteAllSuccessManufacturer, deleteAllErrorManufacturer } from "../type/action.type.manufacturer";
-import { constantsM } from "../../assets/types/constants.manufacturer";
+import { constants } from "../../assets/types/constants";
 import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service"
 import { ErrorMessage } from "../type/errorMessage";
-import { Manufacturer } from "../../components/manufacturer/manufacturer.interface";
 
-export const createActionM = <T extends {}>(url: string, object: Manufacturer) => {
-    return async (dispatch: Dispatch<createStartManufacturer | createSuccessManufacturer<Manufacturer> | createErrorManufacturer>) => {
+export const createActionM = <T extends {}>(url: string, object: T) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.CREATE_STARTM
+            type: constants.CREATE_START+url
         });
         try {
-            const { data } = await create<Manufacturer>(url, object);
+            const { data } = await create<T>(url, object);
             dispatch({
-                type: constantsM.CREATE_SUCCESSM,
+                type: constants.CREATE_SUCCESS+url,
                 payload: data
             })
         } catch(error: any) {
@@ -48,22 +45,22 @@ export const createActionM = <T extends {}>(url: string, object: Manufacturer) =
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.CREATE_ERRORM,
+                type: constants.CREATE_ERROR+url,
                 payload: errorMessage
             });
         }
     }
 }
 
-export const createAllActionM = (url: string, object: Manufacturer[]) => {
-    return async (dispatch: Dispatch<createAllStartManufacturer | createAllSuccessManufacturer<Manufacturer> | createAllErrorManufacturer>) => {
+export const createAllActionM = <T extends {}>(url: string, object: T[]) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.CREATE_ALL_STARTM
+            type: constants.CREATE_ALL_START+url
         });
         try {
-            const { data } = await createAll<Manufacturer>(url, object);
+            const { data } = await createAll<T>(url, object);
             dispatch({
-                type: constantsM.CREATE_ALL_SUCCESSM,
+                type: constants.CREATE_ALL_SUCCESS+url,
                 payload: data
             })
         } catch (error: any) {
@@ -98,22 +95,22 @@ export const createAllActionM = (url: string, object: Manufacturer[]) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.CREATE_ALL_ERRORM,
+                type: constants.CREATE_ALL_ERROR+url,
                 payload: errorMessage
             });
         }
     }
 }
 
-export const retrieveActionM = (url: string, id: string) => {
-    return async (dispatch: Dispatch<retrieveStartManufacturer | retrieveSuccessManufacturer<Manufacturer> | retrieveErrorManufacturer>) => {
+export const retrieveActionM = <T extends {}>(url: string, id: string) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.RETRIEVE_STARTM
+            type: constants.RETRIEVE_START+url
         });
         try {
-            const { data } = await retrieve<Manufacturer>(url, id)
+            const { data } = await retrieve<T>(url, id)
             dispatch({
-                type: constantsM.RETRIEVE_SUCCESSM,
+                type: constants.RETRIEVE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -148,22 +145,22 @@ export const retrieveActionM = (url: string, id: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.RETRIEVE_ERRORM,
+                type: constants.RETRIEVE_ERROR+url,
                 payload: errorMessage
             });
         }
     }
 }
 
-export const retrieveAllActionM = (url: string) => {
-    return async (dispatch: Dispatch<retrieveAllStartManufacturer | retrieveAllSuccessManufacturer<Manufacturer> | retrieveAllErrorManufacturer>) => {
+export const retrieveAllActionM = <T extends {}>(url: string) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.RETRIEVE_ALL_STARTM
+            type: constants.RETRIEVE_ALL_START+url
         });
         try {
-            const { data } = await getRetrieve<Manufacturer>(url)
+            const { data } = await getRetrieve<T>(url)
             dispatch({
-                type: constantsM.RETRIEVE_ALL_SUCCESSM,
+                type: constants.RETRIEVE_ALL_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -198,22 +195,22 @@ export const retrieveAllActionM = (url: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.RETRIEVE_ALL_ERRORM,
+                type: constants.RETRIEVE_ALL_ERROR+url,
                 payload: errorMessage
             });
         }
     }
 }
 
-export const updateActionM = <T extends {}>(url: string, id: string, object: Manufacturer) => {
-    return async (dispatch: Dispatch<updateStartManufacturer | updateSuccessManufacturer<Manufacturer> | updateErrorManufacturer>) => {
+export const updateActionM = <T extends {}>(url: string, id: string, object: T) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.UPDATE_STARTM
+            type: constants.UPDATE_START+url
         });
         try {
-            const { data } = await update<Manufacturer>(url, id, object);
+            const { data } = await update<T>(url, id, object);
             dispatch({
-                type: constantsM.UPDATE_SUCCESSM,
+                type: constants.UPDATE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -248,22 +245,22 @@ export const updateActionM = <T extends {}>(url: string, id: string, object: Man
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.UPDATE_ERRORM,
+                type: constants.UPDATE_ERROR+url,
                 payload: errorMessage
             });
         }
     }
 }
 
-export const deleteActionM = (url: string, id: string) => {
-    return async (dispatch: Dispatch<deleteStartManufacturer | deleteSuccessManufacturer<Manufacturer> | deleteErrorManufacturer>) => {
+export const deleteActionM = <T extends {}>(url: string, id: string) => {
+    return async (dispatch: any) => {
         dispatch({
-            type: constantsM.DELETE_STARTM
+            type: constants.DELETE_START+url
         });
         try {
-            const { data } = await remove<Manufacturer>(url, id);
+            const { data } = await remove<T>(url, id);
             dispatch({
-                type: constantsM.DELETE_SUCCESSM,
+                type: constants.DELETE_SUCCESS+url,
                 payload: data
             });
         } catch (error: any) {
@@ -298,7 +295,7 @@ export const deleteActionM = (url: string, id: string) => {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
             dispatch({
-                type: constantsM.DELETE_ERRORM,
+                type: constants.DELETE_ERROR+url,
                 payload: errorMessage
             });
         }
