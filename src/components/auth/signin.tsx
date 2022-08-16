@@ -52,7 +52,12 @@ export const SigninContainer = () => {
         dispatch(logoutAction())
     }
     const initiate = () => {
-        navigate("/om")
+        if(executed()) navigate("/om")
+    }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
     }
     const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
         dispatch(signinAction(state))
@@ -75,6 +80,12 @@ export const SigninContainer = () => {
                         <input placeholder="Password" type="password" className="form-control" id="password" value={state.password} onChange={handleInputChange} name="password" ></input>
                         <label htmlFor="password">Password</label>
                     </div>
+                    {/* <input list="genders" name="gender" id="gender"/>
+                        <datalist id="genders">
+                            <option value="male"/>
+                            <option value="female"/>
+                        </datalist>
+                    <progress id="progress" value={10} max={100}>25</progress> */}
                     <div className="checkbox mb-3">
                         <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
                         <label htmlFor="rememberMe">Remember me</label>
