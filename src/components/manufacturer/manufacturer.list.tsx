@@ -95,7 +95,6 @@ export const ManufacturerList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"

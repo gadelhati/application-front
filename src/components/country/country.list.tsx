@@ -88,12 +88,9 @@ export const CountryList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"

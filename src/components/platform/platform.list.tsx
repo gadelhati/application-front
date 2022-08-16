@@ -92,12 +92,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="visualCallsign"
-                                    aria-label="visualCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("visualCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="visualCallsign"
-                                    required
                                     value={state.visualCallsign}
                                     onChange={handleInputChange}
                                     name="visualCallsign"
@@ -110,12 +107,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="telegraphicCallsign"
-                                    aria-label="telegraphicCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("telegraphicCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="telegraphicCallsign"
-                                    required
                                     value={state.telegraphicCallsign}
                                     onChange={handleInputChange}
                                     name="telegraphicCallsign"
@@ -128,12 +122,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="internationalCallsign"
-                                    aria-label="internationalCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("internationalCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="internationalCallsign"
-                                    required
                                     value={state.internationalCallsign}
                                     onChange={handleInputChange}
                                     name="internationalCallsign"
@@ -146,12 +137,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -164,12 +152,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="internationalName"
-                                    aria-label="internationalName"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("internationalName").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="internationalName"
-                                    required
                                     value={state.internationalName}
                                     onChange={handleInputChange}
                                     name="internationalName"

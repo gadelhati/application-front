@@ -144,12 +144,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">AAXX/BBXX</span>
                                                         <input
                                                             placeholder="AAXX/BBXX"
-                                                            aria-label="mimi"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="mimi"
-                                                            required
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
@@ -158,7 +155,6 @@ export const ObservationList = () => {
                                                         <span className="input-group-text">XX</span>
                                                         {/* <Form.Select aria-label="Default select example"
                                                                 id="mimi"
-                                                                //required
                                                                 defaultValue={'DEFAULT'}
                                                                 value={stateObservation.mimi}
                                                                 // onChange={handleInputChange}
@@ -168,12 +164,9 @@ export const ObservationList = () => {
                                                                 </Form.Select> */}
                                                         {/* <input
                                                                 placeholder="XX"
-                                                                aria-label="mjmj"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="mjmj"
-                                                                required
                                                                 value={state.mjmj}
                                                                 onChange={handleInputChange}
                                                                 name="mjmj"
@@ -186,12 +179,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">DDDDDDD</span>
                                                         <input
                                                             placeholder="DDDDDDD"
-                                                            aria-label="ddddddd"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ddddddd"
-                                                            required
                                                             value={state.ddddddd}
                                                             onChange={handleInputChange}
                                                             name="ddddddd"
@@ -205,12 +195,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Número referente à área de lançamento</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="A1"
-                                                                aria-label="a1"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="a1"
-                                                                //required
                                                                 value={stateObservation.a1}
                                                                 onChange={handleInputChange}
                                                                 name="a1"
@@ -219,12 +206,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Número referente à subárea de lançamento</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="bw"
-                                                                aria-label="bw"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="bw"
-                                                                //required
                                                                 value={stateObservation.bw}
                                                                 onChange={handleInputChange}
                                                                 name="bw"
@@ -233,12 +217,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tipo e número de série</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="nbnbnb"
-                                                                aria-label="nbnbnb"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="nbnbnb"
-                                                                //required
                                                                 value={stateObservation.nbnbnb}
                                                                 onChange={handleInputChange}
                                                                 name="nbnbnb"
@@ -253,12 +234,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">YYGGiw</span>
                                                         <input
                                                             placeholder="YY"
-                                                            aria-label="yy"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="yy"
-                                                            required
                                                             value={state.yy}
                                                             onChange={handleInputChange}
                                                             name="yy"
@@ -266,12 +244,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="GG"
-                                                            aria-label="gg"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="gg"
-                                                            required
                                                             value={state.gg}
                                                             onChange={handleInputChange}
                                                             name="gg"
@@ -279,12 +254,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="iw"
-                                                            aria-label="iw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="iw"
-                                                            required
                                                             value={state.iw}
                                                             onChange={handleInputChange}
                                                             name="iw"
@@ -297,12 +269,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">IIiii</span>
                                                         <input
                                                             placeholder="II"
-                                                            aria-label="ii"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ii"
-                                                            required
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
@@ -310,12 +279,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="iii"
-                                                            aria-label="iii"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="iii"
-                                                            required
                                                             value={state.iii}
                                                             onChange={handleInputChange}
                                                             name="iii"
@@ -330,12 +296,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">99LaLaLa</span>
                                                         <input
                                                             placeholder="LaLaLa"
-                                                            aria-label="lalala"
-                                                            aria-describedby="basic-addon1"
                                                             type="number"
                                                             className="form-control"
                                                             id="lalala"
-                                                            //required
                                                             value={state.lalala}
                                                             onChange={handleInputChange}
                                                             name="lalala"
@@ -350,12 +313,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">QcLoLOLOLO</span>
                                                         <input
                                                             placeholder="Qc"
-                                                            aria-label="qc"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="qc"
-                                                            //required
                                                             value={state.qc}
                                                             onChange={handleInputChange}
                                                             name="qc"
@@ -363,12 +323,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="LOLOLOLO"
-                                                            aria-label="lolololo"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="lolololo"
-                                                            //required
                                                             value={state.lolololo}
                                                             onChange={handleInputChange}
                                                             name="lolololo"
@@ -385,12 +342,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">iRiXhVV</span>
                                                         <input
                                                             placeholder="iR"
-                                                            aria-label="ir"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ir"
-                                                            required
                                                             value={state.ir}
                                                             onChange={handleInputChange}
                                                             name="ir"
@@ -398,12 +352,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="iX"
-                                                            aria-label="ix"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ix"
-                                                            required
                                                             value={state.ix}
                                                             onChange={handleInputChange}
                                                             name="ix"
@@ -411,12 +362,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="h"
-                                                            aria-label="h"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="h"
-                                                            required
                                                             value={state.h}
                                                             onChange={handleInputChange}
                                                             name="h"
@@ -424,12 +372,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="VV"
-                                                            aria-label="vv"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="vv"
-                                                            required
                                                             value={state.vv}
                                                             onChange={handleInputChange}
                                                             name="vv"
@@ -442,12 +387,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">Nddff</span>
                                                         <input
                                                             placeholder="N"
-                                                            aria-label="n"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="n"
-                                                            required
                                                             value={state.n}
                                                             onChange={handleInputChange}
                                                             name="n"
@@ -455,12 +397,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="dd"
-                                                            aria-label="dd"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="dd"
-                                                            required
                                                             value={state.dd}
                                                             onChange={handleInputChange}
                                                             name="dd"
@@ -468,12 +407,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="ff"
-                                                            aria-label="ff"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ff"
-                                                            required
                                                             value={state.ff}
                                                             onChange={handleInputChange}
                                                             name="ff"
@@ -488,12 +424,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">00fff</span>
                                                         <input
                                                             placeholder="fff"
-                                                            aria-label="fff"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="fff"
-                                                            //required
                                                             value={state.fff}
                                                             onChange={handleInputChange}
                                                             name="fff"
@@ -506,12 +439,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">1snTTT</span>
                                                         <input
                                                             placeholder="sn"
-                                                            aria-label="sn1_1"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="sn1_1"
-                                                            required
                                                             value={state.sn1_1}
                                                             onChange={handleInputChange}
                                                             name="sn1_1"
@@ -519,12 +449,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TTT"
-                                                            aria-label="ttt"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ttt"
-                                                            required
                                                             value={state.ttt}
                                                             onChange={handleInputChange}
                                                             name="ttt"
@@ -539,12 +466,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">2snTdTdTd</span>
                                                         <input
                                                             placeholder="sn"
-                                                            aria-label="sn2_1"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="sn2_1"
-                                                            //required
                                                             value={state.sn2_1}
                                                             onChange={handleInputChange}
                                                             name="sn2_1"
@@ -552,12 +476,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TdTdTd"
-                                                            aria-label="tdtdtd"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="tdtdtd"
-                                                            //required
                                                             value={state.tdtdtd}
                                                             onChange={handleInputChange}
                                                             name="tdtdtd"
@@ -570,12 +491,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">3P0P0P0P0</span>
                                                         <input
                                                             placeholder="P0P0P0P0"
-                                                            aria-label="p0p0p0p0"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="p0p0p0p0"
-                                                            //required
                                                             value={state.p0p0p0p0}
                                                             onChange={handleInputChange}
                                                             name="p0p0p0p0"
@@ -590,12 +508,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">4PPPP</span>
                                                         <input
                                                             placeholder="PPPP"
-                                                            aria-label="pppp"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="pppp"
-                                                            required
                                                             value={state.pppp}
                                                             onChange={handleInputChange}
                                                             name="pppp"
@@ -609,12 +524,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Superfície isobárica padrão para qual o geopotencial é informado: 1, 2, 5, 7 ou 8</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="a3"
-                                                                aria-label="a3"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="a3"
-                                                                //required
                                                                 value={stateObservation.a3}
                                                                 onChange={handleInputChange}
                                                                 name="a3"
@@ -623,12 +535,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Altura geopotencial da superfície isobárica padrão em metros geopotenciais, omitido o dígito dos milhares</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="hhh"
-                                                                aria-label="hhh"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="hhh"
-                                                                //required
                                                                 value={stateObservation.hhh}
                                                                 onChange={handleInputChange}
                                                                 name="hhh"
@@ -641,12 +550,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">5appp</span>
                                                         <input
                                                             placeholder="a"
-                                                            aria-label="a"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="a"
-                                                            // //required
                                                             value={state.a}
                                                             onChange={handleInputChange}
                                                             name="a"
@@ -654,12 +560,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="ppp"
-                                                            aria-label="ppp"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ppp"
-                                                            // //required
                                                             value={state.ppp}
                                                             onChange={handleInputChange}
                                                             name="ppp"
@@ -687,12 +590,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="tR"
-                                                            aria-label="tr"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="tr"
-                                                            //required
                                                             value={state.tr}
                                                             onChange={handleInputChange}
                                                             name="tr"
@@ -705,12 +605,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">7wwW1W2</span>
                                                         <input
                                                             placeholder="ww"
-                                                            aria-label="ww"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ww"
-                                                            required
                                                             value={state.ww}
                                                             onChange={handleInputChange}
                                                             name="ww"
@@ -718,12 +615,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="w1w2"
-                                                            aria-label="w1w2"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="w1w2"
-                                                            required
                                                             value={state.w1w2}
                                                             onChange={handleInputChange}
                                                             name="w1w2"
@@ -732,12 +626,9 @@ export const ObservationList = () => {
                                                         {/* <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tempo passado: 0 a 9 ou /</Tooltip>}>
                                                                 <FormControl
                                                                     placeholder="W1"
-                                                                    aria-label="w1"
-                                                                    aria-describedby="basic-addon1"
                                                                     type="text"
                                                                     className="form-control"
                                                                     id="w1"
-                                                                    required
                                                                     value={stateObservation.w1}
                                                                     onChange={handleInputChange}
                                                                     name="w1"
@@ -746,12 +637,9 @@ export const ObservationList = () => {
                                                             <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tempo passado: 0 a 9 ou /</Tooltip>}>
                                                                 <FormControl
                                                                     placeholder="W2"
-                                                                    aria-label="w2"
-                                                                    aria-describedby="basic-addon1"
                                                                     type="text"
                                                                     className="form-control"
                                                                     id="w2"
-                                                                    required
                                                                     value={stateObservation.w2}
                                                                     onChange={handleInputChange}
                                                                     name="w2"
@@ -767,12 +655,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tempo presente obtido de uma estação automática de tempo: 00 a 99</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="wawa"
-                                                                aria-label="wawa"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="wawa"
-                                                                //required
                                                                 value={stateObservation.wawa}
                                                                 onChange={handleInputChange}
                                                                 name="wawa"
@@ -781,12 +666,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tempo passado obtido de uma estação automática de tempo: 0 a 9 ou /</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="Wa1"
-                                                                aria-label="wa1"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="wa1"
-                                                                //required
                                                                 value={stateObservation.wa1}
                                                                 onChange={handleInputChange}
                                                                 name="wa1"
@@ -795,12 +677,9 @@ export const ObservationList = () => {
                                                         <OverlayTrigger placement="top" overlay={<Tooltip id="button-tooltip-2">Tempo passado obtido de uma estação automática de tempo: 0 a 9 ou /</Tooltip>}>
                                                             <FormControl
                                                                 placeholder="Wa2"
-                                                                aria-label="wa2"
-                                                                aria-describedby="basic-addon1"
                                                                 type="text"
                                                                 className="form-control"
                                                                 id="wa2"
-                                                                //required
                                                                 value={stateObservation.wa2}
                                                                 onChange={handleInputChange}
                                                                 name="wa2"
@@ -813,12 +692,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">8NhCLCMCH</span>
                                                         <input
                                                             placeholder="Nh"
-                                                            aria-label="nh"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="nh"
-                                                            //required
                                                             value={state.nh}
                                                             onChange={handleInputChange}
                                                             name="nh"
@@ -826,12 +702,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="CL"
-                                                            aria-label="cl"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="cl"
-                                                            //required
                                                             value={state.cl}
                                                             onChange={handleInputChange}
                                                             name="cl"
@@ -839,12 +712,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="CM"
-                                                            aria-label="cm"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="cm"
-                                                            //required
                                                             value={state.cm}
                                                             onChange={handleInputChange}
                                                             name="cm"
@@ -852,12 +722,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="CH"
-                                                            aria-label="ch"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ch"
-                                                            //required
                                                             value={state.ch}
                                                             onChange={handleInputChange}
                                                             name="ch"
@@ -870,12 +737,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">9GGgg</span>
                                                         <input
                                                             placeholder="GGgg"
-                                                            aria-label="gggg"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="gggg"
-                                                            //required
                                                             value={state.gggg}
                                                             onChange={handleInputChange}
                                                             name="gggg"
@@ -892,12 +756,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">222DsVs</span>
                                                         <input
                                                             placeholder="Ds"
-                                                            aria-label="ds"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ds"
-                                                            //required
                                                             value={state.ds}
                                                             onChange={handleInputChange}
                                                             name="ds"
@@ -905,12 +766,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Vs"
-                                                            aria-label="vs"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="vs"
-                                                            //required
                                                             value={state.vs}
                                                             onChange={handleInputChange}
                                                             name="vs"
@@ -923,12 +781,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">0SsTwTwTw</span>
                                                         <input
                                                             placeholder="Ss"
-                                                            aria-label="ss"
-                                                            aria-describedby="basic-addon1"
-                                                            type="text"
+                                                              type="text"
                                                             className="form-control"
                                                             id="ss"
-                                                            //required
                                                             value={state.ss}
                                                             onChange={handleInputChange}
                                                             name="ss"
@@ -936,12 +791,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TwTwTw"
-                                                            aria-label="twtwtw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="twtwtw"
-                                                            //required
                                                             value={state.twtwtw}
                                                             onChange={handleInputChange}
                                                             name="twtwtw"
@@ -956,12 +808,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">1PwaPwaHwaHwa</span>
                                                         <input
                                                             placeholder="PwaPwa"
-                                                            aria-label="pwapwa"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="pwapwa"
-                                                            //required
                                                             value={state.pwapwa}
                                                             onChange={handleInputChange}
                                                             name="pwapwa"
@@ -969,12 +818,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="HwaHwa"
-                                                            aria-label="hwahwa"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="hwahwa"
-                                                            //required
                                                             value={state.hwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwa"
@@ -987,12 +833,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">2PwPwHwHw</span>
                                                         <input
                                                             placeholder="PwPw"
-                                                            aria-label="pwpw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="pwpw"
-                                                            //required
                                                             value={state.pwpw}
                                                             onChange={handleInputChange}
                                                             name="pwpw"
@@ -1000,12 +843,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="HwHw"
-                                                            aria-label="hwhw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="hwhw"
-                                                            //required
                                                             value={state.hwhw}
                                                             onChange={handleInputChange}
                                                             name="hwhw"
@@ -1020,12 +860,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">3dw1dw1dw2dw2</span>
                                                         <input
                                                             placeholder="dw1dw1"
-                                                            aria-label="dw1dw1"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="dw1dw1"
-                                                            //required
                                                             value={state.dw1dw1}
                                                             onChange={handleInputChange}
                                                             name="dw1dw1"
@@ -1033,12 +870,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="dw2dw2"
-                                                            aria-label="dw2dw2"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="dw2dw2"
-                                                            //required
                                                             value={state.dw2dw2}
                                                             onChange={handleInputChange}
                                                             name="dw2dw2"
@@ -1051,12 +885,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">4Pw1Pw1Hw1Hw1</span>
                                                         <input
                                                             placeholder="Pw1Pw1"
-                                                            aria-label="pw1pw1"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="pw1pw1"
-                                                            //required
                                                             value={state.pw1pw1}
                                                             onChange={handleInputChange}
                                                             name="pw1pw1"
@@ -1064,12 +895,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Hw1Hw1"
-                                                            aria-label="hw1hw1"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="hw1hw1"
-                                                            //required
                                                             value={state.hw1hw1}
                                                             onChange={handleInputChange}
                                                             name="hw1hw1"
@@ -1084,12 +912,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">5Pw2Pw2Hw2Hw2</span>
                                                         <input
                                                             placeholder="Pw2Pw2"
-                                                            aria-label="pw2pw2"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="pw2pw2"
-                                                            //required
                                                             value={state.pw2pw2}
                                                             onChange={handleInputChange}
                                                             name="pw2pw2"
@@ -1097,12 +922,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Hw2Hw2"
-                                                            aria-label="hw2hw2"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="hw2hw2"
-                                                            //required
                                                             value={state.hw2hw2}
                                                             onChange={handleInputChange}
                                                             name="hw2hw2"
@@ -1115,12 +937,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">6IsEsEsRs</span>
                                                         <input
                                                             placeholder="Is"
-                                                            aria-label="is"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="is"
-                                                            //required
                                                             value={state.is}
                                                             onChange={handleInputChange}
                                                             name="is"
@@ -1128,12 +947,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="EsEs"
-                                                            aria-label="eses"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="eses"
-                                                            //required
                                                             value={state.eses}
                                                             onChange={handleInputChange}
                                                             name="eses"
@@ -1141,12 +957,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Rs"
-                                                            aria-label="rs"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="rs"
-                                                            //required
                                                             value={state.rs}
                                                             onChange={handleInputChange}
                                                             name="rs"
@@ -1161,12 +974,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">70HwaHwaHwa</span>
                                                         <input
                                                             placeholder="HwaHwaHwa"
-                                                            aria-label="hwahwahwa"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="hwahwahwa"
-                                                            //required
                                                             value={state.hwahwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwahwa"
@@ -1179,12 +989,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">8swTbTbTb</span>
                                                         <input
                                                             placeholder="sw"
-                                                            aria-label="sw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="sw"
-                                                            //required
                                                             value={state.sw}
                                                             onChange={handleInputChange}
                                                             name="sw"
@@ -1192,12 +999,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TbTbTb"
-                                                            aria-label="tbtbtb"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="tbtbtb"
-                                                            //required
                                                             value={state.tbtbtb}
                                                             onChange={handleInputChange}
                                                             name="tbtbtb"
@@ -1212,12 +1016,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">ICEciSibiDizi</span>
                                                         <input
                                                             placeholder="ci"
-                                                            aria-label="ci"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ci"
-                                                            //required
                                                             value={state.ci}
                                                             onChange={handleInputChange}
                                                             name="ci"
@@ -1225,25 +1026,19 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Si"
-                                                            aria-label="si"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="si"
-                                                            //required
-                                                            value={state.si}
+                                                              value={state.si}
                                                             onChange={handleInputChange}
                                                             name="si"
                                                             title='Estágio de desenvolvimento: 0 a 9 ou /'
                                                         />
                                                         <input
                                                             placeholder="bi"
-                                                            aria-label="bi"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="bi"
-                                                            //required
                                                             value={state.bi}
                                                             onChange={handleInputChange}
                                                             name="bi"
@@ -1251,12 +1046,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="Di"
-                                                            aria-label="di"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="di"
-                                                            //required
                                                             value={state.di}
                                                             onChange={handleInputChange}
                                                             name="di"
@@ -1264,12 +1056,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="zi"
-                                                            aria-label="zi"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="zi"
-                                                            //required
                                                             value={state.zi}
                                                             onChange={handleInputChange}
                                                             name="zi"
@@ -1286,12 +1075,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">1sn</span>
                                                         <input
                                                             placeholder="sn"
-                                                            aria-label="sn1_3"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="sn1_3"
-                                                            //required
                                                             value={state.sn1_3}
                                                             onChange={handleInputChange}
                                                             name="sn1_3"
@@ -1299,12 +1085,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TxTxTx"
-                                                            aria-label="txtxtx"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="txtxtx"
-                                                            //required
                                                             value={state.txtxtx}
                                                             onChange={handleInputChange}
                                                             name="txtxtx"
@@ -1319,12 +1102,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">2sn</span>
                                                         <input
                                                             placeholder="sn"
-                                                            aria-label="sn2_3"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="sn2_3"
-                                                            //required
                                                             value={state.sn2_3}
                                                             onChange={handleInputChange}
                                                             name="sn2_3"
@@ -1332,12 +1112,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="TnTnTn"
-                                                            aria-label="tntntn"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="tntntn"
-                                                            //required
                                                             value={state.tntntn}
                                                             onChange={handleInputChange}
                                                             name="tntntn"
@@ -1350,12 +1127,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">5</span>
                                                         <input
                                                             placeholder="8/9"
-                                                            aria-label="ind89"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ind89"
-                                                            //required
                                                             value={state.ind89}
                                                             onChange={handleInputChange}
                                                             name="ind89"
@@ -1363,12 +1137,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="P24P24P24"
-                                                            aria-label="p24p24p24"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="p24p24p24"
-                                                            //required
                                                             value={state.p24p24p24}
                                                             onChange={handleInputChange}
                                                             name="p24p24p24"
@@ -1385,12 +1156,9 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">555ichwicMcsicFicpicQ</span>
                                                         <input
                                                             placeholder="ichw"
-                                                            aria-label="ichw"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="ichw"
-                                                            //required
                                                             value={state.ichw}
                                                             onChange={handleInputChange}
                                                             name="ichw"
@@ -1398,12 +1166,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="icM"
-                                                            aria-label="icm"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="icm"
-                                                            //required
                                                             value={state.icm}
                                                             onChange={handleInputChange}
                                                             name="icm"
@@ -1411,12 +1176,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="cs"
-                                                            aria-label="cs"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="cs"
-                                                            //required
                                                             value={state.cs}
                                                             onChange={handleInputChange}
                                                             name="cs"
@@ -1424,12 +1186,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="icF"
-                                                            aria-label="icf"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="icf"
-                                                            //required
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
@@ -1437,12 +1196,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="icp"
-                                                            aria-label="icp"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="icp"
-                                                            //required
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
@@ -1450,12 +1206,9 @@ export const ObservationList = () => {
                                                         />
                                                         <input
                                                             placeholder="icQ"
-                                                            aria-label="icq"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
                                                             id="icq"
-                                                            //required
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"

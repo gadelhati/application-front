@@ -91,12 +91,9 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <input
                                         placeholder="USERNAME"
-                                        aria-label="username"
-                                        aria-describedby="basic-addon1"
                                         type="text"
                                         className={validation("username").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="username"
-                                        required
                                         value={state.username}
                                         onChange={handleInputChange}
                                         name="username"
@@ -109,12 +106,9 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <input
                                         placeholder="E-MAIL"
-                                        aria-label="email"
-                                        aria-describedby="basic-addon1"
                                         type="email"
                                         className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="email"
-                                        required
                                         value={state.email}
                                         onChange={handleInputChange}
                                         name="email"
@@ -127,12 +121,9 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <input
                                         placeholder="PASSWORD"
-                                        aria-label="password"
-                                        aria-describedby="basic-addon1"
                                         type="password"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="password"
-                                        required
                                         value={state.password}
                                         onChange={handleInputChange}
                                         name="password"
@@ -145,13 +136,10 @@ export const UserList = () => {
                                 {/* <div className="col form-check">
                                     <input
                                         placeholder="ACTIVE"
-                                        aria-label="active"
-                                        aria-describedby="basic-addon1"
                                         type="checkbox"
                                         className="form-check-input"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="active"
-                                        required
                                         checked={state.active}
                                         defaultChecked={state.active}
                                         onChange={handleInputChange}

@@ -116,8 +116,6 @@ export const InstitutionList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
@@ -134,8 +132,6 @@ export const InstitutionList = () => {
                             {/* <div className="form-floating">
                                 <input
                                     placeholder="Email"
-                                    aria-label="country"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("country").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="country"

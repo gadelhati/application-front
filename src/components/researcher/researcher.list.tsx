@@ -90,12 +90,9 @@ export const ResearcherList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -108,12 +105,9 @@ export const ResearcherList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Email"
-                                    aria-label="email"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="email"
-                                    required
                                     value={state.email}
                                     onChange={handleInputChange}
                                     name="email"
@@ -126,12 +120,9 @@ export const ResearcherList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Address"
-                                    aria-label="address"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("address").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="address"
-                                    required
                                     value={state.address}
                                     onChange={handleInputChange}
                                     name="address"
