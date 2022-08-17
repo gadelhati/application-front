@@ -7,6 +7,7 @@ import { initialUser } from './user.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { Article, Section } from '../../containers/models/content';
 
 export const UserList = () => {
     const dispatch = useDispatch();
@@ -74,11 +75,11 @@ export const UserList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
-            <article>
+        <Section>
+            <Article>
                 <Load title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -170,6 +171,6 @@ export const UserList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

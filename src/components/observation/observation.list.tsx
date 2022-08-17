@@ -9,6 +9,7 @@ import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
+import { Article, Section } from '../../containers/models/content';
 
 export const ObservationList = () => {
     const dispatch = useDispatch()
@@ -111,14 +112,14 @@ export const ObservationList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
-            <article>
+        <Section>
+            <Article>
                 <Load title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
                 <ObservationUpload />
                 {/* </div> */}
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -1260,6 +1261,6 @@ export const ObservationList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

@@ -8,6 +8,7 @@ import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
+import { Article, Section } from '../../containers/models/content';
 
 export const InstitutionList = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const InstitutionList = () => {
         retrieveAllItem()
     }, [dispatch])
     useEffect(() => {
-        
+
     }, [error])
     const selectItem = (object: Institution) => {
         setState(object)
@@ -28,11 +29,11 @@ export const InstitutionList = () => {
     }
     const createItem = () => {
         dispatch(createAction<Institution>('institution', state))
-        if(item == null) resetItem()
+        if (item == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<Institution>('institution', [state]))
-        if(item == null) resetItem()
+        if (item == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('institution', state.id))
@@ -44,7 +45,7 @@ export const InstitutionList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('institution', state.id, state))
-        if(item == null) resetItem()
+        if (item == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('institution', state.id))
@@ -52,17 +53,17 @@ export const InstitutionList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.message })
+        error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
     }
     const access = (): boolean => {
         let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
+        error?.map(element => { if ("403" == element.field) return allowed = true })
         return allowed
     }
     const executed = (): boolean => {
         let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
+        error?.map(element => { if ("" == element.field) return executed = true })
         return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -74,37 +75,37 @@ export const InstitutionList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
-            <article>
+        <Section>
+            <Article>
                 <Load title={"Instituições"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
-            <div className='col' >
-                <div className='card'>
-                    <CCardBody>
-                        <CDataTable
-                            items={itens}
-                            fields={fields}
-                            columnFilter
-                            
-                            itemsPerPage={8}
-                            hover
-                            striped
-                            sorter
-                            pagination
-                            scopedSlots={{
-                                'country': (item: any) => (<td>{item.country?.name}</td>),
-                                'select': (item: any) => (
-                                    <td className="align-bottom">
-                                        <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Selecione</button>
-                                    </td>
-                                ),
-                            }}
-                        />
-                    </CCardBody>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+
+                                    itemsPerPage={8}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'country': (item: any) => (<td>{item.country?.name}</td>),
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Selecione</button>
+                                            </td>
+                                        ),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -164,6 +165,6 @@ export const InstitutionList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

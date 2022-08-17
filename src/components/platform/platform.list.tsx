@@ -7,6 +7,7 @@ import { initialPlatform } from './platform.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { Article, Section } from '../../containers/models/content';
 
 export const PlatformList = () => {
     const dispatch = useDispatch();
@@ -76,11 +77,11 @@ export const PlatformList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
-            <article>
+        <Section>
+            <Article>
                 <Load title={"Plataformas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -183,6 +184,6 @@ export const PlatformList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

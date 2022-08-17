@@ -10,6 +10,7 @@ import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../.
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { Toast } from '../../containers/toast/toast';
+import { Article, Section } from '../../containers/models/content';
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -44,9 +45,9 @@ export const Profile = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     return (
-        <section>
+        <Section>
             {getUser() ?
-                <article>
+                <Article>
                     <div className="alert alert-secondary" role="alert"><h5>Perfil</h5></div>
                     <div className="alert alert-secondary" role="alert">
                         <p><strong>Nome de usuário: </strong> {getUserName()}</p>
@@ -75,10 +76,10 @@ export const Profile = () => {
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Sair</button>
                     {/* <button type="button" className="btn btn-primary btn-sm" id="liveToastBtn">Show live toast</button>
                     <Toast title={"oi"} body="2" /> */}
-                </article>
+                </Article>
                 :
                 <></>
             }
-        </section>
+        </Section>
     )
 }

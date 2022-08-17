@@ -4,10 +4,10 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
-import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Button, Cow, Modal, ModalBody, ModalContent, ModalHeader, Title } from '../../containers/models/header';
+import { Article, Section } from '../../containers/models/content';
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
@@ -74,21 +74,21 @@ export const ManufacturerList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
+        <Section>
             {/* <Modal>
                 <ModalContent>
                     <ModalHeader></ModalHeader>
                     <ModalBody></ModalBody>
                 </ModalContent>
             </Modal> */}
-            <article>
+            <Article>
                 <Title>
                     <h5>Fabricantes</h5>
                     <Cow><Button>Criar</Button></Cow>
                 </Title>
                 <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -131,6 +131,6 @@ export const ManufacturerList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

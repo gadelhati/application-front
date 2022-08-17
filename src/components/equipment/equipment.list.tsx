@@ -9,6 +9,7 @@ import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
+import { Article, Section } from '../../containers/models/content';
 
 export const EquipmentList = () => {
     const dispatch = useDispatch();
@@ -83,8 +84,8 @@ export const EquipmentList = () => {
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
-        <section>
-            <article>
+        <Section>
+            <Article>
                 <Load title={"Equipamento"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
                     <div className='col' >
@@ -113,7 +114,7 @@ export const EquipmentList = () => {
                         </div>
                     </div>
                 </div>
-            </article>
+            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -166,6 +167,6 @@ export const EquipmentList = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }
