@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Platform } from "./platform.interface";
 import { initialPlatform } from './platform.initial';
 import '../list.css'
@@ -86,18 +86,15 @@ export const PlatformList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Plataforma</h5>
-                            <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
                                     placeholder="visualCallsign"
-                                    aria-label="visualCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("visualCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="visualCallsign"
-                                    required
                                     value={state.visualCallsign}
                                     onChange={handleInputChange}
                                     name="visualCallsign"
@@ -110,12 +107,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="telegraphicCallsign"
-                                    aria-label="telegraphicCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("telegraphicCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="telegraphicCallsign"
-                                    required
                                     value={state.telegraphicCallsign}
                                     onChange={handleInputChange}
                                     name="telegraphicCallsign"
@@ -128,12 +122,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="internationalCallsign"
-                                    aria-label="internationalCallsign"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("internationalCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="internationalCallsign"
-                                    required
                                     value={state.internationalCallsign}
                                     onChange={handleInputChange}
                                     name="internationalCallsign"
@@ -146,12 +137,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -164,12 +152,9 @@ export const PlatformList = () => {
                             <div className="form-floating">
                                 <input
                                     placeholder="internationalName"
-                                    aria-label="internationalName"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("internationalName").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="internationalName"
-                                    required
                                     value={state.internationalName}
                                     onChange={handleInputChange}
                                     name="internationalName"
@@ -179,12 +164,11 @@ export const PlatformList = () => {
                                 <label htmlFor="internationalName">Nome Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalName")}</div>
                             </div>
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
-                            {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
@@ -195,21 +179,6 @@ export const PlatformList = () => {
                                     {"Executado"}
                                 </button>
                             }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

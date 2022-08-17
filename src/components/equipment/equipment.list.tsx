@@ -1,7 +1,8 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction as retrieveAllActionM } from '../../reducers/actions/action.creator';
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
 import '../list.css'
@@ -41,6 +42,7 @@ export const EquipmentList = () => {
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('equipment'))
+        dispatch(retrieveAllActionM('manufacturer'))
         resetItem()
     }
     const updateItem = () => {
@@ -73,7 +75,7 @@ export const EquipmentList = () => {
         setState({ ...state, [event.target.name]: { id: itensManufactorer[event.target.selectedIndex].id } })
     }
     const manufacturerItem = () => {
-        dispatch(retrieveAllAction('manufacturer'))
+        dispatch(retrieveAllActionM('manufacturer'))
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
@@ -117,18 +119,15 @@ export const EquipmentList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Equipamento</h5>
-                            <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -148,12 +147,11 @@ export const EquipmentList = () => {
                                     <label className="label" htmlFor="manufacturer">Fabricante</label>
                                 </div>
                             </div>
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
-                            {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
@@ -164,21 +162,6 @@ export const EquipmentList = () => {
                                     {"Executado"}
                                 </button>
                             }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

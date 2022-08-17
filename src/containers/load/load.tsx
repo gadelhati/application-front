@@ -1,4 +1,4 @@
-import { ErrorMessage } from "../../actions/type/errorMessage";
+import { ErrorMessage } from "../../assets/error/errorMessage";
 import { ObservationUpload } from "../../components/observation/observation.upload";
 import { loadInterface } from "./load.interface";
 

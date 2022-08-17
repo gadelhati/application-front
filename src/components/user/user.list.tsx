@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import '../list.css'
@@ -84,19 +84,16 @@ export const UserList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Usuário</h5>
-                            <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className='row'>
                                 <div className="col form-floating">
                                     <input
                                         placeholder="USERNAME"
-                                        aria-label="username"
-                                        aria-describedby="basic-addon1"
                                         type="text"
                                         className={validation("username").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="username"
-                                        required
                                         value={state.username}
                                         onChange={handleInputChange}
                                         name="username"
@@ -109,12 +106,9 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <input
                                         placeholder="E-MAIL"
-                                        aria-label="email"
-                                        aria-describedby="basic-addon1"
                                         type="email"
                                         className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="email"
-                                        required
                                         value={state.email}
                                         onChange={handleInputChange}
                                         name="email"
@@ -127,12 +121,9 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <input
                                         placeholder="PASSWORD"
-                                        aria-label="password"
-                                        aria-describedby="basic-addon1"
                                         type="password"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="password"
-                                        required
                                         value={state.password}
                                         onChange={handleInputChange}
                                         name="password"
@@ -145,13 +136,10 @@ export const UserList = () => {
                                 {/* <div className="col form-check">
                                     <input
                                         placeholder="ACTIVE"
-                                        aria-label="active"
-                                        aria-describedby="basic-addon1"
                                         type="checkbox"
                                         className="form-check-input"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
                                         id="active"
-                                        required
                                         checked={state.active}
                                         defaultChecked={state.active}
                                         onChange={handleInputChange}
@@ -163,12 +151,11 @@ export const UserList = () => {
                                 </div> */}
                             </div>
                             <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" && executed()} data-bs-toggle="modal">Criar</button>
-                            {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
@@ -179,21 +166,6 @@ export const UserList = () => {
                                     {"Executado"}
                                 </button>
                             }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

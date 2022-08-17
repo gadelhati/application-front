@@ -1,9 +1,9 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
-import { changePasswordAction } from '../../actions/creator/action.creator.auth';
-import { logoutAction } from '../../actions/creator/action.creator.auth';
+import { createAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { changePasswordAction } from '../../reducers/actions/action.creator.auth';
+import { logoutAction } from '../../reducers/actions/action.creator.auth';
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"

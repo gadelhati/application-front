@@ -21,8 +21,8 @@ import { PlatformList } from "./components/platform/platform.list";
 import { CountryList } from "./components/country/country.list";
 import { EquipmentList } from "./components/equipment/equipment.list";
 import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
-import { InstitutionList } from "./components/institution/intitution.list";
-import { PlatformCategoryList } from "./components/platformCategory/platformCaterory.list";
+import { InstitutionList } from "./components/institution/institution.list";
+import { PlatformCategoryList } from "./components/platformCategory/platformCategory.list";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {

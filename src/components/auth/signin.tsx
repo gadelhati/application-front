@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Auth } from './auth.interface';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { /*signupAction,*/ signinAction, logoutAction, refreshTokenAction } from '../../actions/creator/action.creator.auth'
+import { /*signupAction,*/ signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth'
 import { initialAuth } from './auth.initial';
 // import { styled } from '@stitches/react';
 import "../../assets/bootstrap/dist/css/bootstrap.min.css"

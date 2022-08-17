@@ -1,4 +1,4 @@
-import { api } from "../api/api"
+import { api } from "../assets/api/api"
 
 export const create = <T extends {}>(url: string, data: T) => {
   return api.post<T>(`/${url}`, data)

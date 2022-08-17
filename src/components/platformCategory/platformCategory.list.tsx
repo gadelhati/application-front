@@ -2,16 +2,16 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
-import { Country } from "./country.interface";
-import { initialCountry } from './country.initial';
+import { PlatformCategory } from "./platformCategory.interface";
+import { initialPlatformCategory } from './platformCategory.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 
-export const CountryList = () => {
+export const PlatformCategoryList = () => {
     const dispatch = useDispatch();
-    const [state, setState] = useState<Country>(initialCountry)
-    const { loading, error, itens, item } = useTypedSelector((state) => state.countries);
+    const [state, setState] = useState<PlatformCategory>(initialPlatformCategory)
+    const { loading, error, itens, item } = useTypedSelector((state) => state.platformCategories);
 
     useEffect(() => {
         retrieveAllItem()
@@ -19,34 +19,34 @@ export const CountryList = () => {
     useEffect(() => {
         
     }, [error])
-    const selectItem = (object: Country) => {
+    const selectItem = (object: PlatformCategory) => {
         setState(object)
     }
     const resetItem = () => {
-        setState(initialCountry)
+        setState(initialPlatformCategory)
     }
     const createItem = () => {
-        dispatch(createAction<Country>('country', state))
+        dispatch(createAction<PlatformCategory>('platformCategory', state))
         if(item == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction<Country>('country', [state]))
+        dispatch(createAllAction<PlatformCategory>('platformCategory', [state]))
         if(item == null) resetItem()
     }
     const retrieveItem = () => {
-        dispatch(retrieveAction('country', state.id))
+        dispatch(retrieveAction('platformCategory', state.id))
         resetItem()
     }
     const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('country'))
+        dispatch(retrieveAllAction('platformCategory'))
         resetItem()
     }
     const updateItem = () => {
-        dispatch(updateAction('country', state.id, state))
+        dispatch(updateAction('platformCategory', state.id, state))
         if(item == null) resetItem()
     }
     const deleteItem = () => {
-        dispatch(deleteAction('country', state.id))
+        dispatch(deleteAction('platformCategory', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
@@ -69,19 +69,20 @@ export const CountryList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
+        // { key: 'platformCategory', label: 'Fabricante', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <section>
             <article>
-                <Load title={"Países"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Load title={"Tipos de Plataforma"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel">País</h5>
+                            <h5 className="modal-title" id="ModalLabel">Tipos de Plataforma</h5>
                             <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">

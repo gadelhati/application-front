@@ -1,4 +1,4 @@
-import { api } from "../api/api"
+import { api } from "../assets/api/api"
 import { setUser, removeToken } from "./service.token"
 import { Auth } from "../components/auth/auth.interface"
 import { User } from "../components/user/user.interface"

@@ -1,17 +1,23 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../actions/creator/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
 import '../list.css'
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
+import { styled } from '@stitches/react';
+import "./gadelhastrap.css"
+
+const Gadelha = styled('div', {
+    height: 1.25,
+});
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Manufacturer>(initialManufacturer)
-    const { loading, error, itens, item } = useTypedSelector((state) => state.manufacturers);
+    const { loading, error, item, itens } = useTypedSelector((state) => state.manufacturers);
 
     useEffect(() => {
         retrieveAllItem()
@@ -27,11 +33,11 @@ export const ManufacturerList = () => {
     }
     const createItem = () => {
         dispatch(createAction<Manufacturer>('manufacturer', state))
-        if(item == null) resetItem()
+        if(itens == null) resetItem()
     }
     const createAllItem = () => {
         dispatch(createAllAction<Manufacturer>('manufacturer', [state]))
-        if(item == null) resetItem()
+        if(itens == null) resetItem()
     }
     const retrieveItem = () => {
         dispatch(retrieveAction('manufacturer', state.id))
@@ -43,7 +49,7 @@ export const ManufacturerList = () => {
     }
     const updateItem = () => {
         dispatch(updateAction('manufacturer', state.id, state))
-        if(item == null) resetItem()
+        if(itens == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteAction('manufacturer', state.id))
@@ -83,18 +89,15 @@ export const ManufacturerList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Fabricante</h5>
-                            <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
-                                    aria-label="name"
-                                    aria-describedby="basic-addon1"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                     id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -104,12 +107,11 @@ export const ManufacturerList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <button onClick={retrieveAllItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
+                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
                             <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
-                            {/* <button onClick={retrieveItem} className="btn btn-secondary button btn-sm" >Retrieve</button> */}
                             <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
                             <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
@@ -120,21 +122,6 @@ export const ManufacturerList = () => {
                                     {"Executado"}
                                 </button>
                             }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
-                <div className="modal-dialog modal-lg">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel2">Confirmação</h5>
-                            <button  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            {JSON.stringify(error)}
-                            <hr />
-                            <button onClick={retrieveAllItem} className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

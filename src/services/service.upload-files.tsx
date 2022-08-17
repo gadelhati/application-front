@@ -1,4 +1,4 @@
-import { api } from "../api/api"
+import { api } from "../assets/api/api"
 import { getLocalAccessToken } from "./service.token"
 
 export const uploadFile = (file: any, onUploadProgress: any) => {
