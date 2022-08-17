@@ -4,7 +4,6 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Country } from "./country.interface";
 import { initialCountry } from './country.initial';
-import '../list.css'
 import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';

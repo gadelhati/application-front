@@ -4,7 +4,6 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Researcher } from "./researcher.interface";
 import { initialResearcher } from './researcher.initial';
-import '../list.css'
 import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
