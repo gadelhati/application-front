@@ -6,7 +6,6 @@ import { User } from "./user.interface";
 import { Auth } from "../auth/auth.interface";
 import { initialUser } from './user.initial';
 import { initialAuth } from '../auth/auth.initial';
-import '../list.css'
 
 export const UserSignin = () => {
     const dispatch = useDispatch();
@@ -34,13 +33,9 @@ export const UserSignin = () => {
                 <div className="form-floating">
                     <input
                         placeholder="USERNAME"
-                        aria-label="username"
-                        aria-describedby="basic-addon1"
                         type="text"
                         className="form-control"
                         // className={state.name == "" ? "form-control is-invalid" : "form-control is-valid"}
-                        id="username"
-                        required
                         value={state.username}
                         onChange={handleInputChange}
                         name="username"
@@ -52,12 +47,8 @@ export const UserSignin = () => {
                 <div className="form-floating">
                     <input
                         placeholder="PASSWORD"
-                        aria-label="password"
-                        aria-describedby="basic-addon1"
                         type="password"
                         className="form-control"
-                        id="password"
-                        required
                         value={state.password}
                         onChange={handleInputChange}
                         name="password"

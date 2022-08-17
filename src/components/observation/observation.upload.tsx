@@ -4,7 +4,6 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
-import '../list.css'
 
 export const ObservationUpload = () => {
     const dispatch = useDispatch();
