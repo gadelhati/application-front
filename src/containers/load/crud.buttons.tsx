@@ -38,14 +38,17 @@ export const Crud = (crud: crudInterface) => {
         resetItem()
     }
     return (
-        <Row>
-            <Button color="secondary" onClick={resetItem} /*hidden={executed()}*/>Resetar</Button>
-            <Button color="secondary" onClick={createItem} /*hidden={state.id != "" || executed()}*/ data-bs-toggle="modal">Criar</Button>
-            <Button color="secondary" onClick={updateItem} /*hidden={state.id == "" || executed()}*/ data-bs-toggle="modal">Atualizar</Button>
-            <Button color="secondary" onClick={deleteItem} /*hidden={state.id == "" || executed()}*/ data-bs-toggle="modal">Deletar</Button>
-            <Cow>
-                <Button color="secondary" onClick={resetItem} data-bs-dismiss="modal">Fechar</Button>
-            </Cow>
-        </Row>
+        <>
+            <br />
+            <Row>
+                <Button color="secondary" onClick={resetItem} /*hidden={executed()}*/>Resetar</Button>
+                <Button color="secondary" onClick={createItem} /*hidden={state.id != "" || executed()}*/ data-bs-toggle="modal">Criar</Button>
+                <Button color="secondary" onClick={updateItem} /*hidden={state.id == "" || executed()}*/ data-bs-toggle="modal">Atualizar</Button>
+                <Button color="secondary" onClick={deleteItem} /*hidden={state.id == "" || executed()}*/ data-bs-toggle="modal">Deletar</Button>
+                <Cow>
+                    <Button color="secondary" onClick={resetItem} data-bs-dismiss="modal">Fechar</Button>
+                </Cow>
+            </Row>
+        </>
     );
 }
