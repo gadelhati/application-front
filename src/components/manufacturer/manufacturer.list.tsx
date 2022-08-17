@@ -88,7 +88,6 @@ export const ManufacturerList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            {/* <Crud createItem={createItem} updateItem={updateItem} deleteItem={deleteItem} resetItem={resetItem}></Crud> */}
                             <Crud initialObject={initialManufacturer} object={state} name={"manufacturer"}></Crud>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>

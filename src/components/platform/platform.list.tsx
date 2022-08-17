@@ -8,6 +8,7 @@ import '../list.css'
 import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
+import { Crud } from '../../containers/load/crud.buttons';
 
 export const PlatformList = () => {
     const dispatch = useDispatch();
@@ -160,11 +161,7 @@ export const PlatformList = () => {
                                 <label htmlFor="internationalName">Nome Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalName")}</div>
                             </div>
-                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            <Crud initialObject={initialPlatform} object={state} name={"platform"}></Crud>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
