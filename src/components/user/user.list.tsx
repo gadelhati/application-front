@@ -94,7 +94,6 @@ export const UserList = () => {
                                         placeholder="USERNAME"
                                         type="text"
                                         className={validation("username").length != 0 ? "form-control is-invalid" : "form-control"}
-                                        id="username"
                                         value={state.username}
                                         onChange={handleInputChange}
                                         name="username"
@@ -109,7 +108,6 @@ export const UserList = () => {
                                         placeholder="E-MAIL"
                                         type="email"
                                         className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
-                                        id="email"
                                         value={state.email}
                                         onChange={handleInputChange}
                                         name="email"
@@ -124,7 +122,6 @@ export const UserList = () => {
                                         placeholder="PASSWORD"
                                         type="password"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
-                                        id="password"
                                         value={state.password}
                                         onChange={handleInputChange}
                                         name="password"
@@ -140,7 +137,6 @@ export const UserList = () => {
                                         type="checkbox"
                                         className="form-check-input"
                                         className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
-                                        id="active"
                                         checked={state.active}
                                         defaultChecked={state.active}
                                         onChange={handleInputChange}

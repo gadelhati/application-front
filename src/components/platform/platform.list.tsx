@@ -95,7 +95,6 @@ export const PlatformList = () => {
                                     placeholder="visualCallsign"
                                     type="text"
                                     className={validation("visualCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="visualCallsign"
                                     value={state.visualCallsign}
                                     onChange={handleInputChange}
                                     name="visualCallsign"
@@ -110,7 +109,6 @@ export const PlatformList = () => {
                                     placeholder="telegraphicCallsign"
                                     type="text"
                                     className={validation("telegraphicCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="telegraphicCallsign"
                                     value={state.telegraphicCallsign}
                                     onChange={handleInputChange}
                                     name="telegraphicCallsign"
@@ -125,7 +123,6 @@ export const PlatformList = () => {
                                     placeholder="internationalCallsign"
                                     type="text"
                                     className={validation("internationalCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="internationalCallsign"
                                     value={state.internationalCallsign}
                                     onChange={handleInputChange}
                                     name="internationalCallsign"
@@ -140,7 +137,6 @@ export const PlatformList = () => {
                                     placeholder="Name"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="name"
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -155,7 +151,6 @@ export const PlatformList = () => {
                                     placeholder="internationalName"
                                     type="text"
                                     className={validation("internationalName").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="internationalName"
                                     value={state.internationalName}
                                     onChange={handleInputChange}
                                     name="internationalName"

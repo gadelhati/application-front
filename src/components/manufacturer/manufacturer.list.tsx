@@ -79,12 +79,11 @@ export const ManufacturerList = () => {
                                     placeholder="Name"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="name"
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>

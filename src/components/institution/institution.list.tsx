@@ -119,13 +119,11 @@ export const InstitutionList = () => {
                                     placeholder="Name"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="name"
-                                    required
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
@@ -135,8 +133,6 @@ export const InstitutionList = () => {
                                     placeholder="Email"
                                     type="text"
                                     className={validation("country").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="country"
-                                    required
                                     value={state.country}
                                     onChange={handleInputChange}
                                     name="country"

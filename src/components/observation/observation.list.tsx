@@ -147,7 +147,6 @@ export const ObservationList = () => {
                                                             placeholder="AAXX/BBXX"
                                                             type="text"
                                                             className="form-control"
-                                                            id="mimi"
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
@@ -167,7 +166,6 @@ export const ObservationList = () => {
                                                                 placeholder="XX"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="mjmj"
                                                                 value={state.mjmj}
                                                                 onChange={handleInputChange}
                                                                 name="mjmj"
@@ -182,7 +180,6 @@ export const ObservationList = () => {
                                                             placeholder="DDDDDDD"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ddddddd"
                                                             value={state.ddddddd}
                                                             onChange={handleInputChange}
                                                             name="ddddddd"
@@ -198,7 +195,6 @@ export const ObservationList = () => {
                                                                 placeholder="A1"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="a1"
                                                                 value={stateObservation.a1}
                                                                 onChange={handleInputChange}
                                                                 name="a1"
@@ -209,7 +205,6 @@ export const ObservationList = () => {
                                                                 placeholder="bw"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="bw"
                                                                 value={stateObservation.bw}
                                                                 onChange={handleInputChange}
                                                                 name="bw"
@@ -220,7 +215,6 @@ export const ObservationList = () => {
                                                                 placeholder="nbnbnb"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="nbnbnb"
                                                                 value={stateObservation.nbnbnb}
                                                                 onChange={handleInputChange}
                                                                 name="nbnbnb"
@@ -237,7 +231,6 @@ export const ObservationList = () => {
                                                             placeholder="YY"
                                                             type="text"
                                                             className="form-control"
-                                                            id="yy"
                                                             value={state.yy}
                                                             onChange={handleInputChange}
                                                             name="yy"
@@ -247,7 +240,6 @@ export const ObservationList = () => {
                                                             placeholder="GG"
                                                             type="text"
                                                             className="form-control"
-                                                            id="gg"
                                                             value={state.gg}
                                                             onChange={handleInputChange}
                                                             name="gg"
@@ -257,7 +249,6 @@ export const ObservationList = () => {
                                                             placeholder="iw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="iw"
                                                             value={state.iw}
                                                             onChange={handleInputChange}
                                                             name="iw"
@@ -272,7 +263,6 @@ export const ObservationList = () => {
                                                             placeholder="II"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ii"
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
@@ -282,7 +272,6 @@ export const ObservationList = () => {
                                                             placeholder="iii"
                                                             type="text"
                                                             className="form-control"
-                                                            id="iii"
                                                             value={state.iii}
                                                             onChange={handleInputChange}
                                                             name="iii"
@@ -299,7 +288,6 @@ export const ObservationList = () => {
                                                             placeholder="LaLaLa"
                                                             type="number"
                                                             className="form-control"
-                                                            id="lalala"
                                                             value={state.lalala}
                                                             onChange={handleInputChange}
                                                             name="lalala"
@@ -316,7 +304,6 @@ export const ObservationList = () => {
                                                             placeholder="Qc"
                                                             type="text"
                                                             className="form-control"
-                                                            id="qc"
                                                             value={state.qc}
                                                             onChange={handleInputChange}
                                                             name="qc"
@@ -326,7 +313,6 @@ export const ObservationList = () => {
                                                             placeholder="LOLOLOLO"
                                                             type="text"
                                                             className="form-control"
-                                                            id="lolololo"
                                                             value={state.lolololo}
                                                             onChange={handleInputChange}
                                                             name="lolololo"
@@ -345,7 +331,6 @@ export const ObservationList = () => {
                                                             placeholder="iR"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ir"
                                                             value={state.ir}
                                                             onChange={handleInputChange}
                                                             name="ir"
@@ -355,7 +340,6 @@ export const ObservationList = () => {
                                                             placeholder="iX"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ix"
                                                             value={state.ix}
                                                             onChange={handleInputChange}
                                                             name="ix"
@@ -365,7 +349,6 @@ export const ObservationList = () => {
                                                             placeholder="h"
                                                             type="text"
                                                             className="form-control"
-                                                            id="h"
                                                             value={state.h}
                                                             onChange={handleInputChange}
                                                             name="h"
@@ -375,7 +358,6 @@ export const ObservationList = () => {
                                                             placeholder="VV"
                                                             type="text"
                                                             className="form-control"
-                                                            id="vv"
                                                             value={state.vv}
                                                             onChange={handleInputChange}
                                                             name="vv"
@@ -390,7 +372,6 @@ export const ObservationList = () => {
                                                             placeholder="N"
                                                             type="text"
                                                             className="form-control"
-                                                            id="n"
                                                             value={state.n}
                                                             onChange={handleInputChange}
                                                             name="n"
@@ -400,7 +381,6 @@ export const ObservationList = () => {
                                                             placeholder="dd"
                                                             type="text"
                                                             className="form-control"
-                                                            id="dd"
                                                             value={state.dd}
                                                             onChange={handleInputChange}
                                                             name="dd"
@@ -410,7 +390,6 @@ export const ObservationList = () => {
                                                             placeholder="ff"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ff"
                                                             value={state.ff}
                                                             onChange={handleInputChange}
                                                             name="ff"
@@ -427,7 +406,6 @@ export const ObservationList = () => {
                                                             placeholder="fff"
                                                             type="text"
                                                             className="form-control"
-                                                            id="fff"
                                                             value={state.fff}
                                                             onChange={handleInputChange}
                                                             name="fff"
@@ -442,7 +420,6 @@ export const ObservationList = () => {
                                                             placeholder="sn"
                                                             type="text"
                                                             className="form-control"
-                                                            id="sn1_1"
                                                             value={state.sn1_1}
                                                             onChange={handleInputChange}
                                                             name="sn1_1"
@@ -452,7 +429,6 @@ export const ObservationList = () => {
                                                             placeholder="TTT"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ttt"
                                                             value={state.ttt}
                                                             onChange={handleInputChange}
                                                             name="ttt"
@@ -469,7 +445,6 @@ export const ObservationList = () => {
                                                             placeholder="sn"
                                                             type="text"
                                                             className="form-control"
-                                                            id="sn2_1"
                                                             value={state.sn2_1}
                                                             onChange={handleInputChange}
                                                             name="sn2_1"
@@ -479,7 +454,6 @@ export const ObservationList = () => {
                                                             placeholder="TdTdTd"
                                                             type="text"
                                                             className="form-control"
-                                                            id="tdtdtd"
                                                             value={state.tdtdtd}
                                                             onChange={handleInputChange}
                                                             name="tdtdtd"
@@ -494,7 +468,6 @@ export const ObservationList = () => {
                                                             placeholder="P0P0P0P0"
                                                             type="text"
                                                             className="form-control"
-                                                            id="p0p0p0p0"
                                                             value={state.p0p0p0p0}
                                                             onChange={handleInputChange}
                                                             name="p0p0p0p0"
@@ -511,7 +484,6 @@ export const ObservationList = () => {
                                                             placeholder="PPPP"
                                                             type="text"
                                                             className="form-control"
-                                                            id="pppp"
                                                             value={state.pppp}
                                                             onChange={handleInputChange}
                                                             name="pppp"
@@ -527,7 +499,6 @@ export const ObservationList = () => {
                                                                 placeholder="a3"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="a3"
                                                                 value={stateObservation.a3}
                                                                 onChange={handleInputChange}
                                                                 name="a3"
@@ -538,7 +509,6 @@ export const ObservationList = () => {
                                                                 placeholder="hhh"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="hhh"
                                                                 value={stateObservation.hhh}
                                                                 onChange={handleInputChange}
                                                                 name="hhh"
@@ -553,7 +523,6 @@ export const ObservationList = () => {
                                                             placeholder="a"
                                                             type="text"
                                                             className="form-control"
-                                                            id="a"
                                                             value={state.a}
                                                             onChange={handleInputChange}
                                                             name="a"
@@ -563,7 +532,6 @@ export const ObservationList = () => {
                                                             placeholder="ppp"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ppp"
                                                             value={state.ppp}
                                                             onChange={handleInputChange}
                                                             name="ppp"
@@ -578,12 +546,8 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">6RRRtR</span>
                                                         <input
                                                             placeholder="RRR"
-                                                            aria-label="rrr"
-                                                            aria-describedby="basic-addon1"
                                                             type="text"
                                                             className="form-control"
-                                                            id="rrr"
-                                                            //required
                                                             value={state.rrr}
                                                             onChange={handleInputChange}
                                                             name="rrr"
@@ -593,7 +557,6 @@ export const ObservationList = () => {
                                                             placeholder="tR"
                                                             type="text"
                                                             className="form-control"
-                                                            id="tr"
                                                             value={state.tr}
                                                             onChange={handleInputChange}
                                                             name="tr"
@@ -608,7 +571,6 @@ export const ObservationList = () => {
                                                             placeholder="ww"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ww"
                                                             value={state.ww}
                                                             onChange={handleInputChange}
                                                             name="ww"
@@ -618,7 +580,6 @@ export const ObservationList = () => {
                                                             placeholder="w1w2"
                                                             type="text"
                                                             className="form-control"
-                                                            id="w1w2"
                                                             value={state.w1w2}
                                                             onChange={handleInputChange}
                                                             name="w1w2"
@@ -629,7 +590,6 @@ export const ObservationList = () => {
                                                                     placeholder="W1"
                                                                     type="text"
                                                                     className="form-control"
-                                                                    id="w1"
                                                                     value={stateObservation.w1}
                                                                     onChange={handleInputChange}
                                                                     name="w1"
@@ -640,7 +600,6 @@ export const ObservationList = () => {
                                                                     placeholder="W2"
                                                                     type="text"
                                                                     className="form-control"
-                                                                    id="w2"
                                                                     value={stateObservation.w2}
                                                                     onChange={handleInputChange}
                                                                     name="w2"
@@ -658,7 +617,6 @@ export const ObservationList = () => {
                                                                 placeholder="wawa"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="wawa"
                                                                 value={stateObservation.wawa}
                                                                 onChange={handleInputChange}
                                                                 name="wawa"
@@ -669,7 +627,6 @@ export const ObservationList = () => {
                                                                 placeholder="Wa1"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="wa1"
                                                                 value={stateObservation.wa1}
                                                                 onChange={handleInputChange}
                                                                 name="wa1"
@@ -680,7 +637,6 @@ export const ObservationList = () => {
                                                                 placeholder="Wa2"
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="wa2"
                                                                 value={stateObservation.wa2}
                                                                 onChange={handleInputChange}
                                                                 name="wa2"
@@ -695,7 +651,6 @@ export const ObservationList = () => {
                                                             placeholder="Nh"
                                                             type="text"
                                                             className="form-control"
-                                                            id="nh"
                                                             value={state.nh}
                                                             onChange={handleInputChange}
                                                             name="nh"
@@ -705,7 +660,6 @@ export const ObservationList = () => {
                                                             placeholder="CL"
                                                             type="text"
                                                             className="form-control"
-                                                            id="cl"
                                                             value={state.cl}
                                                             onChange={handleInputChange}
                                                             name="cl"
@@ -715,7 +669,6 @@ export const ObservationList = () => {
                                                             placeholder="CM"
                                                             type="text"
                                                             className="form-control"
-                                                            id="cm"
                                                             value={state.cm}
                                                             onChange={handleInputChange}
                                                             name="cm"
@@ -725,7 +678,6 @@ export const ObservationList = () => {
                                                             placeholder="CH"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ch"
                                                             value={state.ch}
                                                             onChange={handleInputChange}
                                                             name="ch"
@@ -740,7 +692,6 @@ export const ObservationList = () => {
                                                             placeholder="GGgg"
                                                             type="text"
                                                             className="form-control"
-                                                            id="gggg"
                                                             value={state.gggg}
                                                             onChange={handleInputChange}
                                                             name="gggg"
@@ -759,7 +710,6 @@ export const ObservationList = () => {
                                                             placeholder="Ds"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ds"
                                                             value={state.ds}
                                                             onChange={handleInputChange}
                                                             name="ds"
@@ -769,7 +719,6 @@ export const ObservationList = () => {
                                                             placeholder="Vs"
                                                             type="text"
                                                             className="form-control"
-                                                            id="vs"
                                                             value={state.vs}
                                                             onChange={handleInputChange}
                                                             name="vs"
@@ -782,9 +731,8 @@ export const ObservationList = () => {
                                                         <span className="input-group-text" id="identify">0SsTwTwTw</span>
                                                         <input
                                                             placeholder="Ss"
-                                                              type="text"
+                                                            type="text"
                                                             className="form-control"
-                                                            id="ss"
                                                             value={state.ss}
                                                             onChange={handleInputChange}
                                                             name="ss"
@@ -794,7 +742,6 @@ export const ObservationList = () => {
                                                             placeholder="TwTwTw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="twtwtw"
                                                             value={state.twtwtw}
                                                             onChange={handleInputChange}
                                                             name="twtwtw"
@@ -811,7 +758,6 @@ export const ObservationList = () => {
                                                             placeholder="PwaPwa"
                                                             type="text"
                                                             className="form-control"
-                                                            id="pwapwa"
                                                             value={state.pwapwa}
                                                             onChange={handleInputChange}
                                                             name="pwapwa"
@@ -821,7 +767,6 @@ export const ObservationList = () => {
                                                             placeholder="HwaHwa"
                                                             type="text"
                                                             className="form-control"
-                                                            id="hwahwa"
                                                             value={state.hwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwa"
@@ -836,7 +781,6 @@ export const ObservationList = () => {
                                                             placeholder="PwPw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="pwpw"
                                                             value={state.pwpw}
                                                             onChange={handleInputChange}
                                                             name="pwpw"
@@ -846,7 +790,6 @@ export const ObservationList = () => {
                                                             placeholder="HwHw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="hwhw"
                                                             value={state.hwhw}
                                                             onChange={handleInputChange}
                                                             name="hwhw"
@@ -863,7 +806,6 @@ export const ObservationList = () => {
                                                             placeholder="dw1dw1"
                                                             type="text"
                                                             className="form-control"
-                                                            id="dw1dw1"
                                                             value={state.dw1dw1}
                                                             onChange={handleInputChange}
                                                             name="dw1dw1"
@@ -873,7 +815,6 @@ export const ObservationList = () => {
                                                             placeholder="dw2dw2"
                                                             type="text"
                                                             className="form-control"
-                                                            id="dw2dw2"
                                                             value={state.dw2dw2}
                                                             onChange={handleInputChange}
                                                             name="dw2dw2"
@@ -888,7 +829,6 @@ export const ObservationList = () => {
                                                             placeholder="Pw1Pw1"
                                                             type="text"
                                                             className="form-control"
-                                                            id="pw1pw1"
                                                             value={state.pw1pw1}
                                                             onChange={handleInputChange}
                                                             name="pw1pw1"
@@ -898,7 +838,6 @@ export const ObservationList = () => {
                                                             placeholder="Hw1Hw1"
                                                             type="text"
                                                             className="form-control"
-                                                            id="hw1hw1"
                                                             value={state.hw1hw1}
                                                             onChange={handleInputChange}
                                                             name="hw1hw1"
@@ -915,7 +854,6 @@ export const ObservationList = () => {
                                                             placeholder="Pw2Pw2"
                                                             type="text"
                                                             className="form-control"
-                                                            id="pw2pw2"
                                                             value={state.pw2pw2}
                                                             onChange={handleInputChange}
                                                             name="pw2pw2"
@@ -925,7 +863,6 @@ export const ObservationList = () => {
                                                             placeholder="Hw2Hw2"
                                                             type="text"
                                                             className="form-control"
-                                                            id="hw2hw2"
                                                             value={state.hw2hw2}
                                                             onChange={handleInputChange}
                                                             name="hw2hw2"
@@ -940,7 +877,6 @@ export const ObservationList = () => {
                                                             placeholder="Is"
                                                             type="text"
                                                             className="form-control"
-                                                            id="is"
                                                             value={state.is}
                                                             onChange={handleInputChange}
                                                             name="is"
@@ -950,7 +886,6 @@ export const ObservationList = () => {
                                                             placeholder="EsEs"
                                                             type="text"
                                                             className="form-control"
-                                                            id="eses"
                                                             value={state.eses}
                                                             onChange={handleInputChange}
                                                             name="eses"
@@ -960,7 +895,6 @@ export const ObservationList = () => {
                                                             placeholder="Rs"
                                                             type="text"
                                                             className="form-control"
-                                                            id="rs"
                                                             value={state.rs}
                                                             onChange={handleInputChange}
                                                             name="rs"
@@ -977,7 +911,6 @@ export const ObservationList = () => {
                                                             placeholder="HwaHwaHwa"
                                                             type="text"
                                                             className="form-control"
-                                                            id="hwahwahwa"
                                                             value={state.hwahwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwahwa"
@@ -992,7 +925,6 @@ export const ObservationList = () => {
                                                             placeholder="sw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="sw"
                                                             value={state.sw}
                                                             onChange={handleInputChange}
                                                             name="sw"
@@ -1002,7 +934,6 @@ export const ObservationList = () => {
                                                             placeholder="TbTbTb"
                                                             type="text"
                                                             className="form-control"
-                                                            id="tbtbtb"
                                                             value={state.tbtbtb}
                                                             onChange={handleInputChange}
                                                             name="tbtbtb"
@@ -1019,7 +950,6 @@ export const ObservationList = () => {
                                                             placeholder="ci"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ci"
                                                             value={state.ci}
                                                             onChange={handleInputChange}
                                                             name="ci"
@@ -1029,8 +959,7 @@ export const ObservationList = () => {
                                                             placeholder="Si"
                                                             type="text"
                                                             className="form-control"
-                                                            id="si"
-                                                              value={state.si}
+                                                            value={state.si}
                                                             onChange={handleInputChange}
                                                             name="si"
                                                             title='Estágio de desenvolvimento: 0 a 9 ou /'
@@ -1039,7 +968,6 @@ export const ObservationList = () => {
                                                             placeholder="bi"
                                                             type="text"
                                                             className="form-control"
-                                                            id="bi"
                                                             value={state.bi}
                                                             onChange={handleInputChange}
                                                             name="bi"
@@ -1049,7 +977,6 @@ export const ObservationList = () => {
                                                             placeholder="Di"
                                                             type="text"
                                                             className="form-control"
-                                                            id="di"
                                                             value={state.di}
                                                             onChange={handleInputChange}
                                                             name="di"
@@ -1059,7 +986,6 @@ export const ObservationList = () => {
                                                             placeholder="zi"
                                                             type="text"
                                                             className="form-control"
-                                                            id="zi"
                                                             value={state.zi}
                                                             onChange={handleInputChange}
                                                             name="zi"
@@ -1078,7 +1004,6 @@ export const ObservationList = () => {
                                                             placeholder="sn"
                                                             type="text"
                                                             className="form-control"
-                                                            id="sn1_3"
                                                             value={state.sn1_3}
                                                             onChange={handleInputChange}
                                                             name="sn1_3"
@@ -1088,7 +1013,6 @@ export const ObservationList = () => {
                                                             placeholder="TxTxTx"
                                                             type="text"
                                                             className="form-control"
-                                                            id="txtxtx"
                                                             value={state.txtxtx}
                                                             onChange={handleInputChange}
                                                             name="txtxtx"
@@ -1105,7 +1029,6 @@ export const ObservationList = () => {
                                                             placeholder="sn"
                                                             type="text"
                                                             className="form-control"
-                                                            id="sn2_3"
                                                             value={state.sn2_3}
                                                             onChange={handleInputChange}
                                                             name="sn2_3"
@@ -1115,7 +1038,6 @@ export const ObservationList = () => {
                                                             placeholder="TnTnTn"
                                                             type="text"
                                                             className="form-control"
-                                                            id="tntntn"
                                                             value={state.tntntn}
                                                             onChange={handleInputChange}
                                                             name="tntntn"
@@ -1130,7 +1052,6 @@ export const ObservationList = () => {
                                                             placeholder="8/9"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ind89"
                                                             value={state.ind89}
                                                             onChange={handleInputChange}
                                                             name="ind89"
@@ -1140,7 +1061,6 @@ export const ObservationList = () => {
                                                             placeholder="P24P24P24"
                                                             type="text"
                                                             className="form-control"
-                                                            id="p24p24p24"
                                                             value={state.p24p24p24}
                                                             onChange={handleInputChange}
                                                             name="p24p24p24"
@@ -1159,7 +1079,6 @@ export const ObservationList = () => {
                                                             placeholder="ichw"
                                                             type="text"
                                                             className="form-control"
-                                                            id="ichw"
                                                             value={state.ichw}
                                                             onChange={handleInputChange}
                                                             name="ichw"
@@ -1169,7 +1088,6 @@ export const ObservationList = () => {
                                                             placeholder="icM"
                                                             type="text"
                                                             className="form-control"
-                                                            id="icm"
                                                             value={state.icm}
                                                             onChange={handleInputChange}
                                                             name="icm"
@@ -1179,7 +1097,6 @@ export const ObservationList = () => {
                                                             placeholder="cs"
                                                             type="text"
                                                             className="form-control"
-                                                            id="cs"
                                                             value={state.cs}
                                                             onChange={handleInputChange}
                                                             name="cs"
@@ -1189,7 +1106,6 @@ export const ObservationList = () => {
                                                             placeholder="icF"
                                                             type="text"
                                                             className="form-control"
-                                                            id="icf"
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
@@ -1199,7 +1115,6 @@ export const ObservationList = () => {
                                                             placeholder="icp"
                                                             type="text"
                                                             className="form-control"
-                                                            id="icp"
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
@@ -1209,7 +1124,6 @@ export const ObservationList = () => {
                                                             placeholder="icQ"
                                                             type="text"
                                                             className="form-control"
-                                                            id="icq"
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"

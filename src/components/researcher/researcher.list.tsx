@@ -93,7 +93,6 @@ export const ResearcherList = () => {
                                     placeholder="Name"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="name"
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
@@ -108,7 +107,6 @@ export const ResearcherList = () => {
                                     placeholder="Email"
                                     type="text"
                                     className={validation("email").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="email"
                                     value={state.email}
                                     onChange={handleInputChange}
                                     name="email"
@@ -123,7 +121,6 @@ export const ResearcherList = () => {
                                     placeholder="Address"
                                     type="text"
                                     className={validation("address").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="address"
                                     value={state.address}
                                     onChange={handleInputChange}
                                     name="address"

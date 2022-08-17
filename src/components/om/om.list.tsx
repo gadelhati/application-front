@@ -91,7 +91,6 @@ export const OMList = () => {
                                     placeholder="Name"
                                     type="text"
                                     className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    id="name"
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
