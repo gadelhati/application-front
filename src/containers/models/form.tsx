@@ -40,12 +40,12 @@ export const Button = styled('button', {
     },
     variants: {
         color: {
-            primary:    {backgroundColor: '#1E90FF'},
+            primary:    {backgroundColor: '#4285F4'},
             secondary:  {backgroundColor: '#696969'},
-            success:    {backgroundColor: '#228B22'},
-            info:       {backgroundColor: '#00BFFF'},
-            warning:    {backgroundColor: '#FFD700'},
-            danger:     {backgroundColor: '#8B0000'},
+            success:    {backgroundColor: '#00C851'},
+            info:       {backgroundColor: '#33b5e5'},
+            warning:    {backgroundColor: '#ffbb33'},
+            danger:     {backgroundColor: '#ff4444'},
             light:      {backgroundColor: '#F0FFFF'},
             dark:       {backgroundColor: '#000000'},
         },

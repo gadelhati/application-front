@@ -1,13 +1,14 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Section, Article } from '../../containers/models/content';
 import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
+import { Crud } from '../../containers/load/crud.buttons';
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
@@ -26,28 +27,8 @@ export const ManufacturerList = () => {
     const resetItem = () => {
         setState(initialManufacturer)
     }
-    const createItem = () => {
-        dispatch(createAction<Manufacturer>('manufacturer', state))
-        if(itens == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction<Manufacturer>('manufacturer', [state]))
-        if(itens == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('manufacturer', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('manufacturer'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('manufacturer', state.id, state))
-        if(itens == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('manufacturer', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
@@ -108,11 +89,8 @@ export const ManufacturerList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <button onClick={resetItem} className="btn btn-secondary button btn-sm" hidden={executed()}>Resetar</button>
-                            <button onClick={createItem} className="btn btn-success button btn-sm" hidden={state.id != "" || executed()} data-bs-toggle="modal">Criar</button>
-                            <button onClick={updateItem} className="btn btn-primary button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Atualizar</button>
-                            <button onClick={deleteItem} className="btn btn-danger button btn-sm" hidden={state.id == "" || executed()} data-bs-toggle="modal">Deletar</button>
-                            <button className="btn btn-primary btn-sm float-end" data-bs-dismiss="modal">Fechar</button>
+                            {/* <Crud createItem={createItem} updateItem={updateItem} deleteItem={deleteItem} resetItem={resetItem}></Crud> */}
+                            <Crud initialObject={initialManufacturer} object={state} name={"manufacturer"}></Crud>
                             {access() &&
                                 <button className="btn btn-danger btn-sm float-end" type="button" disabled>
                                     {"Acesso negado"}
