@@ -1,6 +1,6 @@
 import { Cow, Title } from "../models/content";
 import { Button } from "../models/form";
-import { loadInterface } from "./load.interface";
+import { loadInterface } from "./header.interface";
 
 export const Load = (load: loadInterface) => {
     return (

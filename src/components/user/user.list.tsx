@@ -5,7 +5,7 @@ import { createAction, createAllAction, retrieveAction, retrieveAllAction, updat
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import '../list.css'
-import { Load } from '../../containers/load/load';
+import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 

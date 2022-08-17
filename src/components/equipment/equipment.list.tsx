@@ -6,7 +6,7 @@ import { retrieveAllAction as retrieveAllActionM } from '../../reducers/actions/
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
 import '../list.css'
-import { Load } from '../../containers/load/load';
+import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
 import { Article, Section } from '../../containers/models/content';

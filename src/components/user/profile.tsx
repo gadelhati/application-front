@@ -8,7 +8,7 @@ import { User } from "./user.interface";
 import { initialUser } from './user.initial';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"
 import '../list.css'
-import { Load } from '../../containers/load/load';
+import { Load } from '../../containers/load/header';
 import { Toast } from '../../containers/toast/toast';
 import { Article, Section } from '../../containers/models/content';
 

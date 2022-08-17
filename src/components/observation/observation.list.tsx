@@ -6,7 +6,7 @@ import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
 import '../list.css'
-import { Load } from '../../containers/load/load';
+import { Load } from '../../containers/load/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
 import { Article, Section } from '../../containers/models/content';
