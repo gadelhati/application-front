@@ -11,7 +11,21 @@ import { styled } from '@stitches/react';
 import "./gadelhastrap.css"
 
 const Gadelha = styled('div', {
-    height: 1.25,
+    display: 'block',
+	width: '100%',
+	padding: '.375rem .75rem',
+	fontSize: '1rem',
+	fontWeight: '400',
+	lineHeight: '1.5',
+	color: '#212529',
+	backgroundColor: '#fff',
+	backgroundClip: 'padding-box',
+	border: '1px solid #ced4da',
+    webkitAppearance: 'none',
+	mozAppearance: 'none',
+	appearance: 'none',
+	borderRadius: '.25rem',
+	transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out'
 });
 
 export const ManufacturerList = () => {
