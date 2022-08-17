@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Manufacturer } from '../../components/manufacturer/manufacturer.interface';
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Cow, Row } from '../models/content';
 import { Button } from "../models/form";
@@ -14,12 +13,12 @@ export const Crud = (crud: crudInterface) => {
         setState(crud.initialObject)
     }
     const createItem = () => {
-        dispatch(createAction<Manufacturer>(crud.name, crud.object))
+        dispatch(createAction(crud.name, crud.object))
         resetItem()
         // if(itens == null) resetItem()
     }
     const createAllItem = () => {
-        dispatch(createAllAction<Manufacturer>(crud.name, [crud.object]))
+        dispatch(createAllAction(crud.name, [crud.object]))
         // if(itens == null) resetItem()
     }
     const retrieveItem = () => {
