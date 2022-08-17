@@ -22,3 +22,51 @@ export const Article = styled('article', {
     marginBottom: '10px',
     boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.1)',/* offset-x | offset-y | blur-radius | spread-radius | color */
 });
+
+export const Title = styled('div', {
+    //ALERT SECONDARY
+    color: '#41464b',
+    backgroundColor: '#e2e3e5',
+    borderColor: '#d3d6d8',
+    //ALERT
+    position: 'relative',
+    padding: '1rem 1rem',
+    marginBottom: '1rem',
+    border: '1px solid transparent',
+    borderRadius: '.25rem',
+    //BODY
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    bsGutterX: '1.5rem',
+    bsGutterY: '0',
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginTop: 'calc(var(--bs-gutter-y) * -1)',
+    marginRight: 'calc(var(--bs-gutter-x) * -.5)',
+    marginLeft: 'calc(var(--bs-gutter-x) * -.5)',
+    '::after, ::before': {
+        boxSizing: 'border-box',
+    }
+});
+
+export const Row = styled('div', {
+    bsGutterX: '1.5rem',
+    bsGutterY: '0',
+    display: 'flex',
+    flexWrap: 'wrap',
+    marginTop: 'calc(var(--bs-gutter-y) * -1)',
+    marginRight: 'calc(var(--bs-gutter-x) * -.5)',
+    marginLeft: 'calc(var(--bs-gutter-x) * -.5)',
+    '::after, ::before': {
+        boxSizing: 'border-box',
+    }
+});
+
+export const Cow = styled('div', {
+    flex: '1 0 0%',
+    '::after, ::before': {
+        boxSizing: 'border-box',
+    }
+});

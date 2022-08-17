@@ -6,8 +6,10 @@ import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
-import { Button, Cow, Modal, ModalBody, ModalContent, ModalHeader, Title } from '../../containers/models/header';
-import { Article, Section } from '../../containers/models/content';
+import { Section, Article } from '../../containers/models/content';
+import { Title, Cow } from '../../containers/models/content';
+import { Button } from '../../containers/models/form';
+import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();
