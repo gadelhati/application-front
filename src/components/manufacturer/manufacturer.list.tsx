@@ -7,8 +7,6 @@ import { initialManufacturer } from './manufacturer.initial';
 import { Load } from '../../containers/load/load';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Section, Article } from '../../containers/models/content';
-import { Title, Cow } from '../../containers/models/content';
-import { Button } from '../../containers/models/form';
 import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
 
 export const ManufacturerList = () => {
@@ -84,10 +82,6 @@ export const ManufacturerList = () => {
                 </ModalContent>
             </Modal> */}
             <Article>
-                <Title>
-                    <h5>Fabricantes</h5>
-                    <Cow><Button>Criar</Button></Cow>
-                </Title>
                 <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
