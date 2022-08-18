@@ -86,7 +86,7 @@ export const InstitutionList = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="ModalLabel">Instituição</h5>
-                            <button className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
