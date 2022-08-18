@@ -4,10 +4,10 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
-import { Load } from '../../containers/load/header';
+import { Load } from '../../containers/button/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
-import { Crud } from '../../containers/load/crud.buttons';
+import { Crud } from '../../containers/button/crud.buttons';
 
 export const UserList = () => {
     const dispatch = useDispatch();

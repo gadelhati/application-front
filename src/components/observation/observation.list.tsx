@@ -5,11 +5,11 @@ import { createAction, createAllAction, retrieveAction, retrieveAllAction, updat
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
-import { Load } from '../../containers/load/header';
+import { Load } from '../../containers/button/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
 import { Article, Section } from '../../containers/models/content';
-import { Crud } from '../../containers/load/crud.buttons';
+import { Crud } from '../../containers/button/crud.buttons';
 
 export const ObservationList = () => {
     const dispatch = useDispatch()

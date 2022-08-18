@@ -4,11 +4,11 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
-import { Load } from '../../containers/load/header';
+import { Load } from '../../containers/button/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Section, Article } from '../../containers/models/content';
 import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
-import { Crud } from '../../containers/load/crud.buttons';
+import { Crud } from '../../containers/button/crud.buttons';
 
 export const ManufacturerList = () => {
     const dispatch = useDispatch();

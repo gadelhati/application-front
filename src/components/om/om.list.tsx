@@ -4,10 +4,10 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { OM } from "./om.interface";
 import { initialOM } from './om.initial';
-import { Load } from '../../containers/load/header';
+import { Load } from '../../containers/button/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
-import { Crud } from '../../containers/load/crud.buttons';
+import { Crud } from '../../containers/button/crud.buttons';
 
 export const OMList = () => {
     const dispatch = useDispatch();

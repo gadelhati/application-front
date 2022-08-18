@@ -4,11 +4,11 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Institution } from "./institution.interface";
 import { initialInstitution } from './institution.initial';
-import { Load } from '../../containers/load/header';
+import { Load } from '../../containers/button/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
 import { Article, Section } from '../../containers/models/content';
-import { Crud } from '../../containers/load/crud.buttons';
+import { Crud } from '../../containers/button/crud.buttons';
 
 export const InstitutionList = () => {
     const dispatch = useDispatch();
