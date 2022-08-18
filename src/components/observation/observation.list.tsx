@@ -31,7 +31,7 @@ export const ObservationList = () => {
         setState(initialObservation)
     }
     const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('observation'))
+        dispatch(retrieveAllAction('synopticObservation'))
         resetItem()
     }
     const validation = (name: string): string[] => {
@@ -1125,7 +1125,7 @@ export const ObservationList = () => {
                                 </div>
                                 {/* </Card> */}
                                 <hr />
-                                <Crud initialObject={initialObservation} object={state} name={"observation"} error={error}></Crud>
+                                <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
                             </article>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ export const ObservationUpload = () => {
         console.log(state)
     }, [state])
     const createAllItems = () => {
-        dispatch(createAllAction<Observation>('observation', state))
+        dispatch(createAllAction<Observation>('synopticObservation', state))
     }
     const handleInputFile = (event: ChangeEvent<HTMLInputElement>) => {
         const observations : Observation[] = []
