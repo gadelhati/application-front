@@ -7,9 +7,7 @@ import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/a
 import { initialAuth } from './auth.initial';
 import { styled } from '@stitches/react';
 import "../../assets/bootstrap/dist/css/bootstrap.min.css"
-// import "./signin.css"
 import logo from '../../assets/image/heraldica.png'
-import { getUser } from '../../services/service.token';
 
 export const SigninSection = styled('div', {
     textAlign: 'center !important',
@@ -93,7 +91,6 @@ export const SigninContainer = () => {
     return (
         <SigninSection>
             <SigninArticle>
-                {/* <Signin > */}
                 <form onSubmit={submitForm}>
                     <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
@@ -132,7 +129,6 @@ export const SigninContainer = () => {
                     {error != null && JSON.stringify(error)}
                     {/* {loading && <Navigate />} */}
                 </form>
-                {/* </Signin> */}
              </SigninArticle>
         </SigninSection>
     );
