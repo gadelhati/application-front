@@ -23,6 +23,7 @@ import { EquipmentList } from "./components/equipment/equipment.list";
 import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
 import { InstitutionList } from "./components/institution/institution.list";
 import { PlatformCategoryList } from "./components/platformCategory/platformCategory.list";
+import { Sidebar } from "./containers/menus/sidebar";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
@@ -34,6 +35,7 @@ export default function AppRoutes() {
             <HashRouter>
                 <aside>
                     {getUser() && <Sidestrap />}
+                    {/* {getUser() && <Sidebar />} */}
                 </aside>
                 <main>
                     {/* <Header /> */}
