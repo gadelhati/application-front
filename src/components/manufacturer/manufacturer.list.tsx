@@ -36,16 +36,6 @@ export const ManufacturerList = () => {
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
-        return executed
-    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -56,16 +46,16 @@ export const ManufacturerList = () => {
     ]
     return (
         <Section>
+            <Article>
+                <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+            </Article>
             {/* <Modal>
                 <ModalContent>
                     <ModalHeader></ModalHeader>
                     <ModalBody></ModalBody>
                 </ModalContent>
             </Modal> */}
-            <Article>
-                <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
-            </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
@@ -88,17 +78,7 @@ export const ManufacturerList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <Crud initialObject={initialManufacturer} object={state} name={"manufacturer"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
+                            <Crud initialObject={initialManufacturer} object={state} name={"manufacturer"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

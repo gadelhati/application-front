@@ -27,44 +27,14 @@ export const InstitutionList = () => {
     const resetItem = () => {
         setState(initialInstitution)
     }
-    const createItem = () => {
-        dispatch(createAction<Institution>('institution', state))
-        if (item == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction<Institution>('institution', [state]))
-        if (item == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('institution', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('institution'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('institution', state.id, state))
-        if (item == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('institution', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
-    }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map(element => { if ("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map(element => { if ("" == element.field) return executed = true })
-        return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -142,17 +112,7 @@ export const InstitutionList = () => {
                                 <label htmlFor="country">País</label>
                                 <div className="invalid-feedback">{validation("country")}</div>
                             </div> */}
-                            <Crud initialObject={initialInstitution} object={state} name={"institution"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
+                            <Crud initialObject={initialInstitution} object={state} name={"institution"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

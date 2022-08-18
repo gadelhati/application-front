@@ -26,44 +26,14 @@ export const ResearcherList = () => {
     const resetItem = () => {
         setState(initialResearcher)
     }
-    const createItem = () => {
-        dispatch(createAction<Researcher>('researcher', state))
-        if(item == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction<Researcher>('researcher', [state]))
-        if(item == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('researcher', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('researcher'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('researcher', state.id, state))
-        if(item == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('researcher', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
-    }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
-        return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -97,7 +67,7 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
@@ -111,7 +81,7 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="email"
                                     title="Email do pesquisador"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="email">E-mail</label>
                                 <div className="invalid-feedback">{validation("email")}</div>
@@ -125,22 +95,12 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="address"
                                     title="Endereço do pesquisador"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="address">Endereço</label>
                                 <div className="invalid-feedback">{validation("address")}</div>
                             </div>
                             <Crud initialObject={initialResearcher} object={state} name={"researcher"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
                         </div>
                     </div>
                 </div>

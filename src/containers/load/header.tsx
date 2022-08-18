@@ -7,8 +7,8 @@ export const Load = (load: loadInterface) => {
         <Title>
             <h5>{load.title}</h5>
             <Cow>
-                <Button disabled={true} onClick={load.resetItem} data-bs-toggle="modal" data-bs-target="#modal">Criar</Button>
-                <Button disabled={false}>Carregado<span>{load.itens}</span></Button>
+                <Button disabled={false} onClick={load.resetItem} data-bs-toggle="modal" data-bs-target="#modal">Criar</Button>
+                <Button disabled={true}>Carregado<span>{load.itens}</span></Button>
             </Cow>
         </Title>
     );

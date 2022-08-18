@@ -26,44 +26,14 @@ export const PlatformList = () => {
     const resetItem = () => {
         setState(initialPlatform)
     }
-    const createItem = () => {
-        dispatch(createAction<Platform>('platform', state))
-        if(item == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction<Platform>('platform', [state]))
-        if(item == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('platform', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('platform'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('platform', state.id, state))
-        if(item == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('platform', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
-    }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
-        return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -99,7 +69,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="visualCallsign"
                                     title="Indicativo Visual"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="visualCallsign">Indicativo Visual</label>
                                 <div className="invalid-feedback">{validation("visualCallsign")}</div>
@@ -113,7 +83,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="telegraphicCallsign"
                                     title="Indicativo Telegráfico"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="telegraphicCallsign">Indicativo Telegráfico</label>
                                 <div className="invalid-feedback">{validation("telegraphicCallsign")}</div>
@@ -127,7 +97,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="internationalCallsign"
                                     title="Indicativo Internacional"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="internationalCallsign">Indicativo Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalCallsign")}</div>
@@ -141,7 +111,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
@@ -155,22 +125,12 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="internationalName"
                                     title="Nome Internacional"
-                                    readOnly={executed()}
+                                    // readOnly={executed()}
                                 />
                                 <label htmlFor="internationalName">Nome Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalName")}</div>
                             </div>
-                            <Crud initialObject={initialPlatform} object={state} name={"platform"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
+                            <Crud initialObject={initialPlatform} object={state} name={"platform"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

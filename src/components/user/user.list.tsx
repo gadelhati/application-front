@@ -26,28 +26,8 @@ export const UserList = () => {
     const resetItem = () => {
         setState(initialUser)
     }
-    const createItem = () => {
-        dispatch(createAction('user', state))
-        if(item == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction('user', [state]))
-        if(item == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('user', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('user'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('user', state.id, state))
-        if(item == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('user', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {

@@ -26,44 +26,14 @@ export const CountryList = () => {
     const resetItem = () => {
         setState(initialCountry)
     }
-    const createItem = () => {
-        dispatch(createAction<Country>('country', state))
-        if(item == null) resetItem()
-    }
-    const createAllItem = () => {
-        dispatch(createAllAction<Country>('country', [state]))
-        if(item == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('country', state.id))
-        resetItem()
-    }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('country'))
-        resetItem()
-    }
-    const updateItem = () => {
-        dispatch(updateAction('country', state.id, state))
-        if(item == null) resetItem()
-    }
-    const deleteItem = () => {
-        dispatch(deleteAction('country', state.id))
         resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
-    }
-    const access = (): boolean => {
-        let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
-        return allowed
-    }
-    const executed = (): boolean => {
-        let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
-        return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -100,17 +70,7 @@ export const CountryList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <Crud initialObject={initialCountry} object={state} name={"country"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
+                            <Crud initialObject={initialCountry} object={state} name={"country"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

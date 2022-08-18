@@ -51,18 +51,18 @@ export const Button = styled('button', {
         },
         disabled: {
             true: {
-                color: '#fff',
-                backgroundColor: '#198754',
-                borderColor: '#198754',
-                cursor: 'pointer',
-            },
-            false: {
                 color: '#6c757d',
                 backgroundColor: 'transparent',
                 borderColor: '#6c757d',
                 cursor: 'none',
                 pointerEvents: 'none',
                 opacity: '.65',
+            },
+            false: {
+                color: '#fff',
+                backgroundColor: '#198754',
+                borderColor: '#198754',
+                cursor: 'pointer',
             }
         }
     }
