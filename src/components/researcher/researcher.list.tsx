@@ -35,6 +35,11 @@ export const ResearcherList = () => {
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -67,7 +72,7 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
@@ -81,7 +86,7 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="email"
                                     title="Email do pesquisador"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="email">E-mail</label>
                                 <div className="invalid-feedback">{validation("email")}</div>
@@ -95,7 +100,7 @@ export const ResearcherList = () => {
                                     onChange={handleInputChange}
                                     name="address"
                                     title="Endereço do pesquisador"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="address">Endereço</label>
                                 <div className="invalid-feedback">{validation("address")}</div>

@@ -51,12 +51,12 @@ export const Crud = (crud: crudInterface) => {
         <>
             <br />
             <Row>
-                <Button color="secondary" onClick={resetItem} >Resetar</Button>
-                <Button color="secondary" onClick={createItem} hidden={crud.object.id != ""} data-bs-toggle="modal">Criar</Button>
-                <Button color="secondary" onClick={updateItem} hidden={crud.object.id == ""} data-bs-toggle="modal">Atualizar</Button>
-                <Button color="secondary" onClick={deleteItem} hidden={crud.object.id == ""} data-bs-toggle="modal">Deletar</Button>
+                <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button>
+                <Button color="secondary" onClick={createItem} hidden={crud.object.id != "" || executed()} data-bs-toggle="modal">Criar</Button>
+                <Button color="secondary" onClick={updateItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
+                <Button color="secondary" onClick={deleteItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Deletar</Button>
                 <Cow>
-                    <Button color="secondary" onClick={resetItem} data-bs-dismiss="modal">Fechar</Button>
+                    <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
                     {executed() && <Button disabled={true}>Executado</Button>}
                     {access() && <Button disabled>Acesso negado</Button>}
                 </Cow>

@@ -35,6 +35,11 @@ export const PlatformList = () => {
         error?.map( element => { if(name == element.field) return vector = element.message })
         return vector
     }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
+    }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -69,7 +74,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="visualCallsign"
                                     title="Indicativo Visual"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="visualCallsign">Indicativo Visual</label>
                                 <div className="invalid-feedback">{validation("visualCallsign")}</div>
@@ -83,7 +88,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="telegraphicCallsign"
                                     title="Indicativo Telegráfico"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="telegraphicCallsign">Indicativo Telegráfico</label>
                                 <div className="invalid-feedback">{validation("telegraphicCallsign")}</div>
@@ -97,7 +102,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="internationalCallsign"
                                     title="Indicativo Internacional"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="internationalCallsign">Indicativo Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalCallsign")}</div>
@@ -111,7 +116,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="name"
                                     title="Nome da Organização Militar"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
@@ -125,7 +130,7 @@ export const PlatformList = () => {
                                     onChange={handleInputChange}
                                     name="internationalName"
                                     title="Nome Internacional"
-                                    // readOnly={executed()}
+                                    readOnly={executed()}
                                 />
                                 <label htmlFor="internationalName">Nome Internacional</label>
                                 <div className="invalid-feedback">{validation("internationalName")}</div>

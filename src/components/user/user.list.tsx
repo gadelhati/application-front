@@ -129,16 +129,6 @@ export const UserList = () => {
                             </div>
                             <hr />
                             <Crud initialObject={initialUser} object={state} name={"user"}></Crud>
-                            {access() &&
-                                <button className="btn btn-danger btn-sm float-end" type="button" disabled>
-                                    {"Acesso negado"}
-                                </button>
-                            }
-                            {executed() &&
-                                <button className="btn btn-success btn-sm float-end" type="button" disabled>
-                                    {"Executado"}
-                                </button>
-                            }
                         </div>
                     </div>
                 </div>
