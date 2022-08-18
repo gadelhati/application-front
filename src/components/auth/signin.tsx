@@ -3,29 +3,54 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Auth } from './auth.interface';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { /*signupAction,*/ signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth'
+import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth'
 import { initialAuth } from './auth.initial';
-// import { styled } from '@stitches/react';
+import { styled } from '@stitches/react';
 import "../../assets/bootstrap/dist/css/bootstrap.min.css"
-import "./signin.css"
+// import "./signin.css"
 import logo from '../../assets/image/heraldica.png'
 import { getUser } from '../../services/service.token';
 
-// export const Signin = styled('div', {
-//     margin: 0,
-//     marginLeft: 256,
-//     padding: 0,
-//     width: 'auto',
-//     backgroundColor: 'White',
-//     position: 'relative',
-//     height: 56,
-//     overflow: 'auto',
-//     '@media(max-width:700px)': {
-//         width: '100%',
-//         height: 'auto',
-//         position: 'relative'
-//     }
-// });
+export const SigninSection = styled('div', {
+    textAlign: 'center !important',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'nowrap',
+    alignItems: 'stretch',
+    flexGrow: '1',
+    overflow: 'auto',
+    padding: '10px',
+    flexShrink: '0',
+    boxSizing: 'border-box',
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+    // '@media(max-width:700px)': {
+    //     width: '100%',
+    //     height: 'auto',
+    //     position: 'relative'
+    // }
+});
+
+export const SigninArticle = styled('div', {
+    maxWidth: '330px',
+    padding: '15px',
+    margin: 'auto !important',
+    width: '100% !important',
+    backgroundColor: 'rgb(252, 246, 246)',
+    borderRadius: '10px',
+    boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.1)',
+    flexShrink: '0',
+    boxSizing: 'border-box',
+    textAlign: 'center !important',
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+});
 
 export const SigninContainer = () => {
     const dispatch = useDispatch();
@@ -66,8 +91,8 @@ export const SigninContainer = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     return (
-        <section className="text-center signin">
-            <article className="form-signin w-100 m-auto">
+        <SigninSection>
+            <SigninArticle>
                 {/* <Signin > */}
                 <form onSubmit={submitForm}>
                     <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
@@ -108,7 +133,7 @@ export const SigninContainer = () => {
                     {/* {loading && <Navigate />} */}
                 </form>
                 {/* </Signin> */}
-             </article>
-        </section>
+             </SigninArticle>
+        </SigninSection>
     );
 }
