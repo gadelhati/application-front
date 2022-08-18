@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Manufacturer } from "./manufacturer.interface";
 import { initialManufacturer } from './manufacturer.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Section, Article } from '../../containers/models/content';
 import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
@@ -52,7 +52,7 @@ export const ManufacturerList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             {/* <Modal>

@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { PlatformCategory } from "./platformCategory.interface";
 import { initialPlatformCategory } from './platformCategory.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
@@ -51,7 +51,7 @@ export const PlatformCategoryList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Tipos de Plataforma"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Tipos de Plataforma"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
@@ -70,7 +70,7 @@ export const PlatformCategoryList = () => {
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
-                                    title="Nome da Organização Militar"
+                                    title="Nome do Tipo de Plataforma"
                                     readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>

@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Institution } from "./institution.interface";
 import { initialInstitution } from './institution.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
 import { Article, Section } from '../../containers/models/content';
@@ -52,7 +52,7 @@ export const InstitutionList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Instituições"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Instituições"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
                     <div className='col' >
                         <div className='card'>

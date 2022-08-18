@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { User } from "./user.interface";
 import { initialUser } from './user.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
@@ -57,7 +57,7 @@ export const UserList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >

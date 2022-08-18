@@ -4,7 +4,7 @@ import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { OM } from "./om.interface";
 import { initialOM } from './om.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
@@ -50,7 +50,7 @@ export const OMList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Organizações Militares"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Organizações Militares"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >

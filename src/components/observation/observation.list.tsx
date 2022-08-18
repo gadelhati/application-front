@@ -5,7 +5,7 @@ import { createAction, createAllAction, retrieveAction, retrieveAllAction, updat
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
 import { Article, Section } from '../../containers/models/content';
@@ -84,7 +84,7 @@ export const ObservationList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
                 <ObservationUpload />
                 {/* </div> */}

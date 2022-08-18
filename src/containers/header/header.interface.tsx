@@ -1,6 +1,6 @@
 import { ErrorMessage } from "../../assets/error/errorMessage";
 
-export interface loadInterface {
+export interface headerInterface {
     resetItem: any,
     title: string,
     loading: boolean | null,

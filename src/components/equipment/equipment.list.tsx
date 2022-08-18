@@ -5,7 +5,7 @@ import { createAction, createAllAction, retrieveAction, retrieveAllAction, updat
 import { retrieveAllAction as retrieveAllActionM } from '../../reducers/actions/action.creator';
 import { Equipment } from "./equipment.interface";
 import { initialEquipment } from './equipment.initial';
-import { Load } from '../../containers/button/header';
+import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { CCardBody, CDataTable } from '@coreui/react';
 import { Article, Section } from '../../containers/models/content';
@@ -61,7 +61,7 @@ export const EquipmentList = () => {
     return (
         <Section>
             <Article>
-                <Load title={"Equipamento"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Equipamento"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <div className='row'>
                     <div className='col' >
                         <div className='card'>
