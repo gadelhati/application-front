@@ -23,7 +23,7 @@ import { EquipmentList } from "./components/equipment/equipment.list";
 import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
 import { InstitutionList } from "./components/institution/institution.list";
 import { PlatformCategoryList } from "./components/platformCategory/platformCategory.list";
-import { Sidebar } from "./containers/menus/sidebar";
+import { Sidebar } from "./containers/menus/Sidebar";
 
 export default function AppRoutes() {
     const defaultProtectedRouteProps: Omit<ProtectedRouteProps, 'outlet'> = {
