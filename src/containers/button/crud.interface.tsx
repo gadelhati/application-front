@@ -11,5 +11,5 @@ export interface crudInterface {
     initialObject?: any,
     type?: any,
     name: string,
-    error?: ErrorMessage[] | null,
+    error: ErrorMessage[] | null,
 }

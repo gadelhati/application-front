@@ -105,7 +105,7 @@ export const ResearcherList = () => {
                                 <label htmlFor="address">Endereço</label>
                                 <div className="invalid-feedback">{validation("address")}</div>
                             </div>
-                            <Crud initialObject={initialResearcher} object={state} name={"researcher"}></Crud>
+                            <Crud initialObject={initialResearcher} object={state} name={"researcher"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

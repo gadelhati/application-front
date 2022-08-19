@@ -128,7 +128,7 @@ export const UserList = () => {
                                 </div> */}
                             </div>
                             <hr />
-                            <Crud initialObject={initialUser} object={state} name={"user"}></Crud>
+                            <Crud initialObject={initialUser} object={state} name={"user"} error={error}></Crud>
                         </div>
                     </div>
                 </div>
