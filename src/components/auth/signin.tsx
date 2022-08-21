@@ -62,13 +62,13 @@ export const SigninContainer = () => {
     const signinItem = () => {
         dispatch(signinAction(state))
         // console.log(error)
-        if(item != null) {
-            console.log("if")
-            navigate("/om")
-            item !=null ? <SigninContainer /> : <Navigate to="/" />
-        } else {
-            console.log("else")
-        }
+        // if(item != null) {
+        //     console.log("if")
+        //     navigate("/om")
+        //     item !=null ? <SigninContainer /> : <Navigate to="/" />
+        // } else {
+        //     console.log("else")
+        // }
         // return error !=null ? <SigninContainer /> : <Navigate to="/" />
     }
     const logoutItem = () => {
@@ -91,15 +91,15 @@ export const SigninContainer = () => {
     return (
         <SigninSection>
             <SigninArticle>
-                <form onSubmit={submitForm}>
+                {/* <form onSubmit={submitForm}> */}
                     <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
                     <div className="form-floating">
-                        <input placeholder="Username" type="text" className="form-control" id="username" value={state.username} onChange={handleInputChange} name="username" ></input>
+                        <input placeholder="Username" type="text" className="form-control" value={state.username} onChange={handleInputChange} name="username" ></input>
                         <label htmlFor="username">Username</label>
                     </div>
                     <div className="form-floating">
-                        <input placeholder="Password" type="password" className="form-control" id="password" value={state.password} onChange={handleInputChange} name="password" ></input>
+                        <input placeholder="Password" type="password" className="form-control" value={state.password} onChange={handleInputChange} name="password" ></input>
                         <label htmlFor="password">Password</label>
                     </div>
                     {/* <input list="genders" name="gender" id="gender"/>
@@ -128,7 +128,7 @@ export const SigninContainer = () => {
                     }
                     {error != null && JSON.stringify(error)}
                     {/* {loading && <Navigate />} */}
-                </form>
+                {/* </form> */}
              </SigninArticle>
         </SigninSection>
     );

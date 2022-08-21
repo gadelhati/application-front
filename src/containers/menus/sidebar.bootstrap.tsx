@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import "./sidebars.css"
 import "../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.js';
-import { getUserName, getLocalAccessToken, getId, getEmail, getUser } from "../../services/service.token"
+import { getUserName, getLocalAccessToken, getId, getEmail, getUser, getRoles } from "../../services/service.token"
 import { signinAction, logoutAction, refreshTokenAction } from '../../reducers/actions/action.creator.auth';
 import logo from '../../assets/image/heraldica.png'
 import person from '../../assets/image/logo/icon_person2.png'
@@ -105,18 +105,16 @@ export const Sidestrap = (props: any) => {
                             <a href="#/signin" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#table" /></svg>Observações</a>
                         </li>
+                        {getRoles() == "ROLE_ADMIN" && 
                         <li>
                             <a href="#/om" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home" /></svg>OM</a>
-                        </li>
-                        {/* <li>
-                            <a href="/profile" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#people-circle" /></svg>Profile</a>
-                        </li> */}
+                        </li>}
+                        {getRoles() == "ROLE_ADMIN" && 
                         <li>
                             <a href="#/users" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Usários</a>
-                        </li>
+                        </li>}
                         <li>
                             <a href="#/researcher" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Pesquisador</a>
@@ -125,10 +123,11 @@ export const Sidestrap = (props: any) => {
                             <a href="#/platform" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Plataforma</a>
                         </li>
+                        {getRoles() == "ROLE_ADMIN" && 
                         <li>
                             <a href="#/country" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Países</a>
-                        </li>
+                        </li>}
                         <li>
                             <a href="#/equipment" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Equipamentos</a>
@@ -141,10 +140,11 @@ export const Sidestrap = (props: any) => {
                             <a href="#/institution" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Instituições</a>
                         </li>
+                        {getRoles() == "ROLE_ADMIN" && 
                         <li>
                             <a href="#/platformCategory" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Tipos de Plataforma</a>
-                        </li>
+                        </li>}
                         {/* <li>
                             <a href="#/observationadd" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2" /></svg>Observation Add</a>
