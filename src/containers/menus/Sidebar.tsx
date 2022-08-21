@@ -128,11 +128,11 @@ export const Sidebar = () => {
             <hr></hr>
             <MenuItems>
                 <MenuItem>
-                    <a href="#/observation">
+                    <a href="#/signin">
                         <MenuIcon className="bi me-2" width="16" height="16"><use xlinkHref="#table" /></MenuIcon>Observações</a>
                 </MenuItem>
                 <MenuItem>
-                    <a href="#/signin">
+                    <a href="#/om">
                         <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home" /></svg>OM</a>
                 </MenuItem>
                 <MenuItem>
