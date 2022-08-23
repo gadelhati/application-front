@@ -6,10 +6,10 @@ export interface Station {
     id: string,
     localDepth: number,
     com: string,
-    commission: Commission,
-    stationCategory: StationCategory,
+    // commission: Commission,
+    // stationCategory: StationCategory,
     equipment: Equipment,
-    surveying: Surveying,
+    // surveying: Surveying,
     responsible: Institution,
     country: Country,
 }

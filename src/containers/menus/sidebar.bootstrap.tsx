@@ -115,6 +115,21 @@ export const Sidestrap = (props: any) => {
                             <a href="#/users" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Usários</a>
                         </li>}
+                        {getRoles() == "ROLE_ADMIN" && 
+                        <li>
+                            <a href="#/station" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Estações</a>
+                        </li>}
+                        {getRoles() == "ROLE_ADMIN" && 
+                        <li>
+                            <a href="#/stationOnShore" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Synop</a>
+                        </li>}
+                        {getRoles() == "ROLE_ADMIN" && 
+                        <li>
+                            <a href="#/stationOffShore" className="nav-link">
+                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Ship</a>
+                        </li>}
                         <li>
                             <a href="#/researcher" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Pesquisador</a>

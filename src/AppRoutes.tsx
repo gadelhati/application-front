@@ -27,6 +27,9 @@ import { Sidebar } from "./containers/menus/Sidebar";
 import { AuthProvider } from "./assets/context/AuthProvider";
 import RequireAuth from "./RequireAuth";
 import { useAuth } from "./assets/hook/useAuth";
+import { StationList } from "./components/station/station.list";
+import { StationOffShoreList } from "./components/station/station.offshore/station.offshore.list";
+import { StationOnShoreList } from "./components/station/station.onshore/station.onshore.list";
 
 const ROLES = {
     'User': "ROLE_USER",
@@ -61,6 +64,9 @@ export default function AppRoutes() {
 
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
                                 <Route path="/institution" element={<InstitutionList />} />
+                                <Route path="/station" element={<StationList />} />
+                                <Route path="/stationOffShore" element={<StationOffShoreList />} />
+                                <Route path="/stationOnShore" element={<StationOnShoreList />} />
                             </Route>
 
                             <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />

@@ -10,6 +10,9 @@ import { equipmentReducer } from "../components/equipment/equipment.reducer"
 import { manufacturerReducer } from "../components/manufacturer/manufacturer.reducer"
 import { institutionReducer } from "../components/institution/institution.reducer"
 import { platformCategoryReducer } from "../components/platformCategory/platformCategory.reducer"
+import { stationReducer } from "../components/station/station.reducer"
+import { stationOffShoreReducer } from "../components/station/station.offshore/station.offshore.reducer"
+import { stationOnShoreReducer } from "../components/station/station.onshore/station.onshore.reducer"
 
 export const reducers = combineReducers({ 
     auths: authReducer,
@@ -23,6 +26,9 @@ export const reducers = combineReducers({
     manufacturers: manufacturerReducer,
     institutions: institutionReducer,
     platformCategories: platformCategoryReducer,
+    stations: stationReducer,
+    stationsOffShore: stationOffShoreReducer,
+    stationsOnShore: stationOnShoreReducer,
 })
 
 export type RootState = ReturnType<typeof reducers>
