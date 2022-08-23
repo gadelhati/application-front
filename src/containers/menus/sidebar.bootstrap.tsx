@@ -105,31 +105,44 @@ export const Sidestrap = (props: any) => {
                             <a href="#/signin" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#table" /></svg>Observações</a>
                         </li>
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/om" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home" /></svg>OM</a>
-                        </li>}
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/users" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Usários</a>
-                        </li>}
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/station" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Estações</a>
-                        </li>}
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/stationOnShore" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Synop</a>
-                        </li>}
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/stationOffShore" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Ship</a>
-                        </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/om" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#home" /></svg>OM</a>
+                            </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/users" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Usários</a>
+                            </li>}
+                        {/* {getRoles() == "ROLE_ADMIN" &&
+                        <>
+                        <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                            Estações
+                        </button>
+                        <div className="collapse show" id="home-collapse">
+                            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a href="#/station" className="link-dark d-inline-flex text-decoration-none rounded">Todas</a></li>
+                                <li><a href="#/stationOnShore" className="link-dark d-inline-flex text-decoration-none rounded">Synop</a></li>
+                                <li><a href="#/stationOffShore" className="link-dark d-inline-flex text-decoration-none rounded">Ship</a></li>
+                            </ul>
+                        </div>
+                        </>} */}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/station" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Estações</a>
+                            </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/stationOnShore" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Synop</a>
+                            </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/stationOffShore" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Ship</a>
+                            </li>}
                         <li>
                             <a href="#/researcher" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Pesquisador</a>
@@ -138,11 +151,11 @@ export const Sidestrap = (props: any) => {
                             <a href="#/platform" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Plataforma</a>
                         </li>
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/country" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Países</a>
-                        </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/country" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Países</a>
+                            </li>}
                         <li>
                             <a href="#/equipment" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Equipamentos</a>
@@ -155,11 +168,11 @@ export const Sidestrap = (props: any) => {
                             <a href="#/institution" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Instituições</a>
                         </li>
-                        {getRoles() == "ROLE_ADMIN" && 
-                        <li>
-                            <a href="#/platformCategory" className="nav-link">
-                                <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Tipos de Plataforma</a>
-                        </li>}
+                        {getRoles() == "ROLE_ADMIN" &&
+                            <li>
+                                <a href="#/platformCategory" className="nav-link">
+                                    <svg className="bi me-2" width="16" height="16"><use xlinkHref="#grid" /></svg>Tipos de Plataforma</a>
+                            </li>}
                         {/* <li>
                             <a href="#/observationadd" className="nav-link">
                                 <svg className="bi me-2" width="16" height="16"><use xlinkHref="#speedometer2" /></svg>Observation Add</a>
