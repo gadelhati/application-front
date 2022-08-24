@@ -95,8 +95,8 @@ export const initialObservation : Observation = {
     icp: "",
     icq: "",
 
-    observador: initialUser,
+    observador: "",//initialUser,
     dataObservacao: new Date(),
-    estacao: initialOM,
+    estacao: "",//initialOM,
     // file: "",
 }

@@ -116,7 +116,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="AAXX/BBXX"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("mimi").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
@@ -135,7 +135,7 @@ export const ObservationList = () => {
                                                         {/* <input
                                                                 placeholder="XX"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("mjmj").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={state.mjmj}
                                                                 onChange={handleInputChange}
                                                                 name="mjmj"
@@ -149,7 +149,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="DDDDDDD"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ddddddd").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ddddddd}
                                                             onChange={handleInputChange}
                                                             name="ddddddd"
@@ -164,7 +164,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="A1"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("a1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.a1}
                                                                 onChange={handleInputChange}
                                                                 name="a1"
@@ -174,7 +174,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="bw"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("bw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.bw}
                                                                 onChange={handleInputChange}
                                                                 name="bw"
@@ -184,7 +184,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="nbnbnb"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("nbnbnb").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.nbnbnb}
                                                                 onChange={handleInputChange}
                                                                 name="nbnbnb"
@@ -200,7 +200,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="YY"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("yy").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.yy}
                                                             onChange={handleInputChange}
                                                             name="yy"
@@ -209,7 +209,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="GG"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("gg").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.gg}
                                                             onChange={handleInputChange}
                                                             name="gg"
@@ -218,7 +218,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="iw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("iw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.iw}
                                                             onChange={handleInputChange}
                                                             name="iw"
@@ -232,7 +232,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="II"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
@@ -241,7 +241,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="iii"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("iii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.iii}
                                                             onChange={handleInputChange}
                                                             name="iii"
@@ -257,7 +257,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="LaLaLa"
                                                             type="number"
-                                                            className="form-control"
+                                                            className={validation("lalala").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.lalala}
                                                             onChange={handleInputChange}
                                                             name="lalala"
@@ -273,7 +273,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Qc"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("qc").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.qc}
                                                             onChange={handleInputChange}
                                                             name="qc"
@@ -282,7 +282,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="LOLOLOLO"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("lolololo").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.lolololo}
                                                             onChange={handleInputChange}
                                                             name="lolololo"
@@ -300,7 +300,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="iR"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ir").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ir}
                                                             onChange={handleInputChange}
                                                             name="ir"
@@ -309,7 +309,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="iX"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ix").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ix}
                                                             onChange={handleInputChange}
                                                             name="ix"
@@ -318,7 +318,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="h"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("h").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.h}
                                                             onChange={handleInputChange}
                                                             name="h"
@@ -327,7 +327,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="VV"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("vv").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.vv}
                                                             onChange={handleInputChange}
                                                             name="vv"
@@ -341,7 +341,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="N"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("n").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.n}
                                                             onChange={handleInputChange}
                                                             name="n"
@@ -350,7 +350,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="dd"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("dd").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.dd}
                                                             onChange={handleInputChange}
                                                             name="dd"
@@ -359,7 +359,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="ff"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ff").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ff}
                                                             onChange={handleInputChange}
                                                             name="ff"
@@ -375,7 +375,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="fff"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("fff").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.fff}
                                                             onChange={handleInputChange}
                                                             name="fff"
@@ -389,7 +389,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="sn"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("sn1_1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.sn1_1}
                                                             onChange={handleInputChange}
                                                             name="sn1_1"
@@ -398,7 +398,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TTT"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ttt").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ttt}
                                                             onChange={handleInputChange}
                                                             name="ttt"
@@ -414,7 +414,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="sn"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("sn2_1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.sn2_1}
                                                             onChange={handleInputChange}
                                                             name="sn2_1"
@@ -423,7 +423,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TdTdTd"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("tdtdtd").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.tdtdtd}
                                                             onChange={handleInputChange}
                                                             name="tdtdtd"
@@ -437,7 +437,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="P0P0P0P0"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("p0p0p0p0").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.p0p0p0p0}
                                                             onChange={handleInputChange}
                                                             name="p0p0p0p0"
@@ -453,7 +453,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="PPPP"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("pppp").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.pppp}
                                                             onChange={handleInputChange}
                                                             name="pppp"
@@ -468,7 +468,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="a3"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("a3").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.a3}
                                                                 onChange={handleInputChange}
                                                                 name="a3"
@@ -478,7 +478,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="hhh"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("hhh").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.hhh}
                                                                 onChange={handleInputChange}
                                                                 name="hhh"
@@ -492,7 +492,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="a"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("a").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.a}
                                                             onChange={handleInputChange}
                                                             name="a"
@@ -501,7 +501,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="ppp"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ppp").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ppp}
                                                             onChange={handleInputChange}
                                                             name="ppp"
@@ -517,7 +517,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="RRR"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("rrr").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.rrr}
                                                             onChange={handleInputChange}
                                                             name="rrr"
@@ -526,7 +526,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="tR"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("tr").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.tr}
                                                             onChange={handleInputChange}
                                                             name="tr"
@@ -540,7 +540,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="ww"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ww").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ww}
                                                             onChange={handleInputChange}
                                                             name="ww"
@@ -549,7 +549,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="w1w2"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("w1w2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.w1w2}
                                                             onChange={handleInputChange}
                                                             name="w1w2"
@@ -559,7 +559,7 @@ export const ObservationList = () => {
                                                                 <FormControl
                                                                     placeholder="W1"
                                                                     type="text"
-                                                                    className="form-control"
+                                                                    className={validation("w1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                     value={stateObservation.w1}
                                                                     onChange={handleInputChange}
                                                                     name="w1"
@@ -569,7 +569,7 @@ export const ObservationList = () => {
                                                                 <FormControl
                                                                     placeholder="W2"
                                                                     type="text"
-                                                                    className="form-control"
+                                                                    className={validation("w2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                     value={stateObservation.w2}
                                                                     onChange={handleInputChange}
                                                                     name="w2"
@@ -586,7 +586,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="wawa"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("wawa").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.wawa}
                                                                 onChange={handleInputChange}
                                                                 name="wawa"
@@ -596,7 +596,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="Wa1"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("wa1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.wa1}
                                                                 onChange={handleInputChange}
                                                                 name="wa1"
@@ -606,7 +606,7 @@ export const ObservationList = () => {
                                                             <FormControl
                                                                 placeholder="Wa2"
                                                                 type="text"
-                                                                className="form-control"
+                                                                className={validation("wa2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={stateObservation.wa2}
                                                                 onChange={handleInputChange}
                                                                 name="wa2"
@@ -620,7 +620,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Nh"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("nh").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.nh}
                                                             onChange={handleInputChange}
                                                             name="nh"
@@ -629,7 +629,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="CL"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("cl").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.cl}
                                                             onChange={handleInputChange}
                                                             name="cl"
@@ -638,7 +638,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="CM"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("cm").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.cm}
                                                             onChange={handleInputChange}
                                                             name="cm"
@@ -647,7 +647,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="CH"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ch").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ch}
                                                             onChange={handleInputChange}
                                                             name="ch"
@@ -661,7 +661,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="GGgg"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("gggg").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.gggg}
                                                             onChange={handleInputChange}
                                                             name="gggg"
@@ -679,7 +679,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Ds"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ds").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ds}
                                                             onChange={handleInputChange}
                                                             name="ds"
@@ -688,7 +688,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Vs"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("vs").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.vs}
                                                             onChange={handleInputChange}
                                                             name="vs"
@@ -702,7 +702,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Ss"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ss").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ss}
                                                             onChange={handleInputChange}
                                                             name="ss"
@@ -711,7 +711,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TwTwTw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("twtwtw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.twtwtw}
                                                             onChange={handleInputChange}
                                                             name="twtwtw"
@@ -727,7 +727,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="PwaPwa"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("pwapwa").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.pwapwa}
                                                             onChange={handleInputChange}
                                                             name="pwapwa"
@@ -736,7 +736,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="HwaHwa"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("hwahwa").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.hwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwa"
@@ -750,7 +750,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="PwPw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("pwpw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.pwpw}
                                                             onChange={handleInputChange}
                                                             name="pwpw"
@@ -759,7 +759,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="HwHw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("hwhw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.hwhw}
                                                             onChange={handleInputChange}
                                                             name="hwhw"
@@ -775,7 +775,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="dw1dw1"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("dw1dw1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.dw1dw1}
                                                             onChange={handleInputChange}
                                                             name="dw1dw1"
@@ -784,7 +784,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="dw2dw2"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("dw2dw2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.dw2dw2}
                                                             onChange={handleInputChange}
                                                             name="dw2dw2"
@@ -798,7 +798,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Pw1Pw1"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("pw1pw1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.pw1pw1}
                                                             onChange={handleInputChange}
                                                             name="pw1pw1"
@@ -807,7 +807,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Hw1Hw1"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("hw1hw1").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.hw1hw1}
                                                             onChange={handleInputChange}
                                                             name="hw1hw1"
@@ -823,7 +823,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Pw2Pw2"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("pw2pw2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.pw2pw2}
                                                             onChange={handleInputChange}
                                                             name="pw2pw2"
@@ -832,7 +832,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Hw2Hw2"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("hw2hw2").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.hw2hw2}
                                                             onChange={handleInputChange}
                                                             name="hw2hw2"
@@ -846,7 +846,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Is"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("is").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.is}
                                                             onChange={handleInputChange}
                                                             name="is"
@@ -855,7 +855,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="EsEs"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("eses").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.eses}
                                                             onChange={handleInputChange}
                                                             name="eses"
@@ -864,7 +864,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Rs"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("rs").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.rs}
                                                             onChange={handleInputChange}
                                                             name="rs"
@@ -880,7 +880,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="HwaHwaHwa"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("hwahwahwa").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.hwahwahwa}
                                                             onChange={handleInputChange}
                                                             name="hwahwahwa"
@@ -894,7 +894,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="sw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("sw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.sw}
                                                             onChange={handleInputChange}
                                                             name="sw"
@@ -903,7 +903,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TbTbTb"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("tbtbtb").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.tbtbtb}
                                                             onChange={handleInputChange}
                                                             name="tbtbtb"
@@ -919,7 +919,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="ci"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ci").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ci}
                                                             onChange={handleInputChange}
                                                             name="ci"
@@ -928,7 +928,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Si"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("si").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.si}
                                                             onChange={handleInputChange}
                                                             name="si"
@@ -937,7 +937,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="bi"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("bi").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.bi}
                                                             onChange={handleInputChange}
                                                             name="bi"
@@ -946,7 +946,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="Di"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("di").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.di}
                                                             onChange={handleInputChange}
                                                             name="di"
@@ -955,7 +955,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="zi"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("zi").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.zi}
                                                             onChange={handleInputChange}
                                                             name="zi"
@@ -973,7 +973,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="sn"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("sn").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.sn1_3}
                                                             onChange={handleInputChange}
                                                             name="sn1_3"
@@ -982,7 +982,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TxTxTx"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("txtxtx").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.txtxtx}
                                                             onChange={handleInputChange}
                                                             name="txtxtx"
@@ -998,7 +998,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="sn"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("sn2_3").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.sn2_3}
                                                             onChange={handleInputChange}
                                                             name="sn2_3"
@@ -1007,7 +1007,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="TnTnTn"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("tntntn").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.tntntn}
                                                             onChange={handleInputChange}
                                                             name="tntntn"
@@ -1021,7 +1021,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="8/9"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ind89").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ind89}
                                                             onChange={handleInputChange}
                                                             name="ind89"
@@ -1030,7 +1030,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="P24P24P24"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("p24p24p24").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.p24p24p24}
                                                             onChange={handleInputChange}
                                                             name="p24p24p24"
@@ -1048,7 +1048,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="ichw"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("ichw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ichw}
                                                             onChange={handleInputChange}
                                                             name="ichw"
@@ -1057,7 +1057,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="icM"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("icm").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.icm}
                                                             onChange={handleInputChange}
                                                             name="icm"
@@ -1066,7 +1066,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="cs"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("cs").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.cs}
                                                             onChange={handleInputChange}
                                                             name="cs"
@@ -1075,7 +1075,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="icF"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("icf").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
@@ -1084,7 +1084,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="icp"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("icp").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
@@ -1093,7 +1093,7 @@ export const ObservationList = () => {
                                                         <input
                                                             placeholder="icQ"
                                                             type="text"
-                                                            className="form-control"
+                                                            className={validation("icq").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"
@@ -1106,22 +1106,22 @@ export const ObservationList = () => {
                                     </div>
                                 </div>
                                 <div className="row align-items-start">
-                                    <div className="col form-floating">
+                                    {/* <div className="col form-floating">
                                         <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
                                             {itensOM.map((object) => (
                                                 <option data-id={object.id} data-value={object}>{object.name}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="om">OM</label>
-                                    </div>
-                                    <div className="col form-floating">
+                                    </div> */}
+                                    {/* <div className="col form-floating">
                                         <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
                                             {itensUser.map((object) => (
                                                 <option data-id={object.id} data-value={object}>{object.email}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {/* </Card> */}
                                 <hr />
