@@ -8,7 +8,7 @@ export const initialObservation : Observation = {
     //SECTION 0
     // aabbxx: "", // mimi
     mimi: "",
-    mjmj: "", 
+    mjmj: "XX", 
     ddddddd: "",
     a1: "",
     bw: "",

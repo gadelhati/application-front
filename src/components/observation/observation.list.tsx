@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
@@ -10,6 +10,56 @@ import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
+import { styled } from '@stitches/react';
+
+export const TabList = styled('button', {
+    marginRight: '1rem !important',
+    flexDirection: 'column !important',
+    display: 'flex',
+    flexWrap: 'wrap',
+    paddingLeft: '0',
+    marginBottom: '0',
+    listStyle: 'none',
+    flexShrink: '0',
+    pointerEvents: 'auto',
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+    '*, ::after, ::before': {
+        boxSizing: 'border-box',
+    },
+});
+
+export const Tab = styled('button', {
+    background: '0 0',
+    border: '0',
+    borderRadius: '.25rem',
+    '[type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled), button:not(:disabled)': {
+        cursor: 'pointer',
+    },
+    display: 'block',
+    padding: '.5rem 1rem',
+    color: '#0d6efd',
+    textDecoration: 'none',
+    transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
+    '[type="button"], [type="reset"], [type="submit"], button': {
+        webkitAppearance: 'button',
+    },
+    textTransform: 'none',
+    margin: '0',
+    fontFamily: 'inherit',
+    fontSssize: 'inherit',
+    lineHeight: 'inherit',
+    flexShrink: '0',
+    listStyle: 'none',
+    pointerEvents: 'auto',
+    fontWeight: '400',
+    '*, ::after, ::before': {
+        boxSizing: 'border-box',
+    },
+});
 
 export const ObservationList = () => {
     const dispatch = useDispatch()
@@ -107,8 +157,10 @@ export const ObservationList = () => {
                                         <button className="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Section 3</button>
                                         <button className="nav-link" id="v-pills-5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-5" type="button" role="tab" aria-controls="v-pills-5" aria-selected="false">Section 5</button>
                                     </div>
+                                    {/* <TabList id="v-pills-tabContent"> */}
                                     <div className="tab-content" id="v-pills-tabContent">
-                                        <div className="tab-pane fade" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
+                                        {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
+                                        <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             <div className="row">
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
@@ -132,15 +184,16 @@ export const ObservationList = () => {
                                                                 <option value="AAXX">SYNOP</option>
                                                                 <option value="BBXX">SHIP</option>
                                                                 </Form.Select> */}
-                                                        {/* <input
+                                                        <input
                                                                 placeholder="XX"
                                                                 type="text"
                                                                 className={validation("mjmj").length != 0 ? "form-control is-invalid" : "form-control"}
                                                                 value={state.mjmj}
                                                                 onChange={handleInputChange}
+                                                                hidden={true}
                                                                 name="mjmj"
                                                                 title='mjmj: XX'
-                                                            /> */}
+                                                            />
                                                     </div>
                                                 </div>
                                                 <div className="col-3">
@@ -292,7 +345,8 @@ export const ObservationList = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
+                                        {/* </Tab> */}
+                                        <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
                                             <div className="row">
                                                 <div className="col-2">
                                                     <div className="input-group input-group-sm">
@@ -1104,6 +1158,7 @@ export const ObservationList = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    {/* </TabList> */}
                                 </div>
                                 <div className="row align-items-start">
                                     {/* <div className="col form-floating">

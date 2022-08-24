@@ -1,19 +1,37 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { createAllAction } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
+import { styled } from '@stitches/react';
+import { Button } from '../../containers/models/form';
+
+export const FindFile = styled('input', {
+    padding: '.25rem .5rem',
+    fontSize: '.875rem',
+    borderRadius: '.2rem',
+    color: '#fff',
+    backgroundColor: '#6c757d',
+    borderColor: '#6c757d',
+    display: 'inline-block',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    textAlign: 'center',
+    textDecoration: 'none',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
+    userSelect: 'none',
+    border: '1px solid transparent',
+    transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out',
+    margin: '0',
+    fontFamily: 'inherit',
+    marginBottom: '10px',
+});
 
 export const ObservationUpload = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Observation[]>([initialObservation])
-    const [file, setFile] = useState<File>()
-    const { loading, error, itens, item } = useTypedSelector((state) => state.oms);
 
-    useEffect(() => {
-        console.log(state)
-    }, [state])
     const createAllItems = () => {
         dispatch(createAllAction<Observation>('synopticObservation', state))
     }
@@ -33,12 +51,11 @@ export const ObservationUpload = () => {
             }
         };
         setState(observations)
-        // event.target.value = ""
     }
     return (
-        <div className='upload'>
-            <input type="file" className="w-20 btn btn-secondary button btn-sm" onChange={handleInputFile} />
-            <button onClick={createAllItems} className="w-20 btn btn-secondary button btn-sm" >Criar todos</button>
+        <div>
+            <FindFile type="file" onChange={handleInputFile} ></FindFile>
+            <Button color="secondary" onClick={createAllItems} >Criar todos</Button>
         </div>
     );
 }

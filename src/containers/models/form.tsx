@@ -2,7 +2,6 @@ import { styled } from '@stitches/react';
 
 export const Button = styled('button', {
     position: 'relative !important',
-    float: 'right !important',
     padding: '.25rem .5rem',
     fontSize: '.875rem',
     borderRadius: '.2rem',
@@ -39,9 +38,12 @@ export const Button = styled('button', {
         whiteSpace: 'nowrap',
     },
     variants: {
+        float:{
+            left:       {float: 'right !important'},
+        },
         color: {
             primary:    {backgroundColor: '#4285F4'},
-            secondary:  {backgroundColor: '#696969'},
+            secondary:  {backgroundColor: '#696969', color: 'white'},
             success:    {backgroundColor: '#00C851'},
             info:       {backgroundColor: '#33b5e5'},
             warning:    {backgroundColor: '#ffbb33'},
