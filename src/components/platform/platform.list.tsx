@@ -1,13 +1,14 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Platform } from "./platform.interface";
 import { initialPlatform } from './platform.initial';
 import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
+import { FloatForm, FloatInput, FloatLabel } from '../../containers/models/FloatLabel';
 
 export const PlatformList = () => {
     const dispatch = useDispatch();
@@ -65,6 +66,10 @@ export const PlatformList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            <FloatForm>
+                                <FloatInput placeholder="float" type="text"></FloatInput>
+                                <FloatLabel>floflo</FloatLabel>
+                            </FloatForm>
                             <div className="form-floating">
                                 <input
                                     placeholder="visualCallsign"

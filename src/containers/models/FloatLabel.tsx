@@ -1,0 +1,61 @@
+import { styled } from '@stitches/react';
+
+export const FloatForm = styled('div', {
+    position: 'relative',
+    flexShrink: '0',
+    pointerEvents: 'auto',
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+    '*, ::after, ::before': {
+        boxSizing: 'border-box',
+    },
+});
+export const FloatInput = styled('input', {
+    // padding: '1rem .75rem',
+    height: 'calc(3.5rem + 2px)',
+    // lineHeight: '1.25',
+    display: 'block',
+    width: '100%',
+    padding: '.375rem .75rem',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+    backgroundColor: '#fff',
+    backgroundClip: 'padding-box',
+    border: '1px solid #ced4da',
+    // webkitAppearance: 'none',
+    // mozAppearance: 'none',
+    appearance: 'none',
+    borderRadius: '.25rem',
+    transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
+    margin: '0',
+    fontFamily: 'inherit',
+    pointerEvents: 'auto',
+    '*, ::after, ::before': {
+        boxSizing: 'border-box',
+    },
+});
+export const FloatLabel = styled('label', {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    height: '100%',
+    padding: '1rem .75rem',
+    pointerEvents: 'none',
+    border: '1px solid transparent',
+    transformOrigin: '0 0',
+    transition: 'opacity .1s ease-in-out,transform .1s ease-in-out',
+    display: 'inline-block',
+    fontFamily: 'var(--bs-font-sans-serif)',
+    fontSize: '1rem',
+    fontWeight: '400',
+    lineHeight: '1.5',
+    color: '#212529',
+    '*, ::after, ::before': {
+        boxSizing: 'border-box',
+    },
+});
