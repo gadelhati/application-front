@@ -11,55 +11,8 @@ import './observation.css'
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { styled } from '@stitches/react';
+import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 
-export const TabList = styled('button', {
-    marginRight: '1rem !important',
-    flexDirection: 'column !important',
-    display: 'flex',
-    flexWrap: 'wrap',
-    paddingLeft: '0',
-    marginBottom: '0',
-    listStyle: 'none',
-    flexShrink: '0',
-    pointerEvents: 'auto',
-    fontFamily: 'var(--bs-font-sans-serif)',
-    fontSize: '1rem',
-    fontWeight: '400',
-    lineHeight: '1.5',
-    color: '#212529',
-    '*, ::after, ::before': {
-        boxSizing: 'border-box',
-    },
-});
-
-export const Tab = styled('button', {
-    background: '0 0',
-    border: '0',
-    borderRadius: '.25rem',
-    '[type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled), button:not(:disabled)': {
-        cursor: 'pointer',
-    },
-    display: 'block',
-    padding: '.5rem 1rem',
-    color: '#0d6efd',
-    textDecoration: 'none',
-    transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
-    '[type="button"], [type="reset"], [type="submit"], button': {
-        webkitAppearance: 'button',
-    },
-    textTransform: 'none',
-    margin: '0',
-    fontFamily: 'inherit',
-    fontSssize: 'inherit',
-    lineHeight: 'inherit',
-    flexShrink: '0',
-    listStyle: 'none',
-    pointerEvents: 'auto',
-    fontWeight: '400',
-    '*, ::after, ::before': {
-        boxSizing: 'border-box',
-    },
-});
 
 export const ObservationList = () => {
     const dispatch = useDispatch()
@@ -88,6 +41,11 @@ export const ObservationList = () => {
         let vector: string[] = []
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
+    }
+    const validationBoolean = (name: string): boolean => {
+        let vector: string[] = []
+        error?.map(element => { if (name == element.field) return vector = element.message })
+        return vector.length != 0
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
@@ -163,38 +121,29 @@ export const ObservationList = () => {
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             <div className="row">
                                                 <div className="col-3">
-                                                    <div className="input-group input-group-sm">
-                                                        <span className="input-group-text" id="identify">AAXX/BBXX</span>
-                                                        <input
+                                                    <InputGroup>
+                                                        <InputGroupText>AAXX/BBXX</InputGroupText>
+                                                        <InputGroupInput isInvalid={validation("mimi").length != 0}
                                                             placeholder="AAXX/BBXX"
                                                             type="text"
-                                                            className={validation("mimi").length != 0 ? "form-control is-invalid" : "form-control"}
+                                                            // className={validation("mimi").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
                                                             title='Indicador mensagem SYNOP ou SHIP: AAXX ou BBXX'
                                                         />
-                                                        <span className="input-group-text">XX</span>
-                                                        {/* <Form.Select aria-label="Default select example"
-                                                                id="mimi"
-                                                                defaultValue={'DEFAULT'}
-                                                                value={stateObservation.mimi}
-                                                                // onChange={handleInputChange}
-                                                                name="mimi">
-                                                                <option value="AAXX">SYNOP</option>
-                                                                <option value="BBXX">SHIP</option>
-                                                                </Form.Select> */}
-                                                        <input
-                                                                placeholder="XX"
-                                                                type="text"
-                                                                className={validation("mjmj").length != 0 ? "form-control is-invalid" : "form-control"}
-                                                                value={state.mjmj}
-                                                                onChange={handleInputChange}
-                                                                hidden={true}
-                                                                name="mjmj"
-                                                                title='mjmj: XX'
-                                                            />
-                                                    </div>
+                                                        <InputGroupInput
+                                                            placeholder="XX"
+                                                            type="text"
+                                                            // className={validation("mjmj").length != 0 ? "form-control is-invalid" : "form-control"}
+                                                            value={state.mjmj}
+                                                            onChange={handleInputChange}
+                                                            hidden={true}
+                                                            name="mjmj"
+                                                            title='mjmj: XX'
+                                                        />
+                                                        <InputGroupText>XX</InputGroupText>
+                                                    </InputGroup>
                                                 </div>
                                                 <div className="col-3">
                                                     <div className="input-group input-group-sm">
@@ -349,45 +298,41 @@ export const ObservationList = () => {
                                         <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
                                             <div className="row">
                                                 <div className="col-2">
-                                                    <div className="input-group input-group-sm">
-                                                        <span className="input-group-text" id="identify">iRiXhVV</span>
-                                                        <input
+                                                    <InputGroup>
+                                                        <InputGroupText>iRiXhVV</InputGroupText>
+                                                        <InputGroupInput isInvalid={validationBoolean("ir")}
                                                             placeholder="iR"
                                                             type="text"
-                                                            className={validation("ir").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ir}
                                                             onChange={handleInputChange}
                                                             name="ir"
                                                             title="Ind. omissão ou inclusãode dados de precipitação: 1, 3 ou 4"
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("ix")}
                                                             placeholder="iX"
                                                             type="text"
-                                                            className={validation("ix").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ix}
                                                             onChange={handleInputChange}
                                                             name="ix"
                                                             title="Ind. tipo de operação da estação: 1 a 7"
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("h")}
                                                             placeholder="h"
                                                             type="text"
-                                                            className={validation("h").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.h}
                                                             onChange={handleInputChange}
                                                             name="h"
                                                             title='Altura da nuvem mais baixa: 0 a 9 ou /'
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("vv")}
                                                             placeholder="VV"
                                                             type="text"
-                                                            className={validation("vv").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.vv}
                                                             onChange={handleInputChange}
                                                             name="vv"
                                                             title='Visibilidade horizontal à superfície: 90 a 99'
                                                         />
-                                                    </div>
+                                                    </InputGroup>
                                                 </div>
                                                 <div className="col-2">
                                                     <div className="input-group input-group-sm">
