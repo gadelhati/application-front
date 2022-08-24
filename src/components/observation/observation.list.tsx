@@ -8,7 +8,7 @@ import { ObservationUpload } from "./observation.upload";
 import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
-import { Article, Section } from '../../containers/models/content';
+import { Article, Row, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { styled } from '@stitches/react';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
@@ -119,23 +119,19 @@ export const ObservationList = () => {
                                     <div className="tab-content" id="v-pills-tabContent">
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
-                                            <div className="row">
+                                            <Row>
                                                 <div className="col-3">
                                                     <InputGroup>
                                                         <InputGroupText>AAXX/BBXX</InputGroupText>
-                                                        <InputGroupInput isInvalid={validation("mimi").length != 0}
+                                                        <InputGroupInput isInvalid={validationBoolean("mimi")}
                                                             placeholder="AAXX/BBXX"
-                                                            type="text"
-                                                            // className={validation("mimi").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
                                                             title='Indicador mensagem SYNOP ou SHIP: AAXX ou BBXX'
                                                         />
-                                                        <InputGroupInput
+                                                        <InputGroupInput isInvalid={validationBoolean("mjmj")}
                                                             placeholder="XX"
-                                                            type="text"
-                                                            // className={validation("mjmj").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.mjmj}
                                                             onChange={handleInputChange}
                                                             hidden={true}
@@ -146,18 +142,16 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </div>
                                                 <div className="col-3">
-                                                    <div className="input-group input-group-sm">
-                                                        <span className="input-group-text" id="identify">DDDDDDD</span>
-                                                        <input
+                                                    <InputGroup>
+                                                        <InputGroupText>DDDDDDD</InputGroupText>
+                                                        <InputGroupInput isInvalid={validationBoolean("ddddddd")}
                                                             placeholder="DDDDDDD"
-                                                            type="text"
-                                                            className={validation("ddddddd").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ddddddd}
                                                             onChange={handleInputChange}
                                                             name="ddddddd"
                                                             title='Indicador internacional de chamada'
                                                         />
-                                                    </div>
+                                                    </InputGroup>
                                                 </div>
                                                 {/* <Col lg={true} >
                                                     <InputGroup className="mb-3">
@@ -194,62 +188,52 @@ export const ObservationList = () => {
                                                         </OverlayTrigger>
                                                     </InputGroup>
                                                 </Col> */}
-                                            </div>
+                                            </Row>
                                             <div className="row">
                                                 <div className="col-3">
-                                                    <div className="input-group input-group-sm">
-                                                        <span className="input-group-text" id="identify">YYGGiw</span>
-                                                        <input
+                                                    <InputGroup>
+                                                        <InputGroupText>YYGGiw</InputGroupText>
+                                                        <InputGroupInput isInvalid={validationBoolean("yy")}
                                                             placeholder="YY"
-                                                            type="text"
-                                                            className={validation("yy").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.yy}
                                                             onChange={handleInputChange}
                                                             name="yy"
                                                             title='Dia do mês: 01 a 31'
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("gg")}
                                                             placeholder="GG"
-                                                            type="text"
-                                                            className={validation("gg").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.gg}
                                                             onChange={handleInputChange}
                                                             name="gg"
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("iw")}
                                                             placeholder="iw"
-                                                            type="text"
-                                                            className={validation("iw").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.iw}
                                                             onChange={handleInputChange}
                                                             name="iw"
                                                             title='Indicador da velocidade do vento: 0, 1, 2 , 3 ou 4'
                                                         />
-                                                    </div>
+                                                    </InputGroup>
                                                 </div>
                                                 <div className="col-3">
-                                                    <div className="input-group input-group-sm">
-                                                        <span className="input-group-text" id="identify">IIiii</span>
-                                                        <input
+                                                    <InputGroup>
+                                                        <InputGroupText>IIiii</InputGroupText>
+                                                        <InputGroupInput isInvalid={validationBoolean("ii")}
                                                             placeholder="II"
-                                                            type="text"
-                                                            className={validation("ii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
                                                             title='Indicatiovos regionais: 82 a 83'
                                                         />
-                                                        <input
+                                                        <InputGroupInput isInvalid={validationBoolean("iii")}
                                                             placeholder="iii"
-                                                            type="text"
-                                                            className={validation("iii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             value={state.iii}
                                                             onChange={handleInputChange}
                                                             name="iii"
                                                             title='Número da estação: 000 a 999'
                                                         />
-                                                    </div>
+                                                    </InputGroup>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -302,7 +286,6 @@ export const ObservationList = () => {
                                                         <InputGroupText>iRiXhVV</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ir")}
                                                             placeholder="iR"
-                                                            type="text"
                                                             value={state.ir}
                                                             onChange={handleInputChange}
                                                             name="ir"
@@ -310,7 +293,6 @@ export const ObservationList = () => {
                                                         />
                                                         <InputGroupInput isInvalid={validationBoolean("ix")}
                                                             placeholder="iX"
-                                                            type="text"
                                                             value={state.ix}
                                                             onChange={handleInputChange}
                                                             name="ix"
@@ -318,7 +300,6 @@ export const ObservationList = () => {
                                                         />
                                                         <InputGroupInput isInvalid={validationBoolean("h")}
                                                             placeholder="h"
-                                                            type="text"
                                                             value={state.h}
                                                             onChange={handleInputChange}
                                                             name="h"
@@ -326,7 +307,6 @@ export const ObservationList = () => {
                                                         />
                                                         <InputGroupInput isInvalid={validationBoolean("vv")}
                                                             placeholder="VV"
-                                                            type="text"
                                                             value={state.vv}
                                                             onChange={handleInputChange}
                                                             name="vv"
