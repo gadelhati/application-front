@@ -51,7 +51,7 @@ export const Crud = (crud: crudInterface) => {
         <>
             <br />
             <Row>
-                <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button>
+                {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
                 <Button color="secondary" onClick={createItem} hidden={crud.object.id != "" || executed()} data-bs-toggle="modal">Criar</Button>
                 <Button color="secondary" onClick={updateItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
                 <Button color="secondary" onClick={deleteItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Deletar</Button>
