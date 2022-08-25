@@ -6,6 +6,7 @@ const { styled } = stitches;
 export const InputGroup = styled('div', {
     margin: '0.2em',
     marginLeft: '1em',
+    paddingRight: '1em',
     position: 'relative',
     display: 'flex',
     flexWrap: 'wrap',
