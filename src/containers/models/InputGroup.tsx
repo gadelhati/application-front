@@ -32,7 +32,7 @@ export const InputGroupText = styled('span', {
     // fontSize: '1rem',
     fontWeight: '400',
     lineHeight: '1.5',
-    color: '#212529',
+    color: '$preto',
     textAlign: 'center',
     whiteSpace: 'nowrap',
     backgroundColor: '#e9ecef',

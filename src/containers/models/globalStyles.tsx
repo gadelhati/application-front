@@ -20,6 +20,8 @@ export const stitches = createStitches({
             darkKhaki: "#B5BA72",
             darkSlateBlue: "#4F359B",
 
+            preto: "#000",
+
             // elements
             bg: "$aliceBlue",
             fg: "$davyGrey",
