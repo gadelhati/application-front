@@ -12,6 +12,7 @@ import { Article, Row, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { styled } from '@stitches/react';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
+import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 
 
 export const ObservationList = () => {
@@ -282,6 +283,9 @@ export const ObservationList = () => {
                                         <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
                                             <div className="row">
                                                 <div className="col-2">
+                                                    <Tooltip>Hover over me
+                                                        <span>Tooltip22 text</span>
+                                                    </Tooltip>
                                                     <InputGroup>
                                                         <InputGroupText>iRiXhVV</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ir")}
@@ -312,6 +316,7 @@ export const ObservationList = () => {
                                                             name="vv"
                                                             title='Visibilidade horizontal à superfície: 90 a 99'
                                                         />
+                                                        <div>{validation("ir")}{validation("ix")}{validation("h")}{validation("vv")}</div>
                                                     </InputGroup>
                                                 </div>
                                                 <div className="col-2">
