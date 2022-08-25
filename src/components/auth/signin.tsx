@@ -61,15 +61,6 @@ export const SigninContainer = () => {
     }
     const signinItem = () => {
         dispatch(signinAction(state))
-        // console.log(error)
-        // if(item != null) {
-        //     console.log("if")
-        //     navigate("/om")
-        //     item !=null ? <SigninContainer /> : <Navigate to="/" />
-        // } else {
-        //     console.log("else")
-        // }
-        // return error !=null ? <SigninContainer /> : <Navigate to="/" />
     }
     const logoutItem = () => {
         dispatch(logoutAction())
@@ -113,7 +104,6 @@ export const SigninContainer = () => {
                         <label htmlFor="rememberMe">Remember me</label>
                     </div>
                     <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-                    {/* <button onClick={initiate} className="w-100 btn btn-lg btn-primary" type="submit">Navigate</button> */}
                     <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
                     {loading ?
                         <button className="btn btn-warning btn-sm" type="button" disabled>
@@ -122,12 +112,10 @@ export const SigninContainer = () => {
                         </button>
                         :
                         <button className="btn btn-success btn-sm" type="button" disabled>
-                            {/* <span className="spinner-border spinner-border-sm" role="status" aria-hidden="false"></span> */}
                             Loaded
                         </button>
                     }
                     {error != null && JSON.stringify(error)}
-                    {/* {loading && <Navigate />} */}
                 {/* </form> */}
              </SigninArticle>
         </SigninSection>
