@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
-import { Cow, Row } from '../models/content';
+import { Col, Row } from '../models/content';
 import { Button } from "../models/form";
 import { crudInterface } from "./crud.interface";
 
@@ -55,11 +55,11 @@ export const Crud = (crud: crudInterface) => {
                 <Button color="secondary" onClick={createItem} hidden={crud.object.id != "" || executed()} data-bs-toggle="modal">Criar</Button>
                 <Button color="secondary" onClick={updateItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
                 <Button color="secondary" onClick={deleteItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Deletar</Button>
-                <Cow>
+                <Col>
                     <Button float="left" color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
                     {executed() && <Button disabled={true}>Executado</Button>}
                     {access() && <Button disabled>Acesso negado</Button>}
-                </Cow>
+                </Col>
             </Row>
         </>
     );

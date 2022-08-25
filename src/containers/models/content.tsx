@@ -59,13 +59,15 @@ export const Row = styled('div', {
     marginTop: 'calc(var(--bs-gutter-y) * -1)',
     marginRight: 'calc(var(--bs-gutter-x) * -.5)',
     marginLeft: 'calc(var(--bs-gutter-x) * -.5)',
+    width: '50%',
     '::after, ::before': {
         boxSizing: 'border-box',
     }
 });
 
-export const Cow = styled('div', {
+export const Col = styled('div', {
     flex: '1 0 0%',
+    width: '100%',
     '::after, ::before': {
         boxSizing: 'border-box',
     }

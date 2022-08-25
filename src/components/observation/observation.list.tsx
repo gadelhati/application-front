@@ -8,7 +8,7 @@ import { ObservationUpload } from "./observation.upload";
 import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
-import { Article, Row, Section } from '../../containers/models/content';
+import { Article, Col, Row, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
@@ -120,7 +120,7 @@ export const ObservationList = () => {
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             <Row>
-                                                <div className="col-3">
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>AAXX/BBXX</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("mimi")}
@@ -140,8 +140,8 @@ export const ObservationList = () => {
                                                         />
                                                         <InputGroupText>XX</InputGroupText>
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>DDDDDDD</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ddddddd")}
@@ -152,7 +152,7 @@ export const ObservationList = () => {
                                                             title='Indicador internacional de chamada'
                                                         />
                                                     </InputGroup>
-                                                </div>
+                                                </Col>
                                                 {/* <Col lg={true} >
                                                     <InputGroup className="mb-3">
                                                         <InputGroup.Text id="basic-addon1">A1bwnbnbnb</InputGroup.Text>
@@ -183,8 +183,8 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col> */}
                                             </Row>
-                                            <div className="row">
-                                                <div className="col-3">
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>YYGGiw</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("yy")}
@@ -209,8 +209,8 @@ export const ObservationList = () => {
                                                             title='Indicador da velocidade do vento: 0, 1, 2 , 3 ou 4'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>IIiii</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ii")}
@@ -228,10 +228,10 @@ export const ObservationList = () => {
                                                             title='Número da estação: 000 a 999'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-3">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>99LaLaLa</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("lalala")}
@@ -244,8 +244,8 @@ export const ObservationList = () => {
                                                         // onKeyPress={event.charCode>=48 && event.charCode<=57}
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>QcLoLOLOLO</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("qc")}
@@ -263,13 +263,13 @@ export const ObservationList = () => {
                                                             title='Longitude em décimos de graus: graus+(min/60), 0000 a 1800'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </div>
                                         {/* </Tab> */}
                                         <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
-                                            <div className="row">
-                                                <div className="col-2">
+                                            <Row>
+                                                <Col>
                                                     <Tooltip>
                                                         <InputGroup>
                                                             <InputGroupText>iRiXhVV</InputGroupText>
@@ -304,8 +304,8 @@ export const ObservationList = () => {
                                                         </InputGroup>
                                                         <span>67{validation("ir")}{validation("ix")}{validation("h")}{validation("vv")}</span>
                                                     </Tooltip>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>Nddff</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("N")}
@@ -330,10 +330,10 @@ export const ObservationList = () => {
                                                             title='Velocidade do vento em inidades indicadas em iw do grupo YYGGiw: 00 a 99'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-2">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>00fff</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("fff")}
@@ -344,8 +344,8 @@ export const ObservationList = () => {
                                                             title='Velocidade do vento igual ou superior a 99 unidades indicados por iw do grupo YYGGiw: 100 a 999'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1snTTT</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("sn1_1")}
@@ -363,13 +363,11 @@ export const ObservationList = () => {
                                                             title='Temperatura do ar (seco) expressa em décimos de graus celcius: 000 a 500'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className='row'>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>2snTdTdTd</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("sn2_2")}
+                                                        <InputGroupInput isInvalid={validationBoolean("sn2_1")}
                                                             placeholder="sn"
                                                             value={state.sn2_1}
                                                             onChange={handleInputChange}
@@ -384,8 +382,8 @@ export const ObservationList = () => {
                                                             title='Temp. do ponto de orvalho expressa em décimos de grau ou Umidade relativa do ar em percentagem: 000 a 500 ou 000 a 100'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <div className="input-group input-group-sm">
                                                         <InputGroupText>3P0P0P0P0</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("p0p0p0p0")}
@@ -396,10 +394,10 @@ export const ObservationList = () => {
                                                             title='Pressão atmosférica ao nível da estação em décimos de hectopascal: 8700 a 9999 ou 0000 a 1000'
                                                         />
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-2">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>4PPPP</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("pppp")}
@@ -410,7 +408,7 @@ export const ObservationList = () => {
                                                             title='Pressão atmosférica ao nível do mar em décimos de hectopascal: 0000 a 9999'
                                                         />
                                                     </InputGroup>
-                                                </div>
+                                                </Col>
                                                 {/* <Col lg={true} >
                                                     <InputGroup className="mb-3">
                                                         <InputGroup.Text id="basic-addon1">4a3hhh</InputGroup.Text>
@@ -432,7 +430,7 @@ export const ObservationList = () => {
                                                         </OverlayTrigger>
                                                     </InputGroup>
                                                 </Col> */}
-                                                <div className="col-2">
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>5appp</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("a")}
@@ -450,10 +448,8 @@ export const ObservationList = () => {
                                                             title='Valor da tendência barométrica ao nível da estação durante as três horas precedentes à hora da observação em décimos de hectopascal: 000 a 200'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className='row'>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>6RRRtR</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("rrr")}
@@ -471,8 +467,8 @@ export const ObservationList = () => {
                                                             title='Duração do período de referência para quantidade de precipitação, terminando na hora da observação: 0 a 9'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>7wwW1W2</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ww")}
@@ -506,9 +502,9 @@ export const ObservationList = () => {
                                                                 />
                                                             </OverlayTrigger> */}
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
+                                                </Col>
+                                            </Row>
+                                            <Row>
                                                 {/* <Col lg={true} >
                                                     <InputGroup className="mb-3">
                                                         <InputGroup.Text id="basic-addon1">7wawaWa1Wa2</InputGroup.Text>
@@ -538,7 +534,7 @@ export const ObservationList = () => {
                                                         </OverlayTrigger>
                                                     </InputGroup>
                                                 </Col> */}
-                                                <div className="col-2">
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>8NhCLCMCH</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("nh")}
@@ -570,8 +566,8 @@ export const ObservationList = () => {
                                                             title='Tipo de nuvens altas: 0 a 9 ou /'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-2">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>9GGgg</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("gggg")}
@@ -582,12 +578,12 @@ export const ObservationList = () => {
                                                             title='Hora que foi feita a leitura do barômetro, se diferir mais do que 10 min da hora padrão GG informada na seção 0: HHmm'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </div>
                                         <div className="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab" tabIndex={0}>
-                                            <div className="row">
-                                                <div className="col-3">
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>222DsVs</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ds")}
@@ -605,8 +601,8 @@ export const ObservationList = () => {
                                                             title='Velocidade média do navio nas três hora precedentes à hora da observação: 0 a 9 /'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>0SsTwTwTw</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ss")}
@@ -624,10 +620,10 @@ export const ObservationList = () => {
                                                             title='Temperatura da água do mar a superfície, em décimos de graus célcius: 000 a 400'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-3">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1PwaPwaHwaHwa</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("pwapwa")}
@@ -645,8 +641,8 @@ export const ObservationList = () => {
                                                             title='Altura das ondas (em unidades de meio metro): 00 a 10 ou //'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>2PwPwHwHw</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("pwpw")}
@@ -664,10 +660,10 @@ export const ObservationList = () => {
                                                             title='Altura das vagas expressa em unidades de meio metro: 00 a 30 ou //'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className='row'>
-                                                <div className="col-3">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>3dw1dw1dw2dw2</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("dw1dw1")}
@@ -685,8 +681,8 @@ export const ObservationList = () => {
                                                             title='Direção verdadeira de onde vem o segundo sistema de marulhos, expresso em dezenas de grau: 00 a 36'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>4Pw1Pw1Hw1Hw1</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("pw1pw1")}
@@ -696,7 +692,7 @@ export const ObservationList = () => {
                                                             name="pw1pw1"
                                                             title='Período do primeiro sistema de marulhos, expresso em segundos de tempo: 00 a 30'
                                                         />
-                                                        <InputGroupInput isInvalid={validationBoolean("pw2pw2")}
+                                                        <InputGroupInput isInvalid={validationBoolean("hw1hw1")}
                                                             placeholder="Hw1Hw1"
                                                             value={state.hw1hw1}
                                                             onChange={handleInputChange}
@@ -704,10 +700,10 @@ export const ObservationList = () => {
                                                             title='Altura do primeiro sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className='row'>
-                                                <div className="col-3">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>5Pw2Pw2Hw2Hw2</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("pw2pw2")}
@@ -725,8 +721,8 @@ export const ObservationList = () => {
                                                             title='Altura do segundo sistema de marulhos, expresso em unidades de meio metro: 00 a 30'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>6IsEsEsRs</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("is")}
@@ -751,10 +747,10 @@ export const ObservationList = () => {
                                                             title='Taxa de formação de gelo sobre os navios: 0 a 4'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-3">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>70HwaHwaHwa</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("hwahwahwa")}
@@ -765,8 +761,8 @@ export const ObservationList = () => {
                                                             title='Altura das ondas medida por instrumento em décimos do metro: 000 a 200'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-3">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>8swTbTbTb</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("sw")}
@@ -784,10 +780,10 @@ export const ObservationList = () => {
                                                             title='Temperatura do termômetro de bulbo úmido em décimos de grau Celsius: 000 a 400'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className='row'>
-                                                <div className="col-6">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>ICEciSibiDizi</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ci")}
@@ -826,12 +822,12 @@ export const ObservationList = () => {
                                                             title='Situação presente do gelo e tendência de condições nas 3 horas precedentes: 0 a 9 ou /'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </div>
                                         <div className="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab" tabIndex={0}>
-                                            <div className="row">
-                                                <div className="col-8">
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1sn</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("sn1_3")}
@@ -849,10 +845,10 @@ export const ObservationList = () => {
                                                             title='Temperatura máxima do ar durante as 24 horas precedentes, em décimos de grau celsius: 000 a 450'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-4">
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>2sn</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("sn2_3")}
@@ -870,8 +866,8 @@ export const ObservationList = () => {
                                                             title='Temperatura mínima do ar durante as 24 horas precedentes em décimos de grau celsius: 000 a 350'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                                <div className="col-4">
+                                                </Col>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>5</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ind89")}
@@ -889,12 +885,12 @@ export const ObservationList = () => {
                                                             title='Diferença de pressão à superfície expressa em décimos de hectopascal: 000 a 200'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </div>
                                         <div className="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab" tabIndex={0}>
-                                            <div className="row">
-                                                <div className="col-6">
+                                            <Row>
+                                                <Col>
                                                     <InputGroup>
                                                         <InputGroupText>555ichwicMcsicFicpicQ</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ichw")}
@@ -940,13 +936,13 @@ export const ObservationList = () => {
                                                             title='Indicador de controle de qualidade: 0 a 9'
                                                         />
                                                     </InputGroup>
-                                                </div>
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </div>
                                     </div>
                                     {/* </TabList> */}
                                 </div>
-                                <div className="row align-items-start">
+                                <Row>
                                     {/* <div className="col form-floating">
                                         <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
                                             {itensOM.map((object) => (
@@ -963,7 +959,7 @@ export const ObservationList = () => {
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
                                     </div> */}
-                                </div>
+                                </Row>
                                 {/* </Card> */}
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
