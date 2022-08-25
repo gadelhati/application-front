@@ -1,3 +1,4 @@
+import { reducers } from "../../reducers";
 import { stitches } from "./globalStyles";
 // import { styled } from "@stitches/react";
 
@@ -13,7 +14,7 @@ export const InputGroup = styled('div', {
     alignItems: 'stretch',
     width: '100%',
 });
-export const InputGroupText = styled('span', {
+export const InputGroupText = styled('div', {
     '&:not(:first-child)': {
         borderTopLeftRadius: '0',
         borderBottomLeftRadius: '0',
@@ -66,6 +67,10 @@ export const InputGroupInput = styled('input', {
     transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
     margin: '0',
     fontFamily: 'inherit',
+    '&[id]': {
+        color: 'red',
+        backgroundColor: 'blue',
+    },
     variants: {
         isInvalid: {
             true:    {
