@@ -93,7 +93,7 @@ export const SigninContainer = () => {
             <SigninArticle>
                 {/* <form onSubmit={submitForm}> */}
                     <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
-                    <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+                    <h1 className="h3 mb-3 fw-normal">Login</h1>
                     <div className="form-floating">
                         <input placeholder="Username" type="text" className="form-control" value={state.username} onChange={handleInputChange} name="username" ></input>
                         <label htmlFor="username">Username</label>
@@ -112,7 +112,7 @@ export const SigninContainer = () => {
                         <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
                         <label htmlFor="rememberMe">Remember me</label>
                     </div>
-                    <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                    <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
                     {/* <button onClick={initiate} className="w-100 btn btn-lg btn-primary" type="submit">Navigate</button> */}
                     <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
                     {loading ?
