@@ -42,7 +42,7 @@ export const InputGroupInput = styled('input', {
     '&:not(:last-child)': {
         borderTopRightRadius: '0',
         borderBottomRightRadius: '0',
-        borderRight: 'none',
+        // borderRight: 'none',
     },
     borderRadius: '.2rem',
     padding: '.25rem .5rem',
