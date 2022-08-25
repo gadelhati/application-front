@@ -1,4 +1,7 @@
-import { styled } from "@stitches/react";
+import { stitches } from "./globalStyles";
+// import { styled } from "@stitches/react";
+
+const { styled } = stitches;
 
 export const InputGroup = styled('div', {
     margin: '0.2em',
