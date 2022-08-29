@@ -48,6 +48,11 @@ export const ObservationList = () => {
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
     }
+    const showErrors = (): string[] => {
+        let vector: string[] = []
+        error?.map(element => { vector.concat(element.field) })
+        return vector
+    }
     const validationBoolean = (name: string): boolean => {
         let vector: string[] = []
         error?.map(element => { if (name == element.field) return vector = element.message })
@@ -314,7 +319,7 @@ export const ObservationList = () => {
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>Nddff</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("N")}
+                                                        <InputGroupInput isInvalid={validationBoolean("n")}
                                                             placeholder="N"
                                                             value={state.n}
                                                             onChange={handleInputChange}
@@ -948,6 +953,9 @@ export const ObservationList = () => {
                                     </div>
                                     {/* </TabList> */}
                                 </div>
+                                {/* {JSON.stringify(error?.map((e)=>{e.field}))} */}
+                                {/* {JSON.stringify(error)} */}
+                                {/* {JSON.stringify(showErrors())} */}
                                 <Row>
                                     {/* <div className="col form-floating">
                                         <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
