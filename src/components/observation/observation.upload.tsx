@@ -1,10 +1,11 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { createAllAction } from '../../reducers/actions/action.creator';
+import { createAllAction, retrieveAllAction } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { styled } from '@stitches/react';
 import { Button } from '../../containers/models/form';
+import { useTypedSelector } from '../../assets/hook/useTypeSelector';
 
 export const FindFile = styled('input', {
     padding: '.25rem .5rem',
@@ -31,9 +32,21 @@ export const FindFile = styled('input', {
 export const ObservationUpload = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Observation[]>([initialObservation])
+    const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
 
+    useEffect(() => {
+        retrieveAllItem()
+    }, [dispatch])
     const createAllItems = () => {
         dispatch(createAllAction<Observation>('synopticObservation', state))
+    }
+    const retrieveAllItem = () => {
+        dispatch(retrieveAllAction('synopticObservation'))
+    }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
     }
     const handleInputFile = (event: ChangeEvent<HTMLInputElement>) => {
         const observations : Observation[] = []
@@ -55,7 +68,9 @@ export const ObservationUpload = () => {
     return (
         <div>
             <FindFile type="file" onChange={handleInputFile} ></FindFile>
-            <Button color="secondary" onClick={createAllItems} >Criar todos</Button>
+            <Button disabled={loading? true : false} color="secondary" onClick={createAllItems} >{loading? false : true}Criar todos</Button>
+            <Button disabled={true} hidden={loading? false : true}>Carregando</Button>
+            <Button disabled={true} hidden={executed()? false : true}>Executado</Button>
         </div>
     );
 }
