@@ -82,7 +82,7 @@ export const Sidestrap = (props: any) => {
             <main>
                 <h1 className="visually-hidden">Sidebars examples</h1>
                 <div className="d-flex flex-column flex-shrink-0 p-3 text-white largura">
-                    <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+                    <a href="/application-front" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                         {/* <svg className="bi me-2" width="40" height="32">
                             <use xlinkHref="#bootstrap" />
                         </svg> */}

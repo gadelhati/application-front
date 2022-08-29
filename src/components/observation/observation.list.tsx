@@ -13,6 +13,11 @@ import { Crud } from '../../containers/button/crud.buttons';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 
+const styles = {
+    container: {
+        width: '84%',
+    },
+};
 
 export const ObservationList = () => {
     const dispatch = useDispatch()
@@ -267,7 +272,7 @@ export const ObservationList = () => {
                                             </Row>
                                         </div>
                                         {/* </Tab> */}
-                                        <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" tabIndex={0}>
+                                        <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" style={styles.container} tabIndex={0}>
                                             <Row>
                                                 <Col>
                                                     <Tooltip>
