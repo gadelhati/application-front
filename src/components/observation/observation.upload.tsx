@@ -27,6 +27,7 @@ export const FindFile = styled('input', {
     margin: '0',
     fontFamily: 'inherit',
     marginBottom: '10px',
+    height: '35px',
 });
 
 export const ObservationUpload = () => {
@@ -37,8 +38,12 @@ export const ObservationUpload = () => {
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
+    const resetItem = () => {
+        setState([initialObservation])
+    }
     const createAllItems = () => {
         dispatch(createAllAction<Observation>('synopticObservation', state))
+        resetItem()
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('synopticObservation'))
