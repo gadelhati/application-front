@@ -276,7 +276,7 @@ export const ObservationList = () => {
                                         <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" style={styles.container} tabIndex={0}>
                                             <Row>
                                                 <Col>
-                                                    <Tooltip>
+                                                    {/* <Tooltip> */}
                                                         <InputGroup>
                                                             <InputGroupText>iRiXhVV</InputGroupText>
                                                             <InputGroupInput isInvalid={validationBoolean("ir")}
@@ -308,8 +308,8 @@ export const ObservationList = () => {
                                                                 title='Visibilidade horizontal à superfície: 90 a 99'
                                                             />
                                                         </InputGroup>
-                                                        <span>67{validation("ir")}{validation("ix")}{validation("h")}{validation("vv")}</span>
-                                                    </Tooltip>
+                                                        {/* <span>67{validation("ir")}{validation("ix")}{validation("h")}{validation("vv")}</span> */}
+                                                    {/* </Tooltip> */}
                                                 </Col>
                                                 <Col>
                                                     <InputGroup>
