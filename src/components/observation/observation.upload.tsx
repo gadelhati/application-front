@@ -43,6 +43,7 @@ export const ObservationUpload = () => {
     }
     const createAllItems = () => {
         dispatch(createAllAction<Observation>('synopticObservation', state))
+        retrieveAllItem()
         resetItem()
     }
     const retrieveAllItem = () => {
