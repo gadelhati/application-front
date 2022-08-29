@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent, useEffect, CSSProperties } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { retrieveAllAction } from '../../reducers/actions/action.creator';
@@ -13,6 +13,7 @@ import { Crud } from '../../containers/button/crud.buttons';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 
+// const styles: { [key: string]: CSSProperties} = {
 const styles = {
     container: {
         width: '84%',
