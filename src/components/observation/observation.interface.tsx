@@ -94,8 +94,10 @@ export interface Observation {
     icp?: string;
     icq?: string;
 
-    observador: string;//User;
-    dataObservacao?: Date;
-    estacao?: string;//OM;
-    // file?: string;
+    dateObservation?: Date;
+    stationName?: string;
+    observerName: string;
+    
+    observer: User;
+    station?: OM;
 }

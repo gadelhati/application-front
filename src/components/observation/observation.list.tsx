@@ -58,19 +58,8 @@ export const ObservationList = () => {
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector.length != 0
     }
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
-    }
-    const handleInputChangeSelectOM = (event: ChangeEvent<HTMLSelectElement>) => {
-        console.log(itensOM.length)
-        setState({
-            ...state, [event.target.name]: {
-                id: itensOM[event.target.selectedIndex].id,
-            }
-        })
-    }
-    const handleInputChangeSelectUser = (event: ChangeEvent<HTMLSelectElement>) => {
-        setState({ ...state, [event.target.name]: { id: itensUser[event.target.selectedIndex].id } })
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
@@ -957,22 +946,22 @@ export const ObservationList = () => {
                                 {/* {JSON.stringify(error)} */}
                                 {/* {JSON.stringify(showErrors())} */}
                                 <Row>
-                                    {/* <div className="col form-floating">
-                                        <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
+                                    <div className="col form-floating">
+                                        <select className="form-select" data-value={state.stationName} name="stationName" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                             {itensOM.map((object) => (
-                                                <option data-id={object.id} data-value={object}>{object.name}</option>
+                                                <option data-value={object}>{object.name}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="om">OM</label>
-                                    </div> */}
-                                    {/* <div className="col form-floating">
-                                        <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
+                                    </div>
+                                    <div className="col form-floating">
+                                        <select className="form-select" data-value={state.observerName} name="observerName" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
                                             {itensUser.map((object) => (
-                                                <option data-id={object.id} data-value={object}>{object.email}</option>
+                                                <option data-value={object}>{object.username}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
-                                    </div> */}
+                                    </div>
                                 </Row>
                                 {/* </Card> */}
                                 <hr />
