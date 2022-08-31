@@ -1,6 +1,6 @@
 import { Observation } from "./observation.interface";
 import { initialUser } from "../user/user.initial";
-import { initialOM } from "../om/om.initial";
+import { initialStation } from "../station/station.initial";
 
 export const initialObservation : Observation = {
     id: "",
@@ -95,10 +95,10 @@ export const initialObservation : Observation = {
     icp: "",
     icq: "",
 
-    dateObservation: new Date(),
-    observerName: "",
-    stationName: "",
+    dataObservacao: new Date(),
+    observador: "",
+    estacao: "",
 
     observer: initialUser,
-    station: initialOM,
+    station: initialStation,
 }

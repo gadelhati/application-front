@@ -1,5 +1,5 @@
 import { User } from "../user/user.interface";
-import { OM } from "../om/om.interface";
+import { Station } from "../station/station.interface";
 
 export interface Observation {
     id: string;
@@ -94,10 +94,10 @@ export interface Observation {
     icp?: string;
     icq?: string;
 
-    dateObservation?: Date;
-    stationName?: string;
-    observerName: string;
+    dataObservacao?: Date;
+    estacao?: string;
+    observador: string;
     
     observer: User;
-    station?: OM;
+    station?: Station;
 }

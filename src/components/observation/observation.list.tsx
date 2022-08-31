@@ -947,15 +947,15 @@ export const ObservationList = () => {
                                 {/* {JSON.stringify(showErrors())} */}
                                 <Row>
                                     <div className="col form-floating">
-                                        <select className="form-select" data-value={state.stationName} name="stationName" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                        <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                             {itensOM.map((object) => (
                                                 <option data-value={object}>{object.name}</option>
                                             ))}
                                         </select>
-                                        <label className="label" htmlFor="om">OM</label>
+                                        <label className="label" htmlFor="estacao">Estação</label>
                                     </div>
                                     <div className="col form-floating">
-                                        <select className="form-select" data-value={state.observerName} name="observerName" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
+                                        <select className="form-select" data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
                                             {itensUser.map((object) => (
                                                 <option data-value={object}>{object.username}</option>
                                             ))}
