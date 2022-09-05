@@ -955,28 +955,64 @@ export const ObservationList = () => {
                                                             name="cs"
                                                             title='Indicador para medição de ondas: 0 a 9'
                                                         />
-                                                        <InputGroupInput isInvalid={validationBoolean("icf")}
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icf")} */}
+                                                        <select
                                                             placeholder="icF"
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
                                                             title='Fonte de informação: 0 a 6'
-                                                        />
-                                                        <InputGroupInput isInvalid={validationBoolean("icp")}
+                                                        >
+                                                            <optgroup label="icf"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icp")} */}
+                                                        <select
                                                             placeholder="icp"
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
                                                             title='Plataforma de obtenção: 0 a 9'
-                                                        />
-                                                        <InputGroupInput isInvalid={validationBoolean("icq")}
+                                                        >
+                                                            <optgroup label="icp"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icq")} */}
+                                                        <select
                                                             placeholder="icQ"
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"
                                                             title='Indicador de controle de qualidade: 0 a 9'
-                                                        />
+                                                        >
+                                                            <optgroup label="icQ"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
+                                                        {/* <input type="text">3</input> */}
                                                     </InputGroup>
+                                                    <input type="datetime-local" id="birthdaytime" name="birthdaytime"></input>
+                                                    <input type="number" id="quantity" name="quantity" min="1" max="5"></input>
                                                 </Col>
                                             </Row>
                                         </div>
