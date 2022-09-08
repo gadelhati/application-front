@@ -58,19 +58,12 @@ export const ObservationList = () => {
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector.length != 0
     }
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const handleInputChangeSelectOM = (event: ChangeEvent<HTMLSelectElement>) => {
-        console.log(itensOM.length)
-        setState({
-            ...state, [event.target.name]: {
-                id: itensOM[event.target.selectedIndex].id,
-            }
-        })
-    }
-    const handleInputChangeSelectUser = (event: ChangeEvent<HTMLSelectElement>) => {
-        setState({ ...state, [event.target.name]: { id: itensUser[event.target.selectedIndex].id } })
+    const handleInputChange2 = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        state.dataObservacao = new Date(state.dataObservacao.getFullYear(), state.dataObservacao.getMonth(), parseInt(state.yy))
+        setState({ ...state, [event.target.name]: event.target.value +  `T${state.gg}:00:00.000Z` })
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
@@ -80,7 +73,11 @@ export const ObservationList = () => {
     }
     const fields = [
         { key: 'estacao', label: 'Estação', _style: { width: '3%' } },
-        { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
+<<<<<<< HEAD
+        // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
+=======
+        // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
+>>>>>>> b856daa5268ebc1d2d00209428cab49d5d3ba80b
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         // { key: 'ii', label: 'ii', _style: { width: '3%' } },
         { key: 'iii', label: 'iii', _style: { width: '3%' } },
@@ -132,16 +129,25 @@ export const ObservationList = () => {
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             <Row>
+                                                <input
+                                                    type="date"
+                                                    data-value={state.dataObservacao}
+                                                    onChange={handleInputChange2}
+                                                    name="dataObservacao"
+                                                />
                                                 <Col>
                                                     <InputGroup>
-                                                        <InputGroupText>AAXX/BBXX</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("mimi")}
+                                                        {/* <InputGroupText>AAXX/BBXX</InputGroupText> */}
+                                                        <select
                                                             placeholder="AAXX/BBXX"
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
                                                             title='Indicador mensagem SYNOP ou SHIP: AAXX ou BBXX'
-                                                        />
+                                                        >
+                                                            <option value="AA">AA</option>
+                                                            <option value="BB">BB</option>
+                                                        </select>
                                                         <InputGroupInput isInvalid={validationBoolean("mjmj")}
                                                             placeholder="XX"
                                                             value={state.mjmj}
@@ -206,32 +212,60 @@ export const ObservationList = () => {
                                                             name="yy"
                                                             title='Dia do mês: 01 a 31'
                                                         />
-                                                        <InputGroupInput isInvalid={validationBoolean("gg")}
+                                                        <select
                                                             placeholder="GG"
                                                             value={state.gg}
                                                             onChange={handleInputChange}
                                                             name="gg"
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
-                                                        />
-                                                        <InputGroupInput isInvalid={validationBoolean("iw")}
+                                                            >
+                                                                <optgroup label="GG">
+                                                                <option value="00">00</option>
+                                                                <option value="03">03</option>
+                                                                <option value="06">06</option>
+                                                                <option value="09">09</option>
+                                                                <option value="12">12</option>
+                                                                <option value="15">15</option>
+                                                                <option value="18">18</option>
+                                                                <option value="21">21</option>
+                                                            </optgroup>
+                                                        </select>
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("gg")}
+                                                            placeholder="GG"
+                                                            value={state.gg}
+                                                            onChange={handleInputChange}
+                                                            name="gg"
+                                                            title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
+                                                        /> */}
+                                                        <select
                                                             placeholder="iw"
                                                             value={state.iw}
                                                             onChange={handleInputChange}
                                                             name="iw"
                                                             title='Indicador da velocidade do vento: 0, 1, 2 , 3 ou 4'
-                                                        />
+                                                        >
+                                                            <optgroup label="iw"></optgroup>
+                                                            <option value="01">01</option>
+                                                            <option value="02">02</option>
+                                                            <option value="03">03</option>
+                                                            <option value="04">04</option>
+                                                        </select>
                                                     </InputGroup>
                                                 </Col>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>IIiii</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("ii")}
+                                                        <select
                                                             placeholder="II"
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
                                                             title='Indicatiovos regionais: 82 a 83'
-                                                        />
+                                                        >
+                                                            <option value={""}></option>
+                                                            <option value={82}>82</option>
+                                                            <option value={83}>83</option>
+                                                        </select>
                                                         <InputGroupInput isInvalid={validationBoolean("iii")}
                                                             placeholder="iii"
                                                             value={state.iii}
@@ -926,28 +960,64 @@ export const ObservationList = () => {
                                                             name="cs"
                                                             title='Indicador para medição de ondas: 0 a 9'
                                                         />
-                                                        <InputGroupInput isInvalid={validationBoolean("icf")}
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icf")} */}
+                                                        <select
                                                             placeholder="icF"
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
                                                             title='Fonte de informação: 0 a 6'
-                                                        />
-                                                        <InputGroupInput isInvalid={validationBoolean("icp")}
+                                                        >
+                                                            <optgroup label="icf"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icp")} */}
+                                                        <select
                                                             placeholder="icp"
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
                                                             title='Plataforma de obtenção: 0 a 9'
-                                                        />
-                                                        <InputGroupInput isInvalid={validationBoolean("icq")}
+                                                        >
+                                                            <optgroup label="icp"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                        {/* <InputGroupInput isInvalid={validationBoolean("icq")} */}
+                                                        <select
                                                             placeholder="icQ"
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"
                                                             title='Indicador de controle de qualidade: 0 a 9'
-                                                        />
+                                                        >
+                                                            <optgroup label="icQ"></optgroup>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
+                                                        {/* <input type="text">3</input> */}
                                                     </InputGroup>
+                                                    <input type="datetime-local" id="birthdaytime" name="birthdaytime"></input>
+                                                    <input type="number" id="quantity" name="quantity" min="1" max="5"></input>
                                                 </Col>
                                             </Row>
                                         </div>
@@ -957,24 +1027,24 @@ export const ObservationList = () => {
                                 {/* {JSON.stringify(error?.map((e)=>{e.field}))} */}
                                 {/* {JSON.stringify(error)} */}
                                 {/* {JSON.stringify(showErrors())} */}
-                                <Row>
-                                    {/* <div className="col form-floating">
-                                        <select className="form-select" id="estacao" name="estacao" aria-label="Floating label select" onChange={handleInputChangeSelectOM} onClick={omItem} >
+                                {/* <Row>
+                                    <div className="col form-floating">
+                                        <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                             {itensOM.map((object) => (
-                                                <option data-id={object.id} data-value={object}>{object.name}</option>
+                                                <option data-value={object}>{object.name}</option>
                                             ))}
                                         </select>
-                                        <label className="label" htmlFor="om">OM</label>
-                                    </div> */}
-                                    {/* <div className="col form-floating">
-                                        <select className="form-select" id="observador" name="observador" aria-label="Floating label select" onChange={handleInputChangeSelectUser} onClick={userItem} >
+                                        <label className="label" htmlFor="estacao">Estação</label>
+                                    </div>
+                                    <div className="col form-floating">
+                                        <select className="form-select" data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
                                             {itensUser.map((object) => (
-                                                <option data-id={object.id} data-value={object}>{object.email}</option>
+                                                <option data-value={object}>{object.username}</option>
                                             ))}
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
-                                    </div> */}
-                                </Row>
+                                    </div>
+                                </Row> */}
                                 {/* </Card> */}
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
