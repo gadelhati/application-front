@@ -63,7 +63,7 @@ export const ObservationList = () => {
     }
     const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(event.target.value)
-        let insert = date.getDate() + 1
+        let insert = date.getDate()// + 1
         date.setDate(insert)
         date.setHours(parseInt(state.gg)-3,0,0,0)
         let day = insert.toString()
