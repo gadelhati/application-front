@@ -79,10 +79,11 @@ export const ObservationList = () => {
         dispatch(retrieveAllAction('user'))
     }
     const fields = [
-        // { key: 'mimi', label: 'mimi', _style: { width: '3%' } },
-        // { key: 'ddddddd', label: 'ddddddd', _style: { width: '3%' } },
+        { key: 'estacao', label: 'Estação', _style: { width: '3%' } },
+        { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
+        { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         // { key: 'ii', label: 'ii', _style: { width: '3%' } },
-        // { key: 'iii', label: 'iii', _style: { width: '3%' } },
+        { key: 'iii', label: 'iii', _style: { width: '3%' } },
         { key: 'yy', label: 'yy', _style: { width: '3%' } },
         { key: 'gg', label: 'gg', _style: { width: '3%' } },
         // { key: 'iw', label: 'iw', _style: { width: '3%' } },
@@ -94,8 +95,8 @@ export const ObservationList = () => {
         // { key: 'dd', label: 'dd', _style: { width: '3%' } },
         // { key: 'ff', label: 'ff', _style: { width: '3%' } },
         // { key: 'fff', label: 'fff', _style: { width: '3%' } },
-        { key: 'ttt', label: 'ttt', _style: { width: '3%' } },
-        { key: 'ppp', label: 'ppp', _style: { width: '3%' } },
+        // { key: 'ttt', label: 'ttt', _style: { width: '3%' } },
+        // { key: 'ppp', label: 'ppp', _style: { width: '3%' } },
         // { key: 'ww', label: 'ww', _style: { width: '3%' } },
         // { key: 'w1w2', label: 'w1w2', _style: { width: '3%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
