@@ -2,6 +2,8 @@ import { Observation } from "./observation.interface";
 import { initialUser } from "../user/user.initial";
 import { initialStation } from "../station/station.initial";
 
+// new Date().getTime()          // Get the time (milliseconds since January 1, 1970)
+
 export const initialObservation : Observation = {
     id: "",
     // coordinates: "",
@@ -13,8 +15,8 @@ export const initialObservation : Observation = {
     a1: "",
     bw: "",
     nbnbnb: "",
-    yy: "",
-    gg: "",
+    yy: "01",
+    gg: "00",
     iw: "",
     ii: "",
     iii: "",
@@ -95,7 +97,7 @@ export const initialObservation : Observation = {
     icp: "",
     icq: "",
 
-    dataObservacao: new Date('2022-10-10 00:00:00'),
+    dataObservacao: new Date(),
     observador: "",
     estacao: "",
 

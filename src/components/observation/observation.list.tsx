@@ -61,9 +61,19 @@ export const ObservationList = () => {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const handleInputChange2 = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-        state.dataObservacao = new Date(state.dataObservacao.getFullYear(), state.dataObservacao.getMonth(), parseInt(state.yy))
-        setState({ ...state, [event.target.name]: event.target.value +  `T${state.gg}:00:00.000Z` })
+    const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        let date = new Date(event.target.value)
+        let insert = date.getDate() + 1
+        date.setDate(insert)
+        date.setHours(parseInt(state.gg)-3,0,0,0)
+        let day = insert.toString()
+        setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
+    }
+    const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        let date = new Date(state.dataObservacao)
+        date.setDate(date.getDate() + 1)
+        date.setHours(parseInt(event.target.value)-3,0,0,0)
+        setState({ ...state, dataObservacao: date, gg: event.target.value })
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
@@ -73,11 +83,7 @@ export const ObservationList = () => {
     }
     const fields = [
         { key: 'estacao', label: 'Estação', _style: { width: '3%' } },
-<<<<<<< HEAD
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
-=======
-        // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
->>>>>>> b856daa5268ebc1d2d00209428cab49d5d3ba80b
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         // { key: 'ii', label: 'ii', _style: { width: '3%' } },
         { key: 'iii', label: 'iii', _style: { width: '3%' } },
@@ -128,11 +134,12 @@ export const ObservationList = () => {
                                     <div className="tab-content" id="v-pills-tabContent">
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
+                                            {JSON.stringify(state.dataObservacao).toLocaleString()}
                                             <Row>
                                                 <input
                                                     type="date"
                                                     data-value={state.dataObservacao}
-                                                    onChange={handleInputChange2}
+                                                    onChange={handleInputChangeDate}
                                                     name="dataObservacao"
                                                 />
                                                 <Col>
@@ -208,14 +215,15 @@ export const ObservationList = () => {
                                                         <InputGroupInput isInvalid={validationBoolean("yy")}
                                                             placeholder="YY"
                                                             value={state.yy}
-                                                            onChange={handleInputChange}
+                                                            // onChange={handleInputChange}
+                                                            readOnly
                                                             name="yy"
                                                             title='Dia do mês: 01 a 31'
                                                         />
                                                         <select
                                                             placeholder="GG"
                                                             value={state.gg}
-                                                            onChange={handleInputChange}
+                                                            onChange={handleInputChangeHour}
                                                             name="gg"
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
                                                             >
