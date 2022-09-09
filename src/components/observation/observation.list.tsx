@@ -64,16 +64,13 @@ export const ObservationList = () => {
     const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
-        let insert = date.getDate()// + 1
-        date.setDate(insert)
+        let day = date.getDate().toString()
         date.setHours(parseInt(state.gg)-3,0,0,0)
-        let day = insert.toString()
         setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(state.dataObservacao)
-        date.setDate(date.getDate() + 1)
-        date.setHours(parseInt(event.target.value)-3,0,0,0)
+        date.setHours(parseInt(event.target.value),0,0,0)
         setState({ ...state, dataObservacao: date, gg: event.target.value })
     }
     const omItem = () => {
@@ -136,7 +133,6 @@ export const ObservationList = () => {
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             {JSON.stringify(state.dataObservacao).toLocaleString()}
-                                            {JSON.stringify(state.dataObservacao.getDate())}
                                             <Row>
                                                 <input
                                                     type="date"
