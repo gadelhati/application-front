@@ -63,6 +63,7 @@ export const ObservationList = () => {
     }
     const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(event.target.value)
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let insert = date.getDate()// + 1
         date.setDate(insert)
         date.setHours(parseInt(state.gg)-3,0,0,0)
@@ -135,6 +136,7 @@ export const ObservationList = () => {
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
                                             {JSON.stringify(state.dataObservacao).toLocaleString()}
+                                            {JSON.stringify(state.dataObservacao.getDate())}
                                             <Row>
                                                 <input
                                                     type="date"
