@@ -65,12 +65,14 @@ export const ObservationList = () => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let day = date.getDate().toString()
-        date.setHours(parseInt(state.gg)-3,0,0,0)
+        date.setHours(parseInt(state.gg),0,0,0)
+        // if(parseInt(state.gg) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(state.dataObservacao)
         date.setHours(parseInt(event.target.value),0,0,0)
+        // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, gg: event.target.value })
     }
     const omItem = () => {
@@ -132,7 +134,6 @@ export const ObservationList = () => {
                                     <div className="tab-content" id="v-pills-tabContent">
                                         {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
                                         <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
-                                            {JSON.stringify(state.dataObservacao).toLocaleString()}
                                             <Row>
                                                 <input
                                                     type="date"
@@ -226,14 +227,14 @@ export const ObservationList = () => {
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
                                                             >
                                                                 <optgroup label="GG">
-                                                                <option value="00">00</option>
-                                                                <option value="03">03</option>
-                                                                <option value="06">06</option>
-                                                                <option value="09">09</option>
-                                                                <option value="12">12</option>
-                                                                <option value="15">15</option>
-                                                                <option value="18">18</option>
-                                                                <option value="21">21</option>
+                                                                <option value="21">00</option>
+                                                                <option value="00">03</option>
+                                                                <option value="03">06</option>
+                                                                <option value="06">09</option>
+                                                                <option value="09">12</option>
+                                                                <option value="12">15</option>
+                                                                <option value="15">18</option>
+                                                                <option value="18">21</option>
                                                             </optgroup>
                                                         </select>
                                                         {/* <InputGroupInput isInvalid={validationBoolean("gg")}
