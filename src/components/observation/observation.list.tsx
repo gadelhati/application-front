@@ -258,10 +258,10 @@ export const ObservationList = () => {
                                                             title='Indicador da velocidade do vento: 0, 1, 2 , 3 ou 4'
                                                         >
                                                             <optgroup label="iw"></optgroup>
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
                                                         </select>
                                                     </InputGroup>
                                                 </Col>
@@ -1079,7 +1079,7 @@ export const ObservationList = () => {
                                 {/* {JSON.stringify(error?.map((e)=>{e.field}))} */}
                                 {/* {JSON.stringify(error)} */}
                                 {/* {JSON.stringify(showErrors())} */}
-                                {/* <Row>
+                                <Row>
                                     <div className="col form-floating">
                                         <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                             {itensOM.map((object) => (
@@ -1096,7 +1096,7 @@ export const ObservationList = () => {
                                         </select>
                                         <label className="label" htmlFor="observador">Observador</label>
                                     </div>
-                                </Row> */}
+                                </Row>
                                 {/* </Card> */}
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
