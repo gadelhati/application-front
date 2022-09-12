@@ -87,7 +87,7 @@ export const ObservationList = () => {
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         // { key: 'ii', label: 'ii', _style: { width: '3%' } },
-        { key: 'iii', label: 'iii', _style: { width: '3%' } },
+        // { key: 'iii', label: 'iii', _style: { width: '3%' } },
         { key: 'yy', label: 'yy', _style: { width: '3%' } },
         { key: 'gg', label: 'gg', _style: { width: '3%' } },
         // { key: 'iw', label: 'iw', _style: { width: '3%' } },
