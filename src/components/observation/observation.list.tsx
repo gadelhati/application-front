@@ -82,7 +82,8 @@ export const ObservationList = () => {
         dispatch(retrieveAllAction('user'))
     }
     const fields = [
-        { key: 'estacao', label: 'Estação', _style: { width: '3%' } },
+        { key: 'stationName', label: 'Estação', _style: { width: '3%' } },
+        { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         // { key: 'ii', label: 'ii', _style: { width: '3%' } },
