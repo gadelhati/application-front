@@ -66,10 +66,10 @@ export const PlatformList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <FloatForm>
+                            {/* <FloatForm>
                                 <FloatInput placeholder="float" type="text"></FloatInput>
                                 <FloatLabel>floflo</FloatLabel>
-                            </FloatForm>
+                            </FloatForm> */}
                             <div className="form-floating">
                                 <input
                                     placeholder="visualCallsign"

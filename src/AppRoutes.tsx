@@ -10,7 +10,7 @@ import { getRoles, getUser } from "./services/service.token"
 
 import "./AppRoutes.css"
 import { UserList } from "./components/user/user.list";
-import { ObservationList } from "./components/observation/observation.list";
+import { ObservationList } from "./components/observation/observation.list.2";
 import { ObservationUpload } from "./components/observation/observation.upload";
 import { UserSignin } from "./components/user/user.signin";
 import { Header } from "./containers/menus/header";

@@ -12,11 +12,13 @@ import { Article, Col, Row, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
+import { Tab, TabList } from '../../containers/models/Tab';
+import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
 
 // const styles: { [key: string]: CSSProperties} = {
 const styles = {
     container: {
-        width: '65%',
+        // width: '65%',
     },
 };
 
@@ -65,13 +67,13 @@ export const ObservationList = () => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let day = date.getDate().toString()
-        date.setHours(parseInt(state.gg),0,0,0)
+        date.setHours(parseInt(state.gg), 0, 0, 0)
         // if(parseInt(state.gg) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(state.dataObservacao)
-        date.setHours(parseInt(event.target.value),0,0,0)
+        date.setHours(parseInt(event.target.value), 0, 0, 0)
         // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, gg: event.target.value })
     }
@@ -108,7 +110,7 @@ export const ObservationList = () => {
     return (
         <Section>
             <Article>
-                <Header title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Observações Meteorológicas 2"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
                 <ObservationUpload />
                 {/* </div> */}
@@ -123,33 +125,16 @@ export const ObservationList = () => {
                         </div>
                         <div className="modal-body">
                             <article>
-                                <div className="d-flex align-items-start">
-                                    <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <button className="nav-link active" id="v-pills-0-tab" data-bs-toggle="pill" data-bs-target="#v-pills-0" type="button" role="tab" aria-controls="v-pills-0" aria-selected="true">Section 0</button>
-                                        <button className="nav-link" id="v-pills-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1" aria-selected="false">Section 1</button>
-                                        <button className="nav-link" id="v-pills-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2" aria-selected="false">Section 2</button>
-                                        <button className="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Section 3</button>
-                                        <button className="nav-link" id="v-pills-5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-5" type="button" role="tab" aria-controls="v-pills-5" aria-selected="false">Section 5</button>
-                                    </div>
-                                    {/* <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link active" id="pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
-                                        </li>
-                                    </ul> */}
-
-                                    {/* <TabList id="v-pills-tabContent"> */}
-                                    <div className="tab-content" id="v-pills-tabContent">
-                                        {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
-                                        <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
+                                <CTabs activeTab="section0">
+                                    <CNav variant="tabs">
+                                        <CNavItem><CNavLink data-tab="section0">Section 0</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section1">Section 1</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section2">Section 2</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section3">Section 3</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section5">Section 5</CNavLink></CNavItem>
+                                    </CNav>
+                                    <CTabContent>
+                                        <CTabPane data-tab="section0">
                                             <Row>
                                                 <Col>
                                                     <InputGroup>
@@ -247,8 +232,8 @@ export const ObservationList = () => {
                                                             onChange={handleInputChangeHour}
                                                             name="gg"
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
-                                                            >
-                                                                <optgroup label="GG">
+                                                        >
+                                                            <optgroup label="GG">
                                                                 <option value="21">00</option>
                                                                 <option value="00">03</option>
                                                                 <option value="03">06</option>
@@ -342,10 +327,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        {/* </Tab> */}
-                                        <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" style={styles.container} tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section1">
+                                        <Row>
                                                 <Col>
                                                     {/* <Tooltip> */}
                                                         <InputGroup>
@@ -661,9 +645,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section2">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>222DsVs</InputGroupText>
@@ -905,9 +889,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section3">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1sn</InputGroupText>
@@ -968,9 +952,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section5">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>555ichwicMcsicFicpicQ</InputGroupText>
@@ -1088,32 +1072,10 @@ export const ObservationList = () => {
                                                     {/* <input type="number" id="quantity" name="quantity" min="1" max="5"></input> */}
                                                 </Col>
                                             </Row>
-                                        </div>
-                                    </div>
-                                    {/* </TabList> */}
-                                </div>
-                                {/* {JSON.stringify(error?.map((e)=>{e.field}))} */}
-                                {/* {JSON.stringify(error)} */}
-                                {/* {JSON.stringify(showErrors())} */}
-                                <Row>
-                                    <div className="col form-floating">
-                                        <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
-                                            {itensOM.map((object) => (
-                                                <option data-value={object}>{object.name}</option>
-                                            ))}
-                                        </select>
-                                        <label className="label" htmlFor="estacao">Estação</label>
-                                    </div>
-                                    <div className="col form-floating">
-                                        <select className="form-select" data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
-                                            {itensUser.map((object) => (
-                                                <option data-value={object}>{object.username}</option>
-                                            ))}
-                                        </select>
-                                        <label className="label" htmlFor="observador">Observador</label>
-                                    </div>
-                                </Row>
-                                {/* </Card> */}
+                                        </CTabPane>
+                                    </CTabContent>
+                                </CTabs>
+
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
                             </article>

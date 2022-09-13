@@ -59,7 +59,7 @@ export const Row = styled('div', {
     marginTop: 'calc(var(--bs-gutter-y) * -1)',
     marginRight: 'calc(var(--bs-gutter-x) * -.5)',
     marginLeft: 'calc(var(--bs-gutter-x) * -.5)',
-    width: '50%',
+    // width: '50%',
     '::after, ::before': {
         boxSizing: 'border-box',
     }
