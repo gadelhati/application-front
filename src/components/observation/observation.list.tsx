@@ -12,13 +12,8 @@ import { Article, Col, Row, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
-
-// const styles: { [key: string]: CSSProperties} = {
-const styles = {
-    container: {
-        width: '65%',
-    },
-};
+import { Tab, TabList } from '../../containers/models/Tab';
+import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
 
 export const ObservationList = () => {
     const dispatch = useDispatch()
@@ -65,13 +60,13 @@ export const ObservationList = () => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let day = date.getDate().toString()
-        date.setHours(parseInt(state.gg),0,0,0)
+        date.setHours(parseInt(state.gg), 0, 0, 0)
         // if(parseInt(state.gg) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(state.dataObservacao)
-        date.setHours(parseInt(event.target.value),0,0,0)
+        date.setHours(parseInt(event.target.value), 0, 0, 0)
         // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dataObservacao: date, gg: event.target.value })
     }
@@ -123,47 +118,49 @@ export const ObservationList = () => {
                         </div>
                         <div className="modal-body">
                             <article>
-                                <div className="d-flex align-items-start">
-                                    <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <button className="nav-link active" id="v-pills-0-tab" data-bs-toggle="pill" data-bs-target="#v-pills-0" type="button" role="tab" aria-controls="v-pills-0" aria-selected="true">Section 0</button>
-                                        <button className="nav-link" id="v-pills-1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1" aria-selected="false">Section 1</button>
-                                        <button className="nav-link" id="v-pills-2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2" aria-selected="false">Section 2</button>
-                                        <button className="nav-link" id="v-pills-3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3" aria-selected="false">Section 3</button>
-                                        <button className="nav-link" id="v-pills-5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-5" type="button" role="tab" aria-controls="v-pills-5" aria-selected="false">Section 5</button>
-                                    </div>
-                                    {/* <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link active" id="pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-                                        </li>
-                                        <li className="nav-item" role="presentation">
-                                            <button className="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
-                                        </li>
-                                    </ul> */}
-
-                                    {/* <TabList id="v-pills-tabContent"> */}
-                                    <div className="tab-content" id="v-pills-tabContent">
-                                        {/* <Tab id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}> */}
-                                        <div className="tab-pane fade show active" id="v-pills-0" role="tabpanel" aria-labelledby="v-pills-0-tab" tabIndex={0}>
+                                <CTabs activeTab="section0">
+                                    <Row>
+                                        <Col>
+                                            <InputGroup>
+                                                <input
+                                                    type="date"
+                                                    data-value={state.dataObservacao}
+                                                    onChange={handleInputChangeDate}
+                                                    name="dataObservacao"
+                                                />
+                                            </InputGroup>
+                                        </Col>
+                                        <div className="col form-floating">
+                                            <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                                {itensOM.map((object) => (
+                                                    <option data-value={object}>{object.name}</option>
+                                                ))}
+                                            </select>
+                                            <label className="label" htmlFor="estacao">Estação</label>
+                                        </div>
+                                        <div className="col form-floating">
+                                            <select className="form-select" data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
+                                                {itensUser.map((object) => (
+                                                    <option data-value={object}>{object.username}</option>
+                                                ))}
+                                            </select>
+                                            <label className="label" htmlFor="observador">Observador</label>
+                                        </div>
+                                    </Row>
+                                <br />
+                                    <CNav variant="tabs">
+                                        <CNavItem><CNavLink data-tab="section0">Section 0</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section1">Section 1</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section2">Section 2</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section3">Section 3</CNavLink></CNavItem>
+                                        <CNavItem><CNavLink data-tab="section5">Section 5</CNavLink></CNavItem>
+                                    </CNav>
+                                    <CTabContent>
+                                        <CTabPane data-tab="section0">
                                             <Row>
                                                 <Col>
                                                     <InputGroup>
-                                                        <input
-                                                            type="date"
-                                                            data-value={state.dataObservacao}
-                                                            onChange={handleInputChangeDate}
-                                                            name="dataObservacao"
-                                                        />
-                                                    </InputGroup>
-                                                </Col>
-                                                <Col>
-                                                    <InputGroup>
-                                                        {/* <InputGroupText>AAXX/BBXX</InputGroupText> */}
+                                                        <InputGroupText>AAXX/BBXX</InputGroupText>
                                                         <select
                                                             placeholder="AAXX/BBXX"
                                                             value={state.mimi}
@@ -185,8 +182,6 @@ export const ObservationList = () => {
                                                         <InputGroupText>XX</InputGroupText>
                                                     </InputGroup>
                                                 </Col>
-                                            </Row>
-                                            <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>DDDDDDD</InputGroupText>
@@ -247,8 +242,9 @@ export const ObservationList = () => {
                                                             onChange={handleInputChangeHour}
                                                             name="gg"
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
-                                                            >
-                                                                <optgroup label="GG">
+                                                        >
+                                                            <optgroup label="GG">
+                                                                <option value="" selected></option>
                                                                 <option value="21">00</option>
                                                                 <option value="00">03</option>
                                                                 <option value="03">06</option>
@@ -274,6 +270,7 @@ export const ObservationList = () => {
                                                             title='Indicador da velocidade do vento: 0, 1, 2 , 3 ou 4'
                                                         >
                                                             <optgroup label="iw"></optgroup>
+                                                            <option value="" selected></option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -342,10 +339,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        {/* </Tab> */}
-                                        <div className="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab" style={styles.container} tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section1">
+                                        <Row>
                                                 <Col>
                                                     {/* <Tooltip> */}
                                                         <InputGroup>
@@ -549,6 +545,8 @@ export const ObservationList = () => {
                                                         />
                                                     </InputGroup>
                                                 </Col>
+                                            </Row>
+                                            <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>7wwW1W2</InputGroupText>
@@ -584,8 +582,6 @@ export const ObservationList = () => {
                                                             </OverlayTrigger> */}
                                                     </InputGroup>
                                                 </Col>
-                                            </Row>
-                                            <Row>
                                                 {/* <Col lg={true} >
                                                     <InputGroup className="mb-3">
                                                         <InputGroup.Text id="basic-addon1">7wawaWa1Wa2</InputGroup.Text>
@@ -661,9 +657,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section2">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>222DsVs</InputGroupText>
@@ -905,9 +901,9 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section3">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1sn</InputGroupText>
@@ -968,36 +964,35 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                             </Row>
-                                        </div>
-                                        <div className="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab" tabIndex={0}>
-                                            <Row>
+                                        </CTabPane>
+                                        <CTabPane data-tab="section5">
+                                        <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>555ichwicMcsicFicpicQ</InputGroupText>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("ichw")} */}
-                                                        <div>
-                                                        <select
+                                                        <InputGroupInput isInvalid={validationBoolean("ichw")}
+                                                        // <select
                                                             placeholder="ichw"
                                                             value={state.ichw}
                                                             onChange={handleInputChange}
                                                             name="ichw"
                                                             title='Indicador para medição de altura de nuvens (h) e visibilidade (VV): 0, 1, 2 ou 3'
-                                                        >
-                                                            <optgroup label="icM"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="icM"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
-                                                        </select>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("icm")} */}
-                                                        <select
+                                                        </select> */}
+                                                        <InputGroupInput isInvalid={validationBoolean("icm")}
+                                                        // <select
                                                             placeholder="icM"
                                                             value={state.icm}
                                                             onChange={handleInputChange}
                                                             name="icm"
                                                             title='Indicador para medição de temperatura da água do mar à superfície: 0 a 7'
-                                                        >
-                                                            <optgroup label="icM"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="icM"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1006,16 +1001,16 @@ export const ObservationList = () => {
                                                             <option value="5">5</option>
                                                             <option value="6">6</option>
                                                             <option value="7">7</option>
-                                                        </select>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("cs")} */}
-                                                        <select
+                                                        </select> */}
+                                                        <InputGroupInput isInvalid={validationBoolean("cs")}
+                                                        // <select
                                                             placeholder="cs"
                                                             value={state.cs}
                                                             onChange={handleInputChange}
                                                             name="cs"
                                                             title='Indicador para medição de ondas: 0 a 9'
-                                                        >
-                                                            <optgroup label="cs"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="cs"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1026,16 +1021,16 @@ export const ObservationList = () => {
                                                             <option value="7">7</option>
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
-                                                        </select>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("icf")} */}
-                                                        <select
+                                                        </select> */}
+                                                        <InputGroupInput isInvalid={validationBoolean("icf")}
+                                                        // <select
                                                             placeholder="icF"
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
                                                             title='Fonte de informação: 0 a 6'
-                                                        >
-                                                            <optgroup label="icf"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="icf"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1043,16 +1038,16 @@ export const ObservationList = () => {
                                                             <option value="4">4</option>
                                                             <option value="5">5</option>
                                                             <option value="6">6</option>
-                                                        </select>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("icp")} */}
-                                                        <select
+                                                        </select> */}
+                                                        <InputGroupInput isInvalid={validationBoolean("icp")}
+                                                        // <select
                                                             placeholder="icp"
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
                                                             title='Plataforma de obtenção: 0 a 9'
-                                                        >
-                                                            <optgroup label="icp"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="icp"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1060,16 +1055,16 @@ export const ObservationList = () => {
                                                             <option value="4">4</option>
                                                             <option value="5">5</option>
                                                             <option value="6">6</option>
-                                                        </select>
-                                                        {/* <InputGroupInput isInvalid={validationBoolean("icq")} */}
-                                                        <select
+                                                        </select> */}
+                                                        <InputGroupInput isInvalid={validationBoolean("icq")}
+                                                        // <select
                                                             placeholder="icQ"
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"
                                                             title='Indicador de controle de qualidade: 0 a 9'
-                                                        >
-                                                            <optgroup label="icQ"></optgroup>
+                                                        />
+                                                            {/* <optgroup label="icQ"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1080,40 +1075,15 @@ export const ObservationList = () => {
                                                             <option value="7">7</option>
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
-                                                        </select>
-                                                        </div>
+                                                        </select> */}
                                                         {/* <input type="text">3</input> */}
                                                     </InputGroup>
-                                                    {/* <input type="datetime-local" id="birthdaytime" name="birthdaytime"></input> */}
-                                                    {/* <input type="number" id="quantity" name="quantity" min="1" max="5"></input> */}
                                                 </Col>
                                             </Row>
-                                        </div>
-                                    </div>
-                                    {/* </TabList> */}
-                                </div>
-                                {/* {JSON.stringify(error?.map((e)=>{e.field}))} */}
-                                {/* {JSON.stringify(error)} */}
-                                {/* {JSON.stringify(showErrors())} */}
-                                <Row>
-                                    <div className="col form-floating">
-                                        <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
-                                            {itensOM.map((object) => (
-                                                <option data-value={object}>{object.name}</option>
-                                            ))}
-                                        </select>
-                                        <label className="label" htmlFor="estacao">Estação</label>
-                                    </div>
-                                    <div className="col form-floating">
-                                        <select className="form-select" data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
-                                            {itensUser.map((object) => (
-                                                <option data-value={object}>{object.username}</option>
-                                            ))}
-                                        </select>
-                                        <label className="label" htmlFor="observador">Observador</label>
-                                    </div>
-                                </Row>
-                                {/* </Card> */}
+                                        </CTabPane>
+                                    </CTabContent>
+                                </CTabs>
+
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
                             </article>
