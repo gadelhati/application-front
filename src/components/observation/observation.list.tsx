@@ -43,6 +43,11 @@ export const ObservationList = () => {
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
     }
+    const validationAll = () => {
+        let length
+        error?.map(element => { return length = element.message.length })
+        return length
+    }
     const showErrors = (): string[] => {
         let vector: string[] = []
         error?.map(element => { vector.concat(element.field) })
@@ -131,7 +136,9 @@ export const ObservationList = () => {
                                             </InputGroup>
                                         </Col>
                                         <div className="col form-floating">
-                                            <select className="form-select" data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                            <select
+                                                className={validation("estacao").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                                 {itensOM.map((object) => (
                                                     <option data-value={object}>{object.name}</option>
                                                 ))}
@@ -147,7 +154,7 @@ export const ObservationList = () => {
                                             <label className="label" htmlFor="observador">Observador</label>
                                         </div>
                                     </Row>
-                                <br />
+                                    <br />
                                     <CNav variant="tabs">
                                         <CNavItem><CNavLink data-tab="section0">Section 0</CNavLink></CNavItem>
                                         <CNavItem><CNavLink data-tab="section1">Section 1</CNavLink></CNavItem>
@@ -155,7 +162,9 @@ export const ObservationList = () => {
                                         <CNavItem><CNavLink data-tab="section3">Section 3</CNavLink></CNavItem>
                                         <CNavItem><CNavLink data-tab="section5">Section 5</CNavLink></CNavItem>
                                     </CNav>
-                                    <CTabContent>
+                                    <br />
+                                    <CTabContent className={validationAll() != 0 ? "is-invalid" : ""}>
+                                        {/* <CTabContent> */}
                                         <CTabPane data-tab="section0">
                                             <Row>
                                                 <Col>
@@ -263,6 +272,7 @@ export const ObservationList = () => {
                                                             title='Hora da observação (HMG): 00, 03, 06, 09, 12, 15, 18, ou 21'
                                                         /> */}
                                                         <select
+                                                            className={validation("iw").length != 0 ? "form-select is-invalid" : "form-select"}
                                                             placeholder="iw"
                                                             value={state.iw}
                                                             onChange={handleInputChange}
@@ -341,55 +351,107 @@ export const ObservationList = () => {
                                             </Row>
                                         </CTabPane>
                                         <CTabPane data-tab="section1">
-                                        <Row>
+                                            <Row>
                                                 <Col>
-                                                    {/* <Tooltip> */}
-                                                        <InputGroup>
-                                                            <InputGroupText>iRiXhVV</InputGroupText>
-                                                            <InputGroupInput isInvalid={validationBoolean("ir")}
-                                                                placeholder="iR"
-                                                                value={state.ir}
-                                                                onChange={handleInputChange}
-                                                                name="ir"
-                                                                title="Ind. omissão ou inclusãode dados de precipitação: 1, 3 ou 4"
-                                                            />
-                                                            <InputGroupInput isInvalid={validationBoolean("ix")}
-                                                                placeholder="iX"
-                                                                value={state.ix}
-                                                                onChange={handleInputChange}
-                                                                name="ix"
-                                                                title="Ind. tipo de operação da estação: 1 a 7"
-                                                            />
-                                                            <InputGroupInput isInvalid={validationBoolean("h")}
-                                                                placeholder="h"
-                                                                value={state.h}
-                                                                onChange={handleInputChange}
-                                                                name="h"
-                                                                title='Altura da nuvem mais baixa: 0 a 9 ou /'
-                                                            />
-                                                            <InputGroupInput isInvalid={validationBoolean("vv")}
-                                                                placeholder="VV"
-                                                                value={state.vv}
-                                                                onChange={handleInputChange}
-                                                                name="vv"
-                                                                title='Visibilidade horizontal à superfície: 90 a 99'
-                                                            />
-                                                        </InputGroup>
-                                                        {/* <span>67{validation("ir")}{validation("ix")}{validation("h")}{validation("vv")}</span> */}
-                                                    {/* </Tooltip> */}
+                                                    <div className={validation("ir").length != 0 ? "is-invalid input-group input-group-sm flex-nowrap" : "input-group input-group-sm flex-nowrap"}>
+                                                        <label className="input-group-text" htmlFor="inputGroupSelect01">iRiXhVV</label>
+                                                        <select
+                                                            className={validation("ir").length != 0 ? "form-select form-control is-invalid" : "form-control form-select"}
+                                                            value={state.ir}
+                                                            onChange={handleInputChange}
+                                                            name="ir"
+                                                            title="Ind. omissão ou inclusãode dados de precipitação: 1, 3 ou 4"
+                                                        >
+                                                            <optgroup label="iR"></optgroup>
+                                                            <option selected></option>
+                                                            <option value="1">1</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                        </select>
+                                                        <select
+                                                            className={validation("ix").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                            value={state.ix}
+                                                            onChange={handleInputChange}
+                                                            name="ix"
+                                                            title="Ind. tipo de operação da estação: 1 a 7"
+                                                        >
+                                                            <optgroup label="iX"></optgroup>
+                                                            <option selected></option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                        </select>
+                                                        <select
+                                                            className={validation("h").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                            value={state.h}
+                                                            onChange={handleInputChange}
+                                                            name="h"
+                                                            title='Altura da nuvem mais baixa: 0 a 9 ou /'
+                                                        >
+                                                            <optgroup label="h"></optgroup>
+                                                            <option selected></option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
+                                                        <select
+                                                            className={validation("vv").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                            value={state.vv}
+                                                            onChange={handleInputChange}
+                                                            name="vv"
+                                                            title='Visibilidade horizontal à superfície: 90 a 99'
+                                                        >
+                                                            <optgroup label="vv"></optgroup>
+                                                            <option selected></option>
+                                                            <option value="90">90</option>
+                                                            <option value="91">91</option>
+                                                            <option value="92">92</option>
+                                                            <option value="93">93</option>
+                                                            <option value="94">94</option>
+                                                            <option value="95">95</option>
+                                                            <option value="96">96</option>
+                                                            <option value="97">97</option>
+                                                            <option value="98">98</option>
+                                                            <option value="99">99</option>
+                                                        </select>
+                                                    </div>
                                                 </Col>
                                             </Row>
                                             <Row>
                                                 <Col>
-                                                    <InputGroup>
-                                                        <InputGroupText>Nddff</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("n")}
-                                                            placeholder="N"
+                                                    <div className="input-group col-md-3 input-group-sm">
+                                                        <label className="input-group-text" htmlFor="inputGroupSelect01">Nddff</label>
+                                                        <select
+                                                            className={validation("n").length != 0 ? "form-select is-invalid" : "form-select"}
                                                             value={state.n}
                                                             onChange={handleInputChange}
                                                             name="n"
                                                             title='Cobertura total de nuvens: 0 a 9 ou /'
-                                                        />
+                                                        >
+                                                            <optgroup label="n"></optgroup>
+                                                            <option selected></option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
                                                         <InputGroupInput isInvalid={validationBoolean("dd")}
                                                             placeholder="dd"
                                                             value={state.dd}
@@ -404,7 +466,7 @@ export const ObservationList = () => {
                                                             name="ff"
                                                             title='Velocidade do vento em inidades indicadas em iw do grupo YYGGiw: 00 a 99'
                                                         />
-                                                    </InputGroup>
+                                                    </div>
                                                 </Col>
                                             </Row>
                                             <Row>
@@ -421,15 +483,19 @@ export const ObservationList = () => {
                                                     </InputGroup>
                                                 </Col>
                                                 <Col>
-                                                    <InputGroup>
-                                                        <InputGroupText>1snTTT</InputGroupText>
-                                                        <InputGroupInput isInvalid={validationBoolean("sn1_1")}
-                                                            placeholder="sn"
+                                                    <div className="input-group col-md-3 input-group-sm">
+                                                        <label className="input-group-text" htmlFor="inputGroupSelect01">1snTTT</label>
+                                                        <select
+                                                            className={validation("sn1_1").length != 0 ? "form-select is-invalid" : "form-select"}
                                                             value={state.sn1_1}
                                                             onChange={handleInputChange}
                                                             name="sn1_1"
                                                             title='Indicador de sinal de temperatura: 0 a 1'
-                                                        />
+                                                        >
+                                                            <option selected></option>
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                        </select>
                                                         <InputGroupInput isInvalid={validationBoolean("ttt")}
                                                             placeholder="TTT"
                                                             value={state.ttt}
@@ -437,7 +503,7 @@ export const ObservationList = () => {
                                                             name="ttt"
                                                             title='Temperatura do ar (seco) expressa em décimos de graus celcius: 000 a 500'
                                                         />
-                                                    </InputGroup>
+                                                    </div>
                                                 </Col>
                                             </Row>
                                             <Row>
@@ -659,7 +725,7 @@ export const ObservationList = () => {
                                             </Row>
                                         </CTabPane>
                                         <CTabPane data-tab="section2">
-                                        <Row>
+                                            <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>222DsVs</InputGroupText>
@@ -903,7 +969,7 @@ export const ObservationList = () => {
                                             </Row>
                                         </CTabPane>
                                         <CTabPane data-tab="section3">
-                                        <Row>
+                                            <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>1sn</InputGroupText>
@@ -966,33 +1032,33 @@ export const ObservationList = () => {
                                             </Row>
                                         </CTabPane>
                                         <CTabPane data-tab="section5">
-                                        <Row>
+                                            <Row>
                                                 <Col>
                                                     <InputGroup>
                                                         <InputGroupText>555ichwicMcsicFicpicQ</InputGroupText>
                                                         <InputGroupInput isInvalid={validationBoolean("ichw")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="ichw"
                                                             value={state.ichw}
                                                             onChange={handleInputChange}
                                                             name="ichw"
                                                             title='Indicador para medição de altura de nuvens (h) e visibilidade (VV): 0, 1, 2 ou 3'
                                                         />
-                                                            {/* <optgroup label="icM"></optgroup>
+                                                        {/* <optgroup label="icM"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
                                                         </select> */}
                                                         <InputGroupInput isInvalid={validationBoolean("icm")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="icM"
                                                             value={state.icm}
                                                             onChange={handleInputChange}
                                                             name="icm"
                                                             title='Indicador para medição de temperatura da água do mar à superfície: 0 a 7'
                                                         />
-                                                            {/* <optgroup label="icM"></optgroup>
+                                                        {/* <optgroup label="icM"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1003,14 +1069,14 @@ export const ObservationList = () => {
                                                             <option value="7">7</option>
                                                         </select> */}
                                                         <InputGroupInput isInvalid={validationBoolean("cs")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="cs"
                                                             value={state.cs}
                                                             onChange={handleInputChange}
                                                             name="cs"
                                                             title='Indicador para medição de ondas: 0 a 9'
                                                         />
-                                                            {/* <optgroup label="cs"></optgroup>
+                                                        {/* <optgroup label="cs"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1023,14 +1089,14 @@ export const ObservationList = () => {
                                                             <option value="9">9</option>
                                                         </select> */}
                                                         <InputGroupInput isInvalid={validationBoolean("icf")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="icF"
                                                             value={state.icf}
                                                             onChange={handleInputChange}
                                                             name="icf"
                                                             title='Fonte de informação: 0 a 6'
                                                         />
-                                                            {/* <optgroup label="icf"></optgroup>
+                                                        {/* <optgroup label="icf"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1040,14 +1106,14 @@ export const ObservationList = () => {
                                                             <option value="6">6</option>
                                                         </select> */}
                                                         <InputGroupInput isInvalid={validationBoolean("icp")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="icp"
                                                             value={state.icp}
                                                             onChange={handleInputChange}
                                                             name="icp"
                                                             title='Plataforma de obtenção: 0 a 9'
                                                         />
-                                                            {/* <optgroup label="icp"></optgroup>
+                                                        {/* <optgroup label="icp"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1057,14 +1123,14 @@ export const ObservationList = () => {
                                                             <option value="6">6</option>
                                                         </select> */}
                                                         <InputGroupInput isInvalid={validationBoolean("icq")}
-                                                        // <select
+                                                            // <select
                                                             placeholder="icQ"
                                                             value={state.icq}
                                                             onChange={handleInputChange}
                                                             name="icq"
                                                             title='Indicador de controle de qualidade: 0 a 9'
                                                         />
-                                                            {/* <optgroup label="icQ"></optgroup>
+                                                        {/* <optgroup label="icQ"></optgroup>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -1082,14 +1148,101 @@ export const ObservationList = () => {
                                             </Row>
                                         </CTabPane>
                                     </CTabContent>
+                                    <div className="invalid-feedback">{validation("mimi")}</div>
+                                    <div className="invalid-feedback">{validation("mjmj")}</div>
+                                    <div className="invalid-feedback">{validation("ddddddd")}</div>
+                                    <div className="invalid-feedback">{validation("a1")}</div>
+                                    <div className="invalid-feedback">{validation("bw")}</div>
+                                    <div className="invalid-feedback">{validation("nbnbnb")}</div>
+                                    <div className="invalid-feedback">{validation("yy")}</div>
+                                    <div className="invalid-feedback">{validation("gg")}</div>
+                                    <div className="invalid-feedback">{validation("iw")}</div>
+                                    <div className="invalid-feedback">{validation("ii")}</div>
+                                    <div className="invalid-feedback">{validation("iii")}</div>
+                                    <div className="invalid-feedback">{validation("lalala")}</div>
+                                    <div className="invalid-feedback">{validation("qc")}</div>
+                                    <div className="invalid-feedback">{validation("lolololo")}</div>
+                                    <div className="invalid-feedback">{validation("ir")}</div>
+                                    <div className="invalid-feedback">{validation("ix")}</div>
+                                    <div className="invalid-feedback">{validation("h")}</div>
+                                    <div className="invalid-feedback">{validation("vv")}</div>
+                                    <div className="invalid-feedback">{validation("n")}</div>
+                                    <div className="invalid-feedback">{validation("dd")}</div>
+                                    <div className="invalid-feedback">{validation("ff")}</div>
+                                    <div className="invalid-feedback">{validation("fff")}</div>
+                                    <div className="invalid-feedback">{validation("sn1_1")}</div>
+                                    <div className="invalid-feedback">{validation("ttt")}</div>
+                                    <div className="invalid-feedback">{validation("sn2_1")}</div>
+                                    <div className="invalid-feedback">{validation("tdtdtd")}</div>
+                                    <div className="invalid-feedback">{validation("p0p0p0p0")}</div>
+                                    <div className="invalid-feedback">{validation("pppp")}</div>
+                                    <div className="invalid-feedback">{validation("a3")}</div>
+                                    <div className="invalid-feedback">{validation("hhh")}</div>
+                                    <div className="invalid-feedback">{validation("a")}</div>
+                                    <div className="invalid-feedback">{validation("ppp")}</div>
+                                    <div className="invalid-feedback">{validation("rrr")}</div>
+                                    <div className="invalid-feedback">{validation("tr")}</div>
+                                    <div className="invalid-feedback">{validation("ww")}</div>
+                                    <div className="invalid-feedback">{validation("w1w2")}</div>
+                                    <div className="invalid-feedback">{validation("w1")}</div>
+                                    <div className="invalid-feedback">{validation("w2")}</div>
+                                    <div className="invalid-feedback">{validation("wawa")}</div>
+                                    <div className="invalid-feedback">{validation("wa1")}</div>
+                                    <div className="invalid-feedback">{validation("wa2")}</div>
+                                    <div className="invalid-feedback">{validation("nh")}</div>
+                                    <div className="invalid-feedback">{validation("cl")}</div>
+                                    <div className="invalid-feedback">{validation("cm")}</div>
+                                    <div className="invalid-feedback">{validation("ch")}</div>
+                                    <div className="invalid-feedback">{validation("gggg")}</div>
+                                    <div className="invalid-feedback">{validation("ds")}</div>
+                                    <div className="invalid-feedback">{validation("vs")}</div>
+                                    <div className="invalid-feedback">{validation("ss")}</div>
+                                    <div className="invalid-feedback">{validation("twtwtw")}</div>
+                                    <div className="invalid-feedback">{validation("pwapwa")}</div>
+                                    <div className="invalid-feedback">{validation("hwahwa")}</div>
+                                    <div className="invalid-feedback">{validation("pwpw")}</div>
+                                    <div className="invalid-feedback">{validation("hwhw")}</div>
+                                    <div className="invalid-feedback">{validation("dw1dw1")}</div>
+                                    <div className="invalid-feedback">{validation("dw2dw2")}</div>
+                                    <div className="invalid-feedback">{validation("pw1pw1")}</div>
+                                    <div className="invalid-feedback">{validation("hw1hw1")}</div>
+                                    <div className="invalid-feedback">{validation("pw2pw2")}</div>
+                                    <div className="invalid-feedback">{validation("hw2hw2")}</div>
+                                    <div className="invalid-feedback">{validation("is_ice")}</div>
+                                    <div className="invalid-feedback">{validation("eses")}</div>
+                                    <div className="invalid-feedback">{validation("rs")}</div>
+                                    <div className="invalid-feedback">{validation("hwahwahwa")}</div>
+                                    <div className="invalid-feedback">{validation("sw")}</div>
+                                    <div className="invalid-feedback">{validation("tbtbtb")}</div>
+                                    <div className="invalid-feedback">{validation("ci")}</div>
+                                    <div className="invalid-feedback">{validation("si")}</div>
+                                    <div className="invalid-feedback">{validation("bi")}</div>
+                                    <div className="invalid-feedback">{validation("di")}</div>
+                                    <div className="invalid-feedback">{validation("zi")}</div>
+                                    <div className="invalid-feedback">{validation("sn1_3")}</div>
+                                    <div className="invalid-feedback">{validation("txtxtx")}</div>
+                                    <div className="invalid-feedback">{validation("sn2_3")}</div>
+                                    <div className="invalid-feedback">{validation("tntntn")}</div>
+                                    <div className="invalid-feedback">{validation("ind89")}</div>
+                                    <div className="invalid-feedback">{validation("p24p24p24")}</div>
+                                    <div className="invalid-feedback">{validation("ichw")}</div>
+                                    <div className="invalid-feedback">{validation("icm")}</div>
+                                    <div className="invalid-feedback">{validation("cs")}</div>
+                                    <div className="invalid-feedback">{validation("icf")}</div>
+                                    <div className="invalid-feedback">{validation("icp")}</div>
+                                    <div className="invalid-feedback">{validation("icq")}</div>
+                                    <div className="invalid-feedback">{validation("dateObservation")}</div>
+                                    <div className="invalid-feedback">{validation("stationName")}</div>
+                                    <div className="invalid-feedback">{validation("observerName")}</div>
                                 </CTabs>
-
                                 <hr />
                                 <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
                             </article>
                         </div>
                         <Article>
-                            {JSON.stringify(error)}
+                            <div className="form-floating">
+                                <div className="invalid-feedback">{validation("iw")}</div>
+                            </div>
                         </Article>
                     </div>
                 </div>
