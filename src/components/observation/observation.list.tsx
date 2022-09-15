@@ -151,26 +151,30 @@ export const ObservationList = () => {
                                                 <label className="label" htmlFor="dataObservacao">Data</label>
                                             </div>
                                         </Col>
-                                        <div className="form-floating">
-                                            <select
-                                                className={validation("estacao").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
-                                                {itensOM.map((object) => (
-                                                    <option data-value={object}>{object.name}</option>
-                                                ))}
-                                            </select>
-                                            <label className="label" htmlFor="estacao">Estação</label>
-                                        </div>
-                                        <div className="form-floating">
-                                            <select
-                                                className={validation("observador").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
-                                                {itensUser.map((object) => (
-                                                    <option data-value={object}>{object.username}</option>
-                                                ))}
-                                            </select>
-                                            <label className="label" htmlFor="observador">Observador</label>
-                                        </div>
+                                        <Col>
+                                            <div className="form-floating">
+                                                <select
+                                                    className={validation("estacao").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                                    {itensOM.map((object) => (
+                                                        <option data-value={object}>{object.name}</option>
+                                                    ))}
+                                                </select>
+                                                <label className="label" htmlFor="estacao">Estação</label>
+                                            </div>
+                                        </Col>
+                                        <Col>
+                                            <div className="form-floating">
+                                                <select
+                                                    className={validation("observador").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
+                                                    {itensUser.map((object) => (
+                                                        <option data-value={object}>{object.username}</option>
+                                                    ))}
+                                                </select>
+                                                <label className="label" htmlFor="observador">Observador</label>
+                                            </div>
+                                        </Col>
                                     </Row>
                                     <br />
                                     <CNav variant="tabs">
@@ -1300,7 +1304,7 @@ export const ObservationList = () => {
                                                             name="ind89"
                                                             title='Indicador das diferenças de pressão entre a hora da observação e as últimas 24 horas: 8 ou 9'
                                                         >
-                                                        <optgroup label="ind89"></optgroup>
+                                                            <optgroup label="ind89"></optgroup>
                                                             <option value="" selected></option>
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
