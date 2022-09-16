@@ -81,13 +81,13 @@ export const ObservationList = () => {
         let day = date.getDate().toString()
         date.setHours(parseInt(state.gg), 0, 0, 0)
         // if(parseInt(state.gg) == 0){ date.setDate(date.getDate()+1) }
-        setState({ ...state, dataObservacao: date, yy: day, gg: state.gg })
+        setState({ ...state, dateObservation: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-        let date = new Date(state.dataObservacao)
+        let date = new Date(state.dateObservation)
         date.setHours(parseInt(event.target.value), 0, 0, 0)
         // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
-        setState({ ...state, dataObservacao: date, gg: event.target.value })
+        setState({ ...state, dateObservation: date, gg: event.target.value })
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
@@ -142,13 +142,13 @@ export const ObservationList = () => {
                                         <Col>
                                             <div className={"form-floating"}>
                                                 <input
-                                                    className={validation("estacao").length != 0 ? "form-control is-invalid" : "form-control"}
+                                                    className={validation("dateObservation").length != 0 ? "form-control is-invalid" : "form-control"}
                                                     type="date"
-                                                    data-value={state.dataObservacao}
+                                                    data-value={state.dateObservation}
                                                     onChange={handleInputChangeDate}
-                                                    name="dataObservacao"
+                                                    name="dateObservation"
                                                 />
-                                                <label className="label" htmlFor="dataObservacao">Data</label>
+                                                <label className="label" htmlFor="dateObservation">Data</label>
                                             </div>
                                         </Col>
                                         <Col>
@@ -262,7 +262,7 @@ export const ObservationList = () => {
                                             <Row>
                                                 <Col>
                                                     <div className={"input-group input-group-sm"}>
-                                                        <label className="input-group-text">YGGiw</label>
+                                                        <label className="input-group-text">YYGGiw</label>
                                                         <input
                                                             className={validation("yy").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             placeholder="YY"

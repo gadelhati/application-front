@@ -97,7 +97,7 @@ export const initialObservation : Observation = {
     icp: "",
     icq: "",
 
-    dataObservacao: new Date("July 21, 1983 01:15:00"),
+    dateObservation: new Date("July 21, 1983 01:15:00"),
     observador: "",
     estacao: "",
 

@@ -94,7 +94,7 @@ export interface Observation {
     icp?: string;
     icq?: string;
 
-    dataObservacao: Date;
+    dateObservation: Date;
     estacao: string;
     observador: string;
     
