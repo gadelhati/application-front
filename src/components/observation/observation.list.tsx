@@ -851,6 +851,8 @@ export const ObservationList = () => {
                                                         </select>
                                                     </div>
                                                 </Col>
+                                            </Row>
+                                            <Row>
                                                 <Col>
                                                     <div className="input-group input-group-sm">
                                                         <label className="input-group-text">9GGgg</label>
