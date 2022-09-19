@@ -95,7 +95,6 @@ export interface Observation {
     icq?: string;
 
     dateObservation: Date;
-    estacao: string;
     observador: string;
     
     observer?: User;

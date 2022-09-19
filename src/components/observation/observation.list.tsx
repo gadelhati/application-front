@@ -96,7 +96,6 @@ export const ObservationList = () => {
         dispatch(retrieveAllAction('user'))
     }
     const fields = [
-        { key: 'stationName', label: 'Estação', _style: { width: '3%' } },
         { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
@@ -154,13 +153,13 @@ export const ObservationList = () => {
                                         <Col>
                                             <div className="form-floating">
                                                 <select
-                                                    className={validation("estacao").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    data-value={state.estacao} name="estacao" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                                    className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.ddddddd} name="ddddddd" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
                                                     {itensOM.map((object) => (
                                                         <option data-value={object}>{object.name}</option>
                                                     ))}
                                                 </select>
-                                                <label className="label" htmlFor="estacao">Estação</label>
+                                                <label className="label" htmlFor="ddddddd">Estação</label>
                                             </div>
                                         </Col>
                                         <Col>
