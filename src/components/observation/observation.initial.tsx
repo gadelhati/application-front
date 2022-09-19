@@ -5,7 +5,6 @@ import { initialStation } from "../station/station.initial";
 // new Date().getTime()          // Get the time (milliseconds since January 1, 1970)
 
 export const initialObservation : Observation = {
-    id: "",
     // coordinates: "",
     //SECTION 0
     // aabbxx: "", // mimi
@@ -98,8 +97,7 @@ export const initialObservation : Observation = {
     icq: "",
 
     dateObservation: new Date("July 21, 1983 01:15:00"),
-    observador: "",
-    estacao: "",
+    observerName: "",
 
     observer: initialUser,
     station: initialStation,

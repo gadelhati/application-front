@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect, CSSProperties } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { retrieveAllAction } from '../../reducers/actions/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
@@ -14,6 +14,7 @@ import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/mo
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 import { Tab, TabList } from '../../containers/models/Tab';
 import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
+import { Button } from "../../containers/models/form";
 
 const styles = {
     container: {
@@ -44,6 +45,37 @@ export const ObservationList = () => {
     }, [error])
     const selectItem = (object: Observation) => {
         setState(object)
+    }
+    const createItem = () => {
+        dispatch(createAction('synopticObservation', state))
+        resetItem()
+        // if(itens == null) resetItem()
+    }
+    const createAllItem = () => {
+        dispatch(createAllAction('synopticObservation', [state]))
+        // if(itens == null) resetItem()
+    }
+    const retrieveItem = () => {
+        dispatch(retrieveAction('synopticObservation', state.ddddddd))
+        resetItem()
+    }
+    const updateItem = () => {
+        dispatch(updateAction('synopticObservation', state.ddddddd, state))
+        // if(itens == null) resetItem()
+    }
+    const deleteItem = () => {
+        dispatch(deleteAction("synopticObservation", state.ddddddd))
+        resetItem()
+    }
+    const access = (): boolean => {
+        let allowed: boolean = false
+        error?.map( element => { if("403" == element.field) return allowed = true })
+        return allowed
+    }
+    const executed = (): boolean => {
+        let executed: boolean = false
+        error?.map( element => { if("" == element.field) return executed = true })
+        return executed
     }
     const resetItem = () => {
         setState(initialObservation)
@@ -1529,7 +1561,17 @@ export const ObservationList = () => {
                                     <div className="invalid-feedback" style={styles.errors}>{validation("observerName")}</div>
                                 </CTabs>
                                 <hr />
-                                <Crud initialObject={initialObservation} object={state} name={"synopticObservation"} error={error}></Crud>
+                                <Row>
+                                    {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
+                                    <Button color="secondary" onClick={createItem} hidden={state.ddddddd != "" || executed()} data-bs-toggle="modal">Criar</Button>
+                                    <Button color="secondary" onClick={updateItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
+                                    <Button color="secondary" onClick={deleteItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Deletar</Button>
+                                    <Col>
+                                        <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
+                                        {executed() && <Button disabled={true}>Executado</Button>}
+                                        {access() && <Button disabled>Acesso negado</Button>}
+                                    </Col>
+                                </Row>
                             </article>
                         </div>
                         <Article>

@@ -2,13 +2,12 @@ import { User } from "../user/user.interface";
 import { Station } from "../station/station.interface";
 
 export interface Observation {
-    id: string;
     // coordinates?: string; // POINT
     //SECTION 0
     // aabbxx: string; // mimi
     mimi: string;
     mjmj?: string;
-    ddddddd?: string;
+    ddddddd: string;
     a1?: string;
     bw?: string;
     nbnbnb?: string;
