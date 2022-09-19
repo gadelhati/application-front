@@ -165,13 +165,13 @@ export const ObservationList = () => {
                                         <Col>
                                             <div className="form-floating">
                                                 <select
-                                                    className={validation("observador").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    data-value={state.observador} name="observador" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
+                                                    className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.observerName} name="observerName" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
                                                     {itensUser.map((object) => (
                                                         <option data-value={object}>{object.username}</option>
                                                     ))}
                                                 </select>
-                                                <label className="label" htmlFor="observador">Observador</label>
+                                                <label className="label" htmlFor="observerName">Observador</label>
                                             </div>
                                         </Col>
                                     </Row>
