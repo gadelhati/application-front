@@ -45,7 +45,7 @@ export const UserList = () => {
         error?.map( element => { if("" == element.field) return executed = true })
         return executed
     }
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
@@ -110,6 +110,23 @@ export const UserList = () => {
                                     />
                                     <label htmlFor="password">Senha</label>
                                     <div className="invalid-feedback">{validation("password")}</div>
+                                </div>
+                                <div className="col form-floating">
+                                    <select
+                                        className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
+                                        value={state.roles}
+                                        onChange={handleInputChange}
+                                        name="roles"
+                                    >
+                                        <optgroup label="Roles"></optgroup>
+                                        <option value="" selected></option>
+                                        <option value="ROLE_USER">Usuário</option>
+                                        <option value="ROLE_MODERATOR">Moderador</option>
+                                        <option value="ROLE_ADMIN">Admin</option>
+                                        <option value="ROLE_RECTIFIER">Ratificador</option>
+                                        <option value="ROLE_OPERATOR">Operador</option>
+                                    </select>
+                                    <label htmlFor="roles">Role</label>
                                 </div>
                                 {/* <div className="col form-check">
                                     <input
