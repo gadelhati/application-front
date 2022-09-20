@@ -44,14 +44,14 @@ export const observationReducer = (state: stateReducer<Observation> = initialSta
         case constants.UPDATE_START+"synopticObservation":
             return { ...state, error: null, loading: true }
         case constants.UPDATE_SUCCESS+"synopticObservation":
-            return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.id !== action.payload.id), action.payload], item: action.payload }
+            return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.ddddddd !== action.payload.ddddddd && item.dateObservation !== action.payload.dateObservation), action.payload], item: action.payload }
         case constants.UPDATE_ERROR+"synopticObservation":
             return { ...state, error: action.payload, loading: false }
 
         case constants.DELETE_START+"synopticObservation":
             return { ...state, error: null, loading: true }
         case constants.DELETE_SUCCESS+"synopticObservation":
-            return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens.filter(item => item.id !== action.payload.id) }
+            return { ...state, error: [initialErrorMessage], loading: false, itens: state.itens.filter(item => item.ddddddd !== action.payload.ddddddd && item.dateObservation !== action.payload.dateObservation) }
         case constants.DELETE_ERROR+"synopticObservation":
             return { ...state, error: action.payload, loading: false }
 
