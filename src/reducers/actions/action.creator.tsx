@@ -1,5 +1,5 @@
 import { constants } from "../../reducers/constants";
-import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll } from "../../services/service"
+import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll, deletePKComposite } from "../../services/service"
 import { ErrorMessage } from "../../assets/error/errorMessage";
 
 export const createAction = <T extends {}>(url: string, object: T) => {
@@ -246,6 +246,56 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
             }
             dispatch({
                 type: constants.UPDATE_ERROR+url,
+                payload: errorMessage
+            });
+        }
+    }
+}
+
+export const deleteActionPKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string) => {
+    return async (dispatch: any) => {
+        dispatch({
+            type: constants.DELETE_START+url
+        });
+        try {
+            const { data } = await deletePKComposite<T>(url, dateObservation, ddddddd);
+            dispatch({
+                type: constants.DELETE_SUCCESS+url,
+                payload: data
+            });
+        } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            var label: string[] = []
+            var value: string[] = []
+            if (error.response.data.errors != undefined) {
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    let counter: boolean = true
+                    label.forEach((name: string, index2: number) => {
+                        if (name == element.field) {
+                            counter = false
+                        }
+                    })
+                    if (counter) {
+                        label.push(element.field)
+                    }
+                })
+                error.response?.data.errors.forEach((element: any, index: number) => {
+                    label.forEach((name: string, index3: number) => {
+                        if (element.field == name) {
+                            value.push(element.defaultMessage)
+                            if(errorMessage[index3] == undefined) {
+                                errorMessage.push({ field: element.field, message: [element.message] })
+                            } else {
+                                errorMessage[index3].message.push(element.defaultMessage)
+                            }
+                        }
+                    })
+                })
+            } else {
+                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+            }
+            dispatch({
+                type: constants.DELETE_ERROR+url,
                 payload: errorMessage
             });
         }

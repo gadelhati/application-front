@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect, CSSProperties } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction, deleteActionPKComposite } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
@@ -64,8 +64,8 @@ export const ObservationList = () => {
         // if(itens == null) resetItem()
     }
     const deleteItem = () => {
-        dispatch(deleteAction("synopticObservation", state.ddddddd))
-        resetItem()
+        dispatch(deleteActionPKComposite('synopticObservation', state.dateObservation, state.ddddddd))
+        // if(itens == null) resetItem()
     }
     const access = (): boolean => {
         let allowed: boolean = false
@@ -1565,7 +1565,7 @@ export const ObservationList = () => {
                                     {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
                                     <Button color="secondary" onClick={createItem} hidden={state.ddddddd != "" || executed()} data-bs-toggle="modal">Criar</Button>
                                     <Button color="secondary" onClick={updateItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
-                                    <Button color="secondary" onClick={deleteItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Deletar</Button>
+                                    <Button color="secondary" onClick={deleteItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Delete</Button>
                                     <Col>
                                         <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
                                         {executed() && <Button disabled={true}>Executado</Button>}
