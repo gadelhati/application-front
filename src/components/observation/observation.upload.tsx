@@ -43,11 +43,11 @@ export const ObservationUpload = () => {
     }
     const createAllItems = () => {
         dispatch(createAllAction<Observation>('synopticObservation', state))
-        retrieveAllItem()
-        resetItem()
+        retrieveAllItem() 
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllAction('synopticObservation'))
+        resetItem()
     }
     const executed = (): boolean => {
         let executed: boolean = false
