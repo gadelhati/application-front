@@ -48,7 +48,7 @@ export const ObservationList = () => {
     }
     const createItem = () => {
         dispatch(createAction('synopticObservation', state))
-        resetItem()
+        // resetItem()
         // if(itens == null) resetItem()
     }
     const createAllItem = () => {
@@ -257,6 +257,7 @@ export const ObservationList = () => {
                                                             onChange={handleInputChange}
                                                             name="ddddddd"
                                                             title='Indicador internacional de chamada'
+                                                            readOnly
                                                         />
                                                     </div>
                                                 </Col>
@@ -505,7 +506,7 @@ export const ObservationList = () => {
                                                             value={state.n}
                                                             onChange={handleInputChange}
                                                             name="n"
-                                                            title='Cobertura total de nuvens: 0 a 9 ou /'
+                                                            title='Cobertura total de nuvens: 0 a 8 ou /'
                                                         >
                                                             <optgroup label="n"></optgroup>
                                                             <option selected></option>
@@ -1563,9 +1564,9 @@ export const ObservationList = () => {
                                 <hr />
                                 <Row>
                                     {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
-                                    <Button color="secondary" onClick={createItem} hidden={state.ddddddd != "" || executed()} data-bs-toggle="modal">Criar</Button>
-                                    <Button color="secondary" onClick={updateItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
-                                    <Button color="secondary" onClick={deleteItem} hidden={state.ddddddd == "" || executed()} data-bs-toggle="modal">Delete</Button>
+                                    <Button color="secondary" onClick={createItem} data-bs-toggle="modal">Criar</Button>
+                                    <Button color="secondary" onClick={updateItem} data-bs-toggle="modal">Atualizar</Button>
+                                    <Button color="secondary" onClick={deleteItem} data-bs-toggle="modal">Delete</Button>
                                     <Col>
                                         <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
                                         {executed() && <Button disabled={true}>Executado</Button>}

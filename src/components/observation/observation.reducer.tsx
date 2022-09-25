@@ -23,7 +23,7 @@ export const observationReducer = (state: stateReducer<Observation> = initialSta
         case constants.CREATE_ALL_START+"synopticObservation":
             return { ...state, error: null, loading: true }
         case constants.CREATE_ALL_SUCCESS+"synopticObservation":
-            return { ...state, error: [initialErrorMessage], loading: false, itens: action.payload as Observation[] }
+            return { ...state, error: [initialErrorMessage], loading: false, itens: action.payload as Observation[], item: action.payload as Observation }
         case constants.CREATE_ALL_ERROR+"synopticObservation":
             return { ...state, error: action.payload, loading: false }
 
