@@ -30,6 +30,7 @@ import { useAuth } from "./assets/hook/useAuth";
 import { StationList } from "./components/station/station.list";
 import { StationOffShoreList } from "./components/station/station.offshore/station.offshore.list";
 import { StationOnShoreList } from "./components/station/station.onshore/station.onshore.list";
+import { RoleList } from "./components/role/role.list";
 
 const ROLES = {
     'User': "ROLE_USER",
@@ -61,6 +62,7 @@ export default function AppRoutes() {
                             <Route path="/signin2" element={getUser() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
                             <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} />
                             {getRoles() == ROLES.Admin && <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />}
+                            {getRoles() == ROLES.Admin && <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />}
 
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
                                 <Route path="/institution" element={<InstitutionList />} />

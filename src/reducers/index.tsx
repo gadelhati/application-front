@@ -13,6 +13,7 @@ import { platformCategoryReducer } from "../components/platformCategory/platform
 import { stationReducer } from "../components/station/station.reducer"
 import { stationOffShoreReducer } from "../components/station/station.offshore/station.offshore.reducer"
 import { stationOnShoreReducer } from "../components/station/station.onshore/station.onshore.reducer"
+import { roleReducer } from "../components/role/role.reducer"
 
 export const reducers = combineReducers({ 
     auths: authReducer,
@@ -29,6 +30,7 @@ export const reducers = combineReducers({
     stations: stationReducer,
     stationsOffShore: stationOffShoreReducer,
     stationsOnShore: stationOnShoreReducer,
+    roles: roleReducer,
 })
 
 export type RootState = ReturnType<typeof reducers>

@@ -114,7 +114,7 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <select
                                         className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
-                                        value={state.roles}
+                                        data-value={state.roles}
                                         onChange={handleInputChange}
                                         name="roles"
                                     >

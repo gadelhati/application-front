@@ -1,4 +1,5 @@
 import { OM } from "../om/om.interface";
+import { Role } from "../role/role.interface";
 
 export interface User {
     id: string,
@@ -7,5 +8,5 @@ export interface User {
     password: string,
     active?: boolean,
     OM?: OM,
-    roles?: [],
+    roles?: Role[],
 }
