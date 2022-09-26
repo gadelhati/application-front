@@ -89,16 +89,21 @@ export const ObservationList = () => {
         error?.map(element => { if (name == element.field) return vector = element.message })
         return vector
     }
+    const validationGroup = (): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (element.field == null) return vector = element.message })
+        return vector
+    }
     const validationAll = () => {
         let length
         error?.map(element => { return length = element.message.length })
         return length
     }
-    const showErrors = (): string[] => {
-        let vector: string[] = []
-        error?.map(element => { vector.concat(element.field) })
-        return vector
-    }
+    // const showErrors = (): string[] => {
+    //     let vector: string[] = []
+    //     error?.map(element => { vector.concat(element.field) })
+    //     return vector
+    // }
     const validationBoolean = (name: string): boolean => {
         let vector: string[] = []
         error?.map(element => { if (name == element.field) return vector = element.message })
@@ -1559,6 +1564,8 @@ export const ObservationList = () => {
                                     <div className="invalid-feedback" style={styles.errors}>{validation("icq")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("dateObservation")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("observerName")}</div>
+                                    {/* <div className="invalid-feedback" style={styles.errors}>{validationGroup()}</div> */}
+                                    {JSON.stringify(error)}
                                 </CTabs>
                                 <hr />
                                 <Row>

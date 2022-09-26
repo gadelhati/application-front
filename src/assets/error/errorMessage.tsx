@@ -1,4 +1,4 @@
 export interface ErrorMessage {
-    field: string,
+    field?: string,
     message: string[],
 }

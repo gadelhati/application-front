@@ -20,28 +20,10 @@ export const createAction = <T extends {}>(url: string, object: T) => {
             if (error.response.data.errors != undefined) {
                 error.response?.data.errors.forEach((element: any, index: number) => {
                     errorMessage.push({ field: element.field, message: [element.message] })
-                    // let counter: boolean = true
-                    // label.forEach((name: string, index2: number) => {
-                    //     if (name == element.field) {
-                    //         counter = false
-                    //     }
-                    // })
-                    // if (counter) {
-                    //     label.push(element.field)
-                    // }
+                    if (element?.field == undefined) {
+                        errorMessage.push({ field: "element.field", message: ["element.message"] })
+                    }
                 })
-                // error.response?.data.errors.forEach((element: any, index: number) => {
-                //     label.forEach((name: string, index3: number) => {
-                //         if (element.field == name) {
-                //             value.push(element.message)
-                //             if(errorMessage[index3] == undefined) {
-                //                 errorMessage.push({ field: element.field, message: [element.message] })
-                //             } else {
-                //                 errorMessage[index3].message.push(element.message)
-                //             }
-                //         }
-                //     })
-                // })
             } else {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
@@ -214,33 +196,13 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
                 type: constants.UPDATE_SUCCESS+url,
                 payload: data
             });
-        } catch (error: any) {
+        } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
             var label: string[] = []
             var value: string[] = []
             if (error.response.data.errors != undefined) {
                 error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.defaultMessage)
-                            }
-                        }
-                    })
+                    errorMessage.push({ message: [element.message] })
                 })
             } else {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
