@@ -1,0 +1,7 @@
+article > .d-flex {
+    height: 30vh;
+}
+.input-group {
+    margin: 0.2em;
+    margin-left: 1em;
+}
