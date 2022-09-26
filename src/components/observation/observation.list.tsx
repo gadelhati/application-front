@@ -1558,7 +1558,6 @@ export const ObservationList = () => {
                                     <div className="invalid-feedback" style={styles.errors}>{validation("icp")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("icq")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("dateObservation")}</div>
-                                    <div className="invalid-feedback" style={styles.errors}>{validation("stationName")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("observerName")}</div>
                                 </CTabs>
                                 <hr />
