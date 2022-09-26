@@ -19,28 +19,29 @@ export const createAction = <T extends {}>(url: string, object: T) => {
             var value: string[] = []
             if (error.response.data.errors != undefined) {
                 error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
+                    errorMessage.push({ field: element.field, message: [element.message] })
+                    // let counter: boolean = true
+                    // label.forEach((name: string, index2: number) => {
+                    //     if (name == element.field) {
+                    //         counter = false
+                    //     }
+                    // })
+                    // if (counter) {
+                    //     label.push(element.field)
+                    // }
                 })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.message)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.message)
-                            }
-                        }
-                    })
-                })
+                // error.response?.data.errors.forEach((element: any, index: number) => {
+                //     label.forEach((name: string, index3: number) => {
+                //         if (element.field == name) {
+                //             value.push(element.message)
+                //             if(errorMessage[index3] == undefined) {
+                //                 errorMessage.push({ field: element.field, message: [element.message] })
+                //             } else {
+                //                 errorMessage[index3].message.push(element.message)
+                //             }
+                //         }
+                //     })
+                // })
             } else {
                 errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
             }
