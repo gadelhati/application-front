@@ -13,6 +13,7 @@ export const UserList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<User>(initialUser)
     const { loading, error, itens, item } = useTypedSelector((state) => state.users);
+    const itensRole = useTypedSelector((stateRole) => stateRole.roles.itens);
     
     useEffect(() => {
         retrieveAllItem()
@@ -47,6 +48,9 @@ export const UserList = () => {
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
+    }
+    const roleOptions = () => {
+        dispatch(retrieveAllAction('role'))
     }
     const fields = [
         { key: 'username', label: 'Username', _style: { width: '10%' } },
@@ -114,19 +118,19 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <select
                                         className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
-                                        data-value={state.roles}
+                                        // data-value={state.roles}
                                         onChange={handleInputChange}
+                                        onClick={roleOptions}
                                         name="roles"
+                                        aria-label="Floating label select"
+                                        // multiple
                                     >
-                                        <optgroup label="Roles"></optgroup>
                                         <option value="" selected></option>
-                                        <option value="ROLE_USER">Usuário</option>
-                                        <option value="ROLE_MODERATOR">Moderador</option>
-                                        <option value="ROLE_ADMIN">Admin</option>
-                                        <option value="ROLE_RECTIFIER">Ratificador</option>
-                                        <option value="ROLE_OPERATOR">Operador</option>
+                                        {itensRole.map((object) => (
+                                            <option value={object.name}>{object.name}</option>
+                                        ))}
                                     </select>
-                                    <label htmlFor="roles">Role</label>
+                                    <label className="label" htmlFor="roles">Roles</label>
                                 </div>
                                 {/* <div className="col form-check">
                                     <input
