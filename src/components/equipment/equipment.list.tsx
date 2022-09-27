@@ -36,7 +36,7 @@ export const EquipmentList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.message })
+        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
         return vector
     }
     const executed = (): boolean => {
