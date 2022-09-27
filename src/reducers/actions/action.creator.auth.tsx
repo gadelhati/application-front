@@ -19,38 +19,16 @@ export const signinAction = (object: Auth) => {
             });
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.message)
-                            }
-                        }
-                    })
+                error.response.data.errors.forEach((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.SIGNIN_ERROR,
-                payload: error
+                payload: errorMessage
             });
         }
     }
@@ -87,34 +65,12 @@ export const changePasswordAction = (id: string, object: User) => {
             });
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.message)
-                            }
-                        }
-                    })
+                error.response.data.errors.forEach((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                error = error.response.data.error
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.CHANGE_PASSWORD_ERROR,
