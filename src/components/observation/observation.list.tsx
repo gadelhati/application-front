@@ -46,26 +46,21 @@ export const ObservationList = () => {
     const selectItem = (object: Observation) => {
         setState(object)
     }
+    const resetItem = () => {
+        setState(initialObservation)
+    }
     const createItem = () => {
         dispatch(createAction('synopticObservation', state))
-        // resetItem()
-        // if(itens == null) resetItem()
     }
-    const createAllItem = () => {
-        dispatch(createAllAction('synopticObservation', [state]))
-        // if(itens == null) resetItem()
-    }
-    const retrieveItem = () => {
-        dispatch(retrieveAction('synopticObservation', state.ddddddd))
+    const retrieveAllItem = () => {
+        dispatch(retrieveAllAction('synopticObservation'))
         resetItem()
     }
     const updateItem = () => {
         dispatch(updateAction('synopticObservation', state.ddddddd, state))
-        // if(itens == null) resetItem()
     }
     const deleteItem = () => {
         dispatch(deleteActionPKComposite('synopticObservation', state.dateObservation, state.ddddddd))
-        // if(itens == null) resetItem()
     }
     const access = (): boolean => {
         let allowed: boolean = false
@@ -76,13 +71,6 @@ export const ObservationList = () => {
         let executed: boolean = false
         error?.map( element => { if("" == element.field) return executed = true })
         return executed
-    }
-    const resetItem = () => {
-        setState(initialObservation)
-    }
-    const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('synopticObservation'))
-        resetItem()
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -125,6 +113,14 @@ export const ObservationList = () => {
         date.setHours(parseInt(event.target.value), 0, 0, 0)
         // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dateObservation: date, gg: event.target.value })
+    }
+    const mapOM = ():string[] => {
+        dispatch(retrieveAllAction('om'))
+        let options: string[] = []
+        {itensOM.map((object) => (
+            options.push(object.name)
+        ))}
+        return options
     }
     const omItem = () => {
         dispatch(retrieveAllAction('om'))
@@ -191,9 +187,15 @@ export const ObservationList = () => {
                                             <div className="form-floating">
                                                 <select
                                                     className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    data-value={state.ddddddd} name="ddddddd" aria-label="Floating label select" onChange={handleInputChange} onClick={omItem} >
+                                                    value={state.ddddddd}
+                                                    onChange={handleInputChange}
+                                                    onClick={omItem}
+                                                    name="ddddddd"
+                                                    aria-label="Floating label select"
+                                                >
+                                                    <option value="" selected></option>
                                                     {itensOM.map((object) => (
-                                                        <option data-value={object}>{object.name}</option>
+                                                        <option value={object.name}>{object.name}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="ddddddd">Estação</label>
@@ -203,9 +205,15 @@ export const ObservationList = () => {
                                             <div className="form-floating">
                                                 <select
                                                     className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    data-value={state.observerName} name="observerName" aria-label="Floating label select" onChange={handleInputChange} onClick={userItem} >
+                                                    value={state.observerName}
+                                                    onChange={handleInputChange}
+                                                    onClick={userItem}
+                                                    name="observerName"
+                                                    aria-label="Floating label select"
+                                                >
+                                                    <option value="" selected></option>
                                                     {itensUser.map((object) => (
-                                                        <option data-value={object}>{object.username}</option>
+                                                        <option value={object.username}>{object.username}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="observerName">Observador</label>
