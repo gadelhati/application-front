@@ -74,17 +74,17 @@ export const ObservationList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
+        error?.map(element => { if (name == element.field) return vector = element?.defaultMessage })
         return vector
     }
     const validationGroup = (): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (element.field == null) return vector = element.defaultMessage })
+        error?.map(element => { if (element.field == null) return vector = element?.defaultMessage })
         return vector
     }
     const validationAll = () => {
         let length
-        error?.map(element => { return length = element.defaultMessage.length })
+        error?.map(element => { return length = element?.defaultMessage?.length })
         return length
     }
     // const showErrors = (): string[] => {
@@ -94,7 +94,7 @@ export const ObservationList = () => {
     // }
     const validationBoolean = (name: string): boolean => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
+        error?.map(element => { if (name == element.field) return vector = element?.defaultMessage })
         return vector.length != 0
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {

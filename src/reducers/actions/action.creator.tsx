@@ -127,16 +127,12 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
             });
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
-            if (error.response.data.errors != null) {
+            if (error.response.data.errors != undefined) {
                 error.response.data.errors.forEach((element: any) => {
-                    // if(element?.field == undefined){
-                    //     errorMessage.push({ field: "Grupo", defaultMessage: [element.defaultMessage] })
-                    // } else {
-                        errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
-                    // }
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error?.response.data.defaultMessage]})
             }
             dispatch({
                 type: constants.UPDATE_ERROR+url,
