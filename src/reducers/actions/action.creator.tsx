@@ -15,17 +15,12 @@ export const createAction = <T extends {}>(url: string, object: T) => {
             })
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    errorMessage.push({ field: element.field, message: [element.message] })
-                    if (element?.field == undefined) {
-                        errorMessage.push({ field: "element.field", message: ["element.message"] })
-                    }
+                error.response.data.errors.forEach((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.CREATE_ERROR+url,
@@ -48,34 +43,12 @@ export const createAllAction = <T extends {}>(url: string, object: T[]) => {
             })
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.defaultMessage)
-                            }
-                        }
-                    })
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.CREATE_ALL_ERROR+url,
@@ -98,34 +71,12 @@ export const retrieveAction = <T extends {}>(url: string, id: string) => {
             });
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.message)
-                            }
-                        }
-                    })
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.RETRIEVE_ERROR+url,
@@ -148,34 +99,12 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
             });
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.message)
-                            }
-                        }
-                    })
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.RETRIEVE_ALL_ERROR+url,
@@ -198,14 +127,16 @@ export const updateAction = <T extends {}>(url: string, id: string, object: T) =
             });
         } catch(error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
-            if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    errorMessage.push({ message: [element.message] })
+            if (error.response.data.errors != null) {
+                error.response.data.errors.forEach((element: any) => {
+                    // if(element?.field == undefined){
+                    //     errorMessage.push({ field: "Grupo", defaultMessage: [element.defaultMessage] })
+                    // } else {
+                        errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                    // }
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data.message]})
             }
             dispatch({
                 type: constants.UPDATE_ERROR+url,
@@ -228,34 +159,12 @@ export const deleteActionPKComposite = <T extends {}>(url: string, dateObservati
             });
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.defaultMessage)
-                            }
-                        }
-                    })
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.DELETE_ERROR+url,
@@ -278,34 +187,12 @@ export const deleteAction = <T extends {}>(url: string, id: string) => {
             });
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
-            var label: string[] = []
-            var value: string[] = []
             if (error.response.data.errors != undefined) {
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    let counter: boolean = true
-                    label.forEach((name: string, index2: number) => {
-                        if (name == element.field) {
-                            counter = false
-                        }
-                    })
-                    if (counter) {
-                        label.push(element.field)
-                    }
-                })
-                error.response?.data.errors.forEach((element: any, index: number) => {
-                    label.forEach((name: string, index3: number) => {
-                        if (element.field == name) {
-                            value.push(element.defaultMessage)
-                            if(errorMessage[index3] == undefined) {
-                                errorMessage.push({ field: element.field, message: [element.message] })
-                            } else {
-                                errorMessage[index3].message.push(element.defaultMessage)
-                            }
-                        }
-                    })
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, message: [error.response.data.message]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
             }
             dispatch({
                 type: constants.DELETE_ERROR+url,

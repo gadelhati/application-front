@@ -86,17 +86,17 @@ export const ObservationList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector = element.message })
+        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
         return vector
     }
     const validationGroup = (): string[] => {
         let vector: string[] = []
-        error?.map(element => { if (element.field == null) return vector = element.message })
+        error?.map(element => { if (element.field == null) return vector = element.defaultMessage })
         return vector
     }
     const validationAll = () => {
         let length
-        error?.map(element => { return length = element.message.length })
+        error?.map(element => { return length = element.defaultMessage.length })
         return length
     }
     // const showErrors = (): string[] => {
@@ -106,7 +106,7 @@ export const ObservationList = () => {
     // }
     const validationBoolean = (name: string): boolean => {
         let vector: string[] = []
-        error?.map(element => { if (name == element.field) return vector = element.message })
+        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
         return vector.length != 0
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
@@ -1564,8 +1564,7 @@ export const ObservationList = () => {
                                     <div className="invalid-feedback" style={styles.errors}>{validation("icq")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("dateObservation")}</div>
                                     <div className="invalid-feedback" style={styles.errors}>{validation("observerName")}</div>
-                                    {/* <div className="invalid-feedback" style={styles.errors}>{validationGroup()}</div> */}
-                                    {JSON.stringify(error)}
+                                    <div className="invalid-feedback" style={styles.errors}>{validationGroup()}</div>
                                 </CTabs>
                                 <hr />
                                 <Row>
