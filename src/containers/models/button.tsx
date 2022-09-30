@@ -1,4 +1,6 @@
-import { styled } from '@stitches/react';
+import { stitches } from '../../containers/models/globalStyles'
+
+const { styled } = stitches;
 
 export const Button = styled('button', {
     position: 'relative !important',
@@ -44,7 +46,7 @@ export const Button = styled('button', {
         color: {
             primary:    {backgroundColor: '#4285F4'},
             secondary:  {backgroundColor: '#696969', color: 'white'},
-            success:    {backgroundColor: '#00C851'},
+            success:    {backgroundColor: '#00C851', color: 'white'},
             info:       {backgroundColor: '#33b5e5'},
             warning:    {backgroundColor: '#ffbb33'},
             danger:     {backgroundColor: '#ff4444'},

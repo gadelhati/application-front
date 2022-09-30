@@ -14,7 +14,7 @@ import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/mo
 import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 import { Tab, TabList } from '../../containers/models/Tab';
 import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
-import { Button } from "../../containers/models/form";
+import { Button } from "../../containers/models/button";
 
 const styles = {
     container: {

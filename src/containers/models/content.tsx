@@ -1,4 +1,6 @@
-import { styled } from '@stitches/react';
+import { stitches } from '../../containers/models/globalStyles'
+
+const { styled } = stitches;
 
 export const Section = styled('section', {
     display: 'flex',

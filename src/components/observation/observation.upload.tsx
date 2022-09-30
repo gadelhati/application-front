@@ -4,7 +4,7 @@ import { createAllAction, retrieveAllAction } from '../../reducers/actions/actio
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { styled } from '@stitches/react';
-import { Button } from '../../containers/models/form';
+import { Button } from '../../containers/models/button';
 import { useTypedSelector } from '../../assets/hook/useTypeSelector';
 
 export const FindFile = styled('input', {

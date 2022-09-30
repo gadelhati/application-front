@@ -1,6 +1,4 @@
-import { reducers } from "../../reducers";
 import { stitches } from "./globalStyles";
-// import { styled } from "@stitches/react";
 
 const { styled } = stitches;
 

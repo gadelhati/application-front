@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { Col, Row } from '../models/content';
-import { Button } from "../models/form";
+import { Button } from "../models/button";
 import { crudInterface } from "./crud.interface";
 
 export const Crud = (crud: crudInterface) => {

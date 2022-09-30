@@ -1,4 +1,5 @@
 //https://fsaycon.dev/blog/react-plus-stitches-equals-awesome
+//https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/
 
 import { createStitches } from "@stitches/react";
 
@@ -10,6 +11,17 @@ export const stitches = createStitches({
     },
     theme: {
         colors: {
+            // mediumSeaGreen: 'MediumSeaGreen',
+            blueGreen: '#0d98ba',
+
+            lightGray: "#CFCFCF",
+            davysGray: "#4D5057",
+            hookersGreen: "#4E6E5D",
+            limegreen: "#4DA167",
+            darkPastelGreen: "#3BC14A",
+            spanishViridian: "#007f5c",
+            springGreen: "#00CD66",
+
             // generated from coolors.co
             aliceBlue: "#F4FAFF",
             davyGrey: "#535657",
@@ -18,13 +30,14 @@ export const stitches = createStitches({
             platinum: "#DEE7E7",
 
             darkKhaki: "#B5BA72",
-            darkSlateBlue: "#4F359B",
+            darkSlateBlue: "#4F3500",
 
             preto: "#000",
 
             // elements
             bg: "$aliceBlue",
             fg: "$davyGrey",
+            ig: "$menuItem"
         },
         space: {
             xxs: "0.422rem",
@@ -50,11 +63,20 @@ export const stitches = createStitches({
 })
 
 const injectGlobalStyles = stitches.globalCss({
-    "*": { boxSizing: "border-box", fontFamily: "inherit" },
+    "*": { boxSizing: "border-box", fontFamily: "inherit", flexShrink: 0 },
     "*:after": { boxSizing: "border-box", fontFamily: "inherit" },
     "*:before": { boxSizing: "border-box", fontFamily: "inherit" },
-    body: { margin: 0, padding: 0 },
+    body: { margin: 0, padding: 0, minHeight: '100vh' },
     h1: { margin: 0 },
+    html: { height: '-webkit-fill-available' },
+    main: {
+        display: 'flex',
+        flexWrap: ',nowrap',
+        height: '100vh',
+        maxHeight: '100vh',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+    }
 })
 
 injectGlobalStyles()
