@@ -29,16 +29,16 @@ export const AHeader = styled('a', {
     background: '0 0',
     border: '0',
     borderRadius: '.25rem',
-    display: 'block',
-    padding: '.5rem 1rem',
+    display: 'flex',
+    padding: '.2rem .6rem',
     textDecoration: 'none',
     // transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
     listStyle: 'none',
     color: 'black',
-    // '&:hover': {
-    //     color: '#2F4F4F',
-    //     backgroundColor: 'white',
-    // },
+    '&:hover': {
+        color: 'black',
+        backgroundColor: 'transparent',
+    },
 });
 export const Ul = styled('ul', {
     display: 'flex',
