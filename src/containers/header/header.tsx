@@ -4,7 +4,7 @@ import { Button } from "../models/button";
 import { headerInterface } from "./header.interface";
 import { getUserName } from "../../services/service.token"
 import { logoutAction } from '../../reducers/actions/action.creator.auth';
-import { A, AHeader } from '../menus/sidebar.bootstrap'
+import { A, AHeader } from '../menus/sidebar/sidebar.stitches'
 
 export const Header = (header: headerInterface) => {
     const dispatch = useDispatch();

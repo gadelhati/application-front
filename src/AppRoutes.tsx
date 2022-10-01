@@ -5,7 +5,7 @@ import { ProtectedRouteProps } from "./ProtectedRoutes";
 import { OMList } from "./components/om/om.list";
 import { Profile } from "./components/user/profile";
 import { SigninContainer } from "./components/auth/signin";
-import { Sidestrap } from "./containers/menus/sidebar.bootstrap";
+import { SideBar } from "./containers/menus/sidebar/sidebar";
 import { getRoles, getUser } from "./services/service.token"
 
 import "./AppRoutes.css"
@@ -23,7 +23,6 @@ import { EquipmentList } from "./components/equipment/equipment.list";
 import { ManufacturerList } from "./components/manufacturer/manufacturer.list";
 import { InstitutionList } from "./components/institution/institution.list";
 import { PlatformCategoryList } from "./components/platformCategory/platformCategory.list";
-import { Sidebar } from "./containers/menus/Sidebar";
 import { AuthProvider } from "./assets/context/AuthProvider";
 import RequireAuth from "./RequireAuth";
 import { useAuth } from "./assets/hook/useAuth";
@@ -50,8 +49,7 @@ export default function AppRoutes() {
             <HashRouter>
                 <AuthProvider>
                     <aside>
-                        {getUser() && <Sidestrap />}
-                        {/* {getUser() && <Sidebar />} */}
+                        {getUser() && <SideBar />}
                     </aside>
                     <main>
                         {/* <Header /> */}
