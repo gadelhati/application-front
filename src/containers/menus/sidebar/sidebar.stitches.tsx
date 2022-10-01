@@ -20,7 +20,6 @@ export const A = styled('a', {
         width: '35px',
         height: '38px',
         marginRight: '.5rem',
-        // paddingTop: '15px',
     },
     span: {
         fontSize: '1.5rem',
