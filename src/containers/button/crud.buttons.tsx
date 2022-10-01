@@ -53,10 +53,10 @@ export const Crud = (crud: crudInterface) => {
             <Row>
                 {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
                 <Button color="secondary" onClick={createItem} hidden={crud.object.id != "" || executed()} data-bs-toggle="modal">Criar</Button>
-                <Button color="secondary" onClick={updateItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
-                <Button color="secondary" onClick={deleteItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Deletar</Button>
+                <Button color="warning" onClick={updateItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Atualizar</Button>
+                <Button color="danger" onClick={deleteItem} hidden={crud.object.id == "" || executed()} data-bs-toggle="modal">Deletar</Button>
                 <Col>
-                    <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
+                    <Button color="secondary" float="left" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
                     {executed() && <Button disabled={true}>Executado</Button>}
                     {access() && <Button disabled>Acesso negado</Button>}
                 </Col>
