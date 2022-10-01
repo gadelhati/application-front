@@ -122,5 +122,9 @@ export const Nav = styled('nav', {
     color: '#fff !important',
     '> a': {
         display: 'flex',
+        '&:hover': {
+            color: 'lightgray',
+            backgroundColor: 'transparent',
+        },
     }
 });
