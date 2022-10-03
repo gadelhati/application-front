@@ -1,4 +1,6 @@
 import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
+import "./sidebar.css"
+
 import { getRoles } from "../../../services/service.token"
 import logo from '../../../assets/image/heraldica.png'
 import { Icon } from '../../../assets/image/svg.access'
