@@ -248,7 +248,10 @@ npm run build
 > [MIT License](https://choosealicense.com/licenses/mit/)
 
 ```
+//ADD PROXY
 git config --global http.proxy http://username:password@proxy-armacao.mb:6060
+//REMOVE PROXY
+git config --global --unset http.proxy
 
 git config --global user.name "GadelhaTI"
 git config --global user.email "gadelha.ti@gmail.com"
