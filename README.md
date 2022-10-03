@@ -253,6 +253,12 @@ git config --global http.proxy http://username:password@proxy-armacao.mb:6060
 //REMOVE PROXY
 git config --global --unset http.proxy
 
+git config --global gpg.program "C:\Users\<User_Name>\AppData\Local\GnuPG\bin\gpg.exe"
+gpg --list-secret-keys --keyid-format=long
+gpg --armor --export <xxxxxxxxxxxxxxxx>
+git config --global user.signingkey <xxxxxxxxxxxxxxxx>
+
+
 git config --global user.name "GadelhaTI"
 git config --global user.email "gadelha.ti@gmail.com"
 
