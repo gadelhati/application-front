@@ -1,8 +1,10 @@
-import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import { getRoles } from "../../../services/service.token"
 import logo from '../../../assets/image/heraldica.png'
 import { Icon } from '../../../assets/image/svg.access'
 import { A, Ul, Collapsible, Nav } from './sidebar.stitches'
+
+import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
+import './sidebars.css'
 
 export const SideBar = () => {
     return (
@@ -20,7 +22,7 @@ export const SideBar = () => {
                         <>
                             <li><A href="#/om"><Icon name="home" />OM</A></li>
                             <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false">Estações</Collapsible>
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="true">Estações</Collapsible>
                             <div id="station-collapse">
                                 <Ul>
                                     <li><A href="#/station"><Icon name="home" />Todas</A></li>

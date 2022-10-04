@@ -32,7 +32,7 @@ export const AHeader = styled('a', {
     display: 'flex',
     padding: '.2rem .6rem',
     textDecoration: 'none',
-    // transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
+    transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
     listStyle: 'none',
     color: 'black',
     '&:hover': {
@@ -51,9 +51,6 @@ export const Ul = styled('ul', {
         paddingLeft: '15px',
         fontSize: '90%',
     },
-    'li': {
-        fontSize: '100%',
-    }
 });
 export const UlMenu = styled('ul', {
     display: 'block',
@@ -79,8 +76,7 @@ export const Collapsible = styled('button', {
     userSelect: 'none',
     fontSize: '1rem',
     transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out',
-    padding: '.25rem .5rem',
-    fontWeight: '600',
+    padding: '.25rem 1.3rem',
     backgroundColor: 'transparent',
     display: 'inline-flex !important',
     alignItems: 'center !important',
@@ -95,6 +91,7 @@ export const Collapsible = styled('button', {
     },
     '&[aria-expanded="true"]': {
         color: 'black',
+        fontWeight: '600',
         backgroundColor: 'lightwhite',
     },
     '&[aria-expanded="true"]:before': {
@@ -112,9 +109,9 @@ export const Nav = styled('nav', {
     width: '256px',
     backgroundColor: 'rgb(58, 72, 100)',
     backgroundImage: 'linear-gradient(to bottom left, rgb(58, 72, 100), rgb(86, 97, 93))',
-    /* background-image: url(nova-logo-mb.png); */
+    // backgroundImage: 'url(nova-logo-mb.png)',
     backgroundPosition: '50%',
-    /* opacity: 20%; */
+    // opacity: '80%',
     display: 'flex !important',
     flexDirection: 'column !important',
     flexShrink: '0 !important',
@@ -126,5 +123,7 @@ export const Nav = styled('nav', {
             color: 'lightgray',
             backgroundColor: 'transparent',
         },
-    }
+    },
+    margin: '.5em .0em 0em .5em',
+    borderRadius: '5px 5px 0px 0px',
 });

@@ -17,6 +17,7 @@ aside > section {
 
 main {
     /* background-color: blue; */
+    /* background-image: url(https://images7.alphacoders.com/104/1047137.jpg); */
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
