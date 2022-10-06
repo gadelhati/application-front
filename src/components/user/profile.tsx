@@ -9,18 +9,13 @@ import { initialUser } from './user.initial';
 import { getUserName, getLocalAccessToken, getId, getEmail, getUser, getRoles } from "../../services/service.token"
 import { Toast } from '../../containers/toast/toast';
 import { Article, Section } from '../../containers/models/content';
+import { Header } from '../../containers/header/header';
 
 export const Profile = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<User>(initialUser)
     const { loading, error, itens, item } = useTypedSelector((state) => state.users);
 
-    useEffect(() => {
-        state.id = getId()
-        state.username = getUserName()
-        state.email = getEmail()
-        // state.roles = getRoles()
-    }, [dispatch])
     const resetItem = () => {
         setState(initialUser)
     }
@@ -50,15 +45,15 @@ export const Profile = () => {
     }
     return (
         <Section>
-            {state &&
                 <Article>
+                    {/* <Header title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} /> */}
                     <div className="alert alert-secondary" role="alert"><h5>Perfil</h5></div>
                     <div className="alert alert-secondary" role="alert">
-                        <p><strong>Nome de usuário: </strong> {state.username} </p>
+                        <p><strong>Nome de usuário: </strong> {getUserName()} </p>
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
-                        {/* <p><strong>Id: </strong> {state.id} </p> */}
-                        <p><strong>Email: </strong> {state.email} </p>
-                        <strong>Autoridades: </strong> {JSON.stringify(state.roles)}
+                        {/* <p><strong>Id: </strong> {getId()} </p> */}
+                        <p><strong>Email: </strong> {getEmail()} </p>
+                        <strong>Autoridades: </strong> {getRoles()}
                     </div>
                     {/* <div className="form-floating">
                         <input
@@ -76,7 +71,6 @@ export const Profile = () => {
                     <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Trocar Senha</button> */}
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Sair</button>
                 </Article>
-            }
-        </Section>
+         </Section>
     )
 }
