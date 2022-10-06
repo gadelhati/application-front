@@ -49,12 +49,22 @@ export const UserList = () => {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+    const handleInputChangeRole = (event:ChangeEvent<HTMLSelectElement>) => {
+        let role;
+        itensRole.forEach(function(element) {
+            if (element.name == event.target.value) {
+                role = [element];
+            }
+        });
+        setState({ ...state, roles: role })
+    }
     const roleOptions = () => {
         dispatch(retrieveAllAction('role'))
     }
     const fields = [
         { key: 'username', label: 'Username', _style: { width: '10%' } },
         { key: 'email', label: 'E-mail', _style: { width: '10%' } },
+        { key: 'roles', label: 'Função', _style: { width: '10%' } },
         { key: 'active', label: 'Active', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
@@ -118,8 +128,8 @@ export const UserList = () => {
                                 <div className="col form-floating">
                                     <select
                                         className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
-                                        // data-value={state.roles}
-                                        onChange={handleInputChange}
+                                        data-value={state.roles}
+                                        onChange={handleInputChangeRole}
                                         onClick={roleOptions}
                                         name="roles"
                                         aria-label="Floating label select"
@@ -127,7 +137,7 @@ export const UserList = () => {
                                     >
                                         <option value="" selected></option>
                                         {itensRole.map((object) => (
-                                            <option value={object.name}>{object.name}</option>
+                                            <option data-value={object.name}>{object.name}</option>
                                         ))}
                                     </select>
                                     <label className="label" htmlFor="roles">Roles</label>
