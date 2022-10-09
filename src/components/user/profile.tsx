@@ -53,7 +53,7 @@ export const Profile = () => {
                         {/* <p><strong>Token: </strong> {getLocalAccessToken()}</p> */}
                         {/* <p><strong>Id: </strong> {getId()} </p> */}
                         <p><strong>Email: </strong> {getEmail()} </p>
-                        <strong>Autoridades: </strong> {getRoles()}
+                        <strong>Autoridades: </strong> {JSON.stringify(getRoles())}
                     </div>
                     {/* <div className="form-floating">
                         <input

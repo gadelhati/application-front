@@ -44,6 +44,13 @@ export default function AppRoutes() {
         allowedRoles: "",
         // allowedRoles: getUser()?.roles.find((role: any) => role),
     };
+    const getRole = (role: string): boolean => getRoles().map((element: any) => {
+        if (element.name == role) {
+            return true;
+        } else {
+            return false;
+        }
+    })
     return (
         <body>
             <HashRouter>
@@ -59,8 +66,8 @@ export default function AppRoutes() {
                             <Route path="/signin" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
                             <Route path="/signin2" element={getUser() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
                             <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} />
-                            {getRoles() == ROLES.Admin && <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />}
-                            {getRoles() == ROLES.Admin && <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />}
+                            {getRole("ROLES_ADMIN") && <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />}
+                            {getRole("ROLES_ADMIN") && <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />}
 
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
                                 <Route path="/institution" element={<InstitutionList />} />

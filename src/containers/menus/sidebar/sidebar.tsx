@@ -7,6 +7,13 @@ import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.css'
 
 export const SideBar = () => {
+    const getRole = (role: string): boolean => getRoles().map((element: any) => {
+        if (element.name == role) {
+            return true;
+        } else {
+            return false;
+        }
+    })
     return (
         <main>
             <Nav>
@@ -18,7 +25,7 @@ export const SideBar = () => {
                     <li>
                         <A href="#/signin"><Icon name="speedometer" />Observações</A>
                     </li>
-                    {getRoles() == "ROLE_ADMIN" &&
+                    {getRole("ROLES_ADMIN") &&
                         <>
                             <li><A href="#/om"><Icon name="home" />OM</A></li>
                             <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
