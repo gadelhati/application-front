@@ -7,13 +7,16 @@ import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.css'
 
 export const SideBar = () => {
-    const getRole = (role: string): boolean => getRoles().map((element: any) => {
-        if (element.name == role) {
-            return true;
-        } else {
-            return false;
+    const access = (role: string): boolean => {
+        let allowed: boolean = false
+        for(let i=0; i < getRoles().length; i++){
+            if(role == getRoles()[i]) {
+                return allowed = true
+                break;
+            }
         }
-    })
+        return allowed
+    }
     return (
         <main>
             <Nav>
@@ -22,13 +25,20 @@ export const SideBar = () => {
                 </A>
                 <hr></hr>
                 <Ul>
-                    <li>
-                        <A href="#/signin"><Icon name="speedometer" />Observações</A>
-                    </li>
-                    {getRole("ROLES_ADMIN") &&
+                    <li><A href="#/signin"><Icon name="speedometer" />Observações</A></li>
+                    <li><A href="#/equipment"><Icon name="tools" />Equipamentos</A></li>
+                    <li><A href="#/researcher"><Icon name="people-circle" />Pesquisador</A></li>
+                    {access("ROLE_ADMIN") &&
+                        <>
+                            <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
+                            <li><A href="#/roles"><Icon name="people-circle" />Roles</A></li>
+                            <li><A href="#/country"><Icon name="cpu-fill" />Países</A></li>
+                            <li><A href="#/institution"><Icon name="geo-fill" />Instituições</A></li>
+                        </>
+                    }
+                    {(access("ROLE_ADMIN") || access("ROLE_MODERATOR")) &&
                         <>
                             <li><A href="#/om"><Icon name="home" />OM</A></li>
-                            <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
                             <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="true">Estações</Collapsible>
                             <div id="station-collapse">
                                 <Ul>
@@ -37,15 +47,11 @@ export const SideBar = () => {
                                     <li><A href="#/stationOffShore"><Icon name="chat-quote-fill" />Ship</A></li>
                                 </Ul>
                             </div>
-                            <li><A href="#/country"><Icon name="cpu-fill" />Países</A></li>
+                            <li><A href="#/platform"><Icon name="toggles2" />Plataforma</A></li>
+                            <li><A href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</A></li>
                             <li><A href="#/platformCategory"><Icon name="gear-fill" />Tipos de Plataforma</A></li>
                         </>
                     }
-                    <li><A href="#/researcher"><Icon name="people-circle" />Pesquisador</A></li>
-                    <li><A href="#/platform"><Icon name="toggles2" />Plataforma</A></li>
-                    <li><A href="#/equipment"><Icon name="tools" />Equipamentos</A></li>
-                    <li><A href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</A></li>
-                    <li><A href="#/institution"><Icon name="geo-fill" />Instituições</A></li>
                 </Ul>
             </Nav>
         </main>
