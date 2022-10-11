@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent, useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
@@ -16,6 +16,9 @@ export const Profile = () => {
     const [state, setState] = useState<User>(initialUser)
     const { loading, error, itens, item } = useTypedSelector((state) => state.users);
 
+    useLayoutEffect(() => {
+        setState({ ...state, id: getId(), username: getUserName(), email: getEmail(), roles: getRoles() })
+    }, [dispatch])
     const resetItem = () => {
         setState(initialUser)
     }
@@ -41,6 +44,7 @@ export const Profile = () => {
         return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, username: getUserName(), email: getEmail(), roles: getRoles() })
         setState({ ...state, [event.target.name]: event.target.value })
     }
     return (
@@ -55,7 +59,7 @@ export const Profile = () => {
                         <p><strong>Email: </strong> {getEmail()} </p>
                         <strong>Autoridades: </strong> {JSON.stringify(getRoles())}
                     </div>
-                    {/* <div className="form-floating">
+                    <div className="form-floating">
                         <input
                             placeholder="Password"
                             type="password"
@@ -68,7 +72,7 @@ export const Profile = () => {
                         <label htmlFor="password">Senha</label>
                         <div className="invalid-feedback">{validation("password")}</div>
                     </div>
-                    <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Trocar Senha</button> */}
+                    <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Trocar Senha</button>
                     <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Sair</button>
                 </Article>
          </Section>
