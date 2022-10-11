@@ -2,6 +2,7 @@ import { Station } from "../station.interface";
 import { Platform } from "../../platform/platform.interface";
 
 export interface StationOffShore extends Station {
+    id: string,
     first: Date,
     last: Date,
     latitudeMostBottom: number,

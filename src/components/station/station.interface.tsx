@@ -6,6 +6,7 @@ export interface Station {
     id: string,
     localDepth: number,
     com: string,
+    active: boolean,
     // commission: Commission,
     // stationCategory: StationCategory,
     equipment: Equipment,

@@ -34,7 +34,8 @@ export const ObservationList = () => {
     const dispatch = useDispatch()
     const [state, setState] = useState<Observation>(initialObservation)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
-    const itensOM = useTypedSelector((stateOM) => stateOM.oms.itens);
+    const itensStation = useTypedSelector((stateStation) => stateStation.stations.itens);
+    const itensStationOnShore = useTypedSelector((stateStationOnShore) => stateStationOnShore.stationsOnShore.itens);
     const itensUser = useTypedSelector((stateUser) => stateUser.users.itens);
 
     useEffect(() => {
@@ -186,8 +187,8 @@ export const ObservationList = () => {
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
-                                                    {itensOM.map((object) => (
-                                                        <option value={object.name}>{object.name}</option>
+                                                    {itensStation.map((object) => (
+                                                        <option value={object.com}>{object.com}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="ddddddd">Estação</label>

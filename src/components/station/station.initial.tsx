@@ -7,6 +7,7 @@ export const initialStation: Station = {
     id: '',
     localDepth: 0,
     com: '',
+    active: false,
     // commission: initialCommission,
     // stationCategory: initialStationCategory,
     equipment: initialEquipment,
