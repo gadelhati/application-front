@@ -1,7 +1,6 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
-import { ProtectedRoute } from "./ProtectedRoutes";
-import { ProtectedRouteProps } from "./ProtectedRoutes";
+import { ProtectedRoute, ProtectedRouteProps } from "./ProtectedRoutes";
 import { OMList } from "./components/om/om.list";
 import { Profile } from "./components/user/profile";
 import { SigninContainer } from "./components/auth/signin";
@@ -44,13 +43,6 @@ export default function AppRoutes() {
         allowedRoles: "",
         // allowedRoles: getUser()?.roles.find((role: any) => role),
     };
-    const getRole = (role: string): boolean => getRoles().map((element: any) => {
-        if (element.name == role) {
-            return true;
-        } else {
-            return false;
-        }
-    })
     return (
         <body>
             <HashRouter>
@@ -70,8 +62,8 @@ export default function AppRoutes() {
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
                                 <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
                                 <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />
-                            </Route>
-                            <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
+                            {/* </Route>
+                            <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}> */}
                                 <Route path="/institution" element={<InstitutionList />} />
                                 <Route path="/station" element={<StationList />} />
                                 <Route path="/stationOffShore" element={<StationOffShoreList />} />
