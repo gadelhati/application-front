@@ -9,6 +9,20 @@ import { styled } from '@stitches/react';
 import "../../assets/bootstrap/dist/css/bootstrap.min.css"
 import logo from '../../assets/image/heraldica.png'
 
+const styles = {
+    container: {
+        width: "95%",
+    },
+    errors: {
+        // backgroundColor: "#ff9999",
+        // marginLeft: "15px",
+        // marginRight: "-15px",
+        paddingLeft: "20px",
+        width: "95%"
+        // paddingRigth: "-20px"
+    },
+}
+
 export const SigninSection = styled('div', {
     textAlign: 'center !important',
     display: 'flex',
@@ -66,11 +80,16 @@ export const SigninContainer = () => {
         dispatch(logoutAction())
     }
     const initiate = () => {
-        if(executed()) navigate("/om")
+        if (executed()) navigate("/om")
+    }
+    const validation = (name: string): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
+        return vector
     }
     const executed = (): boolean => {
         let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
+        error?.map(element => { if ("" == element.field) return executed = true })
         return executed
     }
     const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -83,41 +102,56 @@ export const SigninContainer = () => {
         <SigninSection>
             <SigninArticle>
                 {/* <form onSubmit={submitForm}> */}
-                    <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
-                    <h1 className="h3 mb-3 fw-normal">Login</h1>
-                    <div className="form-floating">
-                        <input placeholder="Username" type="text" className="form-control" value={state.username} onChange={handleInputChange} name="username" ></input>
-                        <label htmlFor="username">Username</label>
-                    </div>
-                    <div className="form-floating">
-                        <input placeholder="Password" type="password" className="form-control" value={state.password} onChange={handleInputChange} name="password" ></input>
-                        <label htmlFor="password">Password</label>
-                    </div>
-                    {/* <input list="genders" name="gender" id="gender"/>
+                <img className="mb-4" src={logo} alt="" width="120" height="128"></img>
+                <h1 className="h3 mb-3 fw-normal">Login</h1>
+                <div className="form-floating">
+                    <input
+                        placeholder="Username"
+                        type="text"
+                        className={validation("username").length != 0 ? "form-control is-invalid" : "form-control"}
+                        value={state.username}
+                        onChange={handleInputChange}
+                        name="username"
+                    />
+                    <label htmlFor="username">Username</label>
+                    <div className="invalid-feedback">{validation("username")}</div>
+                </div>
+                <div className="form-floating">
+                    <input
+                        placeholder="Password"
+                        type="password"
+                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
+                        value={state.password}
+                        onChange={handleInputChange}
+                        name="password"
+                    />
+                    <label htmlFor="password">Password</label>
+                    <div className="invalid-feedback">{validation("password")}</div>
+                </div>
+                {/* <input list="genders" name="gender" id="gender"/>
                         <datalist id="genders">
                             <option value="male"/>
                             <option value="female"/>
                         </datalist>
                     <progress id="progress" value={10} max={100}>25</progress> */}
-                    <div className="checkbox mb-3">
-                        <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
-                        <label htmlFor="rememberMe">Remember me</label>
-                    </div>
-                    <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-                    <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
-                    {loading ?
-                        <button className="btn btn-warning btn-sm" type="button" disabled>
-                            <span className="spinner-border spinner-border-sm" role="status"></span>
-                            Loading
-                        </button>
-                        :
-                        <button className="btn btn-success btn-sm" type="button" disabled>
-                            Loaded
-                        </button>
-                    }
-                    {error != null && JSON.stringify(error)}
-                {/* </form> */}
-             </SigninArticle>
+                {/* <div className="checkbox mb-3">
+                    <input type="checkbox" value="remember-me" id="rememberMe" disabled></input>
+                    <label htmlFor="rememberMe">Remember me</label>
+                </div> */}
+                <button onClick={signinItem} className="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+                {validation("Bad credentials")}
+                <p className="mt-5 mb-3 text-muted">© Marinha do Brasil 1822 - 2022</p>
+                {loading ?
+                    <button className="btn btn-warning btn-sm" type="button" disabled>
+                        <span className="spinner-border spinner-border-sm" role="status"></span>
+                        Loading
+                    </button>
+                    :
+                    <button className="btn btn-success btn-sm" type="button" disabled>
+                        Loaded
+                    </button>
+                }
+            </SigninArticle>
         </SigninSection>
     );
 }
