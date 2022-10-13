@@ -70,23 +70,6 @@ Stations on board ships (SHIP).
 A inciativa de criar um
 The initiative to create a program in which the code is typed instead of being filled out on paper. Automating the exchange and its consequent inclusion in historical database.
 
-
-## how to create this project
-```
-npm init vite@latest application-name --template react-ts
-```
-
-## file deletion
-- [x] src/App.css
-- [x] src/favicon.svg
-- [x] src/index.css
-- [x] src/logo.svg
-
-## file creation
-### src/assets/heraldica.ico
-### src/assets/heraldica.svg
-### src/assets/heraldica.png
-
 ### LICENCE
 ```
 MIT License
@@ -111,6 +94,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+## Roadmap
+- [ ] user: alter active/inactive
+- [ ] use pageable retrieve
+- [ ] sidebar: personal icons
+- [ ] sidebar: minimized exclude title
+- [ ] sidebar: minimized show figure
+- [ ] sidebar: minimized show tooltip by tag
+- [ ] header: sandwich to restore body
+- [ ] login: assume visual id
+
+## how to create this project
+```
+npm init vite@latest application-name --template react-ts
+```
+
+## file deletion
+- [x] src/App.css
+- [x] src/favicon.svg
+- [x] src/index.css
+- [x] src/logo.svg
+
+## file creation
+### src/assets/heraldica.ico
+### src/assets/heraldica.svg
+### src/assets/heraldica.png
+
 ## file changes
 ### index.html
 ```
