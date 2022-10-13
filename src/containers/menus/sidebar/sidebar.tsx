@@ -41,6 +41,7 @@ export const SideBar = () => {
                             <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="true">Unidades</Collapsible>
                             <div id="united-collapse">
                                 <Ul>
+                                    <li><A href="#/observer"><Icon name="people-circle" />observer</A></li>
                                     <li><A href="#/platform"><Icon name="toggles2" />Plataforma</A></li>
                                     <li><A href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</A></li>
                                     <li><A href="#/platformCategory"><Icon name="gear-fill" />Tipos de Plataforma</A></li>

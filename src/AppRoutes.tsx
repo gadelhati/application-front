@@ -29,6 +29,7 @@ import { StationList } from "./components/station/station.list";
 import { StationOffShoreList } from "./components/station/station.offshore/station.offshore.list";
 import { StationOnShoreList } from "./components/station/station.onshore/station.onshore.list";
 import { RoleList } from "./components/role/role.list";
+import { ObserverList } from "./components/observer/observer.list";
 
 const ROLES = {
     'User': "ROLE_USER",
@@ -57,6 +58,8 @@ export default function AppRoutes() {
                             <Route path="*" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
                             <Route path="/" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
                             <Route path="/signin" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
+                            <Route path="/observer" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObserverList />} />} />
+
                             {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
                             <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
                             <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
