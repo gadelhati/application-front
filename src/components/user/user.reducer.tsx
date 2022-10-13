@@ -55,6 +55,13 @@ export const userReducer = (state: stateReducer<User> = initialState, action: an
         // case constants.DELETE_ALL_ERROR+"user":
         //     return { ...state, error: action.payload, loading: false }
 
+        case constants.CHANGE_PASSWORD_START:
+            return { ...state, error: null, loading: true }
+        case constants.CHANGE_PASSWORD_SUCCESS:
+            return { ...state, error: [initialErrorMessage], loading: false, itens: [...state.itens.filter(item => item.id !== action.payload.id), action.payload], item: action.payload }
+        case constants.CHANGE_PASSWORD_ERROR:
+            return { ...state, error: action.payload, loading: false }
+
         default:
             return state
     }

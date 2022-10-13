@@ -44,7 +44,9 @@ export const StationOnShoreList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
+        { key: 'name', label: 'Nome', _style: { width: '10%' } },
         { key: 'com', label: 'Com', _style: { width: '10%' } },
+        { key: 'active', label: 'Ativa', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (

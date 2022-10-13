@@ -1,7 +1,6 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 
-import { ProtectedRoute } from "./ProtectedRoutes";
-import { ProtectedRouteProps } from "./ProtectedRoutes";
+import { ProtectedRoute, ProtectedRouteProps } from "./ProtectedRoutes";
 import { OMList } from "./components/om/om.list";
 import { Profile } from "./components/user/profile";
 import { SigninContainer } from "./components/auth/signin";
@@ -34,6 +33,7 @@ import { RoleList } from "./components/role/role.list";
 const ROLES = {
     'User': "ROLE_USER",
     'Admin': "ROLE_ADMIN",
+    'Moderador': "ROLE_MODERATOR"
 }
 
 export default function AppRoutes() {
@@ -44,13 +44,6 @@ export default function AppRoutes() {
         allowedRoles: "",
         // allowedRoles: getUser()?.roles.find((role: any) => role),
     };
-    const getRole = (role: string): boolean => getRoles().map((element: any) => {
-        if (element.name == role) {
-            return true;
-        } else {
-            return false;
-        }
-    })
     return (
         <body>
             <HashRouter>
@@ -64,33 +57,29 @@ export default function AppRoutes() {
                             <Route path="*" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
                             <Route path="/" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
                             <Route path="/signin" element={getUser() == null ? <SigninContainer /> : <Navigate to="/observation" />}></Route>
-                            <Route path="/signin2" element={getUser() == null ? <UserSignin /> : <Navigate to="/observation" />}></Route>
-                            <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} />
+                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}></Route> */}
+                            <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
+                            <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
+                            <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
+                            <Route path="/equipment" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<EquipmentList />} />} />
+                            <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} />
 
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
                                 <Route path="/users" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<UserList />} />} />
                                 <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />
-                            </Route>
-                            <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
+                                <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
                                 <Route path="/institution" element={<InstitutionList />} />
+                            </Route>
+                            
+                            <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>
+                                <Route path="/om" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<OMList />} />} />
                                 <Route path="/station" element={<StationList />} />
                                 <Route path="/stationOffShore" element={<StationOffShoreList />} />
                                 <Route path="/stationOnShore" element={<StationOnShoreList />} />
+                                <Route path="/platform" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformList />} />} />
+                                <Route path="/manufacturer" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ManufacturerList />} />} />
+                                <Route path="/platformCategory" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformCategoryList />} />} />
                             </Route>
-
-                            <Route path="/profile" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<Profile />} />} />
-                            <Route path="/observation" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationList />} />} />
-                            <Route path="/upload" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ObservationUpload />} />} />
-                            <Route path="/researcher" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ResearcherList />} allowedRoles={"ROLE_ADMIN"} />} />
-                            <Route path="/platform" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformList />} />} />
-                            <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
-                            <Route path="/equipment" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<EquipmentList />} />} />
-                            <Route path="/manufacturer" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<ManufacturerList />} />} />
-                            {/* <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-                                <Route path="/manufacturer" element={<ManufacturerList />} />
-                            </Route> */}
-                            {/* <Route path="/institution" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<InstitutionList />} />} /> */}
-                            <Route path="/platformCategory" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<PlatformCategoryList />} />} />
                         </Routes>
                         {/* <Footer /> */}
                     </main>

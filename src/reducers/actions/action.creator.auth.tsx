@@ -24,7 +24,7 @@ export const signinAction = (object: Auth) => {
                     errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error?.response.data.defaultMessage]})
             }
             dispatch({
                 type: constants.SIGNIN_ERROR,
@@ -70,7 +70,7 @@ export const changePasswordAction = (id: string, object: User) => {
                     errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
                 })
             } else {
-                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error?.response.data.defaultMessage]})
             }
             dispatch({
                 type: constants.CHANGE_PASSWORD_ERROR,
