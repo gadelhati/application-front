@@ -95,6 +95,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 ## Roadmap
+- [ ] counter only increases by 1
 - [ ] consume service that provide sidebar access
 - [ ] use pageable retrieve
 - [ ] stitches: float label
