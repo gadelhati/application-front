@@ -96,6 +96,7 @@ SOFTWARE.
 ```
 ## Roadmap
 - [ ] counter only increases by 1
+- [ ] add global css
 - [ ] consume service that provide sidebar access
 - [ ] use pageable retrieve
 - [ ] stitches: float label
