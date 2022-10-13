@@ -35,7 +35,7 @@ export const ObservationList = () => {
     const [state, setState] = useState<Observation>(initialObservation)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
     const itensStationOnShore = useTypedSelector((stateStationOnShore) => stateStationOnShore.stationsOnShore.itens);
-    const itensUser = useTypedSelector((stateUser) => stateUser.users.itens);
+    const itensObserver = useTypedSelector((stateObserver) => stateObserver.observers.itens);
 
     useEffect(() => {
         retrieveAllItem()
@@ -117,8 +117,8 @@ export const ObservationList = () => {
     const stationOnShoreOptions = () => {
         dispatch(retrieveAllAction('stationOnShore'))
     }
-    const userOptions = () => {
-        dispatch(retrieveAllAction('user'))
+    const observerOptions = () => {
+        dispatch(retrieveAllAction('observer'))
     }
     const fields = [
         { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
@@ -199,13 +199,13 @@ export const ObservationList = () => {
                                                     className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
                                                     value={state.observerName}
                                                     onChange={handleInputChange}
-                                                    onClick={userOptions}
+                                                    onClick={observerOptions}
                                                     name="observerName"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
-                                                    {itensUser.map((object) => (
-                                                        <option value={object.username}>{object.username}</option>
+                                                    {itensObserver.map((object) => (
+                                                        <option value={object.name}>{object.name}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="observerName">Observador</label>
