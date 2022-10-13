@@ -95,8 +95,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 ## Roadmap
-- [ ] user: alter active/inactive
+- [ ] consume service that provide sidebar access
 - [ ] use pageable retrieve
+- [ ] stitches: float label
+- [ ] stitches: modal
+- [ ] stitches: datatable
+- [ ] user: alter active/inactive
 - [ ] sidebar: personal icons
 - [ ] sidebar: minimized exclude title
 - [ ] sidebar: minimized show figure
