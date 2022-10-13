@@ -34,7 +34,6 @@ export const ObservationList = () => {
     const dispatch = useDispatch()
     const [state, setState] = useState<Observation>(initialObservation)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
-    const itensStation = useTypedSelector((stateStation) => stateStation.stations.itens);
     const itensStationOnShore = useTypedSelector((stateStationOnShore) => stateStationOnShore.stationsOnShore.itens);
     const itensUser = useTypedSelector((stateUser) => stateUser.users.itens);
 
@@ -115,8 +114,8 @@ export const ObservationList = () => {
         // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
         setState({ ...state, dateObservation: date, gg: event.target.value })
     }
-    const omOptions = () => {
-        dispatch(retrieveAllAction('om'))
+    const stationOnShoreOptions = () => {
+        dispatch(retrieveAllAction('stationOnShore'))
     }
     const userOptions = () => {
         dispatch(retrieveAllAction('user'))
@@ -182,13 +181,13 @@ export const ObservationList = () => {
                                                     className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
                                                     value={state.ddddddd}
                                                     onChange={handleInputChange}
-                                                    onClick={omOptions}
+                                                    onClick={stationOnShoreOptions}
                                                     name="ddddddd"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
-                                                    {itensStation.map((object) => (
-                                                        <option value={object.com}>{object.com}</option>
+                                                    {itensStationOnShore.map((object) => (
+                                                        <option value={object.name}>{object.name}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="ddddddd">Estação</label>
