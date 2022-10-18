@@ -95,20 +95,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 ## Roadmap
+- [ ] user: alter active/inactive
 - [ ] counter only increases by 1
 - [ ] add global css
+- [ ] login: assume visual id
 - [ ] consume service that provide sidebar access
 - [ ] use pageable retrieve
 - [ ] stitches: float label
 - [ ] stitches: modal
 - [ ] stitches: datatable
-- [ ] user: alter active/inactive
 - [ ] sidebar: personal icons
 - [ ] sidebar: minimized exclude title
 - [ ] sidebar: minimized show figure
 - [ ] sidebar: minimized show tooltip by tag
 - [ ] header: sandwich to restore body
-- [ ] login: assume visual id
 
 ## how to create this project
 ```
