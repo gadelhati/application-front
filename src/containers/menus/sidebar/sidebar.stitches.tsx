@@ -11,10 +11,10 @@ export const A = styled('a', {
     textDecoration: 'none',
     transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
     listStyle: 'none',
-    color: 'lightgray',
+    color: '$sophia',
     '&:hover': {
-        color: '#2F4F4F',
-        backgroundColor: 'white',
+        color: '$ava',
+        backgroundColor: '$charlotte',
     },
     img: {
         width: '35px',
@@ -34,9 +34,9 @@ export const AHeader = styled('a', {
     textDecoration: 'none',
     transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
     listStyle: 'none',
-    color: 'black',
+    color: '$charllotte',
     '&:hover': {
-        color: 'black',
+        color: '$charlotte',
         backgroundColor: 'transparent',
     },
 });
@@ -58,7 +58,6 @@ export const UlMenu = styled('ul', {
     minWidth: '10rem',
     padding: '.5rem 0',
     fontSize: '1rem',
-    color: '#212529',
     textAlign: 'left',
     listStyle: 'none',
     backgroundColor: '#fff',
@@ -68,7 +67,7 @@ export const UlMenu = styled('ul', {
     cursor: 'pointer',
 });
 export const Collapsible = styled('button', {
-    color: 'lightgray',
+    color: '$sophia',
     lineHeight: '1.5',
     textAlign: 'center',
     textDecoration: 'none',
@@ -90,16 +89,16 @@ export const Collapsible = styled('button', {
         transformOrigin: '.5em 50%',
     },
     '&[aria-expanded="true"]': {
-        color: 'black',
+        color: '$ava',
         fontWeight: '600',
-        backgroundColor: 'lightwhite',
+        backgroundColor: '$charlotte',
     },
     '&[aria-expanded="true"]:before': {
         transform: 'rotate(90deg)',
     },
     '&:hover': {
-        color: 'black',
-        backgroundColor: 'white',
+        color: '$ava',
+        backgroundColor: '$charlotte',
     },
     '&:only-child': {
         padding: '50px',
@@ -107,8 +106,9 @@ export const Collapsible = styled('button', {
 });
 export const Nav = styled('nav', {
     width: '256px',
-    backgroundColor: 'rgb(58, 72, 100)',
-    backgroundImage: 'linear-gradient(to bottom left, rgb(58, 72, 100), rgb(86, 97, 93))',
+    // backgroundColor: 'rgb(58, 72, 100)',
+    backgroundColor: '$olivia',
+    // backgroundImage: 'linear-gradient(to bottom, #386769, #2D3142)',
     // backgroundImage: 'url(nova-logo-mb.png)',
     backgroundPosition: '50%',
     // opacity: '80%',
@@ -120,7 +120,7 @@ export const Nav = styled('nav', {
     '> a': {
         display: 'flex',
         '&:hover': {
-            color: 'lightgray',
+            color: '$sophia',
             backgroundColor: 'transparent',
         },
     },

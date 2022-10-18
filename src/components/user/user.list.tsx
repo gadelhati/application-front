@@ -142,12 +142,11 @@ export const UserList = () => {
                                     </select>
                                     <label className="label" htmlFor="roles">Roles</label>
                                 </div>
-                                {/* <div className="col form-check">
+                                <div className="col form-check">
                                     <input
                                         placeholder="ACTIVE"
                                         type="checkbox"
-                                        className="form-check-input"
-                                        className={validation("password").length != 0 ? "form-control is-invalid" : "form-control"}
+                                        className={validation("password").length != 0 ? "form-check-input form-control is-invalid" : "form-check-input form-control"}
                                         checked={state.active}
                                         defaultChecked={state.active}
                                         onChange={handleInputChange}
@@ -156,7 +155,7 @@ export const UserList = () => {
                                         readOnly={executed()}
                                     />
                                     <label className="form-check-label" htmlFor="active">Active</label>
-                                </div> */}
+                                </div>
                             </div>
                             <hr />
                             <Crud initialObject={initialUser} object={state} name={"user"} error={error}></Crud>
