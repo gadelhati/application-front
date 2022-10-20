@@ -1,7 +1,7 @@
 import { getRoles } from "../../../services/service.token"
 import logo from '../../../assets/image/heraldica.png'
 import { Icon } from '../../../assets/image/svg.access'
-import { A, Ul, Collapsible, Nav } from './sidebar.stitches'
+import { ATitle, Ul, Collapsible, Nav } from './sidebar.stitches'
 
 import "../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js"
 import './sidebars.css'
@@ -20,45 +20,45 @@ export const SideBar = () => {
     return (
         <main>
             <Nav>
-                <A href="/application-front">
+                <ATitle href="/application-front">
                     <img src={logo}></img><span>CHM</span>
-                </A>
+                </ATitle>
                 <hr></hr>
                 <Ul>
-                    <li><A href="#/signin"><Icon name="speedometer" />Observações</A></li>
-                    <li><A href="#/equipment"><Icon name="tools" />Equipamentos</A></li>
-                    <li><A href="#/researcher"><Icon name="people-circle" />Pesquisador</A></li>
+                    <li><a href="#/signin"><Icon name="speedometer" />Observações</a></li>
+                    <li><a href="#/equipment"><Icon name="tools" />Equipamentos</a></li>
+                    <li><a href="#/researcher"><Icon name="people-circle" />Pesquisador</a></li>
                     {(access("ROLE_ADMIN") || access("ROLE_MODERATOR")) &&
                         <>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="true">Estações</Collapsible>
-                            <div id="station-collapse">
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false"><Icon name="people-circle" />Estações</Collapsible>
+                            <div className="collapse" id="station-collapse">
                                 <Ul>
-                                    <li><A href="#/station"><Icon name="home" />Todas</A></li>
-                                    <li><A href="#/stationOnShore"><Icon name="calendar3" />Synop</A></li>
-                                    <li><A href="#/stationOffShore"><Icon name="chat-quote-fill" />Ship</A></li>
+                                    <li><a href="#/station"><Icon name="home" />Todas</a></li>
+                                    <li><a href="#/stationOnShore"><Icon name="calendar3" />Synop</a></li>
+                                    <li><a href="#/stationOffShore"><Icon name="chat-quote-fill" />Ship</a></li>
                                 </Ul>
                             </div>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="true">Unidades</Collapsible>
-                            <div id="united-collapse">
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="false"><Icon name="people-circle" />Unidades</Collapsible>
+                            <div  className="collapse" id="united-collapse">
                                 <Ul>
-                                    <li><A href="#/observer"><Icon name="people-circle" />observer</A></li>
-                                    <li><A href="#/platform"><Icon name="toggles2" />Plataforma</A></li>
-                                    <li><A href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</A></li>
-                                    <li><A href="#/platformCategory"><Icon name="gear-fill" />Tipos de Plataforma</A></li>
-                                    <li><A href="#/country"><Icon name="cpu-fill" />Países</A></li>
-                                    <li><A href="#/institution"><Icon name="geo-fill" />Instituições</A></li>
-                                    <li><A href="#/om"><Icon name="home" />OM</A></li>
+                                    <li><a href="#/observer"><Icon name="people-circle" />observer</a></li>
+                                    <li><a href="#/platform"><Icon name="toggles2" />Plataforma</a></li>
+                                    <li><a href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</a></li>
+                                    <li><a href="#/platformCategory"><Icon name="gear-fill" />Tipos de Plataforma</a></li>
+                                    <li><a href="#/country"><Icon name="cpu-fill" />Países</a></li>
+                                    <li><a href="#/institution"><Icon name="geo-fill" />Instituições</a></li>
+                                    <li><a href="#/om"><Icon name="home" />OM</a></li>
                                 </Ul>
                             </div>
                         </>
                     }
                     {access("ROLE_ADMIN") &&
                         <>
-                        <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#permissions-collapse" aria-expanded="true">Permissões</Collapsible>
-                            <div id="permissions-collapse">
+                        <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#permissions-collapse" aria-expanded="false"><Icon name="people-circle" />Permissões</Collapsible>
+                            <div className="collapse" id="permissions-collapse">
                                 <Ul>
-                                    <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
-                                    <li><A href="#/roles"><Icon name="people-circle" />Roles</A></li>
+                                    <li><a href="#/users"><Icon name="people-circle" />Usários</a></li>
+                                    <li><a href="#/roles"><Icon name="people-circle" />Roles</a></li>
                                 </Ul>
                             </div>
                         </>

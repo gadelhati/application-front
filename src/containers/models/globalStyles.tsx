@@ -8,18 +8,11 @@ export const stitches = createStitches({
     },
     theme: {
         colors: {
-            richBalckFOGRA29: '#0D1B2A',
-            oxfordBlue: '#1B263B',
-            bdazzledBlue: '#415A77',
-            shadowBlue: '#778DA9',
-            platinum: '#E0E1DD',
-
-            // elements
-            olivia: '$richBalckFOGRA29',
-            emma: '$oxfordBlue',
-            ava: '$bdazzledBlue',
-            charlotte: '$shadowBlue',
-            sophia: '$platinum',
+            letterColor: 'seaShell',
+            letterBackgroudColor: 'cadetBlue',
+            letterColorHover: 'forestGreen',
+            letterBackgroudColorHover: 'snow',
+            squareColor: 'darkcyan',
         },
         space: {
             xxs: "0.422rem",
