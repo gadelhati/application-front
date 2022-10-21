@@ -71,6 +71,9 @@ A inciativa de criar um
 The initiative to create a program in which the code is typed instead of being filled out on paper. Automating the exchange and its consequent inclusion in historical database.
 
 ### LICENCE
+
+> [MIT License](https://choosealicense.com/licenses/mit/)
+
 ```
 MIT License
 
@@ -257,10 +260,6 @@ npm run build
 ## Developer
 
 > [Gadelha TI](https://github.com/gadelhati)
-
-## License
-
-> [MIT License](https://choosealicense.com/licenses/mit/)
 
 ```
 //ADD PROXY
