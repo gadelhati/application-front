@@ -18,6 +18,15 @@ export const stitches = createStitches({
             subLetterBackgroudColorHover: '#CBE8CC',
             squareTop: '#084735',
             squareBottom: '#1F4439',
+
+            primary: '#57A0E5',
+            secondary: '#9C9C9C',
+            success: '#46A749',
+            info: '#4C85C6',
+            warning: '#CEBA33',
+            danger: '#B63E3E',
+            light: '#CBD4E0',
+            dark: '#444444',
         },
         space: {
             xxs: "0.422rem",

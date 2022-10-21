@@ -3,7 +3,7 @@ import { Col, Title } from "../models/content";
 import { Button } from "../models/button";
 import { headerInterface } from "./header.interface";
 import { logoutAction } from '../../reducers/actions/action.creator.auth';
-import { AHeader } from '../menus/sidebar/sidebar.stitches'
+import { AHeader, Ul, UlMenu } from '../menus/sidebar/sidebar.stitches'
 import { Icon } from '../../assets/image/svg.access';
 
 export const Header = (header: headerInterface) => {
@@ -17,11 +17,11 @@ export const Header = (header: headerInterface) => {
             <Col>
                 <Button float="left">
                     <AHeader href="#" data-bs-toggle="dropdown"><Icon name="people-circle" /></AHeader>
-                    <ul className="dropdown-menu">
+                    <UlMenu className="dropdown-menu">
                         <li><AHeader href="#/profile">Perfil</AHeader></li>
                         <li><hr ></hr></li>
                         <li><AHeader href="#/signin" onClick={logoutItem} >Sair</AHeader></li>
-                    </ul>
+                    </UlMenu>
                 </Button>
                 <Button float="left" color="success" onClick={header.resetItem} data-bs-toggle="modal" data-bs-target="#modal">Criar</Button>
                 <Button float="left" disabled={true}>Carregado<span>{header.itens}</span></Button>

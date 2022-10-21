@@ -9,6 +9,7 @@ import { initialUser } from './user.initial';
 import { getUserName, getId, getEmail, getRoles } from "../../services/service.token"
 import { Article, Section } from '../../containers/models/content';
 import { Header } from '../../containers/header/header';
+import { Button } from '../../containers/models/button';
 
 export const Profile = () => {
     const dispatch = useDispatch();
@@ -75,8 +76,8 @@ export const Profile = () => {
                     <label htmlFor="password">Senha</label>
                     <div className="invalid-feedback">{validation("password")}</div>
                 </div>
-                <button onClick={changePassword} className="w-20 btn btn-primary button btn-sm" >Trocar Senha</button>
-                <button onClick={logoutItem} className="w-20 btn btn-warning button btn-sm" >Sair</button>
+                <Button onClick={changePassword} color="warning" >Trocar Senha</Button>
+                <Button onClick={logoutItem} color="secondary" >Sair</Button>
             </Article>
         </Section>
     )

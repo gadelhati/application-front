@@ -44,14 +44,14 @@ export const Button = styled('button', {
             left:       {float: 'right !important'},
         },
         color: {
-            primary:    {backgroundColor: '$olivia'},
-            secondary:  {backgroundColor: '$emma', color: 'white'},
-            success:    {backgroundColor: '$ava', color: 'white'},
-            info:       {backgroundColor: '$charlotte'},
-            warning:    {backgroundColor: '$sophia', color: 'black'},
-            danger:     {backgroundColor: '#ff4444', color: 'white'},
-            light:      {backgroundColor: '#F0FFFF'},
-            dark:       {backgroundColor: '#000000'},
+            primary:    {backgroundColor: '$primary', color: 'white'},
+            secondary:  {backgroundColor: '$secondary', color: '$dark'},
+            success:    {backgroundColor: '$success', color: 'white'},
+            info:       {backgroundColor: '$info', color: 'white'},
+            warning:    {backgroundColor: '$warning', color: '$dark'},
+            danger:     {backgroundColor: '$danger', color: 'white'},
+            light:      {backgroundColor: '$light', color: 'white'},
+            dark:       {backgroundColor: '$dark', color: 'white'},
         },
         disabled: {
             true: {
