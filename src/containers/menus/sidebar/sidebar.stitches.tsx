@@ -4,10 +4,8 @@ const { styled } = stitches;
 
 export const Nav = styled('nav', {
     width: '256px',
-    // backgroundColor: 'rgb(58, 72, 100)',
     backgroundColor: '$squareColor',
-    // backgroundImage: 'linear-gradient(to bottom, #386769, #2D3142)',
-    // backgroundImage: 'url(nova-logo-mb.png)',
+    backgroundImage: 'linear-gradient(to bottom, $squareTop, $squareBottom)',
     backgroundPosition: '50%',
     padding: '1.5rem',
     color: '$letterColor',
@@ -22,7 +20,7 @@ export const Nav = styled('nav', {
     borderRadius: '5px 5px 0px 0px',
 });
 export const Collapsible = styled('button', {
-    color: '$sophia',
+    color: '$subLetterColor',
     outline: '0',
     cursor: 'pointer',
     alignItems: 'center',
@@ -32,10 +30,22 @@ export const Collapsible = styled('button', {
     padding: '.375rem .75rem',
     borderRadius: '.25rem',
     '&:hover': {
-        color: '$letterColorHover',
-        backgroundColor: '$letterBackgroudColorHover',
+        color: '$subLetterColorHover',
+        backgroundColor: '$subLetterBackgroudColorHover',
         boxShadow: '0 0 0 .25rem rgba(229,179,189,.25)',
     },
+    'div > ul > li': {
+        '&:not(:first-child)': {
+            color: 'red',
+            borderTopLeftRadius: '0',
+            borderBottomLeftRadius: '0',
+        },
+        '&:not(:last-child)': {
+            borderTopRightRadius: '0',
+            borderBottomRightRadius: '0',
+            borderRight: 'none',
+        },
+    }
 });
 export const Ul = styled('ul', {
     display: 'flex',
@@ -43,30 +53,35 @@ export const Ul = styled('ul', {
     listStyle: 'none',
     flexDirection: 'column',
     'div > ul > li': {
-        // borderRadius: '.25rem',
-        backgroundColor: '$letterBackgroudColor',
-        paddingLeft: '10px',
-    },
-    'li > a, sdiv > ul > li > a': {
         borderRadius: '.25rem',
-        display: 'block',
-        padding: '.5rem .75rem',
-        textDecoration: 'none',
-        transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
-        color: '$letterColor',
-        '&:hover': {
-            color: '$letterColorHover',
-            backgroundColor: '$letterBackgroudColorHover',
-            boxShadow: '0 0 0 .25rem rgba(229,179,189,.25)',
+        backgroundColor: '$letterBackgroudColor',
+        '&:not(:first-child)': {
+            borderTopLeftRadius: '0',
+            borderTopRightRadius: '0',
         },
-        img: {
-            width: '35px',
-            height: '38px',
-            marginRight: '.5rem',
+        '&:not(:last-child)': {
+            borderBottomLeftRadius: '0',
+            borderBottomRightRadius: '0',
+            borderRight: 'none',
         },
-        span: {
-            fontSize: '1.5rem',
-        }
+    },
+});
+export const A = styled('a', {
+    borderRadius: '.25rem',
+    display: 'block',
+    padding: '.5rem .75rem',
+    textDecoration: 'none',
+    transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
+    color: '$letterColor',
+    '&:hover': {
+        color: '$subLetterColorHover',
+        backgroundColor: '$subLetterBackgroudColorHover',
+        boxShadow: '0 0 0 .25rem rgba(229,179,189,.25)',
+    },
+    img: {
+        width: '35px',
+        height: '38px',
+        marginRight: '.5rem',
     },
 });
 export const ATitle = styled('a', {
@@ -81,6 +96,7 @@ export const ATitle = styled('a', {
         marginRight: '.5rem',
     },
     span: {
+        color: '$subLetterColor',
         fontSize: '1.5rem',
     }
 });
