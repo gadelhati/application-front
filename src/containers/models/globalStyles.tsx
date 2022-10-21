@@ -8,16 +8,16 @@ export const stitches = createStitches({
     },
     theme: {
         colors: {
-            letterColor: '#3A587B',
-            letterBackgroudColor: '#ACC8E5',
+            letterColor: '#A1E0B0',
+            letterBackgroudColor: '#06532F',
             letterColorHover: 'forestGreen',
             letterBackgroudColorHover: '#559741',
             subLetterColor: '#3A587B',
             subLetterBackgroudColor: '#ACC8E5',
             subLetterColorHover: '#124010',
             subLetterBackgroudColorHover: '#CBE8CC',
-            squareTop: 'white',
-            squareBottom: '#9FABB6',
+            squareTop: '#084735',
+            squareBottom: '#1F4439',
         },
         space: {
             xxs: "0.422rem",

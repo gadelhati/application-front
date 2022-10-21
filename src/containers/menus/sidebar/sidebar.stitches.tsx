@@ -20,7 +20,7 @@ export const Nav = styled('nav', {
     borderRadius: '5px 5px 0px 0px',
 });
 export const Collapsible = styled('button', {
-    color: '$subLetterColor',
+    color: '$letterColor',
     outline: '0',
     cursor: 'pointer',
     alignItems: 'center',
@@ -96,7 +96,7 @@ export const ATitle = styled('a', {
         marginRight: '.5rem',
     },
     span: {
-        color: '$subLetterColor',
+        color: '$letterColor',
         fontSize: '1.5rem',
     }
 });
