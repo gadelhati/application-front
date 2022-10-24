@@ -74,7 +74,7 @@ export const ObservationUpload = () => {
     return (
         <div>
             <FindFile type="file" onChange={handleInputFile} ></FindFile>
-            <Button disabled={loading? true : false} onClick={createAllItems} >{loading? false : true}Criar todos</Button>
+            <Button disabled={loading? true : false} color="success" onClick={createAllItems} >Criar todos</Button>
             <Button disabled={true} hidden={loading? false : true}>Carregando</Button>
             <Button disabled={true} hidden={executed()? false : true}>Executado</Button>
         </div>

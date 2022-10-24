@@ -27,6 +27,12 @@ export const stitches = createStitches({
             danger: '#B63E3E',
             light: '#CBD4E0',
             dark: '#444444',
+
+            one: '#2F3E46',
+            two: '#354F52',
+            three: '#52796F',
+            four: '#84A98C',
+            five: '#CAD2C5',
         },
         space: {
             xxs: "0.422rem",

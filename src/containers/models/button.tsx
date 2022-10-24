@@ -12,17 +12,9 @@ export const Button = styled('button', {
     textAlign: 'center',
     textDecoration: 'none',
     border: '1px solid transparent',
-    // transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out';
-        // color: '.15s ease-in-out',
-        // backgroundColor: '.15s ease-in-out',
-        // borderColor: '.15s ease-in-out',
-        // boxShadow: '.15s ease-in-out',
     marginLeft: '13px',
     textTransform: 'none',
     fontFamily: 'inherit',
-    // '::after, ::before': {
-    //     boxSizing: 'border-box',
-    // },
     span: {
         borderRadius: '50rem !important',
         backgroundColor: '#6c757d !important',
@@ -46,7 +38,7 @@ export const Button = styled('button', {
         color: {
             primary:    {backgroundColor: '$primary', color: 'white'},
             secondary:  {backgroundColor: '$secondary', color: '$dark'},
-            success:    {backgroundColor: '$success', color: 'white'},
+            success:    {backgroundColor: 'red', color: 'white'},
             info:       {backgroundColor: '$info', color: 'white'},
             warning:    {backgroundColor: '$warning', color: '$dark'},
             danger:     {backgroundColor: '$danger', color: 'white'},

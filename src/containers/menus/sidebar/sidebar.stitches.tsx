@@ -4,15 +4,14 @@ const { styled } = stitches;
 
 export const Nav = styled('nav', {
     width: '256px',
-    backgroundColor: '$squareColor',
-    backgroundImage: 'linear-gradient(to bottom, $squareTop, $squareBottom)',
+    color: '$five',
+    backgroundColor: '$one',
+    backgroundImage: 'linear-gradient(to bottom, $one, $three)',
     backgroundPosition: '50%',
     padding: '1.5rem',
-    color: '$letterColor',
     '> a': {
         display: 'flex',
         '&:hover': {
-            color: 'letterColorHover',
             backgroundColor: 'transparent',
         },
     },
@@ -20,7 +19,7 @@ export const Nav = styled('nav', {
     borderRadius: '5px 5px 0px 0px',
 });
 export const Collapsible = styled('button', {
-    color: '$letterColor',
+    color: '$five',
     outline: '0',
     cursor: 'pointer',
     alignItems: 'center',
@@ -30,8 +29,8 @@ export const Collapsible = styled('button', {
     padding: '.375rem .75rem',
     borderRadius: '.25rem',
     '&:hover': {
-        color: '$subLetterColorHover',
-        backgroundColor: '$subLetterBackgroudColorHover',
+        color: '$two',
+        backgroundColor: '$five',
         boxShadow: '0 0 0 .25rem rgba(229,179,189,.25)',
     },
     'div > ul > li': {
@@ -54,7 +53,7 @@ export const Ul = styled('ul', {
     flexDirection: 'column',
     'div > ul > li': {
         borderRadius: '.25rem',
-        backgroundColor: '$letterBackgroudColor',
+        backgroundColor: '$three',
         '&:not(:first-child)': {
             borderTopLeftRadius: '0',
             borderTopRightRadius: '0',
@@ -72,10 +71,10 @@ export const A = styled('a', {
     padding: '.5rem .75rem',
     textDecoration: 'none',
     transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out',
-    color: '$letterColor',
+    color: '$five',
     '&:hover': {
-        color: '$subLetterColorHover',
-        backgroundColor: '$subLetterBackgroudColorHover',
+        color: '$two',
+        backgroundColor: '$five',
         boxShadow: '0 0 0 .25rem rgba(229,179,189,.25)',
     },
     img: {
@@ -96,7 +95,7 @@ export const ATitle = styled('a', {
         marginRight: '.5rem',
     },
     span: {
-        color: '$letterColor',
+        color: '$five',
         fontSize: '1.5rem',
     }
 });
