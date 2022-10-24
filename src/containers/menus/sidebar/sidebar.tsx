@@ -32,7 +32,7 @@ export const SideBar = () => {
                             <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false"><Icon name="people-circle" />Estações</Collapsible>
                             <div className="collapse" id="station-collapse">
                                 <Ul>
-                                    <li><A href="#/station"><Icon name="home" />Todas</A></li>
+                                    {/* <li><A href="#/station"><Icon name="home" />Todas</A></li> */}
                                     <li><A href="#/stationOnShore"><Icon name="calendar3" />Synop</A></li>
                                     <li><A href="#/stationOffShore"><Icon name="chat-quote-fill" />Ship</A></li>
                                 </Ul>
@@ -48,7 +48,7 @@ export const SideBar = () => {
                             </div>
                         </>
                     }
-                    {(access("ROLE_ADMIN")) &&
+                    {/* {(access("ROLE_ADMIN")) &&
                         <>
                             <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="false"><Icon name="people-circle" />Unidades</Collapsible>
                             <div  className="collapse" id="united-collapse">
@@ -60,7 +60,7 @@ export const SideBar = () => {
                                 </Ul>
                             </div>
                         </>
-                    }
+                    } */}
                     {access("ROLE_ADMIN") &&
                         <>
                         <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#permissions-collapse" aria-expanded="false"><Icon name="people-circle" />Permissões</Collapsible>

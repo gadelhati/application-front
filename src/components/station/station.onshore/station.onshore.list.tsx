@@ -77,6 +77,84 @@ export const StationOnShoreList = () => {
                                 <label htmlFor="com">com</label>
                                 <div className="invalid-feedback">{validation("com")}</div>
                             </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Profundidade Local"
+                                    className={validation("localDepth").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.localDepth}
+                                    onChange={handleInputChange}
+                                    name="localDepth"
+                                    title="Profundidade Local"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="localDepth">Profundidade Local</label>
+                                <div className="invalid-feedback">{validation("localDepth")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Nome"
+                                    className={validation("localDepth").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.name}
+                                    onChange={handleInputChange}
+                                    name="name"
+                                    title="Nome"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="name">Nome</label>
+                                <div className="invalid-feedback">{validation("name")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="marsdenSquare_10"
+                                    className={validation("marsdenSquare_10").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.marsdenSquare_10}
+                                    onChange={handleInputChange}
+                                    name="marsdenSquare_10"
+                                    title="marsdenSquare_10"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="marsdenSquare_10">marsdenSquare_10</label>
+                                <div className="invalid-feedback">{validation("marsdenSquare_10")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="marsdenSubSquare_1"
+                                    className={validation("marsdenSubSquare_1").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.marsdenSubSquare_1}
+                                    onChange={handleInputChange}
+                                    name="marsdenSubSquare_1"
+                                    title="marsdenSubSquare_1"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="marsdenSubSquare_1">marsdenSubSquare_1</label>
+                                <div className="invalid-feedback">{validation("marsdenSubSquare_1")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="wmoSquare"
+                                    className={validation("wmoSquare").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.wmoSquare}
+                                    onChange={handleInputChange}
+                                    name="wmoSquare"
+                                    title="wmoSquare"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="wmoSquare">wmoSquare</label>
+                                <div className="invalid-feedback">{validation("wmoSquare")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="marsdenSubSquare_5"
+                                    className={validation("marsdenSubSquare_5").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.marsdenSubSquare_5}
+                                    onChange={handleInputChange}
+                                    name="marsdenSubSquare_5"
+                                    title="marsdenSubSquare_5"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="marsdenSubSquare_5">marsdenSubSquare_5</label>
+                                <div className="invalid-feedback">{validation("marsdenSubSquare_5")}</div>
+                            </div>
                             <Crud initialObject={initialStationOnShore} object={state} name={"stationOnShore"} error={error}></Crud>
                         </div>
                     </div>
