@@ -38,7 +38,7 @@ export const Button = styled('button', {
         color: {
             primary:    {backgroundColor: '$primary', color: 'white'},
             secondary:  {backgroundColor: '$secondary', color: '$dark'},
-            success:    {backgroundColor: 'red', color: 'white'},
+            success:    {backgroundColor: '$success', color: 'white'},
             info:       {backgroundColor: '$info', color: 'white'},
             warning:    {backgroundColor: '$warning', color: '$dark'},
             danger:     {backgroundColor: '$danger', color: 'white'},
