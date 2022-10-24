@@ -3,23 +3,25 @@ import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
 import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction } from '../../reducers/actions/action.creator';
 import { User } from "./user.interface";
+import { Role } from "../role/role.interface";
 import { initialUser } from './user.initial';
 import { Header } from '../../containers/header/header';
 import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
+import { CCardBody, CDataTable } from '@coreui/react';
 
 export const UserList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<User>(initialUser)
     const { loading, error, itens, item } = useTypedSelector((state) => state.users);
     const itensRole = useTypedSelector((stateRole) => stateRole.roles.itens);
-    
+
     useEffect(() => {
         retrieveAllItem()
     }, [dispatch])
     useEffect(() => {
-        
+
     }, [error])
     const selectItem = (object: User) => {
         setState(object)
@@ -33,25 +35,25 @@ export const UserList = () => {
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
-        error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
+        error?.map(element => { if (name == element.field) return vector = element.defaultMessage })
         return vector
     }
     const access = (): boolean => {
         let allowed: boolean = false
-        error?.map( element => { if("403" == element.field) return allowed = true })
+        error?.map(element => { if ("403" == element.field) return allowed = true })
         return allowed
     }
     const executed = (): boolean => {
         let executed: boolean = false
-        error?.map( element => { if("" == element.field) return executed = true })
+        error?.map(element => { if ("" == element.field) return executed = true })
         return executed
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const handleInputChangeRole = (event:ChangeEvent<HTMLSelectElement>) => {
+    const handleInputChangeRole = (event: ChangeEvent<HTMLSelectElement>) => {
         let role;
-        itensRole.forEach(function(element) {
+        itensRole.forEach(function (element) {
             if (element.name == event.target.value) {
                 role = [element];
             }
@@ -61,18 +63,53 @@ export const UserList = () => {
     const roleOptions = () => {
         dispatch(retrieveAllAction('role'))
     }
+    const roleName = (roles: [Role]): string => {
+        let role: string
+        role = ''
+        roles.map((element: any) => {
+            role = role.concat(element.name.substring(5,15))
+        })
+        return role
+    }
     const fields = [
         { key: 'username', label: 'Username', _style: { width: '10%' } },
         { key: 'email', label: 'E-mail', _style: { width: '10%' } },
         { key: 'roles', label: 'Função', _style: { width: '10%' } },
-        { key: 'active', label: 'Active', _style: { width: '10%' } },
+        { key: 'active', label: 'Ativo', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <Section>
             <Article>
                 <Header title={"Usuários"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
+                <div className='row'>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+
+                                    itemsPerPage={8}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'roles': (item: any) => (<td>{roleName(item.roles)}</td>),
+                                        'active': (item: any) => (<td>{item.active ? 'sim' : 'não'}</td>),
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Editar</button>
+                                            </td>
+                                        ),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
+                </div>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
@@ -133,7 +170,7 @@ export const UserList = () => {
                                         onClick={roleOptions}
                                         name="roles"
                                         aria-label="Floating label select"
-                                        // multiple
+                                    // multiple
                                     >
                                         <option value="" selected></option>
                                         {itensRole.map((object) => (
