@@ -25,19 +25,19 @@ export const SideBar = () => {
                 </ATitle>
                 <hr></hr>
                 <Ul>
-                    <li><A href="#/signin"><Icon name="speedometer" />Observações</A></li>
+                    <li><A href="#/signin"><Icon name="chat-quote-fill" />Observações</A></li>
                     <li><A href="#/observer"><Icon name="people-circle" />Observador</A></li>
                     {(access("ROLE_ADMIN") || access("ROLE_MODERATOR")) &&
                         <>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false"><Icon name="people-circle" />Estações</Collapsible>
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false"><Icon name="geo-fill" />Estações</Collapsible>
                             <div className="collapse" id="station-collapse">
                                 <Ul>
                                     {/* <li><A href="#/station"><Icon name="home" />Todas</A></li> */}
-                                    <li><A href="#/stationOnShore"><Icon name="calendar3" />Synop</A></li>
-                                    <li><A href="#/stationOffShore"><Icon name="chat-quote-fill" />Ship</A></li>
+                                    <li><A href="#/stationOnShore"><Icon name="speedometer" />Synop</A></li>
+                                    <li><A href="#/stationOffShore"><Icon name="speedometer" />Ship</A></li>
                                 </Ul>
                             </div>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#assistant-collapse" aria-expanded="false"><Icon name="people-circle" />Auxiliares</Collapsible>
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#assistant-collapse" aria-expanded="false"><Icon name="geo-fill" />Auxiliares</Collapsible>
                             <div  className="collapse" id="assistant-collapse">
                                 <Ul>
                                     <li><A href="#/researcher"><Icon name="people-circle" />Pesquisador</A></li>
@@ -50,7 +50,7 @@ export const SideBar = () => {
                     }
                     {/* {(access("ROLE_ADMIN")) &&
                         <>
-                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="false"><Icon name="people-circle" />Unidades</Collapsible>
+                            <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#united-collapse" aria-expanded="false"><Icon name="geo-fill" />Unidades</Collapsible>
                             <div  className="collapse" id="united-collapse">
                                 <Ul>
                                     <li><A href="#/manufacturer"><Icon name="chevron-right" />Fabricantes</A></li>
@@ -63,7 +63,7 @@ export const SideBar = () => {
                     } */}
                     {access("ROLE_ADMIN") &&
                         <>
-                        <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#permissions-collapse" aria-expanded="false"><Icon name="people-circle" />Permissões</Collapsible>
+                        <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#permissions-collapse" aria-expanded="false"><Icon name="geo-fill" />Permissões</Collapsible>
                             <div className="collapse" id="permissions-collapse">
                                 <Ul>
                                     <li><A href="#/users"><Icon name="people-circle" />Usários</A></li>
