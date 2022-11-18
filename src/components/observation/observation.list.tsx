@@ -21,12 +21,8 @@ const styles = {
         width: "95%",
     },
     errors: {
-        // backgroundColor: "#ff9999",
-        // marginLeft: "15px",
-        // marginRight: "-15px",
         paddingLeft: "20px",
         width: "95%"
-        // paddingRigth: "-20px"
     },
 }
 
@@ -104,14 +100,12 @@ export const ObservationList = () => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let day = date.getDate().toString()
-        date.setHours(parseInt(state.gg), 0, 0, 0)
-        // if(parseInt(state.gg) == 0){ date.setDate(date.getDate()+1) }
+        date.setHours((isNaN(parseInt(state.gg)) ? 0 : parseInt(state.gg)), 0, 0, 0)
         setState({ ...state, dateObservation: date, yy: day, gg: state.gg })
     }
     const handleInputChangeHour = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(state.dateObservation)
-        date.setHours(parseInt(event.target.value), 0, 0, 0)
-        // if(parseInt(event.target.value) == 0){ date.setDate(date.getDate()+1) }
+        date.setHours((isNaN(parseInt(event.target.value)) ? 0 : parseInt(event.target.value)), 0, 0, 0)
         setState({ ...state, dateObservation: date, gg: event.target.value })
     }
     const stationOnShoreOptions = () => {
@@ -319,14 +313,14 @@ export const ObservationList = () => {
                                                         >
                                                             <optgroup label="GG"></optgroup>
                                                             <option value="" selected></option>
-                                                            <option value="21">00</option>
-                                                            <option value="00">03</option>
-                                                            <option value="03">06</option>
-                                                            <option value="06">09</option>
-                                                            <option value="09">12</option>
-                                                            <option value="12">15</option>
-                                                            <option value="15">18</option>
-                                                            <option value="18">21</option>
+                                                            <option value="00">00</option>
+                                                            <option value="03">03</option>
+                                                            <option value="06">06</option>
+                                                            <option value="09">09</option>
+                                                            <option value="12">12</option>
+                                                            <option value="15">15</option>
+                                                            <option value="18">18</option>
+                                                            <option value="21">21</option>
                                                         </select>
                                                         {/* <InputGroupInput isInvalid={validationBoolean("gg")}
                                                             placeholder="GG"
