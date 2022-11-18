@@ -9,6 +9,16 @@ import { DataTable } from '../../containers/datatable/datatable';
 import { Article, Section } from '../../containers/models/content';
 import { Crud } from '../../containers/button/crud.buttons';
 
+const styles = {
+    container: {
+        width: "95%",
+    },
+    errors: {
+        paddingLeft: "20px",
+        width: "95%"
+    },
+}
+
 export const ObserverList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Observer>(initialObserver)
@@ -35,6 +45,16 @@ export const ObserverList = () => {
         error?.map( element => { if(name == element.field) return vector = element.defaultMessage })
         return vector
     }
+    const validationGroup = (): string[] => {
+        let vector: string[] = []
+        error?.map(element => { if (element.field == null) return vector = element?.defaultMessage })
+        return vector
+    }
+    const validationAll = () => {
+        let length
+        error?.map(element => { return length = element?.defaultMessage?.length })
+        return length
+    }
     const executed = (): boolean => {
         let executed: boolean = false
         error?.map( element => { if("" == element.field) return executed = true })
@@ -45,6 +65,7 @@ export const ObserverList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
+        { key: 'nip', label: 'NIP', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
@@ -61,6 +82,7 @@ export const ObserverList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            <div className={validationAll() != 0 ? "is-invalid" : ""}>
                             <div className="form-floating">
                                 <input
                                     placeholder="Name"
@@ -73,8 +95,24 @@ export const ObserverList = () => {
                                     readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>
-                                <div className="invalid-feedback">{validation("name")}</div>
                             </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="NIP"
+                                    type="text"
+                                    className={validation("nip").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.nip}
+                                    onChange={handleInputChange}
+                                    name="nip"
+                                    title="NIP do Observador"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="nip">NIP</label>
+                            </div>
+                            </div>
+                            <div className="invalid-feedback" style={styles.errors}>{validation("name")}</div>
+                            <div className="invalid-feedback" style={styles.errors}>{validation("nip")}</div>
+                            <div className="invalid-feedback" style={styles.errors}>{validationGroup()}</div>
                             <Crud initialObject={initialObserver} object={state} name={"observer"} error={error}></Crud>
                         </div>
                     </div>
