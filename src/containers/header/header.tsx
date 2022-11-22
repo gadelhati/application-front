@@ -15,6 +15,7 @@ export const Header = (header: headerInterface) => {
         <Title>
             <h5>{header.title}</h5>
             <Col>
+                <Button float="left" disabled={true}>Carregado<span>{header.itens}</span></Button>
                 <Button float="left">
                     <AHeader href="#" data-bs-toggle="dropdown"><Icon name="people-circle" /></AHeader>
                     <UlMenu className="dropdown-menu">
@@ -23,8 +24,7 @@ export const Header = (header: headerInterface) => {
                         <li><AHeader href="#/signin" onClick={logoutItem} >Sair</AHeader></li>
                     </UlMenu>
                 </Button>
-                <Button float="left" color="success" onClick={header.resetItem} data-bs-toggle="modal" data-bs-target="#modal">Criar</Button>
-                <Button float="left" disabled={true}>Carregado<span>{header.itens}</span></Button>
+                <Button float="left" color="success" onClick={header.resetItem} data-bs-toggle="modal" data-bs-target="#modal">Criar</Button>                
             </Col>
         </Title>
     );
