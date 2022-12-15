@@ -473,6 +473,7 @@ export const ObservationList = () => {
                                                             <option value="7">7</option>
                                                             <option value="8">8</option>
                                                             <option value="9">9</option>
+                                                            <option value="/">/</option>
                                                         </select>
                                                         <select
                                                             className={validation("vv").length != 0 ? "form-select is-invalid" : "form-select"}
