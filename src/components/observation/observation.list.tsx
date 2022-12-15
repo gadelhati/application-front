@@ -100,6 +100,7 @@ export const ObservationList = () => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
         let day = date.getDate().toString()
+        if(day.length == 1) { day = 0+day }
         date.setHours((isNaN(parseInt(state.gg)) ? 0 : parseInt(state.gg)), 0, 0, 0)
         setState({ ...state, dateObservation: date, yy: day, gg: state.gg })
     }
