@@ -520,7 +520,7 @@ export const ObservationList = () => {
                                                             <option value="6">6</option>
                                                             <option value="7">7</option>
                                                             <option value="8">8</option>
-                                                            <option value="9">9</option>
+                                                            <option value="/">/</option>
                                                         </select>
                                                         <input
                                                             className={validation("dd").length != 0 ? "form-control is-invalid" : "form-control"}
@@ -816,6 +816,7 @@ export const ObservationList = () => {
                                                             <option value="6">6</option>
                                                             <option value="7">7</option>
                                                             <option value="8">8</option>
+                                                            <option value="/">/</option>
                                                         </select>
                                                         <select
                                                             className={validation("cl").length != 0 ? "form-select is-invalid" : "form-select"}
@@ -1565,11 +1566,12 @@ export const ObservationList = () => {
                                 <hr />
                                 <Row>
                                     {/* <Button color="secondary" onClick={retrieveAllItem} hidden={executed()}>Resetar</Button> */}
-                                    <Button color="secondary" onClick={createItem} data-bs-toggle="modal">Criar</Button>
+                                    <Button color="success" onClick={createItem} data-bs-toggle="modal">Criar</Button>
                                     <Button color="secondary" onClick={updateItem} data-bs-toggle="modal">Atualizar</Button>
-                                    <Button color="secondary" onClick={deleteItem} data-bs-toggle="modal">Delete</Button>
+                                    <Button color="danger" onClick={deleteItem} data-bs-toggle="modal">Delete</Button>
                                     <Col>
                                         <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
+                                        <Button color="secondary" onClick={resetItem} data-bs-dismiss="modal">Limpar</Button>
                                         {executed() && <Button disabled={true}>Executado</Button>}
                                         {access() && <Button disabled>Acesso negado</Button>}
                                     </Col>

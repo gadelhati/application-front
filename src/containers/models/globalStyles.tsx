@@ -76,16 +76,16 @@ const injectGlobalStyles = stitches.globalCss({
 
 injectGlobalStyles()
 
-export const darkTheme = stitches.createTheme({
-    colors: {
-        bg: "$darkJungleGreen",
-        fg: "$fluorescentBlue",
-    }
-});
+// export const darkTheme = stitches.createTheme({
+//     colors: {
+//         bg: "$darkJungleGreen",
+//         fg: "$fluorescentBlue",
+//     }
+// });
 
-export const funkyTheme = stitches.createTheme({
-    colors: {
-        bg: "$darkKhaki",
-        fg: "$darkSlateBlue",
-    }
-});
+// export const funkyTheme = stitches.createTheme({
+//     colors: {
+//         bg: "$darkKhaki",
+//         fg: "$darkSlateBlue",
+//     }
+// });
