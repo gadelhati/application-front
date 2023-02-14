@@ -12,7 +12,7 @@ export const signinAction = (object: Auth) => {
         });
         try {
             const { data } = await signin(object)
-            window.location.href = "/application-front";
+            window.location.href = "/observation-front";
             dispatch({
                 type: constants.SIGNIN_SUCCESS,
                 payload: data
