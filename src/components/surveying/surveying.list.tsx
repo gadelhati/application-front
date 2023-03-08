@@ -1,18 +1,19 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from "../../../assets/hook/useTypeSelector";
-import { retrieveAllAction } from '../../../reducers/actions/action.creator';
-import { StationOffShore } from "./station.offshore.interface";
-import { initialStationOffShore } from './station.offshore.initial';
-import { Header } from '../../../containers/header/header';
-import { DataTable } from '../../../containers/datatable/datatable';
-import { Article, Section } from '../../../containers/models/content';
-import { Crud } from '../../../containers/button/crud.buttons';
+import { useTypedSelector } from "../../assets/hook/useTypeSelector";
+import { retrieveAllAction } from '../../reducers/actions/action.creator';
+import { Surveying } from "./surveying.interface";
+import { initialSurveying } from './surveying.initial';
+import { Header } from '../../containers/header/header';
+import { DataTable } from '../../containers/datatable/datatable';
+import { Section, Article } from '../../containers/models/content';
+import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
+import { Crud } from '../../containers/button/crud.buttons';
 
-export const StationOffShoreList = () => {
+export const SurveyingList = () => {
     const dispatch = useDispatch();
-    const [state, setState] = useState<StationOffShore>(initialStationOffShore)
-    const { loading, error, itens, item } = useTypedSelector((state) => state.stationsOffShore);
+    const [state, setState] = useState<Surveying>(initialSurveying)
+    const { loading, error, item, itens } = useTypedSelector((state) => state.surveyings);
 
     useEffect(() => {
         retrieveAllItem()
@@ -20,14 +21,14 @@ export const StationOffShoreList = () => {
     useEffect(() => {
         
     }, [error])
-    const selectItem = (object: StationOffShore) => {
+    const selectItem = (object: Surveying) => {
         setState(object)
     }
     const resetItem = () => {
-        setState(initialStationOffShore)
+        setState(initialSurveying)
     }
     const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('stationOffShore'))
+        dispatch(retrieveAllAction('surveying'))
         resetItem()
     }
     const validation = (name: string): string[] => {
@@ -44,38 +45,38 @@ export const StationOffShoreList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
-        { key: 'marsdenSquare', label: 'MarsdenSquare', _style: { width: '10%' } },
+        { key: 'name', label: 'Nome', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <Section>
             <Article>
-                <Header title={"Estações Ship"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Surveyings"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel">Estação Ship</h5>
+                            <h5 className="modal-title" id="ModalLabel">Surveying</h5>
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
-                                    placeholder="MarsdenSquare"
+                                    placeholder="Name"
                                     type="text"
-                                    className={validation("marsdenSquare").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.marsdenSquare}
+                                    className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.name}
                                     onChange={handleInputChange}
-                                    name="marsdenSquare"
-                                    title="MarsdenSquare"
+                                    name="name"
+                                    title="Nome da Organização Militar"
                                     readOnly={executed()}
                                 />
-                                <label htmlFor="marsdenSquare">marsdenSquare</label>
-                                <div className="invalid-feedback">{validation("marsdenSquare")}</div>
+                                <label htmlFor="name">Nome</label>
+                                <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <Crud initialObject={initialStationOffShore} object={state} name={"stationOffShore"} error={error}></Crud>
+                            <Crud initialObject={initialSurveying} object={state} name={"surveying"} error={error}></Crud>
                         </div>
                     </div>
                 </div>

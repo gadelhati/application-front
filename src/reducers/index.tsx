@@ -15,24 +15,32 @@ import { stationOffShoreReducer } from "../components/station/station.offshore/s
 import { stationOnShoreReducer } from "../components/station/station.onshore/station.onshore.reducer"
 import { roleReducer } from "../components/role/role.reducer"
 import { observerReducer } from "../components/observer/observer.reducer"
+import { station_categoryReducer } from "../components/stationCategory/station.category.reducer"
+import { surveyingReducer } from "../components/surveying/surveying.reducer"
+import { harborReducer } from "../components/harbor/harbor.reducer"
+import { commissionReducer } from "../components/commission/commission.reducer"
 
 export const reducers = combineReducers({ 
     auths: authReducer,
-    oms: omReducer,
-    users: userReducer,
-    observations: observationReducer,
-    researchers: researcherReducer,
-    platforms: platformReducer,
+    commissions: commissionReducer,
     countries: countryReducer,
     equipments: equipmentReducer,
-    manufacturers: manufacturerReducer,
+    harbors: harborReducer,
     institutions: institutionReducer,
+    manufacturers: manufacturerReducer,
+    observations: observationReducer,
+    observers: observerReducer,
+    oms: omReducer,
+    platforms: platformReducer,
     platformCategories: platformCategoryReducer,
+    researchers: researcherReducer,
+    roles: roleReducer,
     stations: stationReducer,
     stationsOffShore: stationOffShoreReducer,
     stationsOnShore: stationOnShoreReducer,
-    roles: roleReducer,
-    observers: observerReducer,
+    stationsCategories: station_categoryReducer,
+    surveyings: surveyingReducer,
+    users: userReducer,
 })
 
 export type RootState = ReturnType<typeof reducers>

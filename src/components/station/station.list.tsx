@@ -44,7 +44,7 @@ export const StationList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
-        { key: 'com', label: 'Com', _style: { width: '10%' } },
+        { key: 'marsdenSquare', label: 'MarsdenSquare', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
@@ -63,17 +63,17 @@ export const StationList = () => {
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
-                                    placeholder="Com"
+                                    placeholder="Marsden Square"
                                     type="text"
-                                    className={validation("com").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.com}
+                                    className={validation("marsdenSquare").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.marsdenSquare}
                                     onChange={handleInputChange}
-                                    name="com"
-                                    title="Com"
+                                    name="marsdenSquare"
+                                    title="Marsden Square"
                                     readOnly={executed()}
                                 />
-                                <label htmlFor="com">com</label>
-                                <div className="invalid-feedback">{validation("com")}</div>
+                                <label htmlFor="marsdenSquare">marsdenSquare</label>
+                                <div className="invalid-feedback">{validation("marsdenSquare")}</div>
                             </div>
                             <Crud initialObject={initialStation} object={state} name={"station"} error={error}></Crud>
                         </div>

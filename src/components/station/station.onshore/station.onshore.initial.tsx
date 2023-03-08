@@ -3,26 +3,29 @@ import { initialPlatform } from "../../platform/platform.initial";
 import { initialEquipment } from "../../equipment/equipment.initial";
 import { initialInstitution } from "../../institution/institution.initial";
 import { initialCountry } from "../../country/country.initial";
+import { initialStationCategory } from "../../stationCategory/station.category.initial";
+import { initialSurveying } from "../../surveying/surveying.initial";
 
 export const initialStationOnShore: StationOnShore = {
     id: '',
     localDepth: 0,
-    com: '',
-    active: false,
-    // commission: initialCommission,
-    // stationCategory: initialStationCategory,
-    equipment: initialEquipment,
-    // surveying: initialSurveying,
-    responsible: initialInstitution,
-    country: initialCountry,
-    name: '',
-    dateTime: new Date(),
-    latitude: '',
-    longitude: '',
-    telegraphicCallsign: '',
-    marsdenSquare_10: 0,
+    activation: new Date(),
+    latitude: 0,
+    longitude: 0,
+    marsdenSquare: 0,
     marsdenSubSquare_1: 0,
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
-    collectionDepth: ''
+
+    stationCategory: initialStationCategory,
+    equipment: initialEquipment,
+    surveying: initialSurveying,
+    responsible: initialInstitution,
+    country: initialCountry,
+
+    number: 0,
+    name: '',
+    altitude: 0,
+    status: true,
+    deactivation: new Date(),
 }

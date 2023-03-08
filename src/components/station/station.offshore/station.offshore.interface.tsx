@@ -1,13 +1,28 @@
 import { Station } from "../station.interface";
 import { Platform } from "../../platform/platform.interface";
+import { StationCategory } from "../../stationCategory/station.category.interface";
+import { Equipment } from "../../equipment/equipment.interface";
+import { Surveying } from "../../surveying/surveying.interface";
+import { Institution } from "../../institution/institution.interface";
+import { Country } from "../../country/country.interface";
 
 export interface StationOffShore extends Station {
-    id: string,
-    first: Date,
-    last: Date,
-    latitudeMostBottom: number,
-    latitudeMostTop: number,
-    longitudeMostRight: number,
-    longitudeMostLeft: number,
-    platform: Platform,
+    id: '',
+    localDepth: number,
+    activation: Date,
+    latitude: number,
+    longitude: number,
+    marsdenSquare: number,
+    marsdenSubSquare_1: number,
+    wmoSquare: number,
+    marsdenSubSquare_5: number,
+
+    stationCategory: StationCategory,
+    equipment: Equipment,
+    surveying: Surveying,
+    responsible: Institution,
+    country: Country,
+
+    telegraphicCallsign: string,
+    // commission: Commision,
 }

@@ -30,6 +30,10 @@ import { StationOffShoreList } from "./components/station/station.offshore/stati
 import { StationOnShoreList } from "./components/station/station.onshore/station.onshore.list";
 import { RoleList } from "./components/role/role.list";
 import { ObserverList } from "./components/observer/observer.list";
+import { CommissionList } from "./components/commission/commission.list";
+import { HarborList } from "./components/harbor/harbor.list";
+import { SurveyingList } from "./components/surveying/surveying.list";
+import { StationCategoryList } from "./components/stationCategory/station.category.list";
 
 const ROLES = {
     'User': "ROLE_USER",
@@ -72,6 +76,10 @@ export default function AppRoutes() {
                                 <Route path="/roles" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<RoleList />} />} />
                                 <Route path="/country" element={<ProtectedRoute {...defaultProtectedRouteProps} outlet={<CountryList />} />} />
                                 <Route path="/institution" element={<InstitutionList />} />
+                                <Route path="/commission" element={<CommissionList />} />
+                                <Route path="/harbor" element={<HarborList />} />
+                                <Route path="/station_category" element={<StationCategoryList />} />
+                                <Route path="/surveying" element={<SurveyingList />} />
                             </Route>
                             
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>

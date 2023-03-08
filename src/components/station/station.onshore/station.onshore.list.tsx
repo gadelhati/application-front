@@ -45,7 +45,7 @@ export const StationOnShoreList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        { key: 'com', label: 'Com', _style: { width: '10%' } },
+        { key: 'marsdenSquare', label: 'MarsdenSquare', _style: { width: '10%' } },
         { key: 'active', label: 'Ativa', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
@@ -65,17 +65,17 @@ export const StationOnShoreList = () => {
                         <div className="modal-body">
                             <div className="form-floating">
                                 <input
-                                    placeholder="Com"
+                                    placeholder="MarsdenSquare"
                                     type="text"
-                                    className={validation("com").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.com}
+                                    className={validation("marsdenSquare").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.marsdenSquare}
                                     onChange={handleInputChange}
-                                    name="com"
-                                    title="Com"
+                                    name="marsdenSquare"
+                                    title="MmarsdenSquare"
                                     readOnly={executed()}
                                 />
-                                <label htmlFor="com">com</label>
-                                <div className="invalid-feedback">{validation("com")}</div>
+                                <label htmlFor="marsdenSquare">marsdenSquare</label>
+                                <div className="invalid-feedback">{validation("marsdenSquare")}</div>
                             </div>
                             <div className="form-floating">
                                 <input
@@ -102,19 +102,6 @@ export const StationOnShoreList = () => {
                                 />
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
-                            </div>
-                            <div className="form-floating">
-                                <input
-                                    placeholder="marsdenSquare_10"
-                                    className={validation("marsdenSquare_10").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.marsdenSquare_10}
-                                    onChange={handleInputChange}
-                                    name="marsdenSquare_10"
-                                    title="marsdenSquare_10"
-                                    readOnly={executed()}
-                                />
-                                <label htmlFor="marsdenSquare_10">marsdenSquare_10</label>
-                                <div className="invalid-feedback">{validation("marsdenSquare_10")}</div>
                             </div>
                             <div className="form-floating">
                                 <input
