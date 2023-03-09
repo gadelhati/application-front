@@ -15,9 +15,9 @@ export interface Station {
     wmoSquare: number,
     marsdenSubSquare_5: number,
 
-    stationCategory: StationCategory,
-    equipment: Equipment,
-    surveying: Surveying,
-    responsible: Institution,
-    country: Country,
+    stationCategory?: StationCategory,
+    equipment?: Equipment,
+    surveying?: Surveying,
+    responsible?: Institution,
+    country?: Country,
 }

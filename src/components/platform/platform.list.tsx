@@ -45,11 +45,11 @@ export const PlatformList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
+        { key: 'internationalCallsign', label: 'Indicativo Internacional', _style: { width: '10%' } },
+        { key: 'internationalName', label: 'Nome Internacional', _style: { width: '10%' } },
+        { key: 'name', label: 'Nome', _style: { width: '10%' } },
+        { key: 'telegraphicCallsign', label: 'Indicativo Telegráfico', _style: { width: '10%' } },
         { key: 'visualCallsign', label: 'Indicativo Visual', _style: { width: '10%' } },
-        // { key: 'telegraphicCallsign', label: 'Indicativo Telegráfico', _style: { width: '10%' } },
-        // { key: 'internationalCallsign', label: 'Indicativo Internacional', _style: { width: '10%' } },
-        // { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        // { key: 'internationalName', label: 'Nome Internacional', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (

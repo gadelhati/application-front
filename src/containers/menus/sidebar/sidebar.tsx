@@ -44,10 +44,12 @@ export const SideBar = () => {
                                     <li><A href="#/researcher"><Icon name="people-circle" />Pesquisador</A></li>
                                     <li><A href="#/platform"><Icon name="toggles2" />Plataforma</A></li>
                                     <li><A href="#/platformCategory"><Icon name="gear-fill" />Tipos de Plataforma</A></li>
+                                    <li><A href="#/manufacturer"><Icon name="speedometer" />Fabricante</A></li>
                                     <li><A href="#/equipment"><Icon name="tools" />Equipamentos</A></li>
                                     <li><A href="#/commission"><Icon name="speedometer" />Commissões</A></li>
                                     <li><A href="#/harbor"><Icon name="speedometer" />Portos</A></li>
                                     <li><A href="#/surveying"><Icon name="speedometer" />Levantamentos</A></li>
+                                    <li><A href="#/country"><Icon name="speedometer" />Países</A></li>
                                 </Ul>
                             </div>
                         </>

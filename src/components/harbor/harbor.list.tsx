@@ -46,10 +46,13 @@ export const HarborList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
+        { key: 'institution', label: 'Instituição', _style: { width: '10%' } },
+        { key: 'statopm', label: 'Estação', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <Section>
+            {JSON.stringify(state.name)}
             <Article>
                 <Header title={"Harbors"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
@@ -70,7 +73,7 @@ export const HarborList = () => {
                                     value={state.name}
                                     onChange={handleInputChange}
                                     name="name"
-                                    title="Nome da Organização Militar"
+                                    title="Nome do porto"
                                     readOnly={executed()}
                                 />
                                 <label htmlFor="name">Nome</label>

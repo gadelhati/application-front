@@ -112,7 +112,7 @@ export const EquipmentList = () => {
                                 <label htmlFor="name">Nome</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
                             </div>
-                            <div className="row align-items-start">
+                            {/* <div className="row align-items-start">
                                 <div className="col form-floating">
                                     <select className="form-select" id="manufacturer" name="manufacturer" aria-label="Floating label select" onChange={handleInputChangeSelectManufacturer} onClick={manufacturerItem} >
                                         {itensManufactorer.map((object) => (
@@ -121,7 +121,7 @@ export const EquipmentList = () => {
                                     </select>
                                     <label className="label" htmlFor="manufacturer">Fabricante</label>
                                 </div>
-                            </div>
+                            </div> */}
                             <Crud initialObject={initialEquipment} object={state} name={"equipment"} error={error}></Crud>
                         </div>
                     </div>

@@ -13,6 +13,7 @@ export const Crud = (crud: crudInterface) => {
         setState(crud.initialObject)
     }
     const createItem = () => {
+        console.log(crud.object.name)
         dispatch(createAction(crud.name, crud.object))
         resetItem()
         // if(itens == null) resetItem()
@@ -30,6 +31,7 @@ export const Crud = (crud: crudInterface) => {
         resetItem()
     }
     const updateItem = () => {
+        console.log(crud.object.name)
         dispatch(updateAction(crud.name, crud.object.id, crud.object))
         // if(itens == null) resetItem()
     }

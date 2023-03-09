@@ -80,6 +80,7 @@ export default function AppRoutes() {
                                 <Route path="/harbor" element={<HarborList />} />
                                 <Route path="/station_category" element={<StationCategoryList />} />
                                 <Route path="/surveying" element={<SurveyingList />} />
+                                <Route path="/paises" element={<CountryList />} />
                             </Route>
                             
                             <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.Moderador]} />}>
