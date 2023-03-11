@@ -44,9 +44,13 @@ export const StationOnShoreList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
-        { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        { key: 'marsdenSquare', label: 'MarsdenSquare', _style: { width: '10%' } },
-        { key: 'active', label: 'Ativa', _style: { width: '10%' } },
+        { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
+        { key: 'latitude', label: 'Latitude', _style: { width: '10%' } },
+        { key: 'longitude', label: 'Longitude', _style: { width: '10%' } },
+        // { key: 'marsdenSquare', label: 'Quadrado de Marsden', _style: { width: '10%' } },
+        // { key: 'marsdenSubSquare_1', label: 'Sub quadrado de Marsden 1', _style: { width: '10%' } },
+        { key: 'wmoSquare', label: 'Quadrado WMO', _style: { width: '10%' } },
+        // { key: 'marsdenSubSquare_5', label: 'Sub quadrado de Marsden 5', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
@@ -63,6 +67,62 @@ export const StationOnShoreList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                        <div className="form-floating">
+                                <input
+                                    placeholder="Profundidade Local"
+                                    type="text"
+                                    className={validation("localDepth").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.localDepth}
+                                    onChange={handleInputChange}
+                                    name="localDepth"
+                                    title="Profundidade Local"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="localDepth">localDepth</label>
+                                <div className="invalid-feedback">{validation("localDepth")}</div>
+                            </div>
+                            {/* <div className="form-floating">
+                                <input
+                                    placeholder="Ativação"
+                                    type="text"
+                                    className={validation("activation").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.activation}
+                                    onChange={handleInputChange}
+                                    name="activation"
+                                    title="Ativação"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="activation">activation</label>
+                                <div className="invalid-feedback">{validation("activation")}</div>
+                            </div> */}
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Latitude"
+                                    type="text"
+                                    className={validation("latitude").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.latitude}
+                                    onChange={handleInputChange}
+                                    name="latitude"
+                                    title="Latitude"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="latitude">latitude</label>
+                                <div className="invalid-feedback">{validation("latitude")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Longitude"
+                                    type="text"
+                                    className={validation("longitude").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.longitude}
+                                    onChange={handleInputChange}
+                                    name="longitude"
+                                    title="Longitude"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="longitude">longitude</label>
+                                <div className="invalid-feedback">{validation("longitude")}</div>
+                            </div>
                             <div className="form-floating">
                                 <input
                                     placeholder="MarsdenSquare"
@@ -76,32 +136,6 @@ export const StationOnShoreList = () => {
                                 />
                                 <label htmlFor="marsdenSquare">marsdenSquare</label>
                                 <div className="invalid-feedback">{validation("marsdenSquare")}</div>
-                            </div>
-                            <div className="form-floating">
-                                <input
-                                    placeholder="Profundidade Local"
-                                    className={validation("localDepth").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.localDepth}
-                                    onChange={handleInputChange}
-                                    name="localDepth"
-                                    title="Profundidade Local"
-                                    readOnly={executed()}
-                                />
-                                <label htmlFor="localDepth">Profundidade Local</label>
-                                <div className="invalid-feedback">{validation("localDepth")}</div>
-                            </div>
-                            <div className="form-floating">
-                                <input
-                                    placeholder="Nome"
-                                    className={validation("localDepth").length != 0 ? "form-control is-invalid" : "form-control"}
-                                    value={state.name}
-                                    onChange={handleInputChange}
-                                    name="name"
-                                    title="Nome"
-                                    readOnly={executed()}
-                                />
-                                <label htmlFor="name">Nome</label>
-                                <div className="invalid-feedback">{validation("name")}</div>
                             </div>
                             <div className="form-floating">
                                 <input

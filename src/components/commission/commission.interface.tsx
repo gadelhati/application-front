@@ -12,10 +12,10 @@ export interface Commission {
     latitudeMostTop: number,
     longitudeMostRight: number,
     longitudeMostLeft: number,
-    origin: Harbor,
-    destination: Harbor,
-    responsible: Institution,
-    coordinator: Institution,
-    surveying: Surveying;
-    platform: Platform,
+    origin?: Harbor,
+    destination?: Harbor,
+    responsible?: Institution,
+    coordinator?: Institution,
+    surveying?: Surveying;
+    platform?: Platform,
 }

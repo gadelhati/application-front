@@ -15,10 +15,10 @@ export const initialStation: Station = {
     marsdenSubSquare_1: 0,
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
-
-    stationCategory: initialStationCategory,
-    equipment: initialEquipment,
-    surveying: initialSurveying,
-    responsible: initialInstitution,
-    country: initialCountry,
+    
+    // stationCategory: initialStationCategory,
+    // equipment: initialEquipment,
+    // surveying: initialSurveying,
+    // responsible: initialInstitution,
+    // country: initialCountry,
 }

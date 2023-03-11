@@ -17,11 +17,11 @@ export const initialStationOnShore: StationOnShore = {
     wmoSquare: 0,
     marsdenSubSquare_5: 0,
 
-    stationCategory: initialStationCategory,
-    equipment: initialEquipment,
-    surveying: initialSurveying,
-    responsible: initialInstitution,
-    country: initialCountry,
+    // stationCategory: initialStationCategory,
+    // equipment: initialEquipment,
+    // surveying: initialSurveying,
+    // responsible: initialInstitution,
+    // country: initialCountry,
 
     number: 0,
     name: '',

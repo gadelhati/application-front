@@ -51,14 +51,14 @@ export const SurveyingList = () => {
     return (
         <Section>
             <Article>
-                <Header title={"Surveyings"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Levantamentos"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel">Surveying</h5>
+                            <h5 className="modal-title" id="ModalLabel">Levantamento</h5>
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">

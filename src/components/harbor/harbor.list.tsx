@@ -47,21 +47,20 @@ export const HarborList = () => {
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
         { key: 'institution', label: 'Instituição', _style: { width: '10%' } },
-        { key: 'statopm', label: 'Estação', _style: { width: '10%' } },
+        { key: 'station', label: 'Estação', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <Section>
-            {JSON.stringify(state.name)}
             <Article>
-                <Header title={"Harbors"} loading={loading} itens={itens.length} resetItem={resetItem} />
+                <Header title={"Portos"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="ModalLabel">Harbor</h5>
+                            <h5 className="modal-title" id="ModalLabel">Porto</h5>
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
