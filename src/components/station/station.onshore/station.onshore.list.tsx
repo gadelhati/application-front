@@ -44,6 +44,7 @@ export const StationOnShoreList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
+        { key: 'name', label: 'Nome', _style: { width: '10%' } },
         { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
         { key: 'latitude', label: 'Latitude', _style: { width: '10%' } },
         { key: 'longitude', label: 'Longitude', _style: { width: '10%' } },
@@ -68,6 +69,20 @@ export const StationOnShoreList = () => {
                         </div>
                         <div className="modal-body">
                         <div className="form-floating">
+                                <input
+                                    placeholder="Nome"
+                                    type="text"
+                                    className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.name}
+                                    onChange={handleInputChange}
+                                    name="name"
+                                    title="Nome"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="name">name</label>
+                                <div className="invalid-feedback">{validation("name")}</div>
+                            </div>
+                            <div className="form-floating">
                                 <input
                                     placeholder="Profundidade Local"
                                     type="text"

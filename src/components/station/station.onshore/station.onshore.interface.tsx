@@ -7,7 +7,7 @@ import { Institution } from "../../institution/institution.interface";
 import { Country } from "../../country/country.interface";
 
 export interface StationOnShore extends Station {
-    // id: '',
+    // id: string,
     // localDepth: number,
     // activation: Date,
     // latitude: number,

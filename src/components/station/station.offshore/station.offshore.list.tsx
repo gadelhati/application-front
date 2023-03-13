@@ -44,6 +44,7 @@ export const StationOffShoreList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const fields = [
+        { key: 'telegraphicCallsign', label: 'Indicativo Telegráfico', _style: { width: '10%' } },
         { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
         { key: 'latitude', label: 'Latitude', _style: { width: '10%' } },
         { key: 'longitude', label: 'Longitude', _style: { width: '10%' } },
@@ -67,7 +68,21 @@ export const StationOffShoreList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                        <div className="form-floating">
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Indicativo Telegráfico"
+                                    type="text"
+                                    className={validation("telegraphicCallsign").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.telegraphicCallsign}
+                                    onChange={handleInputChange}
+                                    name="telegraphicCallsign"
+                                    title="Indicativo Telegráfico"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="telegraphicCallsign">telegraphicCallsign</label>
+                                <div className="invalid-feedback">{validation("telegraphicCallsign")}</div>
+                            </div>
+                            <div className="form-floating">
                                 <input
                                     placeholder="Profundidade Local"
                                     type="text"

@@ -8,7 +8,7 @@ import { Country } from "../../country/country.interface";
 import { Commission } from "../../commission/commission.interface";
 
 export interface StationOffShore extends Station {
-    // id: '',
+    // id: string,
     // localDepth: number,
     // activation: Date,
     // latitude: number,
