@@ -162,7 +162,7 @@ export const UserList = () => {
                                     <label htmlFor="password">Senha</label>
                                     <div className="invalid-feedback">{validation("password")}</div>
                                 </div>
-                                <div className="col form-floating">
+                                {/* <div className="col form-floating">
                                     <select
                                         className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
                                         data-value={state.roles}
@@ -178,8 +178,8 @@ export const UserList = () => {
                                         ))}
                                     </select>
                                     <label className="label" htmlFor="roles">Roles</label>
-                                </div>
-                                <div className="col form-check">
+                                </div> */}
+                                {/* <div className="col form-check">
                                     <input
                                         placeholder="ACTIVE"
                                         type="checkbox"
@@ -192,7 +192,7 @@ export const UserList = () => {
                                         readOnly={executed()}
                                     />
                                     <label className="form-check-label" htmlFor="active">Active</label>
-                                </div>
+                                </div> */}
                             </div>
                             <hr />
                             <Crud initialObject={initialUser} object={state} name={"user"} error={error}></Crud>

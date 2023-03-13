@@ -98,7 +98,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 ## Roadmap
-- [ ] user: alter active/inactive
+- [x] user: alter active/inactive
+- [x] user: change and add roles
 - [ ] counter only increases by 1
 - [ ] add global css
 - [ ] login: assume visual id
