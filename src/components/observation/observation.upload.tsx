@@ -8,26 +8,18 @@ import { Button } from '../../containers/models/button';
 import { useTypedSelector } from '../../assets/hook/useTypeSelector';
 
 export const FindFile = styled('input', {
-    padding: '.25rem .5rem',
+    padding: '.1rem .1rem',
     fontSize: '.875rem',
     borderRadius: '.2rem',
     color: '#fff',
     backgroundColor: '#6c757d',
-    borderColor: '#6c757d',
-    display: 'inline-block',
     fontWeight: '400',
-    lineHeight: '1.5',
     textAlign: 'center',
-    textDecoration: 'none',
-    verticalAlign: 'middle',
     cursor: 'pointer',
     userSelect: 'none',
-    border: '1px solid transparent',
     transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out',
     margin: '0',
-    fontFamily: 'inherit',
-    marginBottom: '10px',
-    height: '35px',
+    marginBottom: '4px',
 });
 
 export const ObservationUpload = () => {
