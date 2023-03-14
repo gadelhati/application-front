@@ -1,5 +1,5 @@
-import { User } from "../user/user.interface";
 import { Station } from "../station/station.interface";
+import { Observer } from "../observer/observer.interface";
 
 export interface Observation {
     // coordinates?: string; // POINT
@@ -14,8 +14,9 @@ export interface Observation {
     yy?: string;
     gg: string;
     iw?: string;
-    ii?: string;
-    iii?: string;
+    iiiii?: string;
+    ii: string;
+    iii: string;
     lalala?: string;
     qc?: string;
     lolololo?: string;
@@ -96,6 +97,6 @@ export interface Observation {
     dateObservation: Date;
     observerName?: string;
     
-    observer?: User;
+    observer?: Observer;
     station?: Station;
 }

@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect, CSSProperties } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction, deleteActionPKComposite } from '../../reducers/actions/action.creator';
+import { createAction, createAllAction, retrieveAction, retrieveAllAction, updateAction, deleteAction, deleteActionPKComposite, updateActionPKComposite } from '../../reducers/actions/action.creator';
 import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
@@ -30,6 +30,7 @@ export const ObservationList = () => {
     const dispatch = useDispatch()
     const [state, setState] = useState<Observation>(initialObservation)
     const { loading, error, itens, item } = useTypedSelector((stateObservation) => stateObservation.observations)
+    const itensStationOffShore = useTypedSelector((stateStationOffShore) => stateStationOffShore.stationsOffShore.itens);
     const itensStationOnShore = useTypedSelector((stateStationOnShore) => stateStationOnShore.stationsOnShore.itens);
     const itensObserver = useTypedSelector((stateObserver) => stateObserver.observers.itens);
 
@@ -53,10 +54,10 @@ export const ObservationList = () => {
         resetItem()
     }
     const updateItem = () => {
-        dispatch(updateAction('synopticObservation', state.ddddddd, state))
+        dispatch(updateActionPKComposite('synopticObservation', state.dateObservation, state.ddddddd, state.ii, state.iii, state))
     }
     const deleteItem = () => {
-        dispatch(deleteActionPKComposite('synopticObservation', state.dateObservation, state.ddddddd))
+        dispatch(deleteActionPKComposite('synopticObservation', state.dateObservation, state.ddddddd, state.ii, state.iii))
     }
     const access = (): boolean => {
         let allowed: boolean = false
@@ -96,6 +97,12 @@ export const ObservationList = () => {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+    const handleInputChangeStationOffShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, mimi: 'BB', mjmj: 'XX', ddddddd: '', iiiii: event.target.value, ii: event.target.value.substring(0, 2), iii: event.target.value.substring(2) })
+    }
+    const handleInputChangeStationOnShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        setState({ ...state, mimi: 'AA', mjmj: 'XX', ddddddd: event.target.value, iiiii: '', ii: '', iii: '' })
+    }
     const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
@@ -109,6 +116,9 @@ export const ObservationList = () => {
         date.setHours((isNaN(parseInt(event.target.value)) ? 0 : parseInt(event.target.value)), 0, 0, 0)
         setState({ ...state, dateObservation: date, gg: event.target.value })
     }
+    const stationOffShoreOptions = () => {
+        dispatch(retrieveAllAction('stationOffShore'))
+    }
     const stationOnShoreOptions = () => {
         dispatch(retrieveAllAction('stationOnShore'))
     }
@@ -119,8 +129,8 @@ export const ObservationList = () => {
         { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
-        // { key: 'ii', label: 'ii', _style: { width: '3%' } },
-        // { key: 'iii', label: 'iii', _style: { width: '3%' } },
+        { key: 'ii', label: 'ii', _style: { width: '3%' } },
+        { key: 'iii', label: 'iii', _style: { width: '3%' } },
         { key: 'yy', label: 'yy', _style: { width: '3%' } },
         { key: 'gg', label: 'gg', _style: { width: '3%' } },
         // { key: 'iw', label: 'iw', _style: { width: '3%' } },
@@ -175,17 +185,35 @@ export const ObservationList = () => {
                                                 <select
                                                     className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
                                                     value={state.ddddddd}
-                                                    onChange={handleInputChange}
-                                                    onClick={stationOnShoreOptions}
+                                                    onChange={handleInputChangeStationOnShore}
+                                                    onClick={stationOffShoreOptions}
                                                     name="ddddddd"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
-                                                    {itensStationOnShore.map((object) => (
-                                                        <option value={object.name}>{object.name}</option>
+                                                    {itensStationOffShore.map((object) => (
+                                                        <option value={object.telegraphicCallsign}>{object.telegraphicCallsign}</option>
                                                     ))}
                                                 </select>
-                                                <label className="label" htmlFor="ddddddd">Estação</label>
+                                                <label className="label" htmlFor="ddddddd">Estação Ship</label>
+                                            </div>
+                                        </Col>
+                                        <Col>
+                                            <div className="form-floating">
+                                                <select
+                                                    className={validation("iiiii").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    value={state.iiiii}
+                                                    onChange={handleInputChangeStationOffShore}
+                                                    onClick={stationOnShoreOptions}
+                                                    name="iiiii"
+                                                    aria-label="Floating label select"
+                                                >
+                                                    <option value="" selected></option>
+                                                    {itensStationOnShore.map((object) => (
+                                                        <option value={object.number}>{object.name}</option>
+                                                    ))}
+                                                </select>
+                                                <label className="label" htmlFor="iiiii">Estação Synop</label>
                                             </div>
                                         </Col>
                                         <Col>
@@ -206,6 +234,24 @@ export const ObservationList = () => {
                                                 <label className="label" htmlFor="observerName">Observador</label>
                                             </div>
                                         </Col>
+                                        {/* <Col>
+                                            <div className="form-floating">
+                                                <select
+                                                    className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.observer}
+                                                    onChange={handleInputChange}
+                                                    onClick={observerOptions}
+                                                    name="observerName"
+                                                    aria-label="Floating label select"
+                                                >
+                                                    <option value="" selected></option>
+                                                    {itensObserver.map((object) => (
+                                                        <option data-value={object}>{object.name}</option>
+                                                    ))}
+                                                </select>
+                                                <label className="label" htmlFor="observerName">Observador</label>
+                                            </div>
+                                        </Col> */}
                                     </Row>
                                     <br />
                                     <CNav variant="tabs">
@@ -223,19 +269,15 @@ export const ObservationList = () => {
                                                 <Col>
                                                     <div className={"input-group input-group-sm"}>
                                                         <label className="input-group-text">AAXX/BBXX</label>
-                                                        <select
-                                                            className={validation("name").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                        <input
+                                                            className={validation("name").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             placeholder="AAXX/BBXX"
                                                             value={state.mimi}
                                                             onChange={handleInputChange}
                                                             name="mimi"
                                                             title='Indicador mensagem SYNOP ou SHIP: AAXX ou BBXX'
-                                                        >
-                                                            <optgroup label="AAXX/BBXX"></optgroup>
-                                                            <option value="" selected></option>
-                                                            <option value="AA">AA</option>
-                                                            <option value="BB">BB</option>
-                                                        </select>
+                                                            readOnly
+                                                        />
                                                         <InputGroupInput isInvalid={validationBoolean("mjmj")}
                                                             placeholder="XX"
                                                             value={state.mjmj}
@@ -352,19 +394,15 @@ export const ObservationList = () => {
                                                 <Col>
                                                     <div className={"input-group input-group-sm"}>
                                                         <label className="input-group-text">IIiii</label>
-                                                        <select
-                                                            className={validation("lalala").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                        <input
+                                                            className={validation("ii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             placeholder="II"
                                                             value={state.ii}
                                                             onChange={handleInputChange}
                                                             name="ii"
                                                             title='Indicatiovos regionais: 82 a 83'
-                                                        >
-                                                            <optgroup label="ii"></optgroup>
-                                                            <option selected></option>
-                                                            <option value={82}>82</option>
-                                                            <option value={83}>83</option>
-                                                        </select>
+                                                            readOnly
+                                                        />
                                                         <input
                                                             className={validation("iii").length != 0 ? "form-control is-invalid" : "form-control"}
                                                             placeholder="iii"
@@ -372,6 +410,7 @@ export const ObservationList = () => {
                                                             onChange={handleInputChange}
                                                             name="iii"
                                                             title='Número da estação: 000 a 999'
+                                                            readOnly
                                                         />
                                                     </div>
                                                 </Col>

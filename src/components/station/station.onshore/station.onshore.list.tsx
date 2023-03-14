@@ -45,12 +45,13 @@ export const StationOnShoreList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
+        { key: 'number', label: 'Número', _style: { width: '10%' } },
+        // { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
         { key: 'latitude', label: 'Latitude', _style: { width: '10%' } },
         { key: 'longitude', label: 'Longitude', _style: { width: '10%' } },
         // { key: 'marsdenSquare', label: 'Quadrado de Marsden', _style: { width: '10%' } },
         // { key: 'marsdenSubSquare_1', label: 'Sub quadrado de Marsden 1', _style: { width: '10%' } },
-        { key: 'wmoSquare', label: 'Quadrado WMO', _style: { width: '10%' } },
+        // { key: 'wmoSquare', label: 'Quadrado WMO', _style: { width: '10%' } },
         // { key: 'marsdenSubSquare_5', label: 'Sub quadrado de Marsden 5', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
@@ -68,7 +69,7 @@ export const StationOnShoreList = () => {
                             <button onClick={retrieveAllItem} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                        <div className="form-floating">
+                            <div className="form-floating">
                                 <input
                                     placeholder="Nome"
                                     type="text"
@@ -81,6 +82,20 @@ export const StationOnShoreList = () => {
                                 />
                                 <label htmlFor="name">name</label>
                                 <div className="invalid-feedback">{validation("name")}</div>
+                            </div>
+                            <div className="form-floating">
+                                <input
+                                    placeholder="Número"
+                                    type="text"
+                                    className={validation("number").length != 0 ? "form-control is-invalid" : "form-control"}
+                                    value={state.number}
+                                    onChange={handleInputChange}
+                                    name="number"
+                                    title="Número"
+                                    readOnly={executed()}
+                                />
+                                <label htmlFor="number">number</label>
+                                <div className="invalid-feedback">{validation("number")}</div>
                             </div>
                             <div className="form-floating">
                                 <input

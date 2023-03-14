@@ -24,8 +24,12 @@ export const update = <T extends {}>(url: string, id: string, data: T) => {
   return api.put<T>(`/${url}/${id}`, data)
 }
 
-export const deletePKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string) => {
-  return api.delete<T>(`/${url}/${dateObservation}/${ddddddd}`)
+export const updatePKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string, ii: string, iii: string, data: T) => {
+  return api.put<T>(`/${url}/${dateObservation}/${ddddddd}/${ii}/${iii}`, data)
+}
+
+export const deletePKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string, ii: string, iii: string) => {
+  return api.delete<T>(`/${url}/${dateObservation}/${ddddddd}/${ii}/${iii}`)
 }
 
 export const remove = <T extends {}>(url: string, id: string) => {
