@@ -25,11 +25,15 @@ export const update = <T extends {}>(url: string, id: string, data: T) => {
 }
 
 export const updatePKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string, ii: string, iii: string, data: T) => {
-  return api.put<T>(`/${url}/${dateObservation}/${ddddddd}/${ii}/${iii}`, data)
+  return api.put<T>(`/${url}`, data)
 }
 
 export const deletePKComposite = <T extends {}>(url: string, dateObservation: Date, ddddddd: string, ii: string, iii: string) => {
-  return api.delete<T>(`/${url}/${dateObservation}/${ddddddd}/${ii}/${iii}`)
+  if (ddddddd == null) {
+    return api.delete<T>(`/${url}/${dateObservation}/${ii}/${iii}`)
+  } else {
+    return api.delete<T>(`/${url}/${dateObservation}/${ddddddd}`)
+  }
 }
 
 export const remove = <T extends {}>(url: string, id: string) => {
