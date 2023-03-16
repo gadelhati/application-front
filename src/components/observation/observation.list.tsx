@@ -132,15 +132,15 @@ export const ObservationList = () => {
         dispatch(retrieveAllAction('observer'))
     }
     const fields = [
-        { key: 'observerName', label: 'Nome do Observador', _style: { width: '3%' } },
-        { key: 'station', label: 'Estação', _style: { width: '3%' } },
+        // { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
+        // { key: 'station', label: 'Estação', _style: { width: '3%' } },
         // { key: 'observer', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
-        { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
-        { key: 'ii', label: 'ii', _style: { width: '3%' } },
-        { key: 'iii', label: 'iii', _style: { width: '3%' } },
-        { key: 'yy', label: 'yy', _style: { width: '3%' } },
-        { key: 'gg', label: 'gg', _style: { width: '3%' } },
+        { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '2%' } },
+        { key: 'ii', label: 'ii', _style: { width: '2%' } },
+        { key: 'iii', label: 'iii', _style: { width: '2%' } },
+        { key: 'yy', label: 'yy', _style: { width: '2%' } },
+        { key: 'gg', label: 'gg', _style: { width: '2%' } },
         // { key: 'dateObservation', label: 'Date', _style: { width: '3%' } },
         // { key: 'w1w2', label: 'w1w2', _style: { width: '3%' } },
         // { key: 'ww', label: 'ww', _style: { width: '3%' } },
