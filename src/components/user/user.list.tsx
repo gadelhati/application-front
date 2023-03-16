@@ -52,13 +52,16 @@ export const UserList = () => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
     const handleInputChangeRole = (event: ChangeEvent<HTMLSelectElement>) => {
-        let role;
-        itensRole.forEach(function (element) {
-            if (element.name == event.target.value) {
-                role = [element];
-            }
-        });
-        setState({ ...state, roles: role })
+        var object: Role = JSON.parse(event.target.value)
+        console.log('role: ', object)
+        setState({ ...state, roles: [object] })
+        // let role;
+        // itensRole.forEach(function (element) {
+        //     if (element.name == event.target.value) {
+        //         role = [element];
+        //     }
+        // });
+        // setState({ ...state, roles: role })
     }
     const roleOptions = () => {
         dispatch(retrieveAllAction('role'))
@@ -162,7 +165,7 @@ export const UserList = () => {
                                     <label htmlFor="password">Senha</label>
                                     <div className="invalid-feedback">{validation("password")}</div>
                                 </div>
-                                {/* <div className="col form-floating">
+                                <div className="col form-floating">
                                     <select
                                         className={validation("roles").length != 0 ? "form-select is-invalid" : "form-select"}
                                         data-value={state.roles}
@@ -174,11 +177,11 @@ export const UserList = () => {
                                     >
                                         <option value="" selected></option>
                                         {itensRole.map((object) => (
-                                            <option data-value={object.name}>{object.name}</option>
+                                            <option value={JSON.stringify(object)}>{object.name}</option>
                                         ))}
                                     </select>
                                     <label className="label" htmlFor="roles">Roles</label>
-                                </div> */}
+                                </div>
                                 {/* <div className="col form-check">
                                     <input
                                         placeholder="ACTIVE"
