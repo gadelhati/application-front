@@ -6,17 +6,15 @@ import { Observation } from "./observation.interface";
 import { initialObservation } from './observation.initial';
 import { ObservationUpload } from "./observation.upload";
 import { Header } from '../../containers/header/header';
-import { DataTable } from '../../containers/datatable/datatable';
 import './observation.css'
 import { Article, Col, Row, Section } from '../../containers/models/content';
-import { Crud } from '../../containers/button/crud.buttons';
-import { InputGroup, InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
-import { Tooltip, TooltipText } from '../../containers/models/tooltip';
-import { Tab, TabList } from '../../containers/models/Tab';
+import { InputGroupInput, InputGroupText } from '../../containers/models/InputGroup';
 import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
 import { Button } from "../../containers/models/button";
 import { Observer } from '../observer/observer.interface';
 import { CCardBody, CDataTable } from '@coreui/react';
+import { StationOnShore } from '../station/station.onshore/station.onshore.interface';
+import { StationOffShore } from '../station/station.offshore/station.offshore.interface';
 
 const styles = {
     container: {
@@ -99,11 +97,13 @@ export const ObservationList = () => {
     const handleInputChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
-    const handleInputChangeStationOffShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-        setState({ ...state, mimi: 'BB', mjmj: 'XX', ddddddd: '', iiiii: event.target.value, ii: event.target.value.substring(0, 2), iii: event.target.value.substring(2) })
-    }
     const handleInputChangeStationOnShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
-        setState({ ...state, mimi: 'AA', mjmj: 'XX', ddddddd: event.target.value, iiiii: '', ii: '', iii: '' })
+        var object: StationOnShore = JSON.parse(event.target.value)
+        setState({ ...state, mimi: 'BB', mjmj: 'XX', ddddddd: '', iiiii: object.number.toString(), ii: object.number.toString().substring(0, 2), iii: object.number.toString().substring(2), station: object })
+    }
+    const handleInputChangeStationOffShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+        var object: StationOffShore = JSON.parse(event.target.value)
+        setState({ ...state, mimi: 'AA', mjmj: 'XX', ddddddd: object.telegraphicCallsign.toString(), iiiii: '', ii: '', iii: '', station: object })
     }
     const handleInputChangeObserver = (event: ChangeEvent<HTMLSelectElement>) => {
         var object: Observer = JSON.parse(event.target.value)
@@ -133,6 +133,7 @@ export const ObservationList = () => {
     }
     const fields = [
         { key: 'observerName', label: 'Nome do Observador', _style: { width: '3%' } },
+        { key: 'station', label: 'Estação', _style: { width: '3%' } },
         // { key: 'observer', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
@@ -188,6 +189,7 @@ export const ObservationList = () => {
                                             </td>
                                         ),
                                         'observerName': (item: Observation) => (<td>{item.observer ? item.observer.name : ''}</td>),
+                                        'station': (item: Observation) => (<td>{item.station ? JSON.stringify(item.station) : ''}</td>),
                                     }}
                                 />
                             </CCardBody>
@@ -222,15 +224,15 @@ export const ObservationList = () => {
                                             <div className="form-floating">
                                                 <select
                                                     className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    value={state.ddddddd}
-                                                    onChange={handleInputChangeStationOnShore}
+                                                    data-value={state.ddddddd}
+                                                    onChange={handleInputChangeStationOffShore}
                                                     onClick={stationOffShoreOptions}
                                                     name="ddddddd"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
                                                     {itensStationOffShore.map((object) => (
-                                                        <option value={object.telegraphicCallsign}>{object.telegraphicCallsign}</option>
+                                                        <option value={JSON.stringify(object)}>{object.telegraphicCallsign}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="ddddddd">Estação Ship</label>
@@ -240,15 +242,15 @@ export const ObservationList = () => {
                                             <div className="form-floating">
                                                 <select
                                                     className={validation("iiiii").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    value={state.iiiii}
-                                                    onChange={handleInputChangeStationOffShore}
+                                                    data-value={state.iiiii}
+                                                    onChange={handleInputChangeStationOnShore}
                                                     onClick={stationOnShoreOptions}
                                                     name="iiiii"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
                                                     {itensStationOnShore.map((object) => (
-                                                        <option value={object.number}>{object.name}</option>
+                                                        <option value={JSON.stringify(object)}>{object.name}</option>
                                                     ))}
                                                 </select>
                                                 <label className="label" htmlFor="iiiii">Estação Synop</label>
