@@ -15,6 +15,8 @@ import { Tooltip, TooltipText } from '../../containers/models/tooltip';
 import { Tab, TabList } from '../../containers/models/Tab';
 import { CTabs, CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react';
 import { Button } from "../../containers/models/button";
+import { Observer } from '../observer/observer.interface';
+import { CCardBody, CDataTable } from '@coreui/react';
 
 const styles = {
     container: {
@@ -103,6 +105,10 @@ export const ObservationList = () => {
     const handleInputChangeStationOnShore = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, mimi: 'AA', mjmj: 'XX', ddddddd: event.target.value, iiiii: '', ii: '', iii: '' })
     }
+    const handleInputChangeObserver = (event: ChangeEvent<HTMLSelectElement>) => {
+        var object: Observer = JSON.parse(event.target.value)
+        setState({ ...state, observer: object, observerName: object.name })
+    }
     const handleInputChangeDate = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         let date = new Date(event.target.value)
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
@@ -126,13 +132,20 @@ export const ObservationList = () => {
         dispatch(retrieveAllAction('observer'))
     }
     const fields = [
-        { key: 'observerName', label: 'Observador', _style: { width: '3%' } },
+        { key: 'observerName', label: 'Nome do Observador', _style: { width: '3%' } },
+        // { key: 'observer', label: 'Observador', _style: { width: '3%' } },
         // { key: 'mimi', label: 'AABB', _style: { width: '3%' } },
         { key: 'ddddddd', label: 'DDDDDDD', _style: { width: '3%' } },
         { key: 'ii', label: 'ii', _style: { width: '3%' } },
         { key: 'iii', label: 'iii', _style: { width: '3%' } },
         { key: 'yy', label: 'yy', _style: { width: '3%' } },
         { key: 'gg', label: 'gg', _style: { width: '3%' } },
+        // { key: 'dateObservation', label: 'Date', _style: { width: '3%' } },
+        // { key: 'w1w2', label: 'w1w2', _style: { width: '3%' } },
+        // { key: 'ww', label: 'ww', _style: { width: '3%' } },
+        // { key: 'pppp', label: 'pppp', _style: { width: '3%' } },
+        // { key: 'ir', label: 'ir', _style: { width: '3%' } },
+        // { key: 'ix', label: 'ix', _style: { width: '3%' } },
         // { key: 'iw', label: 'iw', _style: { width: '3%' } },
         // { key: 'ir', label: 'ir', _style: { width: '3%' } },
         // { key: 'ix', label: 'ix', _style: { width: '3%' } },
@@ -154,8 +167,33 @@ export const ObservationList = () => {
                 <Header title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
                 <ObservationUpload />
-                {/* </div> */}
-                <DataTable itens={itens} fields={fields} /*ref={childRef}*/ selectItem={selectItem} ></DataTable>
+                <div className='row'>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+                                    
+                                    itemsPerPage={8}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Editar</button>
+                                            </td>
+                                        ),
+                                        'observerName': (item: Observation) => (<td>{item.observer ? item.observer.name : ''}</td>),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
+                </div>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
@@ -219,39 +257,21 @@ export const ObservationList = () => {
                                         <Col>
                                             <div className="form-floating">
                                                 <select
-                                                    className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    value={state.observerName}
-                                                    onChange={handleInputChange}
+                                                    className={validation("observer").length != 0 ? "form-select is-invalid" : "form-select"}
+                                                    data-value={state.observer}
+                                                    onChange={handleInputChangeObserver}
                                                     onClick={observerOptions}
-                                                    name="observerName"
+                                                    name="observer"
                                                     aria-label="Floating label select"
                                                 >
                                                     <option value="" selected></option>
                                                     {itensObserver.map((object) => (
-                                                        <option value={object.name}>{object.name}</option>
+                                                        <option value={JSON.stringify(object)}>{object.name}</option>
                                                     ))}
                                                 </select>
-                                                <label className="label" htmlFor="observerName">Observador</label>
+                                                <label className="label" htmlFor="observer">Observador</label>
                                             </div>
                                         </Col>
-                                        {/* <Col>
-                                            <div className="form-floating">
-                                                <select
-                                                    className={validation("observerName").length != 0 ? "form-select is-invalid" : "form-select"}
-                                                    data-value={state.observer}
-                                                    onChange={handleInputChange}
-                                                    onClick={observerOptions}
-                                                    name="observerName"
-                                                    aria-label="Floating label select"
-                                                >
-                                                    <option value="" selected></option>
-                                                    {itensObserver.map((object) => (
-                                                        <option data-value={object}>{object.name}</option>
-                                                    ))}
-                                                </select>
-                                                <label className="label" htmlFor="observerName">Observador</label>
-                                            </div>
-                                        </Col> */}
                                     </Row>
                                     <br />
                                     <CNav variant="tabs">
@@ -1610,7 +1630,7 @@ export const ObservationList = () => {
                                     <Button color="danger" onClick={deleteItem} data-bs-toggle="modal">Delete</Button>
                                     <Col>
                                         <Button color="secondary" onClick={retrieveAllItem} data-bs-dismiss="modal">Fechar</Button>
-                                        <Button color="secondary" onClick={resetItem} data-bs-dismiss="modal">Limpar</Button>
+                                        <Button color="secondary" onClick={resetItem} >Limpar</Button>
                                         {executed() && <Button disabled={true}>Executado</Button>}
                                         {access() && <Button disabled>Acesso negado</Button>}
                                     </Col>
