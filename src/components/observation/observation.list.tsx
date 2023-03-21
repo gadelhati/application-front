@@ -36,6 +36,9 @@ export const ObservationList = () => {
 
     useEffect(() => {
         retrieveAllItem()
+        stationOffShoreOptions()
+        stationOnShoreOptions()
+        observerOptions()
     }, [dispatch])
     useEffect(() => {
 
