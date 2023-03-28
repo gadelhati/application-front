@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { retrieveAllAction } from '../../reducers/actions/action.creator';
+import { retrieveAllAction, retrieveAllActionPage } from '../../reducers/actions/action.creator';
 import { Station } from "./station.interface";
 import { initialStation } from './station.initial';
 import { Header } from '../../containers/header/header';
@@ -29,7 +29,7 @@ export const StationList = () => {
         setState(initialStation)
     }
     const retrieveAllItem = () => {
-        dispatch(retrieveAllAction('station'))
+        dispatch(retrieveAllActionPage('station'))
         resetItem()
     }
     const validation = (name: string): string[] => {
@@ -79,7 +79,14 @@ export const StationList = () => {
         <Section>
             <Article>
                 <Header title={"Estações"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                {loading ?
+                    <div className="d-flex align-items-center">
+                        <strong>Carregando...</strong>
+                        <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                    </div>
+                    :
+                    <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                }
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">

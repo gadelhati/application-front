@@ -1,5 +1,5 @@
 import { constants } from "../../reducers/constants";
-import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll, deletePKComposite, updatePKComposite } from "../../services/service"
+import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll, deletePKComposite, updatePKComposite, getAllPage } from "../../services/service"
 import { ErrorMessage } from "../../assets/error/errorMessage";
 
 export const createAction = <T extends {}>(url: string, object: T) => {
@@ -96,6 +96,34 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
             dispatch({
                 type: constants.RETRIEVE_ALL_SUCCESS+url,
                 payload: data
+            });
+        } catch (error: any) {
+            var errorMessage: ErrorMessage[] = []
+            if (error.response.data.errors != undefined) {
+                error.response.data.errors.map((element: any) => {
+                    errorMessage.push({ field: element.field, defaultMessage: [element.defaultMessage] })
+                })
+            } else {
+                errorMessage.push({ field: error.response.data.status, defaultMessage: [error.response.data]})
+            }
+            dispatch({
+                type: constants.RETRIEVE_ALL_ERROR+url,
+                payload: errorMessage
+            });
+        }
+    }
+}
+
+export const retrieveAllActionPage = <T extends {}>(url: string) => {
+    return async (dispatch: any) => {
+        dispatch({
+            type: constants.RETRIEVE_ALL_START+url
+        });
+        try {
+            const { data } = await getAllPage<T>(url)
+            dispatch({
+                type: constants.RETRIEVE_ALL_SUCCESS+url,
+                payload: data.content
             });
         } catch (error: any) {
             var errorMessage: ErrorMessage[] = []
