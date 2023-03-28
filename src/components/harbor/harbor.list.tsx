@@ -9,6 +9,7 @@ import { DataTable } from '../../containers/datatable/datatable';
 import { Section, Article } from '../../containers/models/content';
 import { Modal, ModalDialog, ModalContent, ModalHeader, ModalBody } from '../../containers/models/modal';
 import { Crud } from '../../containers/button/crud.buttons';
+import { CCardBody, CDataTable } from '@coreui/react';
 
 export const HarborList = () => {
     const dispatch = useDispatch();
@@ -46,15 +47,41 @@ export const HarborList = () => {
     }
     const fields = [
         { key: 'name', label: 'Nome', _style: { width: '10%' } },
-        { key: 'institution', label: 'Instituição', _style: { width: '10%' } },
-        { key: 'station', label: 'Estação', _style: { width: '10%' } },
+        // { key: 'institution', label: 'Instituição', _style: { width: '6%' } },
+        // { key: 'station', label: 'Estação', _style: { width: '10%' } },
         { key: 'select', label: '', _style: { width: '1%' }, sorter: false, filter: false }
     ]
     return (
         <Section>
             <Article>
                 <Header title={"Portos"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                <div className='row'>
+                    <div className='col' >
+                        <div className='card'>
+                            <CCardBody>
+                                <CDataTable
+                                    items={itens}
+                                    fields={fields}
+                                    columnFilter
+                                    
+                                    itemsPerPage={8}
+                                    hover
+                                    striped
+                                    sorter
+                                    pagination
+                                    scopedSlots={{
+                                        'select': (item: any) => (
+                                            <td className="align-bottom">
+                                                <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Editar</button>
+                                            </td>
+                                        ),
+                                        // 'institution': (item: Harbor) => (<td>{item.institution ? item.institution.name : ''}</td>),
+                                    }}
+                                />
+                            </CCardBody>
+                        </div>
+                    </div>
+                </div>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">

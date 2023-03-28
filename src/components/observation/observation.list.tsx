@@ -171,34 +171,34 @@ export const ObservationList = () => {
                 <Header title={"Observações Meteorológicas"} loading={loading} itens={itens.length} resetItem={resetItem} />
                 {/* <div className="alert alert-secondary" role="alert"> */}
                 <ObservationUpload />
-                <div className='row'>
-                    <div className='col' >
-                        <div className='card'>
-                            <CCardBody>
-                                <CDataTable
-                                    items={itens}
-                                    fields={fields}
-                                    columnFilter
-                                    
-                                    itemsPerPage={8}
-                                    hover
-                                    striped
-                                    sorter
-                                    pagination
-                                    scopedSlots={{
-                                        'select': (item: any) => (
-                                            <td className="align-bottom">
-                                                <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Editar</button>
-                                            </td>
-                                        ),
-                                        'observerName': (item: Observation) => (<td>{item.observer ? item.observer.name : ''}</td>),
-                                        'station': (item: Observation) => (<td>{item.station ? JSON.stringify(item.station) : ''}</td>),
-                                    }}
-                                />
-                            </CCardBody>
+                    <div className='row'>
+                        <div className='col' >
+                            <div className='card'>
+                                <CCardBody>
+                                    <CDataTable
+                                        items={itens}
+                                        fields={fields}
+                                        columnFilter
+
+                                        itemsPerPage={8}
+                                        hover
+                                        striped
+                                        sorter
+                                        pagination
+                                        scopedSlots={{
+                                            'select': (item: any) => (
+                                                <td className="align-bottom">
+                                                    <button type="button" onClick={() => selectItem(item)} className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" >Editar</button>
+                                                </td>
+                                            ),
+                                            'observerName': (item: Observation) => (<td>{item.observer ? item.observer.name : ''}</td>),
+                                            'station': (item: Observation) => (<td>{item.station ? JSON.stringify(item.station) : ''}</td>),
+                                        }}
+                                    />
+                                </CCardBody>
+                            </div>
                         </div>
                     </div>
-                </div>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
