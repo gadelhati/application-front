@@ -12,8 +12,8 @@ export const getRetrieve = <T extends {}>(url: string) => {
   return api.get<T[]>(`/${url}/retrieve`)
 }
 
-export const getAllPage = <T extends {}>(url: string) => {
-  return api.get(`/${url}/0/20/name`)
+export const getAllPage = <T extends {}>(url: string, page: number, size: number) => {
+  return api.get(`/${url}/${page}/${size}`)
 }
 
 export const getAll = <T extends {}>(url: string) => {

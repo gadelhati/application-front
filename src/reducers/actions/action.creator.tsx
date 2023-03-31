@@ -114,13 +114,13 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
     }
 }
 
-export const retrieveAllActionPage = <T extends {}>(url: string) => {
+export const retrieveAllActionPage = <T extends {}>(url: string, page: number, size: number) => {
     return async (dispatch: any) => {
         dispatch({
             type: constants.RETRIEVE_ALL_START+url
         });
         try {
-            const { data } = await getAllPage<T>(url)
+            const { data } = await getAllPage<T>(url, page, size)
             dispatch({
                 type: constants.RETRIEVE_ALL_SUCCESS+url,
                 payload: data.content
