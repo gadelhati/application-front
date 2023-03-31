@@ -33,6 +33,24 @@ export const stitches = createStitches({
             three: '#52796F',
             four: '#84A98C',
             five: '#CAD2C5',
+            
+            one1: '#2F3E46',
+            two1: '#354F52',
+            three1: '#52796F',
+            four1: '#84A98C',
+            five1: '#CAD2C5',
+            six1: '#FFFFFF',
+
+            back: 'LightGray',
+
+            head: '#E2E3E5',
+            title: '#36304A',
+            odd: '#F2F2F2',
+            even: '#FFFFFF',
+            selected: '#ECECEC',
+            line: '#CED4DA',
+            button: '#6C757D',
+            blueButton: '#0D6EFD',
         },
         space: {
             xxs: "0.422rem",
