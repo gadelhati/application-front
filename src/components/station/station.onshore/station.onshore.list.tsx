@@ -59,14 +59,7 @@ export const StationOnShoreList = () => {
         <Section>
             <Article>
                 <Header title={"Estações Synop"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                {loading ?
-                    <div className="d-flex align-items-center">
-                        <strong>Carregando...</strong>
-                        <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-                    </div>
-                    :
-                    <DataTable itens={itens} fields={fields} selectItem={selectItem} search={retrieveAllItem} ></DataTable>
-                }
+                <DataTable itens={itens} fields={fields} selectItem={selectItem} search={retrieveAllItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
