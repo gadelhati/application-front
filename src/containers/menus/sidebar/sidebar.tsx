@@ -20,7 +20,7 @@ export const SideBar = () => {
     return (
         <main>
             <Nav>
-                <ATitle href="/application-front">
+                <ATitle href="/observation-front">
                     <img src={logo}></img><span>CHM</span>
                 </ATitle>
                 <hr></hr>
@@ -32,7 +32,7 @@ export const SideBar = () => {
                             <Collapsible className="btn-toggle" data-bs-toggle="collapse" data-bs-target="#station-collapse" aria-expanded="false"><Icon name="geo-fill" />Estações</Collapsible>
                             <div className="collapse" id="station-collapse">
                                 <Ul>
-                                    <li><A href="#/station"><Icon name="home" />Todas</A></li>
+                                    {/* <li><A href="#/station"><Icon name="home" />Todas</A></li> */}
                                     <li><A href="#/stationOnShore"><Icon name="speedometer" />Synop</A></li>
                                     <li><A href="#/stationOffShore"><Icon name="speedometer" />Ship</A></li>
                                     <li><A href="#/station_category"><Icon name="speedometer" />Tipos de Estação</A></li>
