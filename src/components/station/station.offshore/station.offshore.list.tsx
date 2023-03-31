@@ -64,7 +64,7 @@ export const StationOffShoreList = () => {
                         <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
                     </div>
                     :
-                    <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                    <DataTable itens={itens} fields={fields} selectItem={selectItem} search={retrieveAllItem} ></DataTable>
                 }
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >

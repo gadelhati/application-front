@@ -53,7 +53,7 @@ export const ManufacturerList = () => {
         <Section>
             <Article>
                 <Header title={"Fabricantes"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                <DataTable itens={itens} fields={fields} selectItem={selectItem} search={retrieveAllItem} ></DataTable>
             </Article>
             {/* <Modal>
                 <ModalContent>

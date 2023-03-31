@@ -1,8 +1,27 @@
 import { dataTableInterface } from "./datatable.interface";
 import { CCardBody, CDataTable } from '@coreui/react';
-import { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
 export const DataTable = <T extends any>(dataTable: dataTableInterface<T>) => {
+    
+    const itensPerPageSelect = { label: 'Itens por pagina:',  values: [8, 16, 32, 64] }
+    const [activePage, setActivePage] = useState<number>(1)
+    const [itemsPerPage, setItemsPerPage] = useState<number>(8)
+
+    useEffect(() => {
+        // dataTable.search(activePage, itemsPerPage)
+        console.log("page & size: ", activePage, " & ", itemsPerPage)
+    }, [activePage, itemsPerPage])
+    const pageChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setActivePage(Number(event))
+        console.log("page & size: ", activePage, " & ", itemsPerPage)
+        dataTable.search(activePage, itemsPerPage)
+    }
+    const itensPerPageChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setItemsPerPage(Number(event))
+        console.log("page & size: ", activePage, " & ", itemsPerPage)
+        dataTable.search(activePage, itemsPerPage)
+    }
     return (
         <div className='row'>
             <div className='col' >
@@ -12,6 +31,9 @@ export const DataTable = <T extends any>(dataTable: dataTableInterface<T>) => {
                             items={dataTable.itens}
                             fields={dataTable.fields}
                             columnFilter
+                            itemsPerPageSelect={itensPerPageSelect}
+                            onPageChange={pageChange}
+                            onPaginationChange={itensPerPageChange}
                             
                             itemsPerPage={8}
                             hover

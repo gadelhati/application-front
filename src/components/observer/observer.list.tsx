@@ -72,7 +72,7 @@ export const ObserverList = () => {
         <Section>
             <Article>
                 <Header title={"Observadores"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                <DataTable itens={itens} fields={fields} selectItem={selectItem} ></DataTable>
+                <DataTable itens={itens} fields={fields} selectItem={selectItem} search={retrieveAllItem} ></DataTable>
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">

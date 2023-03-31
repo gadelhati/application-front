@@ -35,10 +35,10 @@ export const ObservationList = () => {
     const itensObserver = useTypedSelector((stateObserver) => stateObserver.observers.itens);
 
     useEffect(() => {
-        retrieveAllItem()
-        stationOffShoreOptions()
-        stationOnShoreOptions()
-        observerOptions()
+        // retrieveAllItem()
+        // stationOffShoreOptions()
+        // stationOnShoreOptions()
+        // observerOptions()
     }, [dispatch])
     useEffect(() => {
 
