@@ -35,7 +35,7 @@ export const ObservationList = () => {
     const itensObserver = useTypedSelector((stateObserver) => stateObserver.observers.itens);
 
     useEffect(() => {
-        // retrieveAllItem()
+        retrieveAllItem()
         // stationOffShoreOptions()
         // stationOnShoreOptions()
         // observerOptions()
@@ -228,8 +228,8 @@ export const ObservationList = () => {
                                                 <select
                                                     className={validation("ddddddd").length != 0 ? "form-select is-invalid" : "form-select"}
                                                     data-value={state.ddddddd}
-                                                    onChange={handleInputChangeStationOffShore}
-                                                    onClick={stationOffShoreOptions}
+                                                    // onChange={handleInputChangeStationOffShore}
+                                                    // onClick={stationOffShoreOptions}
                                                     name="ddddddd"
                                                     aria-label="Floating label select"
                                                 >
@@ -246,8 +246,8 @@ export const ObservationList = () => {
                                                 <select
                                                     className={validation("iiiii").length != 0 ? "form-select is-invalid" : "form-select"}
                                                     data-value={state.iiiii}
-                                                    onChange={handleInputChangeStationOnShore}
-                                                    onClick={stationOnShoreOptions}
+                                                    // onChange={handleInputChangeStationOnShore}
+                                                    // onClick={stationOnShoreOptions}
                                                     name="iiiii"
                                                     aria-label="Floating label select"
                                                 >
