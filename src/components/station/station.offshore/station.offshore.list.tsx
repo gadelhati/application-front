@@ -8,18 +8,38 @@ import { Header } from '../../../containers/header/header';
 import { DataTable } from '../../../containers/datatable/datatable';
 import { Article, Section } from '../../../containers/models/content';
 import { Crud } from '../../../containers/button/crud.buttons';
+import { Pageable } from '../../Pageable';
+import { initialPageable } from '../../initialPageable';
 
 export const StationOffShoreList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<StationOffShore>(initialStationOffShore)
     const { loading, error, itens, item } = useTypedSelector((state) => state.stationsOffShore);
 
+    const [page, setPage] = useState<number>(0)
+    const [size, setSize] = useState<number>(8)
+    const [pageable, setPageable] = useState<Pageable>(initialPageable)
+    const paginator = 5;
+    // const [ispending, startTransition] = useTransition();
+    const [modal, setModal] = useState<boolean>(false)
+
     useEffect(() => {
         retrieveAllItem()
-    }, [dispatch])
+    }, [dispatch, page, size])
     useEffect(() => {
         
     }, [error])
+
+    const handlePage = (page: number) => {
+        setPage(page)
+    }
+    const handleSize = (event: ChangeEvent<HTMLSelectElement>) => {
+        setSize(Number(event.target.value))
+    }
+    const handleModal = () => {
+        setModal(!modal)
+    }
+    
     const selectItem = (object: StationOffShore) => {
         setState(object)
     }
@@ -30,6 +50,11 @@ export const StationOffShoreList = () => {
         dispatch(retrieveAllAction('stationOffShore'))
         resetItem()
     }
+    // const retrieveItem = async () => {
+    //     let data = await retrieve(object.url.toLowerCase(), page, size, "name")
+    //     setPageable(data)
+    //     // startTransition(() => setStates(data.content))
+    // }
     const validation = (name: string): string[] => {
         let vector: string[] = []
         error?.map( element => { if(name == element.field) return vector = element.defaultMessage })

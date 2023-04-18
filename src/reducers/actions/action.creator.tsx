@@ -1,6 +1,7 @@
 import { constants } from "../../reducers/constants";
 import { create, createAll, retrieve, getRetrieve, getAll, update, remove, removeAll, deletePKComposite, updatePKComposite, getAllPage } from "../../services/service"
 import { ErrorMessage } from "../../assets/error/errorMessage";
+import { api } from "../../assets/api/api";
 
 export const createAction = <T extends {}>(url: string, object: T) => {
     return async (dispatch: any) => {
@@ -112,6 +113,20 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
             });
         }
     }
+}
+
+export const retrievePage = async<T,>(url: string, page: number, size: number, sort: string) => {
+    return await api.get(`/${url}`, { params: { page: page, size: size } } )
+        .then(response => {
+            return response.data
+        })
+        .catch(function (error: any) {
+            let errorMessage: ErrorMessage[] = []
+            error.response.data?.errors?.forEach((element: ErrorMessage) => {
+                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+            })
+            return errorMessage
+        });
 }
 
 export const retrieveAllActionPage = <T extends {}>(url: string, page: number, size: number) => {
