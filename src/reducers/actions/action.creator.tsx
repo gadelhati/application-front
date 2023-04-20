@@ -115,20 +115,6 @@ export const retrieveAllAction = <T extends {}>(url: string) => {
     }
 }
 
-export const retrievePage = async<T,>(url: string, page: number, size: number, sort: string) => {
-    return await api.get(`/${url}`, { params: { page: page, size: size } } )
-        .then(response => {
-            return response.data
-        })
-        .catch(function (error: any) {
-            let errorMessage: ErrorMessage[] = []
-            error.response.data?.errors?.forEach((element: ErrorMessage) => {
-                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
-            })
-            return errorMessage
-        });
-}
-
 export const retrieveAllActionPage = <T extends {}>(url: string, page: number, size: number) => {
     return async (dispatch: any) => {
         dispatch({
@@ -155,6 +141,20 @@ export const retrieveAllActionPage = <T extends {}>(url: string, page: number, s
             });
         }
     }
+}
+
+export const retrievePage = async<T,>(url: string, page: number, size: number, sort: string) => {
+    return await api.get(`/${url}`, { params: { page: page, size: size } } )
+        .then(response => {
+            return response.data
+        })
+        .catch(function (error: any) {
+            let errorMessage: ErrorMessage[] = []
+            error.response.data?.errors?.forEach((element: ErrorMessage) => {
+                errorMessage.push({ field: element.field, defaultMessage: element.defaultMessage })
+            })
+            return errorMessage
+        });
 }
 
 export const updateAction = <T extends {}>(url: string, id: string, object: T) => {

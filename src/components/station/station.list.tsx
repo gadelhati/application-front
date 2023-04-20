@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from "../../assets/hook/useTypeSelector";
-import { retrieveAllAction, retrieveAllActionPage } from '../../reducers/actions/action.creator';
+import { retrieveAllAction, retrieveAllActionPage, retrievePage } from '../../reducers/actions/action.creator';
 import { Station } from "./station.interface";
 import { initialStation } from './station.initial';
 import { Header } from '../../containers/header/header';
@@ -17,27 +17,38 @@ import { initialPageable } from '../initialPageable';
 export const StationList = () => {
     const dispatch = useDispatch();
     const [state, setState] = useState<Station>(initialStation)
-    // const [states, setStates] = useState<Station[]>([initialStation])
+    const [states, setStates] = useState<Station[]>([initialStation])
     const { loading, error, itens, item } = useTypedSelector((state) => state.stations);
     const itensCountry = useTypedSelector((stateCountry) => stateCountry.countries.itens);
-    // const [page, setPage] = useState<number>(0)
-    // const [pageable, setPageable] = useState<Pageable>(initialPageable)
+    const [page, setPage] = useState<number>(0)
+    const [size, setSize] = useState<number>(8)
+    const [pageable, setPageable] = useState<Pageable>(initialPageable)
+    const [modal, setModal] = useState<boolean>(false)
 
     useEffect(() => {
-        retrieveAllItem()
-    }, [dispatch])
+        // retrieveAllItem()
+        retrieveItem()
+    }, [dispatch, page, size])
     useEffect(() => {
         
     }, [error])
-    const selectItem = (object: Station) => {
-        setState(object)
+    const selectItem = async (data: any) => {
+        setState(data)
+        handleModal()
     }
     const resetItem = () => {
         setState(initialStation)
+        // setError([initialErrorMessage])
     }
     const retrieveAllItem = () => {
         dispatch(retrieveAllActionPage('station', 1, 8))
         resetItem()
+    }
+    const retrieveItem = async () => {
+        let data = await retrievePage("station", page, size, "name")
+        setPageable(data)
+        // startTransition(() => setStates(data.content))
+        setStates(data.content)
     }
     const validation = (name: string): string[] => {
         let vector: string[] = []
@@ -72,6 +83,19 @@ export const StationList = () => {
         })
         return country
     }
+    const handlePage = (page: number) => {
+        setPage(page)
+    }
+    const handleSize = (event: ChangeEvent<HTMLSelectElement>) => {
+        setSize(Number(event.target.value))
+    }
+    const handleModal = () => {
+        setModal(!modal)
+    }
+    const newItem = () => {
+        setModal(!modal)
+        resetItem()
+    }
     const fields = [
         { key: 'localDepth', label: 'Profundidade Local', _style: { width: '10%' } },
         { key: 'latitude', label: 'Latitude', _style: { width: '10%' } },
@@ -86,14 +110,44 @@ export const StationList = () => {
         <Section>
             <Article>
                 <Header title={"Estações"} loading={loading} itens={itens.length} resetItem={resetItem} />
-                {loading ?
+                {/* {loading ?
                     <div className="d-flex align-items-center">
                         <strong>Carregando...</strong>
                         <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
                     </div>
                     :
-                    <DataTable itens={itens} fields={fields} selectItem={selectItem} search={print} ></DataTable>
-                }
+                    <DataTable itens={itens} fields={fields} selectItem={selectItem} search={print} ></DataTable> */}
+                    <Table>
+                        {/* <Button color="success" onClick={newItem}>New</Button> */}
+                        Items per page
+                        <select onChange={handleSize} >
+                            <option value={1}>1</option>
+                            <option value={5}>5</option>
+                            <option value={10}>10</option>
+                            <option value={15}>15</option>
+                        </select>
+                        <thead>
+                            <tr><th>id</th><th>localDepth</th><th>latitude</th><th>longitude</th><th>wmoSquare</th></tr>
+                        </thead>
+                        <tbody>
+                            {states.map((element) => {
+                                return <tr onClick={() => selectItem(element)}><td>{element.id}</td><td>{element.localDepth}</td><td>{element.latitude}</td><td>{element.longitude}</td><td>{element.wmoSquare}</td></tr>
+                            })}
+                        </tbody>
+                        <tfoot>
+                            <GroupButton>
+                                <ButtonPage onClick={() => handlePage(0)}>{'<<'}</ButtonPage>
+                                <ButtonPage onClick={() => handlePage(page - 1)} disabled={page <= 0 ? true : false}>{'<'}</ButtonPage>
+                                <ButtonPage onClick={() => handlePage(page - 1)} hidden={page <= 0 ? true : false}>{page}</ButtonPage>
+                                <ButtonPage selected={true} disabled  >{page + 1}</ButtonPage>
+                                <ButtonPage onClick={() => handlePage(page + 1)} hidden={page >= pageable.totalPages - 1 ? true : false}>{page + 2}</ButtonPage>
+                                <ButtonPage onClick={() => handlePage(page + 1)} disabled={page >= pageable.totalPages - 2 ? true : false}>{'>'}</ButtonPage>
+                                <ButtonPage onClick={() => handlePage(pageable.totalPages - 1)}>{'>>'}</ButtonPage>
+                                <div>Total amount {pageable.totalElements}</div>
+                            </GroupButton>
+                        </tfoot>
+                    </Table>
+                {/* } */}
             </Article>
             <div className="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="ModalLabel" aria-hidden="true" >
                 <div className="modal-dialog modal-lg">
